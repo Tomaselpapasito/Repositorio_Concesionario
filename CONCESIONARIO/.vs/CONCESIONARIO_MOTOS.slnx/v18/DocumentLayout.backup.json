@@ -1,0 +1,64 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4DB6B377-6D90-4BF5-993D-BC79DC0D5C67}|Elementos de la soluci\u00F3n{4DB6B377-6D90-4BF5-993D-BC79DC0D5C67}|C:\\Users\\TOMAS\\Downloads\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 524,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\Downloads\\Program.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Downloads\\Program.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\Downloads\\Program.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\Downloads\\Program.cs",
+              "ViewState": "AgIAAPAAAAAAAAAAAAAwwBwBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-20T15:55:57.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 118,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 79,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{905da7d1-18fd-4a46-8d0f-a5ff58ada9de}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/1. Presentacion/" />
+  <Folder Name="/2.Servicios/" />
+  <Folder Name="/3. Nucleo/">
+    <Project Path="lib_dominio/lib_dominio.csproj" />
+  </Folder>
+  <Folder Name="/4. Pruebas Unitarias/" />
+</Solution>
