@@ -11,5 +11,6 @@
     public Clientes? _Cliente { get; set; }
 
     public List<Pagos>? Pagos { get; set; }
-    public List<DetallesVentas>? DetallesVentas { get; set; }
+    public List<DetallesVentasMotos>? DetallesVentasMotos { get; set; }
+    public List<DetallesVentasProductos>? DetallesVentasProductos { get; set; }
 }

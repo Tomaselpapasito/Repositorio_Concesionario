@@ -3,16 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\accesorios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\accesorios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83B84D79-4362-49C0-8A1D-D48375C4EC4A}|cns_presentacion\\cns_presentacion.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\cns_presentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83B84D79-4362-49C0-8A1D-D48375C4EC4A}|cns_presentacion\\cns_presentacion.csproj|solutionrelative:cns_presentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D8B3426-312D-4510-8813-998C89A5A405}|mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\mst_pruebasunitarias\\personaspruebas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D8B3426-312D-4510-8813-998C89A5A405}|mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj|solutionrelative:mst_pruebasunitarias\\personaspruebas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\nucleo\\datosgenerales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\nucleo\\datosgenerales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\implementaciones\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\implementaciones\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\interfaces\\iconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\interfaces\\iconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\lib_dominio.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\lib_dominio.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\script.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\script.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D8B3426-312D-4510-8813-998C89A5A405}|mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\mst_pruebasunitarias\\mst_pruebasunitarias.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9D8B3426-312D-4510-8813-998C89A5A405}|mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj|solutionrelative:mst_pruebasunitarias\\mst_pruebasunitarias.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\detallesventasmotos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\detallesventasmotos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\motos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\motos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\financiamientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\financiamientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\detallesventaproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\detallesventaproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\accesorios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\accesorios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\tomas\\onedrive - instituto tecnologico metropolitano - itm\\repositorio_2026-2\\repositorio_concesionario\\concesionario\\lib_dominio\\script.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\script.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,33 +87,110 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Accesorios.cs",
-              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Accesorios.cs",
-              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Accesorios.cs",
-              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Accesorios.cs",
-              "RelativeToolTip": "lib_dominio\\Entidades\\Accesorios.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\cns_presentacion\\Program.cs",
+              "RelativeDocumentMoniker": "cns_presentacion\\Program.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\cns_presentacion\\Program.cs",
+              "RelativeToolTip": "cns_presentacion\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-21T02:40:27.941Z",
+              "WhenOpened": "2026-10-01T02:12:40.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatosGenerales.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Nucleo\\DatosGenerales.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Nucleo\\DatosGenerales.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Nucleo\\DatosGenerales.cs",
+              "RelativeToolTip": "lib_dominio\\Nucleo\\DatosGenerales.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T02:07:21.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IConexion.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Interfaces\\IConexion.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Interfaces\\IConexion.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Interfaces\\IConexion.cs",
+              "RelativeToolTip": "lib_dominio\\Interfaces\\IConexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T02:03:16.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Implementaciones\\Conexion.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Implementaciones\\Conexion.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Implementaciones\\Conexion.cs",
+              "RelativeToolTip": "lib_dominio\\Implementaciones\\Conexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T02:02:15.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "mst_PruebasUnitarias",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj",
+              "RelativeDocumentMoniker": "mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj",
+              "RelativeToolTip": "mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-01T01:56:10.889Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Personas.cs",
-              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Personas.cs",
-              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Personas.cs",
-              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Personas.cs",
-              "RelativeToolTip": "lib_dominio\\Entidades\\Personas.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "PersonasPruebas.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\PersonasPruebas.cs",
+              "RelativeDocumentMoniker": "mst_PruebasUnitarias\\PersonasPruebas.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\PersonasPruebas.cs",
+              "RelativeToolTip": "mst_PruebasUnitarias\\PersonasPruebas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-21T02:30:30.75Z",
+              "WhenOpened": "2026-10-01T01:51:30.237Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "lib_dominio",
+              "DocumentIndex": 7,
+              "Title": "Script.sql ",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Script.sql",
+              "RelativeDocumentMoniker": "lib_dominio\\Script.sql",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Script.sql",
+              "RelativeToolTip": "lib_dominio\\Script.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-10-01T01:39:21.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DetallesVentasMotos.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\DetallesVentasMotos.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\DetallesVentasMotos.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\DetallesVentasMotos.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\DetallesVentasMotos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:33:51.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "lib_dominio.csproj",
               "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\lib_dominio.csproj",
               "RelativeDocumentMoniker": "lib_dominio\\lib_dominio.csproj",
               "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\lib_dominio.csproj",
@@ -64,12 +201,116 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Personas.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Personas.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Personas.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Personas.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Personas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-21T02:30:30.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Financiamientos.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Financiamientos.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Financiamientos.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Financiamientos.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Financiamientos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:44:06.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DetallesVentaProductos.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\DetallesVentaProductos.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\DetallesVentaProductos.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\DetallesVentaProductos.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\DetallesVentaProductos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:34:11.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Ventas.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Ventas.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Ventas.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Ventas.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Ventas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:35:54.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Motos.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Motos.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Motos.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Motos.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Motos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:28:37.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Clientes.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Clientes.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Clientes.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Clientes.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Clientes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:06:54.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Productos.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Productos.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Productos.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Productos.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Productos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-01T01:04:19.129Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Accesorios.cs",
+              "DocumentMoniker": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Accesorios.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Accesorios.cs",
+              "ToolTip": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Accesorios.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Accesorios.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-21T02:40:27.941Z",
+              "EditorCaption": ""
             }
           ]
         },

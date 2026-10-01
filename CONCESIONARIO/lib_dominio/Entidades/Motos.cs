@@ -6,7 +6,8 @@
     public string? Color { get; set; }
     public int Anio { get; set; }
     public int Modelo { get; set; }
-    
+    public string? Estado { get; set; }
+
     public ModelosMotos? _Modelo { get; set; }
 
     public List<OrdenesServicios>? OrdenesServicios { get; set; }

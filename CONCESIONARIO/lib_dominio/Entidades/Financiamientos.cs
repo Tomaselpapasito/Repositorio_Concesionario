@@ -7,7 +7,8 @@
     public DateTime Fecha_Inicio { get; set; }
     public DateTime Fecha_Fin { get; set; }
     public int Venta { get; set; }
-    
+    public string? Estado { get; set; }
+
     public Ventas? _Venta { get; set; }
 
     public List<Cuotas>? Cuotas { get; set; }
