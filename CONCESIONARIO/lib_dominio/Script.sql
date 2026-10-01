@@ -8,7 +8,7 @@ CREATE TABLE [Personas]
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Nombre] NVARCHAR(100) NULL,
     [Cedula] NVARCHAR(50) NULL UNIQUE,
-    [Fecha_Nacimiento] DATETIME NOT NULL,
+    [Fecha_Nacimiento] SMALLDATETIME NOT NULL,
     [Telefono] NVARCHAR(30) NULL
 );
 
@@ -40,8 +40,6 @@ CREATE TABLE [Proveedores]
     [Direccion] NVARCHAR(200) NULL
 );
 
-
-
 CREATE TABLE [MetodosPagos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -65,8 +63,8 @@ CREATE TABLE [Productos]
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Codigo] NVARCHAR(50) NULL,
     [Nombre] NVARCHAR(100) NULL,
-    [Fecha_Creacion] DATETIME NOT NULL,
-    [Fecha_Modificacion] DATETIME NOT NULL,
+    [Fecha_Creacion] SMALLDATETIME NOT NULL,
+    [Fecha_Modificacion] SMALLDATETIME NOT NULL,
     [Precio] DECIMAL(18,2) NOT NULL,
     [Stock] INT NOT NULL,
     [Activo] BIT NOT NULL 
@@ -91,21 +89,20 @@ CREATE TABLE [Motos]
     [Anio] INT NOT NULL,
     [Estado] NVARCHAR(50)NOT NULL,
     [Modelo] INT NOT NULL FOREIGN KEY REFERENCES [ModelosMotos]([ID])
-
 );
 
 CREATE TABLE [Inventarios]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Fecha_Ingreso] DATETIME NOT NULL,
+    [Fecha_Ingreso] SMALLDATETIME NOT NULL,
     [Ubicacion] NVARCHAR(150) NULL,
     [Moto] INT NOT NULL FOREIGN KEY REFERENCES [Motos]([ID])
 );
 
-CREATE TABLE Compras
+CREATE TABLE [Compras]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Fecha_Compra] DATETIME NOT NULL,
+    [Fecha_Compra] SMALLDATETIME NOT NULL,
     [Impuesto] DECIMAL(18,2) NOT NULL,
     [Numero_Factura] NVARCHAR(100) NULL,
     [Total] DECIMAL(18,2) NOT NULL,
@@ -117,7 +114,7 @@ CREATE TABLE [Repuestos]
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Numero_Parte] NVARCHAR(100) NULL,
     [Descripcion] NVARCHAR(250) NULL,
-    [Fecha_Modificacion] DATETIME NOT NULL,
+    [Fecha_Modificacion] SMALLDATETIME NOT NULL,
     [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
 );
 
@@ -134,7 +131,7 @@ CREATE TABLE [Empleados]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Carnet] NVARCHAR(50) NULL,
-    [Fecha_Contratacion] DATETIME NOT NULL,
+    [Fecha_Contratacion] SMALLDATETIME NOT NULL,
     [Persona] INT NOT NULL FOREIGN KEY REFERENCES [Personas]([ID]),
     [Cargo] INT NOT NULL FOREIGN KEY REFERENCES [Cargos]([ID])
 );
@@ -142,7 +139,7 @@ CREATE TABLE [Empleados]
 CREATE TABLE [Ventas]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Fecha_Venta] DATETIME NOT NULL,
+    [Fecha_Venta] SMALLDATETIME NOT NULL,
     [Impuestos] DECIMAL(18,2) NOT NULL,
     [Total] DECIMAL(18,2) NOT NULL,
     [Cliente] INT NOT NULL FOREIGN KEY REFERENCES [Clientes]([ID]),
@@ -152,7 +149,7 @@ CREATE TABLE [Ventas]
 CREATE TABLE [Pagos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Fecha_Pago] DATETIME NOT NULL,
+    [Fecha_Pago] SMALLDATETIME NOT NULL,
     [Monto] DECIMAL(18,2) NOT NULL,
     [Metodo] INT NOT NULL FOREIGN KEY REFERENCES [MetodosPagos]([ID]),
     [Venta] INT NOT NULL FOREIGN KEY REFERENCES [Ventas]([ID])
@@ -185,8 +182,8 @@ CREATE TABLE [Financiamientos]
     [Monto] DECIMAL(18,2) NOT NULL,
     [Numero_Cuotas] INT NOT NULL,
     [Tasa_Interes] DECIMAL(18,2) NOT NULL,
-    [Fecha_Inicio] DATETIME NOT NULL,
-    [Fecha_Fin] DATETIME NOT NULL,
+    [Fecha_Inicio] SMALLDATETIME NOT NULL,
+    [Fecha_Fin] SMALLDATETIME NOT NULL,
     [Estado] NVARCHAR(50) NOT NULL,
     [Venta] INT NOT NULL FOREIGN KEY REFERENCES [Ventas]([ID])
 );
@@ -196,16 +193,16 @@ CREATE TABLE [Cuotas]
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Numero_cuota] INT NOT NULL,
     [Monto] DECIMAL(18,2) NOT NULL,
-    [Fecha_vencimiento] DATETIME NOT NULL,
-    [Fecha_pago] DATETIME NULL,
+    [Fecha_vencimiento] SMALLDATETIME NOT NULL,
+    [Fecha_pago] SMALLDATETIME NULL,
     [Financiamiento] INT NOT NULL FOREIGN KEY REFERENCES [Financiamientos]([ID])
 );
 
 CREATE TABLE [OrdenesServicios]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Fecha_Ingreso] DATETIME NOT NULL,
-    [Fecha_Salida] DATETIME NOT NULL,
+    [Fecha_Ingreso] SMALLDATETIME NOT NULL,
+    [Fecha_Salida] SMALLDATETIME NOT NULL,
     [Descripcion] NVARCHAR(500) NULL,
     [Costo_Total] DECIMAL(18,2) NOT NULL,
     [Cliente] INT NOT NULL FOREIGN KEY REFERENCES [Clientes]([ID]),
