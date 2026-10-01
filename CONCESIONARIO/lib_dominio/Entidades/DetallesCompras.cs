@@ -7,7 +7,7 @@
     public decimal Subtotal { get; set; }
     public int Compra { get; set; }
     public int Producto { get; set; }
-    
+
     public Compras? _Compra { get; set; }
     public Productos? _Producto { get; set; }
 }
