@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 namespace mst_PruebasUnitarias
 {
     [TestClass]
-    public class PersonasPruebas
+    public class MetodosPagosPruebas
     {
         private IConexion conexion;
-        private Personas? entidad = null;
+        private MetodosPagos? entidad = null;
 
-        public PersonasPruebas()
+        public MetodosPagosPruebas()
         {
             this.conexion = new Conexion();
             this.conexion.StringConexion = DatosGenerales.ObtenerStringConexion();
@@ -28,38 +28,37 @@ namespace mst_PruebasUnitarias
 
         public void Insertar()
         {
-            this.entidad = new Personas()
+            this.entidad = new MetodosPagos()
             {
-                Nombre = "Arnold",
-                Cedula = "123456789",
-                Fecha_Nacimiento = new DateTime(1990, 1, 1),
-                Telefono = "987654321"
+                Nombre = "Prueba",
+                Tipo = "Prueba Tipo",
+                Descripcion = "Prueba Descripcion",
+                Activo = true
             };
-            this.conexion.Personas!.Add(this.entidad!);
+            this.conexion.MetodosPagos!.Add(this.entidad!);
             this.conexion.SaveChanges();
         }
 
         public void Consultar()
         {
-            var lista = this.conexion.Personas!.ToList();
+            var lista = this.conexion.MetodosPagos!.ToList();
             if (lista.Count <= 0)
                 throw new Exception("Lista vacia");
         }
 
         private void Actualizar()
         {
-            this.entidad!.Telefono = "0000000000";
+            this.entidad!.Nombre = "0000000000";
 
-            var entry = this.conexion!.Entry<Personas>(this.entidad);
+            var entry = this.conexion!.Entry<MetodosPagos>(this.entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
         }
 
         private void Borrar()
         {
-            this.conexion.Personas!.Remove(this.entidad!);
+            this.conexion.MetodosPagos!.Remove(this.entidad!);
             this.conexion.SaveChanges();
         }
     }
 }
-
