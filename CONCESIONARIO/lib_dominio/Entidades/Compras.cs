@@ -9,5 +9,5 @@
     
     public Proveedores? _Proveedor { get; set; }
 
-    public List<DetallesCompras>? DetallesCompras { get; set; }
+    public List<DetallesCompras>? DetallesCompras { get; set; }     
 }

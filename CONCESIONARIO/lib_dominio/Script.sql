@@ -1,4 +1,4 @@
-CREATE DATABASE CONCESIONARIO_DB;
+/*CREATE DATABASE CONCESIONARIO_DB;
 GO
 USE CONCESIONARIO_DB;
 GO
@@ -230,4 +230,31 @@ CREATE TABLE [DetallesCompras]
     [Subtotal] DECIMAL(18,2) NOT NULL,
     [Compra] INT NOT NULL FOREIGN KEY REFERENCES [Compras]([ID]),
     [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
-);
+
+
+    INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono])
+            VALUES ('Arnold Gomez', '123456789', '1990-01-01', '3001234567');
+
+    INSERT INTO [Cargos] ([Nombre], [Salario], [Activo])
+            VALUES ('Asesor Comercial', 2500000.00, 1);
+
+    INSERT INTO [ModelosMotos] ([Nombre], [Cilindraje], [Tipo_motor], [Transmision], [Potencia])
+            VALUES ('Yamaha MT-03', 321, 'Bicilindrico', '6 velocidades', 42.00);
+
+    INSERT INTO [Proveedores] ([Nombre], [NIT], [Telefono], [Correo], [Direccion])
+            VALUES  ('MotoPartes Colombia SAS', '900123456-7', '6015551234', 'ventas@motopartes.com', 'Carrera 50 # 10-25');
+
+    INSERT INTO [MetodosPagos] ([Nombre], [Tipo], [Descripcion], [Activo])
+            VALUES ('Tarjeta de Credito', 'Electronico', 'Pago realizado mediante tarjeta de credito', 1);
+
+    INSERT INTO [Servicios] ([Nombre], [Precio], [Duracion], [Tipo_Servicio])
+        VALUES ('Cambio de aceite', 80000.00, 60, 'Mantenimiento');
+
+    INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo])
+        VALUES ('ACE-001', 'Aceite Motul 5100 4T', '2026-01-10', '2026-01-10', 65000.00, 50, 1);
+
+    INSERT INTO [Clientes] (Correo, Numero_Licencia, Direccion, Activo, Persona)
+        VALUES ('arnold.gomez@email.com', 'LIC-123456', 'Calle 20 # 15-30', 1, 1);
+
+
+);*/ 
