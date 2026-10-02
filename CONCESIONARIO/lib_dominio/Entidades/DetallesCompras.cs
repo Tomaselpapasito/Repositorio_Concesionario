@@ -1,4 +1,6 @@
-﻿public class DetallesCompras
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+public class DetallesCompras
 {
     public int ID { get; set; }
     public int Cantidad { get; set; }
@@ -8,6 +10,6 @@
     public int Compra { get; set; }
     public int Producto { get; set; }
 
-    public Compras? _Compra { get; set; }
-    public Productos? _Producto { get; set; }
+    [ForeignKey("Compra")]public Compras? _Compra { get; set; }
+    [ForeignKey("Producto")]public Productos? _Producto { get; set; }
 }

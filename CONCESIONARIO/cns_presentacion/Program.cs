@@ -12,7 +12,7 @@ try
     var lista = iconexion.Personas!.ToList();
     foreach (var elemento in lista) 
     {
-        Console.WriteLine(elemento.Nombre + "El mas makina");
+        Console.WriteLine(elemento.Nombre + " El mas makina");
     }
 }
 catch(Exception ex)

@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 namespace mst_PruebasUnitarias
 {
     [TestClass]
-    public class PersonasPruebas
+    public class OrdenesServiciosPruebas
     {
         private IConexion conexion;
-        private Personas? entidad = null;
+        private OrdenesServicios? entidad = null;
 
-        public PersonasPruebas()
+        public OrdenesServiciosPruebas()
         {
             this.conexion = new Conexion();
             this.conexion.StringConexion = DatosGenerales.ObtenerStringConexion();
@@ -28,38 +28,40 @@ namespace mst_PruebasUnitarias
 
         public void Insertar()
         {
-            this.entidad = new Personas()
+            this.entidad = new OrdenesServicios()
             {
-                Nombre = "Prueba",
-                Cedula = "12345",
-                Fecha_Nacimiento = new DateTime(1990, 1, 1),
-                Telefono = "98761"
+                Fecha_Ingreso = DateTime.Now,
+                Fecha_Salida = DateTime.Now.AddDays(1),
+                Descripcion = "Descripcion Prueba",
+                Costo_Total = 1000.0m,
+                Cliente = 1,
+                Empleado = 1,
+                Moto = 2
             };
-            this.conexion.Personas!.Add(this.entidad!);
+            this.conexion.OrdenesServicios!.Add(this.entidad!);
             this.conexion.SaveChanges();
         }
 
         public void Consultar()
         {
-            var lista = this.conexion.Personas!.ToList();
+            var lista = this.conexion.OrdenesServicios!.ToList();
             if (lista.Count <= 0)
                 throw new Exception("Lista vacia");
         }
 
         private void Actualizar()
         {
-            this.entidad!.Telefono = "0000000000";
+            this.entidad!.Descripcion = "Descripcion Actualizada";
 
-            var entry = this.conexion!.Entry<Personas>(this.entidad);
+            var entry = this.conexion!.Entry<OrdenesServicios>(this.entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
         }
 
         private void Borrar()
         {
-            this.conexion.Personas!.Remove(this.entidad!);
+            this.conexion.OrdenesServicios!.Remove(this.entidad!);
             this.conexion.SaveChanges();
         }
     }
 }
-

@@ -1,4 +1,6 @@
-﻿public class Clientes
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+public class Clientes
 {
     public int ID { get; set; }
     public string? Correo { get; set; }
@@ -7,7 +9,7 @@
     public bool Activo { get; set; }
     public int Persona { get; set; }
     
-    public Personas? _Persona { get; set; }
+    [ForeignKey("Persona")]public Personas? _Persona { get; set; }
 
     public List<Ventas>? Ventas { get; set; }
     public List<OrdenesServicios>? OrdenesServicios { get; set; }

@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 namespace mst_PruebasUnitarias
 {
     [TestClass]
-    public class PersonasPruebas
+    public class InventariosPruebas
     {
         private IConexion conexion;
-        private Personas? entidad = null;
+        private Inventarios? entidad = null;
 
-        public PersonasPruebas()
+        public InventariosPruebas()
         {
             this.conexion = new Conexion();
             this.conexion.StringConexion = DatosGenerales.ObtenerStringConexion();
@@ -28,38 +28,36 @@ namespace mst_PruebasUnitarias
 
         public void Insertar()
         {
-            this.entidad = new Personas()
+            this.entidad = new Inventarios  ()
             {
-                Nombre = "Prueba",
-                Cedula = "12345",
-                Fecha_Nacimiento = new DateTime(1990, 1, 1),
-                Telefono = "98761"
+                Fecha_Ingreso = DateTime.Now,
+                Ubicacion = "Prueba",
+                Moto = 1
             };
-            this.conexion.Personas!.Add(this.entidad!);
+            this.conexion.Inventarios!.Add(this.entidad!);
             this.conexion.SaveChanges();
         }
 
         public void Consultar()
         {
-            var lista = this.conexion.Personas!.ToList();
+            var lista = this.conexion.Inventarios!.ToList();
             if (lista.Count <= 0)
                 throw new Exception("Lista vacia");
         }
 
         private void Actualizar()
         {
-            this.entidad!.Telefono = "0000000000";
+            this.entidad!.Ubicacion = "0000000000";
 
-            var entry = this.conexion!.Entry<Personas>(this.entidad);
+            var entry = this.conexion!.Entry<Inventarios>(this.entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
         }
 
         private void Borrar()
         {
-            this.conexion.Personas!.Remove(this.entidad!);
+            this.conexion.Inventarios!.Remove(this.entidad!);
             this.conexion.SaveChanges();
         }
     }
 }
-

@@ -1,4 +1,6 @@
-﻿public class DetallesVentasProductos
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+public class DetallesVentasProductos
 {
     public int ID { get; set; }
     public decimal Precio_Unitario { get; set; }
@@ -8,6 +10,6 @@
     public int Producto { get; set; }
     public int Venta { get; set; }
 
-    public Ventas? _Venta { get; set; }
-    public Productos? _Producto { get; set; }
+    [ForeignKey("Venta")] public Ventas? _Venta { get; set; }
+    [ForeignKey("Producto")] public Productos? _Producto { get; set; }
 }

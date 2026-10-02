@@ -1,4 +1,6 @@
-﻿public class Motos 
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+public class Motos 
 {
     public int ID { get; set; }
     public string? VIN { get; set; }
@@ -8,7 +10,7 @@
     public int Modelo { get; set; }
     public string? Estado { get; set; }
 
-    public ModelosMotos? _Modelo { get; set; }
+    [ForeignKey("Modelo")] public ModelosMotos? _Modelo { get; set; }
 
     public List<OrdenesServicios>? OrdenesServicios { get; set; }
 }

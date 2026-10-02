@@ -2,16 +2,17 @@
 using lib_dominio.interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace mst_PruebasUnitarias
 {
     [TestClass]
-    public class PersonasPruebas
+    public class FinanciamientosPruebas
     {
         private IConexion conexion;
-        private Personas? entidad = null;
+        private Financiamientos? entidad = null;
 
-        public PersonasPruebas()
+        public FinanciamientosPruebas()
         {
             this.conexion = new Conexion();
             this.conexion.StringConexion = DatosGenerales.ObtenerStringConexion();
@@ -28,38 +29,40 @@ namespace mst_PruebasUnitarias
 
         public void Insertar()
         {
-            this.entidad = new Personas()
+            this.entidad = new Financiamientos()
             {
-                Nombre = "Prueba",
-                Cedula = "12345",
-                Fecha_Nacimiento = new DateTime(1990, 1, 1),
-                Telefono = "98761"
+                Monto = 2000.0m,
+                Numero_Cuotas = 12,
+                Tasa_Interes = 5.0m,
+                Fecha_Inicio = DateTime.Now,
+                Fecha_Fin = DateTime.Now.AddMonths(12),
+                Estado = "Activo",
+                Venta = 1
             };
-            this.conexion.Personas!.Add(this.entidad!);
+            this.conexion.Financiamientos!.Add(this.entidad!);
             this.conexion.SaveChanges();
         }
 
         public void Consultar()
         {
-            var lista = this.conexion.Personas!.ToList();
+            var lista = this.conexion.Financiamientos!.ToList();
             if (lista.Count <= 0)
                 throw new Exception("Lista vacia");
         }
 
         private void Actualizar()
         {
-            this.entidad!.Telefono = "0000000000";
+            this.entidad!.Monto = 3000.0m;
 
-            var entry = this.conexion!.Entry<Personas>(this.entidad);
+            var entry = this.conexion!.Entry<Financiamientos>(this.entidad);
             entry.State = EntityState.Modified;
             this.conexion!.SaveChanges();
         }
 
         private void Borrar()
         {
-            this.conexion.Personas!.Remove(this.entidad!);
+            this.conexion.Financiamientos!.Remove(this.entidad!);
             this.conexion.SaveChanges();
         }
     }
 }
-

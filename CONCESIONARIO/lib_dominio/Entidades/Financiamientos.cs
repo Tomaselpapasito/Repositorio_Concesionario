@@ -1,4 +1,6 @@
-﻿public class Financiamientos 
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+public class Financiamientos 
 {
     public int ID { get; set; }
     public decimal Monto { get; set; }
@@ -9,7 +11,7 @@
     public int Venta { get; set; }
     public string? Estado { get; set; }
 
-    public Ventas? _Venta { get; set; }
+    [ForeignKey("Venta")] public Ventas? _Venta { get; set; }
 
     public List<Cuotas>? Cuotas { get; set; }
 }

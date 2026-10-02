@@ -231,3 +231,82 @@ CREATE TABLE [DetallesCompras]
     [Compra] INT NOT NULL FOREIGN KEY REFERENCES [Compras]([ID]),
     [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
 );
+
+    INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono]) ---Cliente
+            VALUES ('Arnold Gomez', '123456789', '1990-01-01', '3001234567');
+            GO
+
+    INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono]) ----Empleado
+            VALUES ('Pablo Gomez', '123453535359', '1990-02-02', '300122323237');
+            GO
+
+    INSERT INTO [Cargos] ([Nombre], [Salario], [Activo])
+            VALUES ('Asesor Comercial', 2500000.00, 1);
+
+    INSERT INTO [ModelosMotos] ([Nombre], [Cilindraje], [Tipo_motor], [Transmision], [Potencia])
+            VALUES ('Yamaha MT-03', 321, 'Bicilindrico', '6 velocidades', 42.00);
+
+    INSERT INTO [Proveedores] ([Nombre], [NIT], [Telefono], [Correo], [Direccion])
+            VALUES  ('MotoPartes Colombia SAS', '900123456-7', '6015551234', 'ventas@motopartes.com', 'Carrera 50 # 10-25');
+
+    INSERT INTO [MetodosPagos] ([Nombre], [Tipo], [Descripcion], [Activo])
+            VALUES ('Tarjeta de Credito', 'Electronico', 'Pago realizado mediante tarjeta de credito', 1);
+
+    INSERT INTO [Servicios] ([Nombre], [Precio], [Duracion], [Tipo_Servicio])
+        VALUES ('Cambio de aceite', 80000.00, 60, 'Mantenimiento');
+
+    INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo]) -- Répuesto
+        VALUES ('ACE-001', 'Aceite Motul 5100 4T', '2026-01-10', '2026-01-10', 65000.00, 50, 1);
+    INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo]) -- Accesorio
+        VALUES ('ACE-002', 'Pegatina', '2026-01-11', '2026-01-11', 75000.00, 60, 1);
+
+    INSERT INTO [Clientes] ([Correo], [Numero_Licencia], [Direccion], [Activo], [Persona])
+        VALUES ('arnold.gomez@email.com', 'LIC-123456', 'Calle 20 # 15-30', 1, 1);
+
+    INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo]) -- de inventario
+        VALUES ('9C6RG1234MA000001', 'MOT123456', 'Negro', 2026, 'Disponible', 1);
+    INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo]) -- para venta
+        VALUES ('9C6RG122323200001', 'MOT126656', 'Blanco', 2025, 'Disponible', 1); -- despues manejar logica cambio de estado
+
+    INSERT INTO [Inventarios] ([Fecha_Ingreso], [Ubicacion], [Moto])
+        VALUES ('2026-10-01', 'Zona de exhibición', 1);
+
+    INSERT INTO [Compras] ([Fecha_Compra], [Impuesto], [Numero_Factura], [Total], [Proveedor])
+        VALUES ('2026-10-01', 171000.00, 'FAC-001', 1071000.00, 1);
+
+    INSERT INTO [Repuestos] ([Numero_Parte], [Descripcion], [Fecha_Modificacion], [Producto])
+        VALUES ('REP-001', 'Filtro de aceite para motocicleta', '2026-10-01', 1);
+
+    INSERT INTO [Accesorios] ([Nombre], [Categoria], [Marca], [Producto])
+        VALUES ('Protector de tanque', 'Protección', 'Yamaha', 1);
+
+    INSERT INTO [Empleados] ([Carnet], [Fecha_Contratacion], [Persona], [Cargo])
+        VALUES ('EMP001', '2026-01-15', 1, 1);
+
+    INSERT INTO [Ventas] ([Fecha_Venta], [Impuestos], [Total], [Cliente], [Empleado])
+        VALUES ('2026-10-01', 190000.00, 1190000.00, 1, 1);
+
+    INSERT INTO [Pagos] ([Fecha_Pago], [Monto], [Metodo], [Venta])
+        VALUES ('2026-10-01', 1190000.00, 1, 1);
+
+    INSERT INTO [DetallesVentasMotos] ([Precio_Unitario], [Descuento], [Subtotal], [Moto], [Venta])
+        VALUES (10000000.00, 500000.00, 9500000.00, 1, 1);
+
+    INSERT INTO [DetallesVentasProductos] ([Precio_Unitario], [Descuento], [Subtotal], [Cantidad], [Producto], [Venta])
+        VALUES (45000.00, 0.00, 45000.00, 1, 1, 1);
+
+    INSERT INTO [Financiamientos] ([Monto], [Numero_Cuotas], [Tasa_Interes], [Fecha_Inicio], [Fecha_Fin], [Estado], [Venta])
+        VALUES (5000000.00, 12, 1.50, '2026-10-01', '2027-10-01', 'Activo', 1);
+
+    INSERT INTO [Cuotas] ([Numero_cuota], [Monto], [Fecha_vencimiento], [Fecha_pago], [Financiamiento])
+        VALUES (1, 458333.33, '2026-11-01', NULL, 1);
+
+    INSERT INTO [OrdenesServicios] ([Fecha_Ingreso], [Fecha_Salida], [Descripcion], [Costo_Total], [Cliente], [Empleado], [Moto])
+        VALUES ('2026-10-01 08:00', '2026-10-01 10:00', 'Mantenimiento preventivo de la motocicleta', 80000.00, 1, 1, 1);
+
+    INSERT INTO [DetallesServicios] ([Cantidad], [Precio], [Descuento], [Subtotal], [Orden], [Servicio])
+        VALUES (1, 80000.00, 0.00, 80000.00, 1, 1);
+
+    INSERT INTO [DetallesCompras] ([Cantidad], [Precio_Unitario], [Descuento], [Subtotal], [Compra], [Producto])
+        VALUES (20, 45000.00, 0.00, 900000.00, 1, 1);
+    
