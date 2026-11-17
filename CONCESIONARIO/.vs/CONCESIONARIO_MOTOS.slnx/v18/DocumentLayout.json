@@ -1,19 +1,207 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TOMAS\\OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM\\REPOSITORIO_2026-2\\Repositorio_Concesionario\\CONCESIONARIO\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9D8B3426-312D-4510-8813-998C89A5A405}|mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\mst_pruebasunitarias\\accesoriospruebas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D8B3426-312D-4510-8813-998C89A5A405}|mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj|solutionrelative:mst_pruebasunitarias\\accesoriospruebas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_dominio\\interfaces\\iconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\interfaces\\iconexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_dominio\\script.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\script.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_dominio\\nucleo\\datosgenerales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\nucleo\\datosgenerales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_dominio\\implementaciones\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\implementaciones\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\auditorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\auditorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_dominio\\entidades\\personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\entidades\\personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83B84D79-4362-49C0-8A1D-D48375C4EC4A}|cns_presentacion\\cns_presentacion.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\cns_presentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83B84D79-4362-49C0-8A1D-D48375C4EC4A}|cns_presentacion\\cns_presentacion.csproj|solutionrelative:cns_presentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_dominio\\script.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{3DCBF983-68EC-CBDC-1E9D-85E5E1DEE485}|lib_dominio\\lib_dominio.csproj|solutionrelative:lib_dominio\\script.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 925,
+          "DockedHeight": 524,
+          "SelectedChildIndex": 14,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Auditorias.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Auditorias.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Auditorias.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Auditorias.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Auditorias.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T14:30:10.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Personas.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Personas.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Entidades\\Personas.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Entidades\\Personas.cs",
+              "RelativeToolTip": "lib_dominio\\Entidades\\Personas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T14:33:26.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Implementaciones\\Conexion.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Implementaciones\\Conexion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Implementaciones\\Conexion.cs",
+              "RelativeToolTip": "lib_dominio\\Implementaciones\\Conexion.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAxwBAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T14:34:19.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IConexion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Interfaces\\IConexion.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Interfaces\\IConexion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Interfaces\\IConexion.cs",
+              "RelativeToolTip": "lib_dominio\\Interfaces\\IConexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T14:35:06.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Script.sql ",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Script.sql",
+              "RelativeDocumentMoniker": "lib_dominio\\Script.sql",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Script.sql",
+              "RelativeToolTip": "lib_dominio\\Script.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-11-17T14:36:10.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatosGenerales.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Nucleo\\DatosGenerales.cs",
+              "RelativeDocumentMoniker": "lib_dominio\\Nucleo\\DatosGenerales.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Nucleo\\DatosGenerales.cs",
+              "RelativeToolTip": "lib_dominio\\Nucleo\\DatosGenerales.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T14:37:42.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccesoriosPruebas.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\AccesoriosPruebas.cs",
+              "RelativeDocumentMoniker": "mst_PruebasUnitarias\\AccesoriosPruebas.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\AccesoriosPruebas.cs",
+              "RelativeToolTip": "mst_PruebasUnitarias\\AccesoriosPruebas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T14:38:17.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\cns_presentacion\\Program.cs",
+              "RelativeDocumentMoniker": "cns_presentacion\\Program.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\cns_presentacion\\Program.cs",
+              "RelativeToolTip": "cns_presentacion\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-17T14:28:17.119Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 118,
           "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 79,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{905da7d1-18fd-4a46-8d0f-a5ff58ada9de}"
             }
           ]
         }

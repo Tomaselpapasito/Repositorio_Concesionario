@@ -1,4 +1,5 @@
-﻿using lib_dominio.interfaces;
+﻿using lib_dominio.Entidades;
+using lib_dominio.interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace lib_dominio.implementaciones
@@ -13,6 +14,7 @@ namespace lib_dominio.implementaciones
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
         public DbSet<Accesorios>? Accesorios { get; set; }
+        public DbSet<Auditorias>? Auditorias { get; set; }
         public DbSet<Cargos>? Cargos { get; set; }
         public DbSet<Clientes>? Clientes { get; set; }
         public DbSet<Compras>? Compras { get; set; }

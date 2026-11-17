@@ -3,6 +3,14 @@ GO
 USE CONCESIONARIO_DB;
 GO
 
+CREATE TABLE [Auditorias]
+(
+    [ID] INT IDENTITY(1,1) PRIMARY KEY,
+    [Comentarios] NVARCHAR(MAX) NULL,
+    [Fecha] SMALLDATETIME NOT NULL
+    
+);
+
 CREATE TABLE [Personas]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,

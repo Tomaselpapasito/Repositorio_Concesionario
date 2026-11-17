@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using lib_dominio.Entidades;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace lib_dominio.interfaces
@@ -7,6 +8,7 @@ namespace lib_dominio.interfaces
     {
         string? StringConexion { get; set; }
         DbSet<Accesorios>? Accesorios { get; set; }
+        DbSet<Auditorias>? Auditorias { get; set; }
         DbSet<Cargos>? Cargos { get; set; }
         DbSet<Clientes>? Clientes { get; set; }
         DbSet<Compras>? Compras { get; set; }
