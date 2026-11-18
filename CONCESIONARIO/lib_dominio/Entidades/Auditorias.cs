@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace lib_dominio.Entidades
 {
     public class Auditorias
     {
-        public int Id { get; set; }
+        [Key]public int ID { get; set; }
         public string? Comentarios { get; set; }
         public DateTime Fecha { get; set; }
+
     }
 }
