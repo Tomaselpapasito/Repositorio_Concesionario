@@ -1,4 +1,4 @@
-﻿using lib_dominio.Entidades;
+﻿using lib_dominio.entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 

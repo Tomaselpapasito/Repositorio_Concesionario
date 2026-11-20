@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/1. Presentacion/">
     <Project Path="cns_presentacion/cns_presentacion.csproj" Id="83b84d79-4362-49c0-8a1d-d48375c4ec4a" />
+    <Project Path="lib_presentaciones/lib_presentaciones.csproj" Id="1404c800-8296-4f96-b0bf-1f2d54042f29" />
   </Folder>
   <Folder Name="/2.Servicios/" />
   <Folder Name="/3. Nucleo/">
