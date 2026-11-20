@@ -70,7 +70,7 @@ namespace lib_dominio.implementaciones
             return entidad.Fecha_Compra == default ||
                 entidad.Impuesto <= 0 ||
                 string.IsNullOrEmpty(entidad.Numero_Factura) ||
-                entidad.Proveedor <= 0;
+                entidad.Proveedor == 0;
                 
            }
     }

@@ -67,7 +67,7 @@ namespace lib_dominio.implementaciones
 
         private bool Validar(DetallesServicios entidad)
         {
-            return entidad.Cantidad <= 0 |
+            return entidad.Cantidad <= 0 ||
                 entidad.Precio <= 0 ||
                 entidad.Descuento <= 0 ||
                 entidad.Subtotal <= 0 ||
