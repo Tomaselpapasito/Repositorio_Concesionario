@@ -40,9 +40,10 @@ namespace lib_dominio.implementaciones
         public List<DetallesServicios> Buscar(DetallesServicios entidad)
         {
             return this.IConexion.DetallesServicios!
-                .Include(x => x._Servicio)
-                .Include(x => x._Orden)
-                .Where(x => x._Servicio!.Nombre!.Contains(entidad._Servicio!.Nombre!))
+                .Include (x => x._Servicio)
+                .Include (x => x._Orden)
+                    .ThenInclude (x => x!._Cliente)
+                .Where(x => x._Orden!._Cliente!.Numero_Licencia!.Contains(entidad._Orden!._Cliente!.Numero_Licencia!))
                 .ToList();
         }
 
@@ -69,7 +70,7 @@ namespace lib_dominio.implementaciones
         {
             return entidad.Cantidad <= 0 ||
                 entidad.Precio <= 0 ||
-                entidad.Descuento <= 0 ||
+                entidad.Descuento < 0 ||
                 entidad.Subtotal <= 0 ||
                 entidad.Orden == 0 ||
                 entidad.Servicio == 0;
