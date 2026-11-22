@@ -28,11 +28,17 @@ namespace lib_repositorio.Implementaciones
         public DbSet<ModelosMotos>? ModelosMotos { get; set; }
         public DbSet<Motos>? Motos { get; set; }
         public DbSet<Pagos>? Pagos { get; set; }
-        public DbSet<Usuarios>? Personas { get; set; }
+        public DbSet<Personas>? Personas { get; set; }
         public DbSet<Productos>? Productos { get; set; }
         public DbSet<Proveedores>? Proveedores { get; set; }
         public DbSet<Repuestos>? Repuestos { get; set; }
+        public DbSet<Usuarios>? Usuarios { get; set; }
         public DbSet<Ventas>? Ventas { get; set; }
+
+        public DbSet<Auditorias>? Auditorias { get; set; }
+        public DbSet<Roles>? Roles { get; set; }
+        public DbSet<Permisos>? Permisos { get; set; }
+
 
     }
 }

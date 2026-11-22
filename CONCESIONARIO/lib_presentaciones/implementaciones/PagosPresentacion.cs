@@ -1,6 +1,7 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
- 
+using lib_presentaciones.Interfaces;
+
 
 namespace lib_presentaciones.Implementaciones
 {

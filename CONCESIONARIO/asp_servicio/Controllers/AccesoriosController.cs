@@ -1,5 +1,6 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace asp_servicio.Controllers
@@ -8,9 +9,9 @@ namespace asp_servicio.Controllers
     [Route("[controller]/[action]")]
     public class AccesoriosController : ControllerBase
     {
-        private IAccesoriosNeogocio IAccesoriosAplicacion;
+        private IAccesoriosNegocio IAccesoriosAplicacion;
 
-        public AccesoriosController(IAccesoriosNeogocio IAccesoriosAplicacion)
+        public AccesoriosController(IAccesoriosNegocio IAccesoriosAplicacion)
         {
             this.IAccesoriosAplicacion = IAccesoriosAplicacion;
         }
