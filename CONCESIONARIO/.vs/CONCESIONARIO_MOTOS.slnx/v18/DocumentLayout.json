@@ -3,168 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\pagospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\pagospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\ipagospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\ipagospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\accesoriospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\accesoriospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\cuotaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\cuotaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\icuotaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\icuotaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\financiamientospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\financiamientospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\ifinanciamientospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\ifinanciamientospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\detallesserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\detallesserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\idetallesserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\idetallesserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\ordenesserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\ordenesserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iordenesserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iordenesserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\detallescompraspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\detallescompraspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\idetallescompraspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\idetallescompraspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\compraspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\compraspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\icompraspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\icompraspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\detallesventasproductospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\detallesventasproductospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\idetallesventasproductospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\idetallesventasproductospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\detallesventasmotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\detallesventasmotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\idetallesventasmotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\idetallesventasmotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\ventaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\ventaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iventaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iventaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\irepuestospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\irepuestospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\productospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\productospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iproductospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iproductospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\inventariospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\inventariospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iinventariospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iinventariospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\motospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\motospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\imotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\imotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iproveedorespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iproveedorespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iempleadospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iempleadospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\icomunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\icomunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iclientespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iclientespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\icargospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\icargospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\proveedorespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\proveedorespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\personaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\personaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\empleadospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\empleadospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\cargospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\cargospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\clientespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\clientespresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\cargospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\cargospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\accesoriospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\accesoriospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iaccesoriospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iaccesoriospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\serviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\serviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\ipersonaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\ipersonaspresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\modelosmotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\modelosmotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\imodelosmotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\imodelosmotospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\imetodospagospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\imetodospagospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\icomunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\icomunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\interfaces\\iserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\interfaces\\iserviciospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\comunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\comunicaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\lib_presentaciones\\implementaciones\\metodospagospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1404C800-8296-4F96-B0BF-1F2D54042F29}|lib_presentaciones\\lib_presentaciones.csproj|solutionrelative:lib_presentaciones\\implementaciones\\metodospagospresentacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1C33098-4C82-4121-B5CA-43AD21F165B6}|asp_servicio\\asp_servicio.csproj|c:\\users\\santi\\desktop\\repositorio_concesionario\\concesionario\\asp_servicio\\controllers\\accesorioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -542,110 +422,71 @@
       "DocumentGroups": [
         {
           "DockedHeight": 524,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PagosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\PagosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\PagosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\PagosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\PagosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:25:41.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IPagosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IPagosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IPagosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IPagosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IPagosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:25:18.687Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CuotasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\CuotasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\CuotasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\CuotasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\CuotasPresentacion.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAmwE8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:24:43.482Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ICuotasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\ICuotasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\ICuotasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\ICuotasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\ICuotasPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
+              "Title": "ModelosMotosPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ModelosMotosPresentacion.cs",
+              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\ModelosMotosPresentacion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ModelosMotosPresentacion.cs",
+              "RelativeToolTip": "lib_presentaciones\\implementaciones\\ModelosMotosPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:24:25.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FinanciamientosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\FinanciamientosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\FinanciamientosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\FinanciamientosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\FinanciamientosPresentacion.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAmwFAAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:23:56.141Z",
+              "WhenOpened": "2026-11-22T03:51:30.158Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "IFinanciamientosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IFinanciamientosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IFinanciamientosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IFinanciamientosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IFinanciamientosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "Title": "IMetodosPagosPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IMetodosPagosPresentacion.cs",
+              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IMetodosPagosPresentacion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IMetodosPagosPresentacion.cs",
+              "RelativeToolTip": "lib_presentaciones\\interfaces\\IMetodosPagosPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:23:32.331Z",
+              "WhenOpened": "2026-11-22T03:50:54.082Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DetallesServiciosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\DetallesServiciosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\DetallesServiciosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\DetallesServiciosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\DetallesServiciosPresentacion.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAuwE4AAAAlAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IModelosMotosPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IModelosMotosPresentacion.cs",
+              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IModelosMotosPresentacion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IModelosMotosPresentacion.cs",
+              "RelativeToolTip": "lib_presentaciones\\interfaces\\IModelosMotosPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:23:05.119Z",
+              "WhenOpened": "2026-11-22T03:50:34.779Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IDetallesServiciosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IDetallesServiciosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IDetallesServiciosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IDetallesServiciosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IDetallesServiciosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ServiciosPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ServiciosPresentacion.cs",
+              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\ServiciosPresentacion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ServiciosPresentacion.cs",
+              "RelativeToolTip": "lib_presentaciones\\implementaciones\\ServiciosPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:22:43.605Z",
+              "WhenOpened": "2026-11-22T03:48:32.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CargosPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\CargosPresentacion.cs",
+              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\CargosPresentacion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\CargosPresentacion.cs",
+              "RelativeToolTip": "lib_presentaciones\\implementaciones\\CargosPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-22T03:46:11.911Z",
               "EditorCaption": ""
             },
             {
@@ -656,313 +497,40 @@
               "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\AccesoriosPresentacion.cs",
               "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\AccesoriosPresentacion.cs",
               "RelativeToolTip": "lib_presentaciones\\implementaciones\\AccesoriosPresentacion.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAuwE4AAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T01:20:19.93Z",
+              "WhenOpened": "2026-11-22T03:45:48.419Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "OrdenesServiciosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\OrdenesServiciosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\OrdenesServiciosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\OrdenesServiciosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\OrdenesServiciosPresentacion.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAmwE8AAAAQAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ClientesPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ClientesPresentacion.cs",
+              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\ClientesPresentacion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ClientesPresentacion.cs",
+              "RelativeToolTip": "lib_presentaciones\\implementaciones\\ClientesPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:22:03.579Z",
+              "WhenOpened": "2026-11-22T03:46:13.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IOrdenesServiciosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IOrdenesServiciosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IOrdenesServiciosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IOrdenesServiciosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IOrdenesServiciosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:21:45.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DetallesComprasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\DetallesComprasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\DetallesComprasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\DetallesComprasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\DetallesComprasPresentacion.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAiwE8AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:21:16.954Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IDetallesComprasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IDetallesComprasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IDetallesComprasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IDetallesComprasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IDetallesComprasPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:21:00.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ComprasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ComprasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\ComprasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ComprasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\ComprasPresentacion.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAmwE4AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:20:22.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IComprasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IComprasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IComprasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IComprasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IComprasPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:20:00.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DetallesVentasProductosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\DetallesVentasProductosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\DetallesVentasProductosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\DetallesVentasProductosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\DetallesVentasProductosPresentacion.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAmwE8AAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:19:23.696Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IDetallesVentasProductosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IDetallesVentasProductosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IDetallesVentasProductosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IDetallesVentasProductosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IDetallesVentasProductosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:19:04.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "DetallesVentasMotosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\DetallesVentasMotosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\DetallesVentasMotosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\DetallesVentasMotosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\DetallesVentasMotosPresentacion.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAmwE4AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:18:29.976Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IDetallesVentasMotosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IDetallesVentasMotosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IDetallesVentasMotosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IDetallesVentasMotosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IDetallesVentasMotosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:18:13.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "VentasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\VentasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\VentasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\VentasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\VentasPresentacion.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAmwE0AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:16:33.38Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IVentasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IVentasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IVentasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IVentasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IVentasPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:16:06.702Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "IRepuestosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IRepuestosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IRepuestosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IRepuestosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IRepuestosPresentacion.cs",
+              "DocumentIndex": 8,
+              "Title": "IServiciosPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IServiciosPresentacion.cs",
+              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IServiciosPresentacion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IServiciosPresentacion.cs",
+              "RelativeToolTip": "lib_presentaciones\\interfaces\\IServiciosPresentacion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:14:30.157Z",
+              "WhenOpened": "2026-11-22T03:50:13.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ProductosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ProductosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\ProductosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ProductosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\ProductosPresentacion.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAmwE4AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:14:00.302Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "IProductosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IProductosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IProductosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IProductosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IProductosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:12:30.75Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "InventariosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\InventariosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\InventariosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\InventariosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\InventariosPresentacion.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAuwE4AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:12:03.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "IInventariosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IInventariosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IInventariosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IInventariosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IInventariosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:11:42.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "MotosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\MotosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\MotosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\MotosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\MotosPresentacion.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAuwE8AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:11:03.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IMotosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IMotosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IMotosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IMotosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IMotosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:10:41.723Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "ProveedoresPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ProveedoresPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\ProveedoresPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ProveedoresPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\ProveedoresPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:03:49.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "PersonasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\PersonasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\PersonasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\PersonasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\PersonasPresentacion.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAcwE4AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:00:33.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "ICargosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\ICargosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\ICargosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\ICargosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\ICargosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T01:37:23.217Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "IClientesPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IClientesPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IClientesPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IClientesPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IClientesPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T01:45:49.384Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 7,
               "Title": "IComunicaciones.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IComunicaciones.cs",
               "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IComunicaciones.cs",
@@ -975,98 +543,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "IEmpleadosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IEmpleadosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IEmpleadosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IEmpleadosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IEmpleadosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "MetodosPagosPresentacion.cs",
+              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\MetodosPagosPresentacion.cs",
+              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\MetodosPagosPresentacion.cs",
+              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\MetodosPagosPresentacion.cs",
+              "RelativeToolTip": "lib_presentaciones\\implementaciones\\MetodosPagosPresentacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:02:43.161Z",
+              "WhenOpened": "2026-11-22T03:46:04.686Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "IProveedoresPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IProveedoresPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IProveedoresPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IProveedoresPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IProveedoresPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:03:03.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "EmpleadosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\EmpleadosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\EmpleadosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\EmpleadosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\EmpleadosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:06:37.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "ClientesPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ClientesPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\ClientesPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\ClientesPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\ClientesPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T01:46:23.086Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "CargosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\CargosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\CargosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\CargosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\implementaciones\\CargosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T01:39:29.285Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "IPersonasPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IPersonasPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IPersonasPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IPersonasPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IPersonasPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T03:01:24.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "IAccesoriosPresentacion.cs",
-              "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IAccesoriosPresentacion.cs",
-              "RelativeDocumentMoniker": "lib_presentaciones\\interfaces\\IAccesoriosPresentacion.cs",
-              "ToolTip": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\interfaces\\IAccesoriosPresentacion.cs",
-              "RelativeToolTip": "lib_presentaciones\\interfaces\\IAccesoriosPresentacion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T01:18:32.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 9,
               "Title": "Comunicaciones.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\implementaciones\\Comunicaciones.cs",
               "RelativeDocumentMoniker": "lib_presentaciones\\implementaciones\\Comunicaciones.cs",
@@ -1079,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 11,
               "Title": "AccesoriosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\AccesoriosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\AccesoriosController.cs",
@@ -1092,7 +582,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 12,
               "Title": "CargosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\CargosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\CargosController.cs",
@@ -1105,7 +595,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 13,
               "Title": "DetallesVentasProductosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\DetallesVentasProductosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\DetallesVentasProductosController.cs",
@@ -1118,7 +608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 14,
               "Title": "DetallesVentasMotosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\DetallesVentasMotosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\DetallesVentasMotosController.cs",
@@ -1131,7 +621,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 15,
               "Title": "DetallesServiciosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\DetallesServiciosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\DetallesServiciosController.cs",
@@ -1144,7 +634,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 16,
               "Title": "DetallesComprasController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\DetallesComprasController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\DetallesComprasController.cs",
@@ -1157,7 +647,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 17,
               "Title": "CuotasController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\CuotasController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\CuotasController.cs",
@@ -1170,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 22,
               "Title": "RepuestosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\RepuestosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\RepuestosController.cs",
@@ -1183,7 +673,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 23,
               "Title": "ProveedoresController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\ProveedoresController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\ProveedoresController.cs",
@@ -1196,7 +686,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 20,
               "Title": "ServiciosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\ServiciosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\ServiciosController.cs",
@@ -1209,7 +699,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 21,
               "Title": "VentasController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\VentasController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\VentasController.cs",
@@ -1222,7 +712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 19,
               "Title": "ClientesController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\ClientesController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\ClientesController.cs",
@@ -1235,7 +725,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 18,
               "Title": "ComprasController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\ComprasController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\ComprasController.cs",
@@ -1248,7 +738,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 24,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\ProductosController.cs",
@@ -1261,7 +751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 25,
               "Title": "PersonasController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\PersonasController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\PersonasController.cs",
@@ -1274,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 26,
               "Title": "PagosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\PagosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\PagosController.cs",
@@ -1287,7 +777,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 27,
               "Title": "OrdenesServiciosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\OrdenesServiciosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\OrdenesServiciosController.cs",
@@ -1300,7 +790,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 28,
               "Title": "MotosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\MotosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\MotosController.cs",
@@ -1313,7 +803,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 29,
               "Title": "ModelosMotosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\ModelosMotosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\ModelosMotosController.cs",
@@ -1326,7 +816,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 30,
               "Title": "MetodosPagosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\MetodosPagosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\MetodosPagosController.cs",
@@ -1339,7 +829,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 31,
               "Title": "InventariosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\InventariosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\InventariosController.cs",
@@ -1352,7 +842,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 32,
               "Title": "FinanciamientosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\FinanciamientosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\FinanciamientosController.cs",
@@ -1365,7 +855,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 33,
               "Title": "EmpleadosController.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\asp_servicio\\Controllers\\EmpleadosController.cs",
               "RelativeDocumentMoniker": "asp_servicio\\Controllers\\EmpleadosController.cs",
@@ -1410,7 +900,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 34,
               "Title": "Script.sql ",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Script.sql",
               "RelativeDocumentMoniker": "lib_dominio\\Script.sql",
@@ -1422,7 +912,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 35,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\cns_presentacion\\Program.cs",
               "RelativeDocumentMoniker": "cns_presentacion\\Program.cs",
@@ -1435,7 +925,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 36,
               "Title": "lib_dominio.csproj",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\lib_dominio.csproj",
               "RelativeDocumentMoniker": "lib_dominio\\lib_dominio.csproj",
@@ -1448,7 +938,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 37,
               "Title": "CargosPruebas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\Pruebas\\CargosPruebas.cs",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\Pruebas\\CargosPruebas.cs",
@@ -1461,7 +951,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 38,
               "Title": "AccesoriosPruebas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\Pruebas\\AccesoriosPruebas.cs",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\Pruebas\\AccesoriosPruebas.cs",
@@ -1474,7 +964,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 39,
               "Title": "AccesoriosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\AccesoriosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\AccesoriosAplicacion.cs",
@@ -1487,7 +977,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 40,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\Conexion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\Conexion.cs",
@@ -1500,7 +990,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 41,
               "Title": "IConexion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IConexion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IConexion.cs",
@@ -1513,7 +1003,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 42,
               "Title": "DatosGenerales.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Nucleo\\DatosGenerales.cs",
               "RelativeDocumentMoniker": "lib_dominio\\Nucleo\\DatosGenerales.cs",
@@ -1526,7 +1016,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 43,
               "Title": "LogConversor.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\Nucleo\\LogConversor.cs",
               "RelativeDocumentMoniker": "lib_dominio\\Nucleo\\LogConversor.cs",
@@ -1539,7 +1029,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 44,
               "Title": "CargosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\CargosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\CargosAplicacion.cs",
@@ -1552,7 +1042,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 45,
               "Title": "IAccesoriosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IAccesoriosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IAccesoriosAplicacion.cs",
@@ -1565,7 +1055,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 46,
               "Title": "Cargos.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\entidades\\Cargos.cs",
               "RelativeDocumentMoniker": "lib_dominio\\entidades\\Cargos.cs",
@@ -1578,7 +1068,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 47,
               "Title": "Accesorios.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\entidades\\Accesorios.cs",
               "RelativeDocumentMoniker": "lib_dominio\\entidades\\Accesorios.cs",
@@ -1591,7 +1081,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 49,
               "Title": "mst_PruebasUnitarias",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\mst_PruebasUnitarias.csproj",
@@ -1604,7 +1094,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 50,
               "Title": "ClientesPruebas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\Pruebas\\ClientesPruebas.cs",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\Pruebas\\ClientesPruebas.cs",
@@ -1617,7 +1107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 48,
               "Title": "Clientes.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\entidades\\Clientes.cs",
               "RelativeDocumentMoniker": "lib_dominio\\entidades\\Clientes.cs",
@@ -1630,7 +1120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 51,
               "Title": "VentasPruebas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\Pruebas\\VentasPruebas.cs",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\Pruebas\\VentasPruebas.cs",
@@ -1643,7 +1133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 52,
               "Title": "CuotasPruebas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\Pruebas\\CuotasPruebas.cs",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\Pruebas\\CuotasPruebas.cs",
@@ -1656,7 +1146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 53,
               "Title": "lib_presentaciones.csproj",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_presentaciones\\lib_presentaciones.csproj",
               "RelativeDocumentMoniker": "lib_presentaciones\\lib_presentaciones.csproj",
@@ -1669,7 +1159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 54,
               "Title": "cns_presentacion.csproj",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\cns_presentacion\\cns_presentacion.csproj",
               "RelativeDocumentMoniker": "cns_presentacion\\cns_presentacion.csproj",
@@ -1682,7 +1172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 55,
               "Title": "DetallesVentasMotosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\DetallesVentasMotosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\DetallesVentasMotosAplicacion.cs",
@@ -1695,7 +1185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 60,
               "Title": "IMotosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IMotosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IMotosAplicacion.cs",
@@ -1708,7 +1198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 59,
               "Title": "MotosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\MotosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\MotosAplicacion.cs",
@@ -1721,7 +1211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 58,
               "Title": "IInventariosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IInventariosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IInventariosAplicacion.cs",
@@ -1734,7 +1224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 57,
               "Title": "InventariosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\InventariosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\InventariosAplicacion.cs",
@@ -1747,7 +1237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 56,
               "Title": "IDetallesVentasMotosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IDetallesVentasMotosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IDetallesVentasMotosAplicacion.cs",
@@ -1760,7 +1250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 61,
               "Title": "ModelosMotosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\ModelosMotosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\ModelosMotosAplicacion.cs",
@@ -1773,7 +1263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 62,
               "Title": "IModelosMotosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IModelosMotosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IModelosMotosAplicacion.cs",
@@ -1786,7 +1276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 63,
               "Title": "DetallesServiciosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\DetallesServiciosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\DetallesServiciosAplicacion.cs",
@@ -1799,7 +1289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 64,
               "Title": "OrdenesServiciosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\OrdenesServiciosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\OrdenesServiciosAplicacion.cs",
@@ -1812,7 +1302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 66,
               "Title": "IOrdenesServiciosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IOrdenesServiciosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IOrdenesServiciosAplicacion.cs",
@@ -1825,7 +1315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 65,
               "Title": "EmpleadosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\EmpleadosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\EmpleadosAplicacion.cs",
@@ -1838,7 +1328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 67,
               "Title": "IEmpleadosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IEmpleadosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IEmpleadosAplicacion.cs",
@@ -1851,7 +1341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 68,
               "Title": "ICargosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\ICargosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\ICargosAplicacion.cs",
@@ -1864,7 +1354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 69,
               "Title": "PersonasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\PersonasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\PersonasAplicacion.cs",
@@ -1877,7 +1367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 70,
               "Title": "IPersonasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IPersonasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IPersonasAplicacion.cs",
@@ -1890,7 +1380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 71,
               "Title": "ClientesAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\ClientesAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\ClientesAplicacion.cs",
@@ -1903,7 +1393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 72,
               "Title": "IClientesAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IClientesAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IClientesAplicacion.cs",
@@ -1916,7 +1406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 73,
               "Title": "MetodosPagosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\MetodosPagosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\MetodosPagosAplicacion.cs",
@@ -1929,7 +1419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 74,
               "Title": "IMetodosPagosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IMetodosPagosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IMetodosPagosAplicacion.cs",
@@ -1942,7 +1432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 75,
               "Title": "ComprasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\ComprasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\ComprasAplicacion.cs",
@@ -1955,7 +1445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 76,
               "Title": "PagosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\PagosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\PagosAplicacion.cs",
@@ -1968,7 +1458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 107,
+              "DocumentIndex": 77,
               "Title": "IPagosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IPagosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IPagosAplicacion.cs",
@@ -1981,7 +1471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 108,
+              "DocumentIndex": 78,
               "Title": "CuotasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\CuotasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\CuotasAplicacion.cs",
@@ -1994,7 +1484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 109,
+              "DocumentIndex": 79,
               "Title": "ICuotasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\ICuotasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\ICuotasAplicacion.cs",
@@ -2007,7 +1497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 110,
+              "DocumentIndex": 80,
               "Title": "FinanciamientosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\FinanciamientosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\FinanciamientosAplicacion.cs",
@@ -2020,7 +1510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 111,
+              "DocumentIndex": 81,
               "Title": "VentasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\VentasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\VentasAplicacion.cs",
@@ -2033,7 +1523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 112,
+              "DocumentIndex": 82,
               "Title": "IFinanciamientosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IFinanciamientosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IFinanciamientosAplicacion.cs",
@@ -2046,7 +1536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 113,
+              "DocumentIndex": 83,
               "Title": "IVentasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IVentasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IVentasAplicacion.cs",
@@ -2059,7 +1549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 114,
+              "DocumentIndex": 84,
               "Title": "DetallesVentasProductosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\DetallesVentasProductosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\DetallesVentasProductosAplicacion.cs",
@@ -2072,7 +1562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 115,
+              "DocumentIndex": 85,
               "Title": "IDetallesVentasProductorsAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IDetallesVentasProductorsAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IDetallesVentasProductorsAplicacion.cs",
@@ -2085,7 +1575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 116,
+              "DocumentIndex": 86,
               "Title": "RepuestosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\RepuestosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\RepuestosAplicacion.cs",
@@ -2098,7 +1588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 117,
+              "DocumentIndex": 87,
               "Title": "ProductosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\ProductosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\ProductosAplicacion.cs",
@@ -2111,7 +1601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 118,
+              "DocumentIndex": 88,
               "Title": "ProveedoresAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\ProveedoresAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\ProveedoresAplicacion.cs",
@@ -2124,7 +1614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 120,
+              "DocumentIndex": 90,
               "Title": "IRepuestosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IRepuestosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IRepuestosAplicacion.cs",
@@ -2137,7 +1627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 119,
+              "DocumentIndex": 89,
               "Title": "IProductosAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IProductosAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IProductosAplicacion.cs",
@@ -2150,7 +1640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 121,
+              "DocumentIndex": 91,
               "Title": "DetallesComprasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\implementaciones\\DetallesComprasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\implementaciones\\DetallesComprasAplicacion.cs",
@@ -2163,7 +1653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 122,
+              "DocumentIndex": 92,
               "Title": "IComprasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IComprasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IComprasAplicacion.cs",
@@ -2176,7 +1666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 123,
+              "DocumentIndex": 93,
               "Title": "IDetallesComprasAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IDetallesComprasAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IDetallesComprasAplicacion.cs",
@@ -2189,7 +1679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 124,
+              "DocumentIndex": 94,
               "Title": "IProveedoresAplicacion.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\interfaces\\IProveedoresAplicacion.cs",
               "RelativeDocumentMoniker": "lib_dominio\\interfaces\\IProveedoresAplicacion.cs",
@@ -2202,7 +1692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 125,
+              "DocumentIndex": 95,
               "Title": "Compras.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\entidades\\Compras.cs",
               "RelativeDocumentMoniker": "lib_dominio\\entidades\\Compras.cs",
@@ -2214,7 +1704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 126,
+              "DocumentIndex": 96,
               "Title": "Auditorias.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\entidades\\Auditorias.cs",
               "RelativeDocumentMoniker": "lib_dominio\\entidades\\Auditorias.cs",
@@ -2227,7 +1717,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 127,
+              "DocumentIndex": 97,
               "Title": "Cuotas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\entidades\\Cuotas.cs",
               "RelativeDocumentMoniker": "lib_dominio\\entidades\\Cuotas.cs",
@@ -2239,7 +1729,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 128,
+              "DocumentIndex": 98,
               "Title": "ComprasPruebas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\Pruebas\\ComprasPruebas.cs",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\Pruebas\\ComprasPruebas.cs",
@@ -2252,7 +1742,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 129,
+              "DocumentIndex": 99,
               "Title": "ServiciosPruebas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\Pruebas\\ServiciosPruebas.cs",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\Pruebas\\ServiciosPruebas.cs",
@@ -2265,7 +1755,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 130,
+              "DocumentIndex": 100,
               "Title": "RepuestosPruebas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\mst_PruebasUnitarias\\Pruebas\\RepuestosPruebas.cs",
               "RelativeDocumentMoniker": "mst_PruebasUnitarias\\Pruebas\\RepuestosPruebas.cs",
@@ -2278,7 +1768,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 131,
+              "DocumentIndex": 101,
               "Title": "Personas.cs",
               "DocumentMoniker": "C:\\Users\\santi\\Desktop\\Repositorio_Concesionario\\CONCESIONARIO\\lib_dominio\\entidades\\Personas.cs",
               "RelativeDocumentMoniker": "lib_dominio\\entidades\\Personas.cs",

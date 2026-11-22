@@ -2,9 +2,9 @@
 
 namespace lib_presentaciones.interfaces
 {
-    public interface ICargosPresentacion
+    public interface IMetodosPagosPresentacion
     {
-        List<Cargos> Consultar();
-        List<Cargos> Buscar(Cargos entidad);
+        List<MetodosPagos> Consultar();
+        List<MetodosPagos> Buscar(MetodosPagos entidad);
     }
 }

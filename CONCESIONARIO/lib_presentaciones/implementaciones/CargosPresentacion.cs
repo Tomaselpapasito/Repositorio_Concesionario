@@ -1,0 +1,36 @@
+﻿using lib_dominio.entidades;
+using lib_dominio.interfaces;
+using lib_presentaciones.interfaces;
+
+namespace lib_presentaciones.implementaciones
+{
+    public class CargosPresentacion : ICargosPresentacion
+    {
+        private IComunicaciones IComunicaciones;
+
+        public CargosPresentacion(IComunicaciones IComunicaciones)
+        {
+            this.IComunicaciones = IComunicaciones;
+        }
+
+        public List<Cargos> Buscar(Cargos entidad)
+        {
+            var task = this.IComunicaciones.Ejecutar<List<Cargos>>(
+                "Cargos/Buscar",
+                entidad);
+            task.Wait();
+            return task.Result;
+        }
+
+        public List<Cargos> Consultar()
+        {
+            var task = this.IComunicaciones.Ejecutar<List<Cargos>>(
+                "Cargos/Consultar",
+                null);
+            task.Wait();
+            return task.Result;
+        }
+
+
+    }
+}
