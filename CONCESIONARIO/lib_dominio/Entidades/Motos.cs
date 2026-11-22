@@ -14,5 +14,14 @@ namespace lib_dominio.Entidades
 
         [ForeignKey("Modelo")] public ModelosMotos? _Modelo { get; set; }
 
+        public bool Validar()
+        {
+            return string.IsNullOrEmpty(this.VIN) ||
+                string.IsNullOrEmpty(this.Numero_Motor) ||
+                this.Anio <= 0 ||
+                string.IsNullOrEmpty(this.Estado) ||
+                this.Modelo == 0;
+        }
+
     }
 }

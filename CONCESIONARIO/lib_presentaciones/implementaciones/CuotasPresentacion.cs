@@ -1,10 +1,9 @@
-﻿using lib_dominio.E;
+﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class CuotasPresentacion : ICuotasPresentacion
+    public class CuotasPresentacion : ICuotasNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,11 +72,6 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Cuotas entidad)
-        {
-            return entidad.Numero_cuota <= 0 ||
-                entidad.Monto <= 0 ||
-                entidad.Financiamiento == 0;
-        }
+     
     }
 }

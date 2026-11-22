@@ -1,4 +1,5 @@
-﻿using lib_dominio.Implementaciones;
+﻿using lib_repositorio.Implementaciones;
+using lib_repositorio.Interfaces;
 using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
 using System.ComponentModel;

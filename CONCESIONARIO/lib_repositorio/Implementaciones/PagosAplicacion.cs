@@ -1,11 +1,11 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
+using lib_repositorio.Interfaces;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class PagosAplicacion : IPagosAplicacion
+    public class PagosAplicacion : IPagosNegocio
     {
         private IConexion IConexion;
 
@@ -66,11 +66,5 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        private bool Validar(Pagos entidad)
-        {
-            return entidad.Monto <= 0 ||
-                entidad.Metodo == 0   ||
-                entidad.Venta == 0;
-         }
     }
 }

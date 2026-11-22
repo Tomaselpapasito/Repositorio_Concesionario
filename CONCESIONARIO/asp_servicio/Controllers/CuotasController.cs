@@ -8,9 +8,9 @@ namespace asp_servicio.Controllers
     [Route("[controller]/[action]")]
     public class CuotasController : ControllerBase
     {
-        private ICuotasAplicacion ICuotasAplicacion;
+        private ICuotasNegocio ICuotasAplicacion;
 
-        public CuotasController(ICuotasAplicacion ICuotasAplicacion)
+        public CuotasController(ICuotasNegocio ICuotasAplicacion)
         {
             this.ICuotasAplicacion = ICuotasAplicacion;
         }

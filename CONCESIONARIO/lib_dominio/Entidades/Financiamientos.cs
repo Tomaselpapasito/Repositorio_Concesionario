@@ -15,6 +15,15 @@ namespace lib_dominio.Entidades
 
         [ForeignKey("Venta")] public Ventas? _Venta { get; set; }
 
-        public List<Cuotas>? Cuotas { get; set; }
+        [NotMapped]public List<Cuotas>? Cuotas { get; set; }
+
+        public bool Validar()
+        {
+            return
+                this.Monto < 0 ||
+                this.Numero_Cuotas <= 0 ||
+                this.Tasa_Interes < 0 ||
+                this.Venta == 0;
+        }
     }
 }

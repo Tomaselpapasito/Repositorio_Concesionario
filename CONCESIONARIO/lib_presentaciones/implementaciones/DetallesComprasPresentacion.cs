@@ -1,10 +1,9 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class DetallesComprasPresentacion : IDetallesComprasPresentacion
+    public class DetallesComprasPresentacion : IDetallesComprasNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,11 +72,6 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(DetallesCompras entidad)
-        {
-            return entidad.Cantidad <= 0 ||
-                entidad.Compra == 0 ||
-                entidad.Producto == 0;
-        }
+   
     }
 }

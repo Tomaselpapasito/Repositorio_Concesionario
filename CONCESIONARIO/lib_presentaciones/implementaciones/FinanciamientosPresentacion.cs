@@ -1,10 +1,10 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
+
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class FinanciamientosPresentacion : IFinanciamientosPresentacion
+    public class FinanciamientosPresentacion : IFinanciamientosNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,12 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Financiamientos entidad)
-        {
-            return entidad.Monto <= 0 ||
-                entidad.Numero_Cuotas <= 0 ||
-                string.IsNullOrEmpty(entidad.Estado) ||
-                entidad.Venta == 0;
-        }
     }
 }

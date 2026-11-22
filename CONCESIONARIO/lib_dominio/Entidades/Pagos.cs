@@ -12,5 +12,12 @@ namespace lib_dominio.Entidades
 
         [ForeignKey("Venta")] public Ventas? _Venta { get; set; }
         [ForeignKey("Metodo")] public MetodosPagos? _Metodo { get; set; }
+
+        public bool Validar()
+        {
+            return this.Monto <= 0 ||
+                this.Metodo == 0 ||
+                this.Venta == 0;
+        }
     }
 }

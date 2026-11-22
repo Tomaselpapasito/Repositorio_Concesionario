@@ -8,9 +8,9 @@ namespace asp_servicio.Controllers
     [Route("[controller]/[action]")]
     public class DetallesVentasProductosController : ControllerBase
     {
-        private IDetallesVentasProductosAplicacion IDetallesVentasProductosAplicacion;
+        private IDetallesVentasProductosNegocio IDetallesVentasProductosAplicacion;
 
-        public DetallesVentasProductosController(IDetallesVentasProductosAplicacion IDetallesVentasProductosAplicacion)
+        public DetallesVentasProductosController(IDetallesVentasProductosNegocio IDetallesVentasProductosAplicacion)
         {
             this.IDetallesVentasProductosAplicacion = IDetallesVentasProductosAplicacion;
         }

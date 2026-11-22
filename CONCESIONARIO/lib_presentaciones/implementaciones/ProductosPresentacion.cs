@@ -1,10 +1,10 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
+
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class ProductosPresentacion : IProductosPresentacion
+    public class ProductosPresentacion : IProductosNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,10 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Productos entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Codigo) ||
-                string.IsNullOrEmpty(entidad.Nombre);
-        }
     }
 }

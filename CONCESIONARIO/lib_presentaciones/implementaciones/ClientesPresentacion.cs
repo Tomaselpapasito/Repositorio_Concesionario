@@ -1,10 +1,9 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class ClientesPresentacion : IClientesPresentacion
+    public class ClientesPresentacion : IClientesNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,13 +72,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Clientes entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Numero_Licencia) ||
-                string.IsNullOrEmpty(entidad.Correo) ||
-                string.IsNullOrEmpty(entidad.Direccion) ||
-                entidad.Persona == 0;
-               
-        }
     }
 }

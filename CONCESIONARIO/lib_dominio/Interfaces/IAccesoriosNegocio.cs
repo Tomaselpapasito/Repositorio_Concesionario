@@ -2,7 +2,7 @@
 
 namespace lib_dominio.Interfaces
 {
-    public interface IAccesoriosNeogocio
+    public interface IAccesoriosNegocio
     {
         Accesorios Insertar(Accesorios entidad);
         Accesorios Actualizar(Accesorios entidad);

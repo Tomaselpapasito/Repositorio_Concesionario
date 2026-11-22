@@ -66,13 +66,5 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        private bool Validar(Empleados entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Carnet) ||
-                entidad.Fecha_Contratacion == default ||
-                entidad.Persona == 0 ||
-                entidad.Persona == 0;
-
-        }
     }
 }

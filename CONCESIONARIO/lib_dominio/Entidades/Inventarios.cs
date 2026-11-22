@@ -10,5 +10,12 @@ namespace lib_dominio.Entidades
         public int Moto { get; set; }
 
         [ForeignKey("Moto")] public Motos? _Moto { get; set; }
+
+        public bool Validar()
+        {
+            return string.IsNullOrEmpty(this.Ubicacion) ||
+                this.Fecha_Ingreso == default ||
+                this.Moto == 0;
+        }
     }
 }

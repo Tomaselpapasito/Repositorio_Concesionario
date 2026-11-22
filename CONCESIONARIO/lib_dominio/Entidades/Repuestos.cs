@@ -11,5 +11,11 @@ namespace lib_dominio.Entidades
         public int Producto { get; set; }
 
         [ForeignKey("Producto")] public Productos? _Producto { get; set; }
+
+        public bool Validar()
+        {
+            return string.IsNullOrEmpty(this.Numero_Parte) ||
+                   this.Producto == 0;
+        }
     }
 }

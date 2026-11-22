@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class AccesoriosAplicacion : IAccesoriosNeogocio
+    public class AccesoriosAplicacion : IAccesoriosNegocio
     {
         private IConexion IConexion;
 

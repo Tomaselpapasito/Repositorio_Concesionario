@@ -1,10 +1,11 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using lib_repositorio.Interfaces;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class ProveedoresAplicacion : IProveedoresAplicacion
+    public class ProveedoresAplicacion : IProveedoresNegocio
     {
         private IConexion IConexion;
 
@@ -63,13 +64,5 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        private bool Validar(Proveedores entidad)
-        {
-            return string.IsNullOrEmpty(entidad.NIT) ||
-                string.IsNullOrEmpty(entidad.Nombre) ||
-                string.IsNullOrEmpty(entidad.Telefono) ||
-                string.IsNullOrEmpty(entidad.Correo) ||
-                string.IsNullOrEmpty(entidad.Direccion);
-        }
     }
 }

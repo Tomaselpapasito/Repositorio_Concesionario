@@ -1,10 +1,10 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
+
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class ComprasPresentacion : IComprasPresentacion
+    public class ComprasPresentacion : IComprasNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,10 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Compras entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Numero_Factura) ||
-                entidad.Proveedor == 0;
-        }
     }
 }

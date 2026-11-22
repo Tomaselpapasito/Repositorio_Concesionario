@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace lib_dominio.Entidades
 {
     public class Empleados
     {
-        public int ID { get; set; }
+        [Key]public int ID { get; set; }
         public string? Carnet { get; set; }
         public DateTime Fecha_Contratacion { get; set; }
         public int Persona { get; set; }
@@ -13,5 +14,14 @@ namespace lib_dominio.Entidades
         [ForeignKey("Persona")] public Usuarios? _Persona { get; set; }
 
         public List<Ventas>? Ventas { get; set; }
+
+        public bool Validar()
+        {
+            return string.IsNullOrEmpty(this.Carnet) ||
+                this.Fecha_Contratacion == default ||
+                this.Persona == 0 ||
+                this.Cargo == 0;
+
+        }
     }
 }

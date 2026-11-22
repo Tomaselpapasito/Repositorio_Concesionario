@@ -1,10 +1,10 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
+ 
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class PagosPresentacion : IPagosPresentacion
+    public class PagosPresentacion : IPagosNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,11 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Pagos entidad)
-        {
-            return entidad.Monto <= 0 ||
-                entidad.Metodo == 0 ||
-                entidad.Venta == 0;
-        }
     }
 }

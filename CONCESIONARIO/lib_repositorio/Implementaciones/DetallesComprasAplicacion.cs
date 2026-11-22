@@ -4,11 +4,11 @@ using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace lib_repositorio.Implementaciones
 {
-    public class DetallesComprasNegocio : IDetallesComprasNegocio
+    public class DetallesComprasAplicacion : IDetallesComprasNegocio
     {
         private IConexion IConexion;
 
-        public DetallesComprasNegocio(IConexion IConexion)
+        public DetallesComprasAplicacion(IConexion IConexion)
         {
             this.IConexion = IConexion;
         }

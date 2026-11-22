@@ -1,10 +1,10 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
+
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class EmpleadosPresentacion : IEmpleadosPresentacion
+    public class EmpleadosPresentacion : IEmpleadosNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,11 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Empleados entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Carnet) ||
-                entidad.Persona == 0 ||
-                entidad.Cargo == 0;
-        }
     }
 }

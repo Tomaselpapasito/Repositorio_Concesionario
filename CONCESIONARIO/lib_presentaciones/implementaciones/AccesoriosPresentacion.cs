@@ -1,5 +1,4 @@
 ﻿using lib_dominio.Entidades;
-
 using lib_dominio.Interfaces;
 
 namespace lib_presentaciones.Implementaciones
@@ -8,12 +7,12 @@ namespace lib_presentaciones.Implementaciones
     {
         private IComunicaciones IComunicaciones;
 
-        public RepuestosPresentacion(IComunicaciones IComunicaciones)
+        public AccesoriosPresentacion(IComunicaciones IComunicaciones)
         {
             this.IComunicaciones = IComunicaciones;
         }
 
-        public Repuestos Actualizar(Repuestos entidad)
+        public Accesorios Actualizar(Accesorios entidad)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
@@ -21,44 +20,44 @@ namespace lib_presentaciones.Implementaciones
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
-            var task = this.IComunicaciones.Ejecutar<Repuestos>(
-                "Repuestos/Actualizar",
+            var task = this.IComunicaciones.Ejecutar<Accesorios>(
+                "Accesorios/Actualizar",
                 entidad);
             task.Wait();
             return task.Result;
         }
 
-        public Repuestos Borrar(Repuestos entidad)
+        public Accesorios Borrar(Accesorios entidad)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
-            var task = this.IComunicaciones.Ejecutar<Repuestos>(
-                "Repuestos/Borrar",
+            var task = this.IComunicaciones.Ejecutar<Accesorios>(
+                "Accesorios/Borrar",
                 entidad);
             task.Wait();
             return task.Result;
         }
 
-        public List<Repuestos> Buscar(Repuestos entidad)
+        public List<Accesorios> Buscar(Accesorios entidad)
         {
-            var task = this.IComunicaciones.Ejecutar<List<Repuestos>>(
-                "Repuestos/Buscar",
+            var task = this.IComunicaciones.Ejecutar<List<Accesorios>>(
+                "Accesorios/Buscar",
                 entidad);
             task.Wait();
             return task.Result;
         }
 
-        public List<Repuestos> Consultar()
+        public List<Accesorios> Consultar()
         {
-            var task = this.IComunicaciones.Ejecutar<List<Repuestos>>(
-                "Repuestos/Consultar",
+            var task = this.IComunicaciones.Ejecutar<List<Accesorios>>(
+                "Accesorios/Consultar",
                 null);
             task.Wait();
             return task.Result;
         }
 
-        public Repuestos Insertar(Repuestos entidad)
+        public Accesorios Insertar(Accesorios entidad)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -66,17 +65,12 @@ namespace lib_presentaciones.Implementaciones
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
-            var task = this.IComunicaciones.Ejecutar<Repuestos>(
-                "Repuestos/Insertar",
+            var task = this.IComunicaciones.Ejecutar<Accesorios>(
+                "Accesorios/Insertar",
                 entidad);
             task.Wait();
             return task.Result;
         }
 
-        private bool Validar(Repuestos entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Numero_Parte) ||
-                entidad.Producto == 0;
-        }
     }
 }
