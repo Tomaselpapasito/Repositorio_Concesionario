@@ -8,6 +8,7 @@ namespace lib_repositorio.Interfaces
     {
         string? StringConexion { get; set; }
         DbSet<Accesorios>? Accesorios { get; set; }
+        DbSet<Auditorias>? Auditorias { get; set; }
         DbSet<Cargos>? Cargos { get; set; }
         DbSet<Clientes>? Clientes { get; set; }
         DbSet<Compras>? Compras { get; set; }
@@ -22,12 +23,13 @@ namespace lib_repositorio.Interfaces
         DbSet<ModelosMotos>? ModelosMotos { get; set; }
         DbSet<Motos>? Motos { get; set; }
         DbSet<Pagos>? Pagos { get; set; }
-        DbSet<Personas>? Personas { get; set; }
+        DbSet<Roles>? Roles { get; set; }
+        DbSet<Permisos>? Permisos { get; set; }
+        DbSet<Usuarios>? Usuarios{ get; set; }
         DbSet<Productos>? Productos { get; set; }
         DbSet<Proveedores>? Proveedores { get; set; }
         DbSet<Repuestos>? Repuestos { get; set; }
         DbSet<Ventas>? Ventas { get; set; }
-
 
         EntityEntry<T> Entry<T>(T entity) where T : class;
         int SaveChanges();

@@ -13,7 +13,7 @@ namespace lib_presentaciones.Implementaciones
             this.IComunicaciones = IComunicaciones;
         }
 
-        public Personas Actualizar(Personas entidad)
+        public Usuarios Actualizar(Usuarios entidad)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
@@ -21,44 +21,44 @@ namespace lib_presentaciones.Implementaciones
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
-            var task = this.IComunicaciones.Ejecutar<Personas>(
+            var task = this.IComunicaciones.Ejecutar<Usuarios>(
                 "Personas/Actualizar",
                 entidad);
             task.Wait();
             return task.Result;
         }
 
-        public Personas Borrar(Personas entidad)
+        public Usuarios Borrar(Usuarios entidad)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
-            var task = this.IComunicaciones.Ejecutar<Personas>(
+            var task = this.IComunicaciones.Ejecutar<Usuarios>(
                 "Personas/Borrar",
                 entidad);
             task.Wait();
             return task.Result;
         }
 
-        public List<Personas> Buscar(Personas entidad)
+        public List<Usuarios> Buscar(Usuarios entidad)
         {
-            var task = this.IComunicaciones.Ejecutar<List<Personas>>(
+            var task = this.IComunicaciones.Ejecutar<List<Usuarios>>(
                 "Personas/Buscar",
                 entidad);
             task.Wait();
             return task.Result;
         }
 
-        public List<Personas> Consultar()
+        public List<Usuarios> Consultar()
         {
-            var task = this.IComunicaciones.Ejecutar<List<Personas>>(
+            var task = this.IComunicaciones.Ejecutar<List<Usuarios>>(
                 "Personas/Consultar",
                 null);
             task.Wait();
             return task.Result;
         }
 
-        public Personas Insertar(Personas entidad)
+        public Usuarios Insertar(Usuarios entidad)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -66,14 +66,14 @@ namespace lib_presentaciones.Implementaciones
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
-            var task = this.IComunicaciones.Ejecutar<Personas>(
+            var task = this.IComunicaciones.Ejecutar<Usuarios>(
                 "Personas/Insertar",
                 entidad);
             task.Wait();
             return task.Result;
         }
 
-        private bool Validar(Personas entidad)
+        private bool Validar(Usuarios entidad)
         {
             return string.IsNullOrEmpty(entidad.Nombre) || 
                 string.IsNullOrEmpty(entidad.Cedula);

@@ -1,20 +1,21 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
+using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class PersonasAplicacion : IPersonasAplicacion
+    public class RolesAplicacion : IRolesNegocio
     {
         private IConexion IConexion;
 
-        public PersonasAplicacion(IConexion IConexion)
+        public RolesAplicacion(IConexion IConexion)
         {
             this.IConexion = IConexion;
         }
 
-        public Personas Actualizar(Personas entidad)
+        public Roles Actualizar(Roles entidad)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
@@ -22,36 +23,37 @@ namespace lib_repositorio.Implementaciones
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
-            var entry = this.IConexion!.Entry<Personas>(entidad);
+            var entry = this.IConexion!.Entry<Roles>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion!.SaveChanges();
             return entidad;
         }
 
-        public Personas Borrar(Personas entidad)
+        public Roles Borrar(Roles entidad)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
-            this.IConexion.Personas!.Remove(entidad!);
+            this.IConexion.Roles!.Remove(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
         }
 
-        public List<Personas> Buscar(Personas entidad)
+        public List<Roles> Buscar(Roles entidad)
         {
-            return this.IConexion.Personas!
-                .Where(x => x.Cedula!.Contains(entidad.Cedula!))
+            return this.IConexion.Roles!
+                .Include (X => X._Usuario)
+                .Where(x => x.Nombre!.Contains(entidad.Nombre!))
                 .ToList();
         }
 
-        public List<Personas> Consultar()
+        public List<Roles> Consultar()
         {
-            return this.IConexion.Personas!
+            return this.IConexion.Roles!
                 .Take(5).ToList();
         }
 
-        public Personas Insertar(Personas entidad)
+        public Roles Insertar(Roles entidad)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -59,16 +61,15 @@ namespace lib_repositorio.Implementaciones
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
-            this.IConexion.Personas!.Add(entidad!);
+            this.IConexion.Roles!.Add(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
         }
-
-        private bool Validar(Personas entidad)
+    
+        private bool Validar(Roles entidad)
         {
             return string.IsNullOrEmpty(entidad.Nombre) ||
-                string.IsNullOrEmpty(entidad.Cedula) ||
-                string.IsNullOrEmpty(entidad.Telefono);
+                entidad.Usuario == 0;
          }
     }
 }

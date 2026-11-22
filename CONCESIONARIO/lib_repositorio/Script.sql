@@ -3,21 +3,36 @@ GO
 USE CONCESIONARIO_DB;
 GO
 
-CREATE TABLE [Auditorias]
-(
-    [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Comentarios] NVARCHAR(MAX) NULL,
-    [Fecha] SMALLDATETIME NOT NULL
-    
-);
-
-CREATE TABLE [Personas]
+CREATE TABLE [Usuarios]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Nombre] NVARCHAR(100) NULL,
     [Cedula] NVARCHAR(50) NULL UNIQUE,
     [Fecha_Nacimiento] SMALLDATETIME NOT NULL,
     [Telefono] NVARCHAR(30) NULL
+);
+
+CREATE TABLE [Auditorias]
+(
+    [ID] INT IDENTITY(1,1) PRIMARY KEY,
+    [Descripcion] NVARCHAR(MAX) NULL,
+    [Fecha] SMALLDATETIME NOT NULL,
+    [Usuario] INT NOT NULL FOREIGN KEY REFERENCES [Usuarios]([ID])
+        
+);
+
+CREATE TABLE [Roles]
+(
+    [ID] INT IDENTITY(1,1) PRIMARY KEY,
+    [Nombre] NVARCHAR(100) NULL,
+    [Usuario] INT NOT NULL FOREIGN KEY REFERENCES [Usuarios]([ID])
+);
+
+CREATE TABLE [Permisos]
+(
+    [ID] INT IDENTITY(1,1) PRIMARY KEY,
+    [Descripcion] NVARCHAR (200) NOT NULL,
+    [Rol] INT NOT NULL FOREIGN KEY REFERENCES [Roles]([ID])
 );
 
 CREATE TABLE [Cargos]
@@ -57,7 +72,7 @@ CREATE TABLE [MetodosPagos]
     [Activo] BIT NOT NULL
 );
 
-CREATE TABLE Servicios
+CREATE TABLE [Servicios]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Nombre] NVARCHAR(100) NULL,
@@ -240,11 +255,11 @@ CREATE TABLE [DetallesCompras]
     [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
 );
 
-    INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono]) ---Cliente
+    INSERT INTO [Usuarios] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono]) ---Cliente
             VALUES ('Arnold Gomez', '123456789', '1990-01-01', '3001234567');
             GO
 
-    INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono]) ----Empleado
+    INSERT INTO [Usuarios] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono]) ----Empleado
             VALUES ('Pablo Gomez', '123453535359', '1990-02-02', '300122323237');
             GO
 

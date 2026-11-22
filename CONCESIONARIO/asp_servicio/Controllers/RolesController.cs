@@ -1,0 +1,48 @@
+using lib_dominio.Entidades;
+using lib_dominio.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+
+namespace asp_servicio.Controllers
+{
+    [ApiController]
+    [Route("[controller]/[action]")]
+    public class RolesController : ControllerBase
+    {
+        private IRolesNegocio IRolesAplicacion;
+
+        public RolesController(IRolesNegocio IRolesAplicacion)
+        {
+            this.IRolesAplicacion = IRolesAplicacion;
+        }
+
+        [HttpPost]
+        public List<Roles> Consultar()
+        {
+            return this.IRolesAplicacion.Consultar();
+        }
+
+        [HttpPost]
+        public List<Roles> Buscar(Roles entidad)
+        {
+            return this.IRolesAplicacion.Buscar(entidad);
+        }
+
+        [HttpPost]
+        public Roles Insertar(Roles entidad)
+        {
+            return this.IRolesAplicacion.Insertar(entidad);
+        }
+
+        [HttpPost]
+        public Roles Actualizar(Roles entidad)
+        {
+            return this.IRolesAplicacion.Actualizar(entidad);
+        }
+
+        [HttpPost]
+        public Roles Borrar(Roles entidad)
+        {
+            return this.IRolesAplicacion.Borrar(entidad);
+        }
+    }
+}

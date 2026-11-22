@@ -10,7 +10,7 @@ namespace lib_dominio.Entidades
         public int Cargo { get; set; }
 
         [ForeignKey("Cargo")] public Cargos? _Cargo { get; set; }
-        [ForeignKey("Persona")] public Personas? _Persona { get; set; }
+        [ForeignKey("Persona")] public Usuarios? _Persona { get; set; }
 
         public List<Ventas>? Ventas { get; set; }
     }
