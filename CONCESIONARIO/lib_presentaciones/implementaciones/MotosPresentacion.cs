@@ -73,11 +73,6 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Motos entidad)
-        {
-            return string.IsNullOrEmpty(entidad.VIN) ||
-                string.IsNullOrEmpty(entidad.Estado) ||
-                entidad.Modelo == 0;
-        }
+        
     }
 }

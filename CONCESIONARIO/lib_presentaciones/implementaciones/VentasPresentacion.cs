@@ -73,10 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Ventas entidad)
-        {
-            return entidad.Cliente == 0 ||
-                entidad.Empleado == 0;
-        }
     }
 }

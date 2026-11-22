@@ -73,10 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Productos entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Codigo) ||
-                string.IsNullOrEmpty(entidad.Nombre);
-        }
     }
 }

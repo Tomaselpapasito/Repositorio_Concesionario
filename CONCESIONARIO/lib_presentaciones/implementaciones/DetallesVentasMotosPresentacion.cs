@@ -72,10 +72,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(DetallesVentasMotos entidad)
-        {
-            return entidad.Moto == 0 ||
-                entidad.Venta == 0;
-        }
     }
 }

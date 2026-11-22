@@ -73,11 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Empleados entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Carnet) ||
-                entidad.Persona == 0 ||
-                entidad.Cargo == 0;
-        }
     }
 }

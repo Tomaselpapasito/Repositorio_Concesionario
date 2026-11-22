@@ -72,13 +72,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Clientes entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Numero_Licencia) ||
-                string.IsNullOrEmpty(entidad.Correo) ||
-                string.IsNullOrEmpty(entidad.Direccion) ||
-                entidad.Persona == 0;
-               
-        }
     }
 }

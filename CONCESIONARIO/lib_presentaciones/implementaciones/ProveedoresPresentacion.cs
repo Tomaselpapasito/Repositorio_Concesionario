@@ -73,10 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Proveedores entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Nombre)||
-                string.IsNullOrEmpty(entidad.NIT);
-        }
     }
 }

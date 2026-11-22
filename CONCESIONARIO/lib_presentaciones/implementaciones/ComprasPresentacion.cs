@@ -73,10 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Compras entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Numero_Factura) ||
-                entidad.Proveedor == 0;
-        }
     }
 }

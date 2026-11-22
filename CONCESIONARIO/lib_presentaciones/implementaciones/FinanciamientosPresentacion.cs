@@ -73,12 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Financiamientos entidad)
-        {
-            return entidad.Monto <= 0 ||
-                entidad.Numero_Cuotas <= 0 ||
-                string.IsNullOrEmpty(entidad.Estado) ||
-                entidad.Venta == 0;
-        }
     }
 }

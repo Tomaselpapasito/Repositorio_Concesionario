@@ -72,11 +72,6 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(DetallesCompras entidad)
-        {
-            return entidad.Cantidad <= 0 ||
-                entidad.Compra == 0 ||
-                entidad.Producto == 0;
-        }
+   
     }
 }
