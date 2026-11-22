@@ -126,7 +126,7 @@ CREATE TABLE [Repuestos]
     [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
 );
 
-CREATE TABLE [Accesorios]
+CREATE TABLE [Cargos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Nombre] NVARCHAR(100) NULL,
@@ -285,7 +285,7 @@ CREATE TABLE [DetallesCompras]
     INSERT INTO [Repuestos] ([Numero_Parte], [Descripcion], [Fecha_Modificacion], [Producto])
         VALUES ('REP-001', 'Filtro de aceite para motocicleta', '2026-10-01', 1);
 
-    INSERT INTO [Accesorios] ([Nombre], [Categoria], [Marca], [Producto])
+    INSERT INTO [Cargos] ([Nombre], [Categoria], [Marca], [Producto])
         VALUES ('Protector de tanque', 'Protección', 'Yamaha', 1);
 
     INSERT INTO [Empleados] ([Carnet], [Fecha_Contratacion], [Persona], [Cargo])

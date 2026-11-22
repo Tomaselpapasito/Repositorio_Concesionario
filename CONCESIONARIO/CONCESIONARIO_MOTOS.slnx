@@ -3,7 +3,10 @@
     <Project Path="cns_presentacion/cns_presentacion.csproj" Id="83b84d79-4362-49c0-8a1d-d48375c4ec4a" />
     <Project Path="lib_presentaciones/lib_presentaciones.csproj" Id="1404c800-8296-4f96-b0bf-1f2d54042f29" />
   </Folder>
-  <Folder Name="/2.Servicios/" />
+  <Folder Name="/2.Servicios/">
+    <Project Path="asp_front/asp_front.csproj" Id="36390432-9954-4861-8e2a-f29b3bcb1bbf" />
+    <Project Path="asp_servicio/asp_servicio.csproj" Id="a1c33098-4c82-4121-b5ca-43ad21f165b6" />
+  </Folder>
   <Folder Name="/3. Nucleo/">
     <Project Path="lib_dominio/lib_dominio.csproj" />
   </Folder>
