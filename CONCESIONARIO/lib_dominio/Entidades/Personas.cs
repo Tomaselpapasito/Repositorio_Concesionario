@@ -9,5 +9,12 @@ namespace lib_dominio.Entidades
         public string? Cedula { get; set; }
         public DateTime Fecha_Nacimiento { get; set; }
         public string? Telefono { get; set; }
+
+        public bool Validar()
+        {
+            return string.IsNullOrEmpty(this.Nombre) ||
+                string.IsNullOrEmpty(this.Cedula) ||
+                string.IsNullOrEmpty(this.Telefono);
+        }
     }
 }

@@ -66,13 +66,5 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        private bool Validar(Financiamientos entidad)
-        {
-            return 
-                entidad.Monto < 0           ||
-                entidad.Numero_Cuotas <= 0  ||
-                entidad.Tasa_Interes < 0    ||
-                entidad.Venta == 0;
-         }
     }
 }

@@ -17,6 +17,16 @@ namespace lib_dominio.Entidades
         [NotMapped]public List<Pagos>? Pagos { get; set; }
         [NotMapped] public List<DetallesVentasMotos>? DetallesVentasMotos { get; set; }
         [NotMapped] public List<DetallesVentasProductos>? DetallesVentasProductos { get; set; }
+
+        public bool Validar()
+        {
+            return
+                this.Fecha_Venta == default ||
+                this.Impuestos <= 0 ||
+                this.Total < 0 ||
+                this.Cliente == 0 ||
+                this.Empleado == 0;
+        }
     }
 
 }

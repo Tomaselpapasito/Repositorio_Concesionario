@@ -1,11 +1,11 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
+using lib_repositorio.Interfaces;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class ProductosAplicacion : IProductosAplicacion
+    public class ProductosAplicacion : IProductosNegocio
     {
         private IConexion IConexion;
 
@@ -64,11 +64,5 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        private bool Validar(Productos entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Codigo) ||
-                string.IsNullOrEmpty(entidad.Nombre) ||
-                entidad.Precio <= 0;
-         }
     }
 }

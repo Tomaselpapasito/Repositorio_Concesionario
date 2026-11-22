@@ -1,10 +1,9 @@
-﻿using lib_dominio.E;
+﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class CuotasPresentacion : ICuotasPresentacion
+    public class CuotasPresentacion : ICuotasNegocio
     {
         private IComunicaciones IComunicaciones;
 

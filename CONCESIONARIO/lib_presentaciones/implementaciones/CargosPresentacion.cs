@@ -1,16 +1,26 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
+
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class CargosPresentacion : ICargosPresentacion
+    public class CargosPresentacion : ICargosNegocio
     {
         private IComunicaciones IComunicaciones;
 
         public CargosPresentacion(IComunicaciones IComunicaciones)
         {
             this.IComunicaciones = IComunicaciones;
+        }
+
+        public Cargos Actualizar(Cargos entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Cargos Borrar(Cargos entidad)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Cargos> Buscar(Cargos entidad)
@@ -31,6 +41,9 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-
+        public Cargos Insertar(Cargos entidad)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

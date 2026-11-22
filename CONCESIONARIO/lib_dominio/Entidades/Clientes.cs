@@ -14,7 +14,7 @@ namespace lib_dominio.Entidades
         [ForeignKey("Persona")] public Personas? _Persona { get; set; }
 
         [NotMapped]public List<Ventas>? Ventas { get; set; }
-        [NotMapped]public List<OrdenesServicios>? OrdenesServicios { get; set; }
+
 
         public bool Validar( )
         {

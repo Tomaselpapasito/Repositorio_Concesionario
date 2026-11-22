@@ -1,10 +1,10 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
+
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class MotosPresentacion : IMotosPresentacion
+    public class MotosPresentacion : IMotosNegocio
     {
         private IComunicaciones IComunicaciones;
 

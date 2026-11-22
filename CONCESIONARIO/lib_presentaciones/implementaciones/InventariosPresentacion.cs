@@ -1,10 +1,10 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
+
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class InventariosPresentacion : IInventariosPresentacion
+    public class InventariosPresentacion : IInventariosNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -73,10 +73,5 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Inventarios entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Ubicacion) ||
-                entidad.Moto == 0;
-        }
     }
 }

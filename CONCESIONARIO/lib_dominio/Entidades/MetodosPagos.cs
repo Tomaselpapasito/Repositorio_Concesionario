@@ -12,5 +12,12 @@ namespace lib_dominio.Entidades
         public bool Activo { get; set; }
 
         [NotMapped]public List<Pagos>? Pagos { get; set; }
+
+        public bool Validar()
+        {
+            return string.IsNullOrEmpty(this.Nombre) ||
+                string.IsNullOrEmpty(this.Tipo) ||
+                string.IsNullOrEmpty(this.Descripcion);
+        }
     }
 }

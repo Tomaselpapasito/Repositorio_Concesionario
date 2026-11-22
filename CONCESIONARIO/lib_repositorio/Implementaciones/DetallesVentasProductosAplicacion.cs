@@ -66,14 +66,5 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        private bool Validar(DetallesVentasProductos entidad)
-        {
-            return entidad.Precio_Unitario <= 0 ||
-                entidad.Descuento < 0 ||
-                entidad.Subtotal <= 0 ||
-                entidad.Cantidad < 0 ||
-                entidad.Venta == 0 ||
-                entidad.Producto == 0;
-         }
     }
 }

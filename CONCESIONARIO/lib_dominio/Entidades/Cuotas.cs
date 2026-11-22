@@ -12,5 +12,12 @@ namespace lib_dominio.Entidades
         public int Financiamiento { get; set; }
 
         [ForeignKey("Financiamiento")] public Financiamientos? _Financiamiento { get; set; }
+
+        public bool Validar()
+        {
+            return this.Numero_cuota <= 0 ||
+                this.Monto <= 0 ||
+                this.Financiamiento == 0;
+        }
     }
 }

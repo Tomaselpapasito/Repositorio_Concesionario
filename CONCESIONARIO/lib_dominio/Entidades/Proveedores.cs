@@ -13,5 +13,14 @@ namespace lib_dominio.Entidades
         public string? Direccion { get; set; }
 
         [NotMapped]public List<Compras>? Compras { get; set; }
+
+        public bool Validar()
+        {
+            return string.IsNullOrEmpty(this.NIT) ||
+                string.IsNullOrEmpty(this.Nombre) ||
+                string.IsNullOrEmpty(this.Telefono) ||
+                string.IsNullOrEmpty(this.Correo) ||
+                string.IsNullOrEmpty(this.Direccion);
+        }
     }
 }

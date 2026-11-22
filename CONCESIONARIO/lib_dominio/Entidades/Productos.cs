@@ -16,5 +16,12 @@ namespace lib_dominio.Entidades
 
         [NotMapped]public List<DetallesCompras>? DetallesCompras { get; set; }
         [NotMapped]public List<DetallesVentasProductos>? DetallesVentasProductos { get; set; }
+
+        public bool Validar()
+        {
+            return string.IsNullOrEmpty(this.Codigo) ||
+                string.IsNullOrEmpty(this.Nombre) ||
+                this.Precio <= 0;
+        }
     }
 }

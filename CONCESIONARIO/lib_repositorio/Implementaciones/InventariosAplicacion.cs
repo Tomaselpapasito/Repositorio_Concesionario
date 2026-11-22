@@ -1,11 +1,11 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
+using lib_repositorio.Interfaces;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class InventariosAplicacion : IInventariosAplicacion
+    public class InventariosAplicacion : IInventariosNegocio
     {
         private IConexion IConexion;
 
@@ -65,11 +65,5 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        private bool Validar(Inventarios entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Ubicacion) ||
-                entidad.Fecha_Ingreso == default ||
-                entidad.Moto == 0;
-         }
     }
 }

@@ -1,36 +1,32 @@
-using lib_dominio.Implementaciones;
+using lib_repositorio.Implementaciones;
+using lib_repositorio.Interfaces;
 using lib_dominio.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IConexion,Conexion>();
-builder.Services.AddScoped<IAccesoriosAplicacion,AccesoriosAplicacion>();
-builder.Services.AddScoped<ICargosAplicacion,CargosAplicacion>();
-builder.Services.AddScoped<IClientesAplicacion,ClientesAplicacion>();
-builder.Services.AddScoped<IComprasAplicacion,ComprasAplicacion>();
-builder.Services.AddScoped<ICuotasAplicacion,CuotasAplicacion>();
-builder.Services.AddScoped<IDetallesComprasAplicacion,DetallesComprasAplicacion>();
-builder.Services.AddScoped<IDetallesServiciosAplicacion,DetallesServiciosAplicacion>();
-builder.Services.AddScoped<IDetallesVentasMotosAplicacion,DetallesVentasMotosAplicacion>();
-builder.Services.AddScoped<IDetallesVentasProductosAplicacion,DetallesVentasProductosAplicacion>();
-builder.Services.AddScoped<IEmpleadosAplicacion,EmpleadosAplicacion>();
-builder.Services.AddScoped<IFinanciamientosAplicacion,FinanciamientosAplicacion >();
-builder.Services.AddScoped<IInventariosAplicacion,InventariosAplicacion>();
-builder.Services.AddScoped<IMetodosPagosAplicacion,MetodosPagosAplicacion>();
-builder.Services.AddScoped<IModelosMotosAplicacion,ModelosMotosAplicacion>();
-builder.Services.AddScoped<IMotosAplicacion,MotosAplicacion>();
-builder.Services.AddScoped<IOrdenesServiciosAplicacion,OrdenesServiciosAplicacion>();
-builder.Services.AddScoped<IPagosAplicacion,PagosAplicacion>();
-builder.Services.AddScoped<IPersonasAplicacion,PersonasAplicacion>();
-builder.Services.AddScoped<IProductosAplicacion,ProductosAplicacion>();
-builder.Services.AddScoped<IProveedoresAplicacion,ProveedoresAplicacion>();
-builder.Services.AddScoped<IRepuestosAplicacion,RepuestosAplicacion>();
-builder.Services.AddScoped<IServiciosAplicacion,ServiciosAplicacion>();
-builder.Services.AddScoped<IVentasAplicacion,VentasAplicacion>();
+builder.Services.AddScoped<IAccesoriosNegocio,AccesoriosAplicacion>();
+builder.Services.AddScoped<ICargosNegocio, CargosAplicacion>();
+builder.Services.AddScoped<IClientesNegocio, ClientesAplicacion>();
+builder.Services.AddScoped<IComprasNegocio, ComprasAplicacion>();
+builder.Services.AddScoped<ICuotasNegocio, CuotasAplicacion>();
+builder.Services.AddScoped<IDetallesComprasNegocio,DetallesComprasAplicacion>();
+builder.Services.AddScoped<IDetallesVentasMotosNegocio,DetallesVentasMotosAplicacion>();
+builder.Services.AddScoped<IDetallesVentasProductosNegocio, DetallesVentasProductosAplicacion>();
+builder.Services.AddScoped<IEmpleadosNegocio, EmpleadosAplicacion>();
+builder.Services.AddScoped<IFinanciamientosNegocio, FinanciamientosAplicacion >();
+builder.Services.AddScoped<IInventariosNegocio,InventariosAplicacion>();
+builder.Services.AddScoped<IMetodosPagosNegocio, MetodosPagosAplicacion>();
+builder.Services.AddScoped<IModelosMotosNegocio, ModelosMotosAplicacion>();
+builder.Services.AddScoped<IMotosNegocio, MotosAplicacion>();
+builder.Services.AddScoped<IPagosNegocio, PagosAplicacion>();
+builder.Services.AddScoped<IPersonasNegocio, PersonasAplicacion>();
+builder.Services.AddScoped<IProductosNegocio, ProductosAplicacion>();
+builder.Services.AddScoped<IProveedoresNegocio, ProveedoresAplicacion>();
+builder.Services.AddScoped<IRepuestosNegocio, RepuestosAplicacion>();
+builder.Services.AddScoped<IVentasNegocio, VentasAplicacion>();
 
 
 var app = builder.Build();

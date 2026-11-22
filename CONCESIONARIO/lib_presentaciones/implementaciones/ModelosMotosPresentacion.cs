@@ -1,16 +1,25 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_presentaciones.interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class ModelosMotosPresentacion : IModelosMotosPresentacion
+    public class ModelosMotosPresentacion : IModelosMotosNegocio
     {
         private IComunicaciones IComunicaciones;
 
         public ModelosMotosPresentacion(IComunicaciones IComunicaciones)
         {
             this.IComunicaciones = IComunicaciones;
+        }
+
+        public ModelosMotos Actualizar(ModelosMotos entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ModelosMotos Borrar(ModelosMotos entidad)
+        {
+            throw new NotImplementedException();
         }
 
         public List<ModelosMotos> Buscar(ModelosMotos entidad)
@@ -31,6 +40,9 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-
+        public ModelosMotos Insertar(ModelosMotos entidad)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

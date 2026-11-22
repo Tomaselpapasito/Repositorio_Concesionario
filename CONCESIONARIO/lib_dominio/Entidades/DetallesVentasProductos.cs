@@ -14,5 +14,15 @@ namespace lib_dominio.Entidades
 
         [ForeignKey("Venta")] public Ventas? _Venta { get; set; }
         [ForeignKey("Producto")] public Productos? _Producto { get; set; }
+
+        public bool Validar()
+        {
+            return this.Precio_Unitario <= 0 ||
+                this.Descuento < 0 ||
+                this.Subtotal <= 0 ||
+                this.Cantidad < 0 ||
+                this.Venta == 0 ||
+                this.Producto == 0;
+        }
     }
 }

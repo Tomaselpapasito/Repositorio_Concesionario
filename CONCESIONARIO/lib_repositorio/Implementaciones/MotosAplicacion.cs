@@ -1,11 +1,11 @@
 ﻿using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
+using lib_repositorio.Interfaces;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class MotosAplicacion : IMotosAplicacion
+    public class MotosAplicacion : IMotosNegocio
     {
         private IConexion IConexion;
 
@@ -65,13 +65,5 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        private bool Validar(Motos entidad)
-        {
-            return string.IsNullOrEmpty(entidad.VIN) ||
-                string.IsNullOrEmpty(entidad.Numero_Motor) ||
-                entidad.Anio <= 0 ||
-                string.IsNullOrEmpty(entidad.Estado) ||
-                entidad.Modelo == 0;
-         }
     }
 }
