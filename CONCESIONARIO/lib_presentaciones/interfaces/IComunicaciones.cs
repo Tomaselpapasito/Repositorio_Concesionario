@@ -1,4 +1,4 @@
-﻿namespace lib_presentaciones.interfaces
+﻿namespace lib_presentaciones.Interfaces
 {
     public interface IComunicaciones
     {

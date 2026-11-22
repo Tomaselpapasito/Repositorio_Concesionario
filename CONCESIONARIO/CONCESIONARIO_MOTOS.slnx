@@ -10,7 +10,10 @@
   <Folder Name="/3. Nucleo/">
     <Project Path="lib_dominio/lib_dominio.csproj" />
   </Folder>
-  <Folder Name="/4. Pruebas Unitarias/">
+  <Folder Name="/4. Repositoio/">
+    <Project Path="lib_repositorio/lib_repositorio.csproj" Id="16a85f2e-134c-4dd8-bb3c-802aa208f22b" />
+  </Folder>
+  <Folder Name="/5. Pruebas Unitarias/">
     <Project Path="mst_PruebasUnitarias/mst_PruebasUnitarias.csproj" Id="9d8b3426-312d-4510-8813-998c89a5a405" />
   </Folder>
 </Solution>

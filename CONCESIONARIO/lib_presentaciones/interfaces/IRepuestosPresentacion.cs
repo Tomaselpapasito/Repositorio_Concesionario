@@ -1,4 +1,4 @@
-﻿using lib_dominio.entidades;
+﻿using lib_dominio.Entidades;
 
 namespace lib_presentaciones.interfaces
 {

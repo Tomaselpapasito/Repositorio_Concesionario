@@ -1,5 +1,5 @@
-﻿using lib_dominio.implementaciones;
-using lib_dominio.interfaces;
+﻿using lib_dominio.Implementaciones;
+using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.EntityFrameworkCore;
 using static System.Net.Mime.MediaTypeNames;

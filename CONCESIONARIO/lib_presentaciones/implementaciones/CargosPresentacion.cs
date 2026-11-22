@@ -1,8 +1,8 @@
-﻿using lib_dominio.entidades;
-using lib_dominio.interfaces;
+﻿using lib_dominio.Entidades;
+using lib_dominio.Interfaces;
 using lib_presentaciones.interfaces;
 
-namespace lib_presentaciones.implementaciones
+namespace lib_presentaciones.Implementaciones
 {
     public class CargosPresentacion : ICargosPresentacion
     {

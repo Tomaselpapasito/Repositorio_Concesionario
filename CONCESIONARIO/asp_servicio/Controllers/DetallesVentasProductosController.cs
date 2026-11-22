@@ -1,5 +1,5 @@
-using lib_dominio.entidades;
-using lib_dominio.interfaces;
+using lib_dominio.Entidades;
+using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace asp_servicio.Controllers

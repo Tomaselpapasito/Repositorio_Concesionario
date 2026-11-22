@@ -1,10 +1,10 @@
-﻿using lib_dominio.entidades;
-using lib_dominio.interfaces;
-using lib_presentaciones.interfaces;
+﻿using lib_dominio.Entidades;
 
-namespace lib_presentaciones.implementaciones
+using lib_dominio.Interfaces;
+
+namespace lib_presentaciones.Implementaciones
 {
-    public class RepuestosPresentacion : IRepuestosPresentacion
+    public class AccesoriosPresentacion : IAccesoriosNegocio
     {
         private IComunicaciones IComunicaciones;
 
@@ -18,7 +18,7 @@ namespace lib_presentaciones.implementaciones
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
-            if (Validar(entidad))
+            if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Repuestos>(
@@ -63,7 +63,7 @@ namespace lib_presentaciones.implementaciones
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
 
-            if (Validar(entidad))
+            if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Repuestos>(

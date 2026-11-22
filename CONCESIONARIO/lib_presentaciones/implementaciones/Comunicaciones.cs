@@ -1,8 +1,8 @@
-﻿using lib_presentaciones.interfaces;
+﻿using lib_dominio.Interfaces;
 using Newtonsoft.Json;
 using System.Text;
 
-namespace lib_presentaciones.implementaciones
+namespace lib_presentaciones.Implementaciones
 {
     public class Comunicaciones : IComunicaciones
     {

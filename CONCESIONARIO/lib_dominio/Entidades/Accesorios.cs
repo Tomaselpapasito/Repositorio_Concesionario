@@ -1,13 +1,27 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Accesorios 
+namespace lib_dominio.Entidades
 {
-    [Key]public int ID { get; set; }
-    public string? Nombre { get; set; }
-    public string? Categoria { get; set; }
-    public string? Marca { get; set; }
-    public int Producto { get; set; }
+    public class Accesorios
+    {
+        [Key] public int ID { get; set; }
+        public string? Nombre { get; set; }
+        public string? Categoria { get; set; }
+        public string? Marca { get; set; }
+        public int Producto { get; set; }
+        [ForeignKey("Producto")] public Productos? _Producto { get; set; }
 
-    [ForeignKey("Producto")] public Productos? _Producto { get; set; }
+        public bool Validar( )
+        {
+            return string.IsNullOrEmpty(this.Nombre) ||
+                string.IsNullOrEmpty(this.Categoria) ||
+                string.IsNullOrEmpty(this.Marca) ||
+                this.Producto == 0;
+        }
+
+
+
+    }
+
 }
