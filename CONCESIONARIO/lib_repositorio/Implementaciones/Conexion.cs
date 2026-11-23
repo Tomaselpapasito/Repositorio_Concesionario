@@ -37,7 +37,6 @@ namespace lib_repositorio.Implementaciones
         public DbSet<Usuarios>? Usuarios { get; set; }
         public DbSet<Ventas>? Ventas { get; set; }
 
-        public DbSet<Auditorias>? Auditorias { get; set; }
         public DbSet<Roles>? Roles { get; set; }
         public DbSet<Permisos>? Permisos { get; set; }
 

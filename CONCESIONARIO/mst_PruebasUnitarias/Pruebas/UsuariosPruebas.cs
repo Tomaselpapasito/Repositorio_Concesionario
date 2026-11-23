@@ -32,7 +32,8 @@ namespace mst_PruebasUnitarias.Pruebas
         {
             this.entidad = new Usuarios()
             {
-                NomUsuario = "Prueba",
+                NombreUsuario = "Prueba",
+                Correo = "Prueba",
                 Contraseña = "ContraseñaPrueba",
                 
             };
@@ -49,7 +50,7 @@ namespace mst_PruebasUnitarias.Pruebas
 
         private void Actualizar()
         {
-            this.entidad!.NomUsuario = "0000000000";
+            this.entidad!.NombreUsuario = "0000000000";
 
             var entry = this.conexion!.Entry<Usuarios>(this.entidad);
             entry.State = EntityState.Modified;
