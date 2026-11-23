@@ -2,8 +2,6 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
-using lib_presentaciones.Implementaciones;
-using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -21,7 +19,7 @@ namespace asp_front.Pages
         public bool EstaLogueado = false;
 
         [BindProperty]
-        public string? Email { get; set; }
+        public string? NombreUsuario { get; set; }
 
         [BindProperty]
         public string? Contraseña { get; set; }
@@ -41,7 +39,7 @@ namespace asp_front.Pages
         {
             try
             {
-                Email = string.Empty;
+                NombreUsuario = string.Empty;
                 Contraseña = string.Empty;
             }
             catch (Exception ex)
@@ -54,7 +52,7 @@ namespace asp_front.Pages
         {
             try
             {
-                if (string.IsNullOrEmpty(Email) ||
+                if (string.IsNullOrEmpty(NombreUsuario) ||
                     string.IsNullOrEmpty(Contraseña))
                 {
                     OnPostBtClean();
@@ -63,7 +61,7 @@ namespace asp_front.Pages
 
                 Usuarios usuario = new Usuarios
                 {
-                    NombreUsuario = Email,
+                    NombreUsuario = NombreUsuario,
                     Contraseña = Contraseña
                 };
 
@@ -75,7 +73,7 @@ namespace asp_front.Pages
                     return;
                 }
 
-                HttpContext.Session.SetString("Usuario", Email!);
+                HttpContext.Session.SetString("Usuario", NombreUsuario!);
                 EstaLogueado = true;
                 OnPostBtClean();
             }
