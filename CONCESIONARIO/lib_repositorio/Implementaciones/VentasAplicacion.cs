@@ -50,7 +50,8 @@ namespace lib_repositorio.Implementaciones
         public List<Ventas> Consultar()
         {
             return this.IConexion.Ventas!
-                .Take(5).ToList();
+                .OrderByDescending(x => x.Fecha_Venta)
+                .ToList();
         }
 
         public Ventas Insertar(Ventas entidad)

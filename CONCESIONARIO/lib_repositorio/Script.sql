@@ -376,3 +376,4 @@ GO
 INSERT INTO [DetallesCompras] ([Cantidad], [Precio_Unitario], [Descuento], [Subtotal], [Compra], [Producto])
 VALUES (20, 65000.00, 0.00, 1300000.00, 1, 1);
 GO
+*/

@@ -1,0 +1,99 @@
+﻿@page
+@model asp_front.Pages.Ventanas.FacturasModel
+
+@{
+    ViewData["Title"] = "Generar facturas";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Generación de facturas</h2>
+
+    <p>
+        Seleccione una venta para generar su factura en formato PDF.
+    </p>
+
+    @if (Model.Ventas == null || Model.Ventas.Count == 0)
+    {
+        <div class="alert alert-info">
+            No hay ventas registradas.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID Venta</th>
+                        <th>Fecha</th>
+                        <th>Impuestos</th>
+                        <th>Total</th>
+                        <th>Factura</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var venta in Model.Ventas)
+                    {
+                        <tr>
+
+                            <td>
+                                @venta.ID
+                            </td>
+
+                            <td>
+                                @venta.Fecha_Venta.ToString("dd/MM/yyyy")
+                            </td>
+
+                            <td>
+                                @venta.Impuestos.ToString(
+                                    "C",
+                                    new System.Globalization.CultureInfo("es-CO")
+                                )
+                            </td>
+
+                            <td>
+                                @venta.Total.ToString(
+                                    "C",
+                                    new System.Globalization.CultureInfo("es-CO")
+                                )
+                            </td>
+
+                            <td>
+
+                                <form method="post"
+                                      asp-page-handler="GenerarPdf"
+                                      target="_blank">
+
+                                    <input type="hidden"
+                                           name="ventaId"
+                                           value="@venta.ID" />
+
+                                    <button type="submit"
+                                            class="btn btn-primary">
+
+                                        <i class="bi bi-file-earmark-pdf"></i>
+
+                                        Generar PDF
+
+                                    </button>
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

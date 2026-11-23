@@ -2,10 +2,12 @@
 using lib_dominio.Interfaces;
 using lib_presentaciones.Implementaciones;
 using lib_presentaciones.Interfaces;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+QuestPDF.Settings.License = LicenseType.Community;
 
 builder.Services.AddDistributedMemoryCache();
 
