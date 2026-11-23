@@ -2,6 +2,7 @@ using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_front.Pages.Modulos
@@ -10,6 +11,14 @@ namespace asp_front.Pages.Modulos
     {
         private IMotosNegocio IMotosAplicacion;
 
+
+        public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
+        {
+            if (HttpContext.Session.GetInt32("UsuarioID") == null)
+            {
+                context.Result = new RedirectToPageResult("/Login");
+            }
+        }
         public MotosModel(IMotosNegocio IMotosAplicacion)
         {
             this.IMotosAplicacion = IMotosAplicacion;

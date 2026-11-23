@@ -49,6 +49,11 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
+        public Accesorios BuscarPorProducto(int producto)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Accesorios> Consultar()
         {
             var task = this.IComunicaciones.Ejecutar<List<Accesorios>>(
@@ -56,6 +61,16 @@ namespace lib_presentaciones.Implementaciones
                 null!);
             task.Wait();
             return task.Result;
+        }
+
+        public List<Accesorios> ConsultarAccesoriosDisponibles()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Accesorios> ConsultarAccesoriosPorPrecio(decimal precio)
+        {
+            throw new NotImplementedException();
         }
 
         public Accesorios Insertar(Accesorios entidad)

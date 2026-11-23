@@ -6,7 +6,6 @@
     ViewData["Title"] = "Usuarios";
 
     var totalUsuarios = Model.Lista?.Count ?? 0;
-    var conCorreo = Model.Lista?.Count(x => !string.IsNullOrEmpty(x.Correo)) ?? 0;
     var conNombre = Model.Lista?.Count(x => !string.IsNullOrEmpty(x.NombreUsuario)) ?? 0;
 }
 
@@ -201,9 +200,9 @@
 
             <div class="col-md-4">
                 <div class="usuarios-card">
-                    <p>Con correo registrado</p>
-                    <h2 style="color:#16834a">@conCorreo</h2>
-                    <small>Usuarios con correo asociado</small>
+                    <p>Con Nombre registrado</p>
+                    <h2 style="color:#16834a">@conNombre</h2>
+                    <small>Usuarios con nombre asociado</small>
                 </div>
             </div>
 
@@ -229,8 +228,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <input placeholder="Buscar por correo"
-                           asp-for="@Model.Filtro!.Correo" />
+                    <input placeholder="Buscar por Nombre"
+                           asp-for="@Model.Filtro!.NombreUsuario" />
                 </div>
 
                 <div class="col-md-4">
@@ -270,13 +269,6 @@
                         <label>Nombre de usuario</label>
                         <input asp-for="@Model.Actual!.NombreUsuario"
                                placeholder="Nombre de usuario" />
-                    </div>
-
-                    <div class="col-md-6">
-                        <label>Correo electrónico</label>
-                        <input asp-for="@Model.Actual!.Correo"
-                               type="email"
-                               placeholder="correo@ejemplo.com" />
                     </div>
 
                     <div class="col-md-6">
@@ -321,7 +313,7 @@
                     <p>
                         <strong>@Model.Actual!.NombreUsuario</strong>
                         <br />
-                        @Model.Actual.Correo
+                        @Model.Actual.NombreUsuario
                     </p>
 
                     <input type="submit"
@@ -354,7 +346,6 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre de usuario</th>
-                            <th>Correo electrónico</th>
                             <th>Contraseña</th>
                             <th>Acciones</th>
                         </tr>
@@ -376,7 +367,7 @@
                                         </span>
                                     </td>
 
-                                    <td>@elemento.Correo</td>
+                                    <td>@elemento.NombreUsuario</td>
 
                                     <td>••••••••</td>
 

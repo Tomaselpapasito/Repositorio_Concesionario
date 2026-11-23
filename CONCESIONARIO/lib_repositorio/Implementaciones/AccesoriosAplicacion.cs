@@ -46,10 +46,29 @@ namespace lib_repositorio.Implementaciones
                 .ToList();
         }
 
+        public Accesorios BuscarPorProducto(int producto)
+        {
+            if (!this.IConexion.Productos!.Any(x => x.ID == producto))
+                throw new Exception("Producto no existe");
+            return this.IConexion.Accesorios.Include(x => x._Producto).FirstOrDefault(x => x.Producto == x.Producto);
+        }
+
         public List<Accesorios> Consultar()
         {
             return this.IConexion.Accesorios!
                 .Take(5).ToList();
+        }
+
+        public List<Accesorios> ConsultarAccesoriosDisponibles()
+        {
+            return this.IConexion.Accesorios!.Include(x=> x._Producto)
+                .Where(x => x._Producto!.Activo == true)
+                .ToList();
+        }
+
+        public List<Accesorios> ConsultarAccesoriosPorPrecio(decimal precio)
+        {
+            return this.IConexion.Accesorios!.Include(x => x._Producto).Where(x => x._Producto!.Precio == precio).ToList();
         }
 
         public Accesorios Insertar(Accesorios entidad)

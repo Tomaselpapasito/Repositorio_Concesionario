@@ -40,13 +40,18 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public Clientes Buscar(Clientes entidad)
         {
-            var task = this.IComunicaciones.Ejecutar<List<Clientes>>(
+            var task = this.IComunicaciones.Ejecutar<Clientes>(
                 "Clientes/Buscar",
                 entidad);
             task.Wait();
             return task.Result;
+        }
+
+        public Clientes BuscarPorVenta(int compra)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Clientes> Consultar()
@@ -73,5 +78,9 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
+        Clientes IClientesNegocio.Buscar(Clientes entidad)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

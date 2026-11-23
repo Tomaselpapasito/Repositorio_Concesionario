@@ -7,7 +7,10 @@ namespace lib_dominio.Interfaces
         Proveedores Insertar(Proveedores entidad);
         Proveedores Actualizar(Proveedores entidad);
         List<Proveedores> Consultar();
-        List<Proveedores> Buscar(Proveedores entidad);
+        List<Proveedores> BuscarPorNombre(Proveedores entidad);
         Proveedores Borrar(Proveedores entidad);
+        Proveedores BuscarPorNIT(Proveedores entidad);
+        List<Proveedores> ConsultarProveedoresActivos();
+        List<Compras> ConsultarCompras(Proveedores entidad);
     }
 }

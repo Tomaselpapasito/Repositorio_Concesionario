@@ -24,7 +24,7 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public List<Proveedores> Buscar(Proveedores entidad)
         {
-            return this.IProveedoresAplicacion.Buscar(entidad);
+            return this.IProveedoresAplicacion.BuscarPorNombre(entidad);
         }
 
         [HttpPost]

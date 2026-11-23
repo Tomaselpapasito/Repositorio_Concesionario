@@ -33,7 +33,7 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 Filtro!.NombreUsuario = Filtro.NombreUsuario ?? "";
-                Filtro.Correo = Filtro.Correo ?? "";
+                Filtro.NombreUsuario = Filtro.NombreUsuario ?? "";
 
                 Lista = IUsuariosAplicacion.Buscar(Filtro!);
             }

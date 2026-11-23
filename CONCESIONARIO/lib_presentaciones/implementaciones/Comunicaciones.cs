@@ -1,6 +1,5 @@
-﻿using lib_dominio.Interfaces;
+﻿
 using lib_presentaciones.Interfaces;
-
 using Newtonsoft.Json;
 using System.Text;
 
@@ -13,45 +12,25 @@ namespace lib_presentaciones.Implementaciones
             url = "http://localhost:5146/" + url;
 
             var body = new StringContent(
-                JsonConvert.SerializeObject(entidad), 
-                Encoding.UTF8, "application/json");
+                JsonConvert.SerializeObject(entidad),
+                Encoding.UTF8,
+                "application/json"
+            );
 
-            var cliente_http = new HttpClient();
+            using var cliente_http = new HttpClient();
+
             cliente_http.Timeout = new TimeSpan(0, 4, 0);
 
             var message = await cliente_http.PostAsync(url, body);
 
-            if (!message.IsSuccessStatusCode)
-                throw new Exception("Error Comunicacion");
-
             var respuesta = await message.Content.ReadAsStringAsync();
-            cliente_http.Dispose(); 
-            cliente_http = null;
 
-            respuesta = Replace(respuesta);
+            if (!message.IsSuccessStatusCode)
+                throw new Exception(
+                    $"Error de comunicación: {(int)message.StatusCode} - {respuesta}"
+                );
+
             return JsonConvert.DeserializeObject<T>(respuesta)!;
-        }
-
-        private string Replace(string resp)
-        {
-            return resp.Replace("\\\\r\\\\n", "")
-                .Replace("\\r\\n", "")
-                .Replace("\\", "")
-                .Replace("\\\"", "\"")
-                .Replace("\"", "'")
-                .Replace("'[", "[")
-                .Replace("]'", "]")
-                .Replace("'{'", "{'")
-                .Replace("\\\\", "\\")
-                .Replace("'}'", "'}")
-                .Replace("}'", "}")
-                .Replace("\\n", "")
-                .Replace("\\r", "")
-                .Replace("    ", "")
-                .Replace("'{", "{")
-                .Replace("\"", "")
-                .Replace("  ", "")
-                .Replace("null", "''");
         }
     }
 }

@@ -50,6 +50,16 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
+        public Proveedores BuscarPorNIT(Proveedores entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Proveedores> BuscarPorNombre(Proveedores entidad)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Proveedores> Consultar()
         {
             var task = this.IComunicaciones.Ejecutar<List<Proveedores>>(
@@ -57,6 +67,16 @@ namespace lib_presentaciones.Implementaciones
                 null!);
             task.Wait();
             return task.Result;
+        }
+
+        public List<Compras> ConsultarCompras(Proveedores entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Proveedores> ConsultarProveedoresActivos()
+        {
+            throw new NotImplementedException();
         }
 
         public Proveedores Insertar(Proveedores entidad)

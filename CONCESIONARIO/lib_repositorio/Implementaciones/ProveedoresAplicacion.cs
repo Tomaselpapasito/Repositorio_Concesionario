@@ -45,10 +45,30 @@ namespace lib_repositorio.Implementaciones
                 .ToList();
         }
 
+        public Proveedores BuscarPorNIT(Proveedores entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Proveedores> BuscarPorNombre(Proveedores entidad)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Proveedores> Consultar()
         {
             return this.IConexion.Proveedores!
                 .Take(5).ToList();
+        }
+
+        public List<Compras> ConsultarCompras(Proveedores entidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Proveedores> ConsultarProveedoresActivos()
+        {
+            throw new NotImplementedException();
         }
 
         public Proveedores Insertar(Proveedores entidad)

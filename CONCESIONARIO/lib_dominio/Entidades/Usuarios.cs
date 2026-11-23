@@ -8,7 +8,6 @@ namespace lib_dominio.Entidades
     {
         public int ID { get; set; }
         public string? NombreUsuario { get; set; }
-        public string? Correo { get; set; }
         public string? Contraseña { get; set; }
 
         [NotMapped] public List<Roles>? Roles { get; set; }
@@ -36,7 +35,8 @@ namespace lib_dominio.Entidades
 
         public bool Validar()
         {
-            throw new NotImplementedException();
+            return string.IsNullOrWhiteSpace(this.NombreUsuario) ||
+                string.IsNullOrWhiteSpace(this.Contraseña);
         }
     }
 }

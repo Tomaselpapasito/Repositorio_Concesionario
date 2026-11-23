@@ -43,7 +43,6 @@ namespace lib_repositorio.Implementaciones
         {
             return this.IConexion.Usuarios!
                 .Where(x => x.NombreUsuario!.Contains(entidad.NombreUsuario!))
-                .Where(x => x.Correo!.Contains(entidad.Correo!))
                 .ToList();
         }
 

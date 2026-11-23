@@ -1,4 +1,5 @@
-﻿using lib_dominio.Entidades;
+﻿using lib_dominio.Auditorias;
+using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +10,12 @@ namespace lib_repositorio.Implementaciones
     public class PersonasAplicacion : IPersonasNegocio
     {
         private IConexion IConexion;
+        private IAuditorias IAuditorias;
 
-        public PersonasAplicacion(IConexion IConexion)
+        public PersonasAplicacion(IConexion IConexion,IAuditorias IAuditorias)
         {
             this.IConexion = IConexion;
+            this.IAuditorias = IAuditorias;
         }
 
         public Personas Actualizar(Personas entidad)
@@ -25,6 +28,7 @@ namespace lib_repositorio.Implementaciones
 
             var entry = this.IConexion!.Entry<Personas>(entidad);
             entry.State = EntityState.Modified;
+            var audioria = IAuditorias.CrearAuditoria<AuditoriasPersonas>(entidad.ID, "Actualizar", "Se crea actualizo la Persona ----" ,1);
             this.IConexion!.SaveChanges();
             return entidad;
         }

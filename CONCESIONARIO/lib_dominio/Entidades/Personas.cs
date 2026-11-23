@@ -15,7 +15,9 @@ namespace lib_dominio.Entidades
 
         public bool Validar()
         {
-            throw new NotImplementedException();
+            return string.IsNullOrWhiteSpace(this.Nombre) ||
+                    string.IsNullOrWhiteSpace(this.Cedula);
+
         }
     }
 }

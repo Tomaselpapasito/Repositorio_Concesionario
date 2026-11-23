@@ -3,6 +3,7 @@ using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace asp_front.Pages.Ventanas
@@ -11,6 +12,15 @@ namespace asp_front.Pages.Ventanas
     {
         private IClientesNegocio IClientesAplicacion;
 
+
+
+        public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
+        {
+            if (HttpContext.Session.GetInt32("UsuarioID") == null)
+            {
+                context.Result = new RedirectToPageResult("/Login");
+            }
+        }
         public ClientesModel(IClientesNegocio IClientesAplicacion)
         {
             this.IClientesAplicacion = IClientesAplicacion;
@@ -36,7 +46,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro.Numero_Licencia = Filtro.Numero_Licencia ?? "";
                 Filtro.Direccion = Filtro.Direccion ?? "";
 
-                Lista = this.IClientesAplicacion.Buscar(Filtro!);
+                Actual = this.IClientesAplicacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {

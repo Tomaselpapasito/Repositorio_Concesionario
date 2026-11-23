@@ -10,7 +10,7 @@ namespace lib_repositorio.Implementaciones
     {
         private IConexion IConexion;
 
-        public ClientesAplicacion(IConexion IConexion)
+        public ClientesAplicacion(IConexion IConexion )
         {
             this.IConexion = IConexion;
         }
@@ -39,12 +39,21 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        public List<Clientes> Buscar(Clientes entidad)
+        public Clientes Buscar(Clientes entidad)
         {
             return this.IConexion.Clientes!
-                .Include (x=> x._Persona)
-                .Where(x => x.Numero_Licencia!.Contains(entidad.Numero_Licencia!))
-                .ToList();
+                .Include(x => x._Persona)
+                .FirstOrDefault(x => x.Numero_Licencia!.Contains(entidad.Numero_Licencia!));
+                
+        }
+
+        public Clientes BuscarPorVenta(int IdVenta) /// compras del cleinte
+        {
+            var venta = this.IConexion.Ventas.Include(x=> x._Cliente).FirstOrDefault(x => x.ID == IdVenta);
+            if (venta == null)
+                throw new Exception("La venta no exite");
+            return Buscar(venta._Cliente);
+
         }
 
         public List<Clientes> Consultar()

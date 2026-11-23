@@ -33,7 +33,6 @@ namespace mst_PruebasUnitarias.Pruebas
             this.entidad = new Usuarios()
             {
                 NombreUsuario = "Prueba",
-                Correo = "Prueba",
                 Contraseña = "ContraseñaPrueba",
                 
             };

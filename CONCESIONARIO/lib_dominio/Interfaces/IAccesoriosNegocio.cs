@@ -9,5 +9,8 @@ namespace lib_dominio.Interfaces
         List<Accesorios> Consultar();
         List<Accesorios> Buscar(Accesorios entidad);
         Accesorios Borrar(Accesorios entidad);
+        Accesorios BuscarPorProducto(int producto);
+        List<Accesorios> ConsultarAccesoriosDisponibles();
+        List<Accesorios> ConsultarAccesoriosPorPrecio(decimal precio);
     }
 }

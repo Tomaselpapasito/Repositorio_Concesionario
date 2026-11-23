@@ -22,7 +22,7 @@ namespace asp_servicio.Controllers
         }
 
         [HttpPost]
-        public List<Clientes> Buscar(Clientes entidad)
+        public Clientes Buscar(Clientes entidad)
         {
             return this.IClientesAplicacion.Buscar(entidad);
         }
