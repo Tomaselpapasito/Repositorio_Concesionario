@@ -8,6 +8,7 @@ namespace lib_dominio.Entidades
     {
         public int ID { get; set; }
         public string? NombreUsuario { get; set; }
+        public string? Correo { get; set; }
         public string? Contraseña { get; set; }
 
         [NotMapped] public List<Roles>? Roles { get; set; }

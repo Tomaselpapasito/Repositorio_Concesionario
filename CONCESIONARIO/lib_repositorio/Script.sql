@@ -263,7 +263,6 @@ INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono])
 VALUES ('Pablo Gomez', '123453535359', '1990-02-02', '300122323237');
 GO
 
-<<<<<<< Updated upstream
 -- USUARIOS
 INSERT INTO [Usuarios] ([NombreUsuario], [Contraseña]) 
 VALUES ('Nani', '12345');
@@ -336,7 +335,6 @@ VALUES ('2026-10-01', 'Zona de exhibicion', 1);
 GO
 
 
-=======
 
 -- CARGOS
 INSERT INTO [Cargos] ([Nombre], [Salario], [Activo])
@@ -400,7 +398,6 @@ VALUES ('2026-10-01', 'Zona de exhibicion', 1);
 GO
 
 
->>>>>>> Stashed changes
 -- COMPRAS
 INSERT INTO [Compras] ([Fecha_Compra], [Impuesto], [Numero_Factura], [Total], [Proveedor])
 VALUES ('2026-10-01', 247000.00, 'FAC-001', 1547000.00, 1);
@@ -460,7 +457,89 @@ GO
 INSERT INTO [DetallesCompras] ([Cantidad], [Precio_Unitario], [Descuento], [Subtotal], [Compra], [Producto])
 VALUES (20, 65000.00, 0.00, 1300000.00, 1, 1);
 GO
-INSERT INTO Usuarios (NombreUsuario, Contraseña)
-VALUES ('admin', '123456'),
-;
+INSERT INTO [Usuarios] ([NombreUsuario], [Contraseña])
+VALUES ('admin', '123456');
 GO
+
+BEGIN TRANSACTION;
+
+DECLARE @UsuarioID INT;
+DECLARE @RolID INT;
+
+
+SET @UsuarioID = SCOPE_IDENTITY();
+
+
+-- 2. Crear rol Administrador
+INSERT INTO Roles (Nombre, Usuario)
+VALUES ('Administrador', @UsuarioID);
+
+SET @RolID = SCOPE_IDENTITY();
+
+
+-- 3. Asignar permisos de visualización
+INSERT INTO Permisos (Rol, Descripcion)
+VALUES
+    (@RolID, 'Accesorios'),
+    (@RolID, 'Cargos'),
+    (@RolID, 'Clientes'),
+    (@RolID, 'Empleados'),
+    (@RolID, 'Inventarios'),
+    (@RolID, 'ModelosMotos'),
+    (@RolID, 'Motos'),
+    (@RolID, 'Personas'),
+    (@RolID, 'Productos'),
+    (@RolID, 'Proveedores'),
+    (@RolID, 'Repuestos'),
+    (@RolID, 'Usuarios'),
+    (@RolID, 'Roles'),
+    (@RolID, 'Compras'),
+    (@RolID, 'DetallesCompras'),
+    (@RolID, 'Ventas'),
+    (@RolID, 'DetallesVentasMotos'),
+    (@RolID, 'DetallesVentasProductos'),
+    (@RolID, 'Financiamientos'),
+    (@RolID, 'Cuotas'),
+    (@RolID, 'Pagos'),
+    (@RolID, 'MetodosPagos');
+
+COMMIT TRANSACTION;
+GO
+
+BEGIN TRANSACTION;
+
+DECLARE @UsuarioID INT;
+DECLARE @RolID INT;
+
+-- 1. Crear usuario
+INSERT INTO Usuarios (NombreUsuario, Contraseña)
+VALUES ('vendedor', 'Vendedor123');
+
+SET @UsuarioID = SCOPE_IDENTITY();
+
+-- 2. Crear rol
+INSERT INTO Roles (Nombre, Usuario)
+VALUES ('Vendedor', @UsuarioID);
+
+SET @RolID = SCOPE_IDENTITY();
+
+-- 3. Asignar permisos de visualización
+INSERT INTO Permisos (Rol, Descripcion)
+VALUES
+    (@RolID, 'Clientes'),
+    (@RolID, 'Productos'),
+    (@RolID, 'Motos'),
+    (@RolID, 'Ventas');
+
+COMMIT TRANSACTION;
+
+-- 4. Verificar usuario, rol y permisos
+SELECT
+    U.ID,
+    U.NombreUsuario,
+    R.Nombre AS Rol,
+    P.Descripcion AS Permiso
+FROM Usuarios U
+INNER JOIN Roles R ON R.Usuario = U.ID
+INNER JOIN Permisos P ON P.Rol = R.ID
+WHERE U.NombreUsuario = 'vendedor';

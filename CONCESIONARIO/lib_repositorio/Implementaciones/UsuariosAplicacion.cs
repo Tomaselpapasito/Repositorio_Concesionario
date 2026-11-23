@@ -39,13 +39,14 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
-        public List<Usuarios> Buscar(Usuarios entidad)
-        {
-            return this.IConexion.Usuarios!
-                .Where(x => x.NombreUsuario!.Contains(entidad.NombreUsuario!))
-                .ToList();
-        }
-
+         public List<Usuarios> Buscar(Usuarios entidad)
+         {
+             return this.IConexion.Usuarios!
+                 .Where(x => x.NombreUsuario!.Contains(entidad.NombreUsuario!))
+                 .Where(x => x.Correo!.Contains(entidad.Correo!))
+                 .ToList();
+         }
+        
 
         public List<Usuarios> Consultar()
         {

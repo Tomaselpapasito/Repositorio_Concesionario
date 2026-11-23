@@ -226,8 +226,9 @@
                             </li>
                         }
 
+
                         <!-- VENTAS -->
-                        @if (permisos.Overlaps(new[] { "Ventas", "DetallesVentasMotos", "DetallesVentasProductos" }))
+                        @if (permisos.Overlaps(new[] { "Ventas", "DetallesVentasMotos", "DetallesVentasProductos", "Facturas" }))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -238,19 +239,41 @@
                                 <ul class="dropdown-menu">
                                     @if (permisos.Contains("Ventas"))
                                     {
-                                        <li><a class="dropdown-item" asp-page="/Ventanas/Ventas">Ventas</a></li>
+                                        <li>
+                                            <a class="dropdown-item" asp-page="/Ventanas/Ventas">Ventas</a>
+                                        </li>
                                     }
+
                                     @if (permisos.Contains("DetallesVentasMotos"))
                                     {
-                                        <li><a class="dropdown-item" asp-page="/Ventanas/DetallesVentasMotos">Detalles de ventas de motos</a></li>
+                                        <li>
+                                            <a class="dropdown-item" asp-page="/Ventanas/DetallesVentasMotos">
+                                                Detalles de ventas de motos
+                                            </a>
+                                        </li>
                                     }
+
                                     @if (permisos.Contains("DetallesVentasProductos"))
                                     {
-                                        <li><a class="dropdown-item" asp-page="/Ventanas/DetallesVentasProductos">Detalles de ventas de productos</a></li>
+                                        <li>
+                                            <a class="dropdown-item" asp-page="/Ventanas/DetallesVentasProductos">
+                                                Detalles de ventas de productos
+                                            </a>
+                                        </li>
+                                    }
+
+                                    @if (permisos.Contains("Facturas"))
+                                    {
+                                        <li>
+                                            <a class="dropdown-item" asp-page="/Ventanas/Facturas">
+                                                Generar facturas PDF
+                                            </a>
+                                        </li>
                                     }
                                 </ul>
                             </li>
                         }
+
 
                         <!-- FINANZAS -->
                         @if (permisos.Overlaps(new[] { "Financiamientos", "Cuotas", "Pagos", "MetodosPagos" }))

@@ -2,10 +2,12 @@
 using lib_dominio.Interfaces;
 using lib_presentaciones.Implementaciones;
 using lib_presentaciones.Interfaces;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+QuestPDF.Settings.License = LicenseType.Community;
 
 builder.Services.AddDistributedMemoryCache();
 
@@ -17,10 +19,10 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddScoped<IComunicaciones, Comunicaciones>();
-
+builder.Services.AddScoped<IRolesNegocio, RolesPresentacion>();
+builder.Services.AddScoped<IPermisosNegocio, PermisosPresentacion>();
 builder.Services.AddScoped<IUsuariosNegocio, UsuariosPresentacion>();
 builder.Services.AddScoped<IAutenticacionPresentacion, AutenticacionPresentacion>();
-
 builder.Services.AddScoped<IAccesoriosNegocio, AccesoriosPresentacion>();
 builder.Services.AddScoped<ICargosNegocio, CargosPresentacion>();
 builder.Services.AddScoped<IClientesNegocio, ClientesPresentacion>();
