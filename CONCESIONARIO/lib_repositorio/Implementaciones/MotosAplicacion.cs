@@ -43,6 +43,7 @@ namespace lib_repositorio.Implementaciones
             return this.IConexion.Motos!
                 .Include (x=> x._Modelo)
                 .Where(x => x.VIN!.Contains(entidad.VIN!))
+                .Where(x => x.Estado!.Contains(entidad.Estado!))
                 .ToList();
         }
 

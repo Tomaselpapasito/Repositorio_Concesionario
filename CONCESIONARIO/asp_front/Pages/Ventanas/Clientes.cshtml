@@ -1,0 +1,144 @@
+﻿
+@page
+@model asp_front.Pages.Ventanas.ClientesModel
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<form method="post">
+    <div class="text-center">
+        <h1 class="display-4">Clientes</h1>
+
+        <div>
+            <input type="submit" value="Consultar"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtConsultar"/>
+
+            <input type="submit" value="Nuevo"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtNuevo"/>
+
+            @if (Model.Formulario)
+            {
+                <input type="submit" value="Guardar"
+                       class="btn btn-secondary"
+                       asp-page-handler="BtGuardar"/>
+            }
+
+            <input id="flLicencia"
+                   placeholder="Número de licencia"
+                   asp-for="@Model.Filtro!.Numero_Licencia"/>
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+        }
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.ID"/>
+        }
+
+        @if (Model.Formulario)
+        {
+            <div>
+                <h3>Cliente</h3>
+
+                <label>Correo</label>
+                <input asp-for="@Model.Actual!.Correo"/>
+                <br/>
+
+                <label>Número de licencia</label>
+                <input asp-for="@Model.Actual!.Numero_Licencia"/>
+                <br/>
+
+                <label>Dirección</label>
+                <input asp-for="@Model.Actual!.Direccion"/>
+                <br/>
+
+                <label>Activo</label>
+                <input type="checkbox" asp-for="@Model.Actual!.Activo"/>
+                <br/>
+
+                <label>ID del usuario</label>
+                <input type="number" asp-for="@Model.Actual!.Persona"/>
+                <br/>
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="popup">
+                <div class="pp_del_inner">
+                    <h3>Mensaje</h3>
+
+                    <h4>
+                        ¿Quiere borrar el cliente
+                        @Model.Actual!.Correo,
+                        @Model.Actual!.Numero_Licencia?
+                    </h4>
+
+                    <input type="submit" value="Cancelar"
+                           class="btn btn-secondary"
+                           asp-page-handler="BtConsultar"/>
+
+                    <input type="submit" value="Borrar"
+                           class="btn btn-secondary"
+                           asp-page-handler="BtBorrar"/>
+                </div>
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <br/><br/>
+
+            <div class="containers_vn panel panel-default">
+                <table class="tb_data table table-striped table-bordered table-hover">
+                    <tr>
+                        <th>ID</th>
+                        <th>Correo</th>
+                        <th>Número de licencia</th>
+                        <th>Dirección</th>
+                        <th>Activo</th>
+                        <th>Acción</th>
+                    </tr>
+
+                    @if (Model.Lista != null)
+                    {
+                        foreach (var elemento in Model.Lista)
+                        {
+                            <tr>
+                                <td>@elemento.ID</td>
+                                <td>@elemento.Correo</td>
+                                <td>@elemento.Numero_Licencia</td>
+                                <td>@elemento.Direccion</td>
+                                <td>
+                                    @(elemento.Activo ? "Sí" : "No")
+                                </td>
+                                <td>
+                                    <input type="submit" value="Editar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtEditar"
+                                           asp-route-data="@elemento.ID"/>
+
+                                    <input type="submit" value="Borrar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtPregBorrar"
+                                           asp-route-data="@elemento.ID"/>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        }
+
+        <br/>
+
+        <a asp-page="/Index" class="btn btn-secondary">
+            Volver al inicio
+        </a>
+    </div>
+</form>

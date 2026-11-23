@@ -7,7 +7,7 @@ namespace lib_dominio.Entidades
     public class Usuarios
     {
         public int ID { get; set; }
-        public string? NomUsuario { get; set; }
+        public string? Correo { get; set; }
         public string? Contraseña { get; set; }
 
 

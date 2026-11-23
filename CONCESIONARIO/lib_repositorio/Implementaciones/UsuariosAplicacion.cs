@@ -42,7 +42,7 @@ namespace lib_repositorio.Implementaciones
         public List<Usuarios> Buscar(Usuarios entidad)
         {
             return this.IConexion.Usuarios!
-                .Where(x => x.NomUsuario!.Contains(entidad.NomUsuario!))
+                .Where(x => x.Correo!.Contains(entidad.Correo!))
                 .ToList();
         }
 

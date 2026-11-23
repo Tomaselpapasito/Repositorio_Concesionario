@@ -1,6 +1,5 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using lib_dominio.nucleo;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -35,7 +34,6 @@ namespace asp_front.Pages.Modulos
                 Filtro!.VIN = Filtro.VIN ?? "";
                 Filtro.Numero_Motor = Filtro.Numero_Motor ?? "";
                 Filtro.Estado = Filtro.Estado ?? "";
-
                 Lista = this.IMotosAplicacion.Buscar(Filtro!);
             }
             catch (Exception ex)

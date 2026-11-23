@@ -1,9 +1,11 @@
 CREATE DATABASE CONCESIONARIO_DB;
 GO
+
 USE CONCESIONARIO_DB;
 GO
 
-CREATE TABLE [Usuarios]
+-- PERSONAS
+CREATE TABLE [Personas]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Nombre] NVARCHAR(100) NULL,
@@ -12,15 +14,25 @@ CREATE TABLE [Usuarios]
     [Telefono] NVARCHAR(30) NULL
 );
 
+-- USUARIOS
+CREATE TABLE [Usuarios]
+(
+    [ID] INT IDENTITY(1,1) PRIMARY KEY,
+    [NombreUsuario] NVARCHAR(200) NULL,
+    [Correo] NVARCHAR(200) NULL,
+    [Contraseña] NVARCHAR(20) NULL
+);
+
+-- AUDITORIAS
 CREATE TABLE [Auditorias]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
     [Descripcion] NVARCHAR(MAX) NULL,
     [Fecha] SMALLDATETIME NOT NULL,
     [Usuario] INT NOT NULL FOREIGN KEY REFERENCES [Usuarios]([ID])
-        
 );
 
+-- ROLES
 CREATE TABLE [Roles]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -28,13 +40,15 @@ CREATE TABLE [Roles]
     [Usuario] INT NOT NULL FOREIGN KEY REFERENCES [Usuarios]([ID])
 );
 
+-- PERMISOS
 CREATE TABLE [Permisos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Descripcion] NVARCHAR (200) NOT NULL,
+    [Descripcion] NVARCHAR(200) NOT NULL,
     [Rol] INT NOT NULL FOREIGN KEY REFERENCES [Roles]([ID])
 );
 
+-- CARGOS
 CREATE TABLE [Cargos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -43,6 +57,7 @@ CREATE TABLE [Cargos]
     [Activo] BIT NOT NULL
 );
 
+-- MODELOS DE MOTOS
 CREATE TABLE [ModelosMotos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -53,6 +68,7 @@ CREATE TABLE [ModelosMotos]
     [Potencia] DECIMAL(18,2) NOT NULL
 );
 
+-- PROVEEDORES
 CREATE TABLE [Proveedores]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -63,6 +79,7 @@ CREATE TABLE [Proveedores]
     [Direccion] NVARCHAR(200) NULL
 );
 
+-- METODOS DE PAGO
 CREATE TABLE [MetodosPagos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -72,15 +89,7 @@ CREATE TABLE [MetodosPagos]
     [Activo] BIT NOT NULL
 );
 
-CREATE TABLE [Servicios]
-(
-    [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Nombre] NVARCHAR(100) NULL,
-    [Precio] DECIMAL(18,2) NOT NULL,
-    [Duracion] INT NOT NULL,
-    [Tipo_Servicio] NVARCHAR(100) NULL
-);
-
+-- PRODUCTOS
 CREATE TABLE [Productos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -90,9 +99,20 @@ CREATE TABLE [Productos]
     [Fecha_Modificacion] SMALLDATETIME NOT NULL,
     [Precio] DECIMAL(18,2) NOT NULL,
     [Stock] INT NOT NULL,
-    [Activo] BIT NOT NULL 
+    [Activo] BIT NOT NULL
 );
 
+-- ACCESORIOS
+CREATE TABLE [Accesorios]
+(
+    [ID] INT IDENTITY(1,1) PRIMARY KEY,
+    [Nombre] NVARCHAR(100) NULL,
+    [Categoria] NVARCHAR(100) NULL,
+    [Marca] NVARCHAR(100) NULL,
+    [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
+);
+
+-- CLIENTES
 CREATE TABLE [Clientes]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -103,6 +123,7 @@ CREATE TABLE [Clientes]
     [Persona] INT NOT NULL FOREIGN KEY REFERENCES [Personas]([ID])
 );
 
+-- MOTOS
 CREATE TABLE [Motos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -110,10 +131,11 @@ CREATE TABLE [Motos]
     [Numero_Motor] NVARCHAR(100) NULL,
     [Color] NVARCHAR(50) NULL,
     [Anio] INT NOT NULL,
-    [Estado] NVARCHAR(50)NOT NULL,
+    [Estado] NVARCHAR(50) NOT NULL,
     [Modelo] INT NOT NULL FOREIGN KEY REFERENCES [ModelosMotos]([ID])
 );
 
+-- INVENTARIOS
 CREATE TABLE [Inventarios]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -122,6 +144,7 @@ CREATE TABLE [Inventarios]
     [Moto] INT NOT NULL FOREIGN KEY REFERENCES [Motos]([ID])
 );
 
+-- COMPRAS
 CREATE TABLE [Compras]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -132,6 +155,7 @@ CREATE TABLE [Compras]
     [Proveedor] INT NOT NULL FOREIGN KEY REFERENCES [Proveedores]([ID])
 );
 
+-- REPUESTOS
 CREATE TABLE [Repuestos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -141,15 +165,7 @@ CREATE TABLE [Repuestos]
     [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
 );
 
-CREATE TABLE [Cargos]
-(
-    [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Nombre] NVARCHAR(100) NULL,
-    [Categoria] NVARCHAR(100) NULL,
-    [Marca] NVARCHAR(100) NULL,
-    [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
-);
-
+-- EMPLEADOS
 CREATE TABLE [Empleados]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -159,6 +175,7 @@ CREATE TABLE [Empleados]
     [Cargo] INT NOT NULL FOREIGN KEY REFERENCES [Cargos]([ID])
 );
 
+-- VENTAS
 CREATE TABLE [Ventas]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -169,6 +186,7 @@ CREATE TABLE [Ventas]
     [Empleado] INT NOT NULL FOREIGN KEY REFERENCES [Empleados]([ID])
 );
 
+-- PAGOS
 CREATE TABLE [Pagos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -178,6 +196,7 @@ CREATE TABLE [Pagos]
     [Venta] INT NOT NULL FOREIGN KEY REFERENCES [Ventas]([ID])
 );
 
+-- DETALLES DE VENTAS DE MOTOS
 CREATE TABLE [DetallesVentasMotos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -188,6 +207,7 @@ CREATE TABLE [DetallesVentasMotos]
     [Venta] INT NOT NULL FOREIGN KEY REFERENCES [Ventas]([ID])
 );
 
+-- DETALLES DE VENTAS DE PRODUCTOS
 CREATE TABLE [DetallesVentasProductos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -199,6 +219,7 @@ CREATE TABLE [DetallesVentasProductos]
     [Venta] INT NOT NULL FOREIGN KEY REFERENCES [Ventas]([ID])
 );
 
+-- FINANCIAMIENTOS
 CREATE TABLE [Financiamientos]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -211,6 +232,7 @@ CREATE TABLE [Financiamientos]
     [Venta] INT NOT NULL FOREIGN KEY REFERENCES [Ventas]([ID])
 );
 
+-- CUOTAS
 CREATE TABLE [Cuotas]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -221,29 +243,7 @@ CREATE TABLE [Cuotas]
     [Financiamiento] INT NOT NULL FOREIGN KEY REFERENCES [Financiamientos]([ID])
 );
 
-CREATE TABLE [OrdenesServicios]
-(
-    [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Fecha_Ingreso] SMALLDATETIME NOT NULL,
-    [Fecha_Salida] SMALLDATETIME NOT NULL,
-    [Descripcion] NVARCHAR(500) NULL,
-    [Costo_Total] DECIMAL(18,2) NOT NULL,
-    [Cliente] INT NOT NULL FOREIGN KEY REFERENCES [Clientes]([ID]),
-    [Empleado] INT NOT NULL FOREIGN KEY REFERENCES [Empleados]([ID]),
-    [Moto] INT NOT NULL FOREIGN KEY REFERENCES [Motos]([ID])
-);
-
-CREATE TABLE [DetallesServicios]
-(
-    [ID] INT IDENTITY(1,1) PRIMARY KEY,
-    [Cantidad] INT NOT NULL,
-    [Precio] DECIMAL(18,2) NOT NULL,
-    [Descuento] DECIMAL(18,2) NOT NULL,
-    [Subtotal] DECIMAL(18,2) NOT NULL,
-    [Orden] INT NOT NULL FOREIGN KEY REFERENCES [OrdenesServicios]([ID]),
-    [Servicio] INT NOT NULL FOREIGN KEY REFERENCES [Servicios]([ID])
-);
-
+-- DETALLES DE COMPRAS
 CREATE TABLE [DetallesCompras]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
@@ -255,81 +255,143 @@ CREATE TABLE [DetallesCompras]
     [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
 );
 
-    INSERT INTO [Usuarios] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono]) ---Cliente
-            VALUES ('Arnold Gomez', '123456789', '1990-01-01', '3001234567');
-            GO
+-- PERSONAS
+INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono])
+VALUES ('Arnold Gomez', '123456789', '1990-01-01', '3001234567');
+GO
 
-    INSERT INTO [Usuarios] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono]) ----Empleado
-            VALUES ('Pablo Gomez', '123453535359', '1990-02-02', '300122323237');
-            GO
+INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono])
+VALUES ('Pablo Gomez', '123453535359', '1990-02-02', '300122323237');
+GO
 
-    INSERT INTO [Cargos] ([Nombre], [Salario], [Activo])
-            VALUES ('Asesor Comercial', 2500000.00, 1);
+-- USUARIOS
+INSERT INTO [Usuarios] ([NombreUsuario],[Correo], [Contraseña]) 
+VALUES ('Nani','kellygaleano@correo.com', '12345');
+GO
 
-    INSERT INTO [ModelosMotos] ([Nombre], [Cilindraje], [Tipo_motor], [Transmision], [Potencia])
-            VALUES ('Yamaha MT-03', 321, 'Bicilindrico', '6 velocidades', 42.00);
+INSERT INTO [Usuarios] ([NombreUsuario],[Correo], [Contraseña]) 
+VALUES ('Waffle','santipuerta@correo.com',  '12345');
+GO
 
-    INSERT INTO [Proveedores] ([Nombre], [NIT], [Telefono], [Correo], [Direccion])
-            VALUES  ('MotoPartes Colombia SAS', '900123456-7', '6015551234', 'ventas@motopartes.com', 'Carrera 50 # 10-25');
 
-    INSERT INTO [MetodosPagos] ([Nombre], [Tipo], [Descripcion], [Activo])
-            VALUES ('Tarjeta de Credito', 'Electronico', 'Pago realizado mediante tarjeta de credito', 1);
+-- CARGOS
+INSERT INTO [Cargos] ([Nombre], [Salario], [Activo])
+VALUES ('Asesor Comercial', 2500000.00, 1);
+GO
 
-    INSERT INTO [Servicios] ([Nombre], [Precio], [Duracion], [Tipo_Servicio])
-        VALUES ('Cambio de aceite', 80000.00, 60, 'Mantenimiento');
 
-    INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo]) -- Répuesto
-        VALUES ('ACE-001', 'Aceite Motul 5100 4T', '2026-01-10', '2026-01-10', 65000.00, 50, 1);
-    INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo]) -- Accesorio
-        VALUES ('ACE-002', 'Pegatina', '2026-01-11', '2026-01-11', 75000.00, 60, 1);
+-- MODELOS DE MOTOS
+INSERT INTO [ModelosMotos] ([Nombre], [Cilindraje], [Tipo_motor], [Transmision], [Potencia])
+VALUES ('Yamaha MT-03', 321, 'Bicilindrico', '6 velocidades', 42.00);
+GO
 
-    INSERT INTO [Clientes] ([Correo], [Numero_Licencia], [Direccion], [Activo], [Persona])
-        VALUES ('arnold.gomez@email.com', 'LIC-123456', 'Calle 20 # 15-30', 1, 1);
 
-    INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo]) -- de inventario
-        VALUES ('9C6RG1234MA000001', 'MOT123456', 'Negro', 2026, 'Disponible', 1);
-    INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo]) -- para venta
-        VALUES ('9C6RG122323200001', 'MOT126656', 'Blanco', 2025, 'Disponible', 1); -- despues manejar logica cambio de estado
+-- PROVEEDORES
+INSERT INTO [Proveedores] ([Nombre], [NIT], [Telefono], [Correo], [Direccion])
+VALUES ('MotoPartes Colombia SAS', '900123456-7', '6015551234', 'ventas@motopartes.com', 'Carrera 50 # 10-25');
+GO
 
-    INSERT INTO [Inventarios] ([Fecha_Ingreso], [Ubicacion], [Moto])
-        VALUES ('2026-10-01', 'Zona de exhibición', 1);
 
-    INSERT INTO [Compras] ([Fecha_Compra], [Impuesto], [Numero_Factura], [Total], [Proveedor])
-        VALUES ('2026-10-01', 171000.00, 'FAC-001', 1071000.00, 1);
+-- METODOS DE PAGO
+INSERT INTO [MetodosPagos] ([Nombre], [Tipo], [Descripcion], [Activo])
+VALUES ('Tarjeta de Credito', 'Electronico', 'Pago realizado mediante tarjeta de credito', 1);
+GO
 
-    INSERT INTO [Repuestos] ([Numero_Parte], [Descripcion], [Fecha_Modificacion], [Producto])
-        VALUES ('REP-001', 'Filtro de aceite para motocicleta', '2026-10-01', 1);
 
-    INSERT INTO [Cargos] ([Nombre], [Categoria], [Marca], [Producto])
-        VALUES ('Protector de tanque', 'Protección', 'Yamaha', 1);
+-- PRODUCTOS
+INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo])
+VALUES ('ACE-001', 'Aceite Motul 5100 4T', '2026-01-10', '2026-01-10', 65000.00, 50, 1);
+GO
 
-    INSERT INTO [Empleados] ([Carnet], [Fecha_Contratacion], [Persona], [Cargo])
-        VALUES ('EMP001', '2026-01-15', 1, 1);
+INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo])
+VALUES ('ACE-002', 'Pegatina', '2026-01-11', '2026-01-11', 75000.00, 60, 1);
+GO
 
-    INSERT INTO [Ventas] ([Fecha_Venta], [Impuestos], [Total], [Cliente], [Empleado])
-        VALUES ('2026-10-01', 190000.00, 1190000.00, 1, 1);
 
-    INSERT INTO [Pagos] ([Fecha_Pago], [Monto], [Metodo], [Venta])
-        VALUES ('2026-10-01', 1190000.00, 1, 1);
+-- ACCESORIOS
+INSERT INTO [Accesorios] ([Nombre], [Categoria], [Marca], [Producto])
+VALUES ('Pegatina', 'Decoracion', 'Generica', 2);
+GO
 
-    INSERT INTO [DetallesVentasMotos] ([Precio_Unitario], [Descuento], [Subtotal], [Moto], [Venta])
-        VALUES (10000000.00, 500000.00, 9500000.00, 1, 1);
 
-    INSERT INTO [DetallesVentasProductos] ([Precio_Unitario], [Descuento], [Subtotal], [Cantidad], [Producto], [Venta])
-        VALUES (45000.00, 0.00, 45000.00, 1, 1, 1);
+-- CLIENTES
+INSERT INTO [Clientes] ([Correo], [Numero_Licencia], [Direccion], [Activo], [Persona])
+VALUES ('arnold.gomez@email.com', 'LIC-123456', 'Calle 20 # 15-30', 1, 1);
+GO
 
-    INSERT INTO [Financiamientos] ([Monto], [Numero_Cuotas], [Tasa_Interes], [Fecha_Inicio], [Fecha_Fin], [Estado], [Venta])
-        VALUES (5000000.00, 12, 1.50, '2026-10-01', '2027-10-01', 'Activo', 1);
 
-    INSERT INTO [Cuotas] ([Numero_cuota], [Monto], [Fecha_vencimiento], [Fecha_pago], [Financiamiento])
-        VALUES (1, 458333.33, '2026-11-01', NULL, 1);
+-- MOTOS
+INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo])
+VALUES ('9C6RG1234MA000001', 'MOT123456', 'Negro', 2026, 'Disponible', 1);
+GO
 
-    INSERT INTO [OrdenesServicios] ([Fecha_Ingreso], [Fecha_Salida], [Descripcion], [Costo_Total], [Cliente], [Empleado], [Moto])
-        VALUES ('2026-10-01 08:00', '2026-10-01 10:00', 'Mantenimiento preventivo de la motocicleta', 80000.00, 1, 1, 1);
+INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo])
+VALUES ('9C6RG122323200001', 'MOT126656', 'Blanco', 2025, 'Disponible', 1);
+GO
 
-    INSERT INTO [DetallesServicios] ([Cantidad], [Precio], [Descuento], [Subtotal], [Orden], [Servicio])
-        VALUES (1, 80000.00, 0.00, 80000.00, 1, 1);
 
-    INSERT INTO [DetallesCompras] ([Cantidad], [Precio_Unitario], [Descuento], [Subtotal], [Compra], [Producto])
-        VALUES (20, 45000.00, 0.00, 900000.00, 1, 1);
-    
+-- INVENTARIOS
+INSERT INTO [Inventarios] ([Fecha_Ingreso], [Ubicacion], [Moto])
+VALUES ('2026-10-01', 'Zona de exhibicion', 1);
+GO
+
+
+-- COMPRAS
+INSERT INTO [Compras] ([Fecha_Compra], [Impuesto], [Numero_Factura], [Total], [Proveedor])
+VALUES ('2026-10-01', 247000.00, 'FAC-001', 1547000.00, 1);
+GO
+
+
+-- REPUESTOS
+INSERT INTO [Repuestos] ([Numero_Parte], [Descripcion], [Fecha_Modificacion], [Producto])
+VALUES ('REP-001', 'Filtro de aceite para motocicleta', '2026-10-01', 1);
+GO
+
+
+-- EMPLEADOS
+INSERT INTO [Empleados] ([Carnet], [Fecha_Contratacion], [Persona], [Cargo])
+VALUES ('EMP001', '2026-01-15', 2, 1);
+GO
+
+
+-- VENTAS
+INSERT INTO [Ventas] ([Fecha_Venta], [Impuestos], [Total], [Cliente], [Empleado])
+VALUES ('2026-10-01', 1819250.00, 11394250.00, 1, 1);
+GO
+
+
+-- PAGOS
+-- El cliente paga inicialmente $6.394.250
+INSERT INTO [Pagos] ([Fecha_Pago], [Monto], [Metodo], [Venta])
+VALUES ('2026-10-01', 6394250.00, 1, 1);
+GO
+
+
+-- DETALLES DE VENTAS DE MOTOS
+INSERT INTO [DetallesVentasMotos] ([Precio_Unitario], [Descuento], [Subtotal], [Moto], [Venta])
+VALUES (10000000.00, 500000.00, 9500000.00, 2, 1);
+GO
+
+
+-- DETALLES DE VENTAS DE PRODUCTOS
+INSERT INTO [DetallesVentasProductos] ([Precio_Unitario], [Descuento], [Subtotal], [Cantidad], [Producto], [Venta])
+VALUES (75000.00, 0.00, 75000.00, 1, 2, 1);
+GO
+
+
+-- FINANCIAMIENTOS
+INSERT INTO [Financiamientos] ([Monto], [Numero_Cuotas], [Tasa_Interes], [Fecha_Inicio], [Fecha_Fin], [Estado], [Venta])
+VALUES (5000000.00, 12, 1.50, '2026-10-01', '2027-10-01', 'Activo', 1);
+GO
+
+
+-- CUOTAS
+INSERT INTO [Cuotas] ([Numero_cuota], [Monto], [Fecha_vencimiento], [Fecha_pago], [Financiamiento])
+VALUES (1, 458333.33, '2026-11-01', NULL, 1);
+GO
+
+
+-- DETALLES DE COMPRAS
+INSERT INTO [DetallesCompras] ([Cantidad], [Precio_Unitario], [Descuento], [Subtotal], [Compra], [Producto])
+VALUES (20, 65000.00, 0.00, 1300000.00, 1, 1);
+GO
