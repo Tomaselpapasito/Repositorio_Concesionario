@@ -8,7 +8,6 @@ namespace lib_repositorio.Interfaces
     {
         string? StringConexion { get; set; }
         DbSet<Accesorios>? Accesorios { get; set; }
-        DbSet<Auditorias>? Auditorias { get; set; }
         DbSet<Cargos>? Cargos { get; set; }
         DbSet<Clientes>? Clientes { get; set; }
         DbSet<Compras>? Compras { get; set; }
