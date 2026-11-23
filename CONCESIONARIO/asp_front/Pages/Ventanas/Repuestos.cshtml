@@ -1,0 +1,431 @@
+﻿
+@page
+@model asp_front.Pages.Modulos.RepuestosModel
+
+@{
+    ViewData["Title"] = "Repuestos";
+
+    var totalRepuestos = Model.Lista?.Count ?? 0;
+    var productosRelacionados = Model.Lista?
+        .Select(x => x.Producto).Distinct().Count() ?? 0;
+}
+
+<style>
+    .repuestos-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .repuestos-header {
+        background: linear-gradient(135deg, #172536, #294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+    }
+
+    .repuestos-header h1 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .repuestos-header p {
+        color: #d4deea;
+        margin: 0;
+    }
+
+    .repuestos-card {
+        background: white;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        padding: 22px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        height: 100%;
+    }
+
+    .repuestos-card h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 8px 0;
+    }
+
+    .repuestos-card p {
+        color: #758397;
+        margin: 0;
+    }
+
+    .repuestos-search,
+    .repuestos-form,
+    .repuestos-table-container {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1px solid #e5eaf0;
+        margin: 25px 0;
+    }
+
+    .repuestos-search input,
+    .repuestos-form input,
+    .repuestos-form select {
+        border: 1px solid #dce2e9;
+        border-radius: 7px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .repuestos-form label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .repuestos-table-container {
+        overflow-x: auto;
+    }
+
+    .repuestos-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 850px;
+    }
+
+    .repuestos-table th {
+        background: #f3f6fa;
+        color: #526174;
+        padding: 15px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .repuestos-table td {
+        padding: 15px;
+        border-bottom: 1px solid #edf0f4;
+        vertical-align: middle;
+    }
+
+    .repuestos-table tr:hover {
+        background: #f8fafc;
+    }
+
+    .repuestos-form {
+        padding: 25px;
+        text-align: left;
+    }
+
+    .btn-repuestos {
+        border: none;
+        border-radius: 7px;
+        padding: 10px 18px;
+        font-weight: 600;
+        margin: 3px;
+    }
+
+    .btn-azul {
+        background: #294766;
+        color: white;
+    }
+
+    .btn-azul:hover {
+        background: #1c344d;
+        color: white;
+    }
+
+    .btn-verde {
+        background: #16834a;
+        color: white;
+    }
+
+    .btn-verde:hover {
+        background: #116638;
+        color: white;
+    }
+
+    .btn-rojo {
+        background: #fff0f0;
+        color: #c0392b;
+    }
+
+    .btn-rojo:hover {
+        background: #fbdada;
+        color: #a52a20;
+    }
+
+    .btn-gris {
+        background: #edf1f5;
+        color: #46566a;
+    }
+
+    .repuestos-popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 15px;
+    }
+
+    .repuestos-popup-inner {
+        background: white;
+        border-radius: 14px;
+        padding: 30px;
+        max-width: 450px;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<form method="post">
+
+    <div class="repuestos-container">
+
+        <div class="repuestos-header">
+            <h1>🔧 Repuestos</h1>
+            <p>Administración de repuestos y componentes del concesionario</p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <div class="repuestos-card">
+                    <p>Total de repuestos</p>
+                    <h2>@totalRepuestos</h2>
+                    <small>Repuestos registrados</small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="repuestos-card">
+                    <p>Productos relacionados</p>
+                    <h2 style="color:#16834a">@productosRelacionados</h2>
+                    <small>Productos asociados a repuestos</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="repuestos-search">
+
+            <h5>Buscar repuestos</h5>
+
+            <div class="row mt-3">
+
+                <div class="col-md-5">
+                    <input placeholder="Buscar por número de parte"
+                           asp-for="@Model.Filtro!.Numero_Parte" />
+                </div>
+
+                <div class="col-md-5">
+                    <input placeholder="Buscar por descripción"
+                           asp-for="@Model.Filtro!.Descripcion" />
+                </div>
+
+                <div class="col-md-2">
+                    <input type="submit"
+                           value="Consultar"
+                           class="btn-repuestos btn-azul w-100"
+                           asp-page-handler="BtConsultar" />
+                </div>
+
+            </div>
+
+            <input type="submit"
+                   value="+ Nuevo repuesto"
+                   class="btn-repuestos btn-verde"
+                   asp-page-handler="BtNuevo" />
+
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+        }
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.ID" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div class="repuestos-form">
+
+                <h4>Información del repuesto</h4>
+                <p class="text-muted">
+                    Completa los datos para registrar o actualizar un repuesto.
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+                        <label>Número de parte</label>
+                        <input asp-for="@Model.Actual!.Numero_Parte"
+                               placeholder="Número de identificación del repuesto" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Fecha de modificación</label>
+                        <input type="date"
+                               asp-for="@Model.Actual!.Fecha_Modificacion" />
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Descripción</label>
+                        <input asp-for="@Model.Actual!.Descripcion"
+                               placeholder="Descripción del repuesto" />
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Producto relacionado</label>
+                        <select asp-for="@Model.Actual!.Producto"
+                                class="form-select">
+                            <option value="">Seleccione un producto</option>
+
+                            @if (Model.ListaProductos != null)
+                            {
+                                foreach (var producto in Model.ListaProductos)
+                                {
+                                    <option value="@producto.ID">
+                                        @producto.Nombre - @producto.Codigo
+                                    </option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <input type="submit"
+                           value="Guardar repuesto"
+                           class="btn-repuestos btn-verde"
+                           asp-page-handler="BtGuardar" />
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-repuestos btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="repuestos-popup">
+
+                <div class="repuestos-popup-inner">
+
+                    <h3>⚠️ Confirmar eliminación</h3>
+
+                    <p class="mt-3">
+                        ¿Estás seguro de que deseas eliminar este repuesto?
+                    </p>
+
+                    <p>
+                        <strong>@Model.Actual!.Numero_Parte</strong>
+                        <br />
+                        @Model.Actual.Descripcion
+                    </p>
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-repuestos btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                    <input type="submit"
+                           value="Sí, eliminar"
+                           class="btn-repuestos btn-rojo"
+                           asp-page-handler="BtBorrar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="repuestos-table-container">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Inventario de repuestos</h4>
+                    <span class="text-muted">@totalRepuestos registros</span>
+                </div>
+
+                <table class="repuestos-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Número de parte</th>
+                            <th>Descripción</th>
+                            <th>Fecha de modificación</th>
+                            <th>Producto relacionado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.Lista != null && Model.Lista.Count > 0)
+                        {
+                            foreach (var elemento in Model.Lista)
+                            {
+                                <tr>
+
+                                    <td>@elemento.ID</td>
+                                    <td><strong>@elemento.Numero_Parte</strong></td>
+                                    <td>@elemento.Descripcion</td>
+                                    <td>@elemento.Fecha_Modificacion.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        @(Model.ListaProductos?
+                                            .FirstOrDefault(x => x.ID == elemento.Producto)?.Nombre
+                                            ?? "Sin producto")
+                                    </td>
+
+                                    <td>
+                                        <input type="submit"
+                                               value="Editar"
+                                               class="btn-repuestos btn-azul"
+                                               asp-page-handler="BtEditar"
+                                               asp-route-data="@elemento.ID" />
+
+                                        <input type="submit"
+                                               value="Eliminar"
+                                               class="btn-repuestos btn-rojo"
+                                               asp-page-handler="BtPregBorrar"
+                                               asp-route-data="@elemento.ID" />
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center">
+                                    No hay repuestos registrados.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        }
+
+        <div class="text-center mt-4">
+            <a asp-page="/Index" class="btn-repuestos btn-gris">
+                Volver al inicio
+            </a>
+        </div>
+
+    </div>
+
+</form>

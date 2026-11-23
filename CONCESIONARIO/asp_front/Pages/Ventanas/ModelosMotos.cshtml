@@ -1,0 +1,436 @@
+﻿
+@page
+@model asp_front.Pages.Modulos.ModelosMotosModel
+
+@{
+    ViewData["Title"] = "Modelos de motocicletas";
+
+    var totalModelos = Model.Lista?.Count ?? 0;
+    var cilindradaPromedio = totalModelos > 0
+        ? Model.Lista.Average(x => x.Cilindraje)
+        : 0;
+}
+
+<style>
+    .modelos-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .modelos-header {
+        background: linear-gradient(135deg, #172536, #294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+    }
+
+    .modelos-header h1 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .modelos-header p {
+        color: #d4deea;
+        margin: 0;
+    }
+
+    .modelos-card {
+        background: white;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        padding: 22px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        height: 100%;
+    }
+
+    .modelos-card h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 8px 0;
+    }
+
+    .modelos-card p {
+        color: #758397;
+        margin: 0;
+    }
+
+    .modelos-search,
+    .modelos-form,
+    .modelos-table-container {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1px solid #e5eaf0;
+        margin: 25px 0;
+    }
+
+    .modelos-search input,
+    .modelos-form input,
+    .modelos-form select {
+        border: 1px solid #dce2e9;
+        border-radius: 7px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .modelos-form label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .modelos-table-container {
+        overflow-x: auto;
+    }
+
+    .modelos-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 850px;
+    }
+
+    .modelos-table th {
+        background: #f3f6fa;
+        color: #526174;
+        padding: 15px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .modelos-table td {
+        padding: 15px;
+        border-bottom: 1px solid #edf0f4;
+        vertical-align: middle;
+    }
+
+    .modelos-table tr:hover {
+        background: #f8fafc;
+    }
+
+    .modelos-form {
+        padding: 25px;
+        text-align: left;
+    }
+
+    .btn-modelos {
+        border: none;
+        border-radius: 7px;
+        padding: 10px 18px;
+        font-weight: 600;
+        margin: 3px;
+    }
+
+    .btn-azul {
+        background: #294766;
+        color: white;
+    }
+
+    .btn-azul:hover {
+        background: #1c344d;
+        color: white;
+    }
+
+    .btn-verde {
+        background: #16834a;
+        color: white;
+    }
+
+    .btn-verde:hover {
+        background: #116638;
+        color: white;
+    }
+
+    .btn-rojo {
+        background: #fff0f0;
+        color: #c0392b;
+    }
+
+    .btn-rojo:hover {
+        background: #fbdada;
+        color: #a52a20;
+    }
+
+    .btn-gris {
+        background: #edf1f5;
+        color: #46566a;
+    }
+
+    .modelos-popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 15px;
+    }
+
+    .modelos-popup-inner {
+        background: white;
+        border-radius: 14px;
+        padding: 30px;
+        max-width: 450px;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<form method="post">
+
+    <div class="modelos-container">
+
+        <div class="modelos-header">
+            <h1>🏍️ Modelos de motocicletas</h1>
+            <p>Administración de modelos y especificaciones técnicas</p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <div class="modelos-card">
+                    <p>Total de modelos</p>
+                    <h2>@totalModelos</h2>
+                    <small>Modelos registrados</small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="modelos-card">
+                    <p>Cilindraje promedio</p>
+                    <h2 style="color:#16834a">
+                        @cilindradaPromedio.ToString("0.##") cc
+                    </h2>
+                    <small>Promedio de cilindrada registrada</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modelos-search">
+
+            <h5>Buscar modelos</h5>
+
+            <div class="row mt-3">
+
+                <div class="col-md-4">
+                    <input placeholder="Buscar por nombre"
+                           asp-for="@Model.Filtro!.Nombre" />
+                </div>
+
+                <div class="col-md-4">
+                    <input placeholder="Tipo de motor"
+                           asp-for="@Model.Filtro!.Tipo_motor" />
+                </div>
+
+                <div class="col-md-4">
+                    <input placeholder="Transmisión"
+                           asp-for="@Model.Filtro!.Transmision" />
+                </div>
+
+                <div class="col-md-12">
+                    <input type="submit"
+                           value="Consultar"
+                           class="btn-modelos btn-azul w-100"
+                           asp-page-handler="BtConsultar" />
+                </div>
+
+            </div>
+
+            <input type="submit"
+                   value="+ Nuevo modelo"
+                   class="btn-modelos btn-verde"
+                   asp-page-handler="BtNuevo" />
+
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+        }
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.ID" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div class="modelos-form">
+
+                <h4>Información del modelo</h4>
+                <p class="text-muted">
+                    Completa las especificaciones del modelo de motocicleta.
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+                        <label>Nombre</label>
+                        <input asp-for="@Model.Actual!.Nombre"
+                               placeholder="Nombre del modelo" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Cilindraje (cc)</label>
+                        <input type="number"
+                               asp-for="@Model.Actual!.Cilindraje"
+                               placeholder="Ej. 125" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Tipo de motor</label>
+                        <input asp-for="@Model.Actual!.Tipo_motor"
+                               placeholder="Ej. 4 tiempos" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Transmisión</label>
+                        <input asp-for="@Model.Actual!.Transmision"
+                               placeholder="Ej. 5 velocidades" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Potencia</label>
+                        <input type="number"
+                               step="0.01"
+                               asp-for="@Model.Actual!.Potencia"
+                               placeholder="Potencia del motor" />
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <input type="submit"
+                           value="Guardar modelo"
+                           class="btn-modelos btn-verde"
+                           asp-page-handler="BtGuardar" />
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-modelos btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="modelos-popup">
+
+                <div class="modelos-popup-inner">
+
+                    <h3>⚠️ Confirmar eliminación</h3>
+
+                    <p class="mt-3">
+                        ¿Estás seguro de que deseas eliminar este modelo?
+                    </p>
+
+                    <p>
+                        <strong>@Model.Actual!.Nombre</strong>
+                        <br />
+                        Cilindraje: @Model.Actual.Cilindraje cc
+                        <br />
+                        Motor: @Model.Actual.Tipo_motor
+                        <br />
+                        Transmisión: @Model.Actual.Transmision
+                    </p>
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-modelos btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                    <input type="submit"
+                           value="Sí, eliminar"
+                           class="btn-modelos btn-rojo"
+                           asp-page-handler="BtBorrar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="modelos-table-container">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Modelos registrados</h4>
+                    <span class="text-muted">@totalModelos registros</span>
+                </div>
+
+                <table class="modelos-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Cilindraje</th>
+                            <th>Tipo de motor</th>
+                            <th>Transmisión</th>
+                            <th>Potencia</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.Lista != null && Model.Lista.Count > 0)
+                        {
+                            foreach (var elemento in Model.Lista)
+                            {
+                                <tr>
+                                    <td>@elemento.ID</td>
+                                    <td><strong>@elemento.Nombre</strong></td>
+                                    <td>@elemento.Cilindraje cc</td>
+                                    <td>@elemento.Tipo_motor</td>
+                                    <td>@elemento.Transmision</td>
+                                    <td>@elemento.Potencia</td>
+
+                                    <td>
+                                        <input type="submit"
+                                               value="Editar"
+                                               class="btn-modelos btn-azul"
+                                               asp-page-handler="BtEditar"
+                                               asp-route-data="@elemento.ID" />
+
+                                        <input type="submit"
+                                               value="Eliminar"
+                                               class="btn-modelos btn-rojo"
+                                               asp-page-handler="BtPregBorrar"
+                                               asp-route-data="@elemento.ID" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7" class="text-center">
+                                    No hay modelos registrados.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        }
+
+        <div class="text-center mt-4">
+            <a asp-page="/Index" class="btn-modelos btn-gris">
+                Volver al inicio
+            </a>
+        </div>
+
+    </div>
+
+</form>

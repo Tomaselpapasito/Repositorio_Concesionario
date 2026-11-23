@@ -41,8 +41,8 @@ namespace lib_repositorio.Implementaciones
         public List<Inventarios> Buscar(Inventarios entidad)
         {
             return this.IConexion.Inventarios!
-                .Include (x=> x._Moto)
-                .Where(x => x._Moto!.VIN!.Contains(entidad._Moto!.VIN!))
+                .Include(x => x._Moto)
+                .Where(x => x.Ubicacion!.Contains(entidad.Ubicacion!))
                 .ToList();
         }
 

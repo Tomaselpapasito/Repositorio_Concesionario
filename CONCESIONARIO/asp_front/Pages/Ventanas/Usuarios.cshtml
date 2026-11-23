@@ -1,0 +1,424 @@
+﻿
+@page
+@model asp_front.Pages.Ventanas.UsuariosModel
+
+@{
+    ViewData["Title"] = "Usuarios";
+
+    var totalUsuarios = Model.Lista?.Count ?? 0;
+    var conCorreo = Model.Lista?.Count(x => !string.IsNullOrEmpty(x.Correo)) ?? 0;
+    var conNombre = Model.Lista?.Count(x => !string.IsNullOrEmpty(x.NombreUsuario)) ?? 0;
+}
+
+<style>
+    .usuarios-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .usuarios-header {
+        background: linear-gradient(135deg, #172536, #294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+    }
+
+    .usuarios-header h1 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .usuarios-header p {
+        color: #d4deea;
+        margin: 0;
+    }
+
+    .usuarios-card {
+        background: white;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        padding: 22px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        height: 100%;
+    }
+
+    .usuarios-card h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 8px 0;
+    }
+
+    .usuarios-card p {
+        color: #758397;
+        margin: 0;
+    }
+
+    .usuarios-search,
+    .usuarios-form,
+    .usuarios-table-container {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1px solid #e5eaf0;
+        margin: 25px 0;
+    }
+
+    .usuarios-search input,
+    .usuarios-form input {
+        border: 1px solid #dce2e9;
+        border-radius: 7px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .usuarios-form label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .usuarios-table-container {
+        overflow-x: auto;
+    }
+
+    .usuarios-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 750px;
+    }
+
+    .usuarios-table th {
+        background: #f3f6fa;
+        color: #526174;
+        padding: 15px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .usuarios-table td {
+        padding: 15px;
+        border-bottom: 1px solid #edf0f4;
+        vertical-align: middle;
+    }
+
+    .usuarios-table tr:hover {
+        background: #f8fafc;
+    }
+
+    .usuarios-badge {
+        background: #eaf1f8;
+        color: #294766;
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .btn-usuarios {
+        border: none;
+        border-radius: 7px;
+        padding: 10px 18px;
+        font-weight: 600;
+        margin: 3px;
+    }
+
+    .btn-azul {
+        background: #294766;
+        color: white;
+    }
+
+    .btn-azul:hover {
+        background: #1c344d;
+        color: white;
+    }
+
+    .btn-verde {
+        background: #16834a;
+        color: white;
+    }
+
+    .btn-verde:hover {
+        background: #116638;
+        color: white;
+    }
+
+    .btn-rojo {
+        background: #fff0f0;
+        color: #c0392b;
+    }
+
+    .btn-rojo:hover {
+        background: #fbdada;
+        color: #a52a20;
+    }
+
+    .btn-gris {
+        background: #edf1f5;
+        color: #46566a;
+    }
+
+    .usuarios-popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 15px;
+    }
+
+    .usuarios-popup-inner {
+        background: white;
+        border-radius: 14px;
+        padding: 30px;
+        max-width: 450px;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<form method="post">
+
+    <div class="usuarios-container">
+
+        <div class="usuarios-header">
+            <h1>🔐 Usuarios</h1>
+            <p>Administración de las cuentas de acceso al sistema</p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-md-4">
+                <div class="usuarios-card">
+                    <p>Total de usuarios</p>
+                    <h2>@totalUsuarios</h2>
+                    <small>Cuentas registradas</small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="usuarios-card">
+                    <p>Con correo registrado</p>
+                    <h2 style="color:#16834a">@conCorreo</h2>
+                    <small>Usuarios con correo asociado</small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="usuarios-card">
+                    <p>Con nombre de usuario</p>
+                    <h2 style="color:#294766">@conNombre</h2>
+                    <small>Cuentas identificadas</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="usuarios-search">
+
+            <h5>Buscar usuarios</h5>
+
+            <div class="row mt-3">
+
+                <div class="col-md-4">
+                    <input placeholder="Buscar por nombre de usuario"
+                           asp-for="@Model.Filtro!.NombreUsuario" />
+                </div>
+
+                <div class="col-md-4">
+                    <input placeholder="Buscar por correo"
+                           asp-for="@Model.Filtro!.Correo" />
+                </div>
+
+                <div class="col-md-4">
+                    <input type="submit"
+                           value="Consultar"
+                           class="btn-usuarios btn-azul w-100"
+                           asp-page-handler="BtConsultar" />
+                </div>
+
+            </div>
+
+            <input type="submit"
+                   value="+ Nuevo usuario"
+                   class="btn-usuarios btn-verde"
+                   asp-page-handler="BtNuevo" />
+
+        </div>
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.ID" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div class="usuarios-form">
+
+                <h4>Información de la cuenta</h4>
+
+                <p class="text-muted">
+                    Completa los datos de acceso del usuario.
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+                        <label>Nombre de usuario</label>
+                        <input asp-for="@Model.Actual!.NombreUsuario"
+                               placeholder="Nombre de usuario" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Correo electrónico</label>
+                        <input asp-for="@Model.Actual!.Correo"
+                               type="email"
+                               placeholder="correo@ejemplo.com" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Contraseña</label>
+                        <input asp-for="@Model.Actual!.Contraseña"
+                               type="password"
+                               placeholder="Contraseña"
+                               autocomplete="new-password" />
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <input type="submit"
+                           value="Guardar usuario"
+                           class="btn-usuarios btn-verde"
+                           asp-page-handler="BtGuardar" />
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-usuarios btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="usuarios-popup">
+
+                <div class="usuarios-popup-inner">
+
+                    <h3>⚠️ Confirmar eliminación</h3>
+
+                    <p class="mt-3">
+                        ¿Estás seguro de que deseas eliminar este usuario?
+                    </p>
+
+                    <p>
+                        <strong>@Model.Actual!.NombreUsuario</strong>
+                        <br />
+                        @Model.Actual.Correo
+                    </p>
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-usuarios btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                    <input type="submit"
+                           value="Sí, eliminar"
+                           class="btn-usuarios btn-rojo"
+                           asp-page-handler="BtBorrar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="usuarios-table-container">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Listado de usuarios</h4>
+                    <span class="text-muted">@totalUsuarios registros</span>
+                </div>
+
+                <table class="usuarios-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre de usuario</th>
+                            <th>Correo electrónico</th>
+                            <th>Contraseña</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.Lista != null && Model.Lista.Count > 0)
+                        {
+                            foreach (var elemento in Model.Lista)
+                            {
+                                <tr>
+
+                                    <td>@elemento.ID</td>
+
+                                    <td>
+                                        <span class="usuarios-badge">
+                                            @elemento.NombreUsuario
+                                        </span>
+                                    </td>
+
+                                    <td>@elemento.Correo</td>
+
+                                    <td>••••••••</td>
+
+                                    <td>
+                                        <input type="submit"
+                                               value="Editar"
+                                               class="btn-usuarios btn-azul"
+                                               asp-page-handler="BtEditar"
+                                               asp-route-data="@elemento.ID" />
+
+                                        <input type="submit"
+                                               value="Eliminar"
+                                               class="btn-usuarios btn-rojo"
+                                               asp-page-handler="BtPregBorrar"
+                                               asp-route-data="@elemento.ID" />
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    No hay usuarios registrados.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        }
+
+        <div class="text-center mt-4">
+            <a asp-page="/Index" class="btn-usuarios btn-gris">
+                Volver al inicio
+            </a>
+        </div>
+
+    </div>
+
+</form>

@@ -1,0 +1,445 @@
+﻿
+@page
+@model asp_front.Pages.Ventanas.CargosModel
+
+@{
+    ViewData["Title"] = "Cargos";
+
+    var totalCargos = Model.Lista?.Count ?? 0;
+    var activos = Model.Lista?.Count(x => x.Activo) ?? 0;
+    var salarioPromedio = totalCargos > 0
+        ? Model.Lista.Average(x => x.Salario)
+        : 0;
+}
+
+<style>
+    .cargos-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .cargos-header {
+        background: linear-gradient(135deg, #172536, #294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+    }
+
+    .cargos-header h1 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .cargos-header p {
+        color: #d4deea;
+        margin: 0;
+    }
+
+    .cargos-card {
+        background: white;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        padding: 22px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        height: 100%;
+    }
+
+    .cargos-card h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 8px 0;
+    }
+
+    .cargos-card p {
+        color: #758397;
+        margin: 0;
+    }
+
+    .cargos-search,
+    .cargos-form,
+    .cargos-table-container {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1px solid #e5eaf0;
+        margin: 25px 0;
+    }
+
+    .cargos-search input,
+    .cargos-form input,
+    .cargos-form select {
+        border: 1px solid #dce2e9;
+        border-radius: 7px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .cargos-form label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .cargos-table-container {
+        overflow-x: auto;
+    }
+
+    .cargos-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 650px;
+    }
+
+    .cargos-table th {
+        background: #f3f6fa;
+        color: #526174;
+        padding: 15px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .cargos-table td {
+        padding: 15px;
+        border-bottom: 1px solid #edf0f4;
+        vertical-align: middle;
+    }
+
+    .cargos-table tr:hover {
+        background: #f8fafc;
+    }
+
+    .estado-cargo {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .estado-activo {
+        background: #e4f6eb;
+        color: #16834a;
+    }
+
+    .estado-inactivo {
+        background: #fce8e8;
+        color: #c0392b;
+    }
+
+    .btn-cargos {
+        border: none;
+        border-radius: 7px;
+        padding: 10px 18px;
+        font-weight: 600;
+        margin: 3px;
+    }
+
+    .btn-azul {
+        background: #294766;
+        color: white;
+    }
+
+    .btn-azul:hover {
+        background: #1c344d;
+        color: white;
+    }
+
+    .btn-verde {
+        background: #16834a;
+        color: white;
+    }
+
+    .btn-verde:hover {
+        background: #116638;
+        color: white;
+    }
+
+    .btn-rojo {
+        background: #fff0f0;
+        color: #c0392b;
+    }
+
+    .btn-rojo:hover {
+        background: #fbdada;
+        color: #a52a20;
+    }
+
+    .btn-gris {
+        background: #edf1f5;
+        color: #46566a;
+    }
+
+    .cargos-popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 15px;
+    }
+
+    .cargos-popup-inner {
+        background: white;
+        border-radius: 14px;
+        padding: 30px;
+        max-width: 450px;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<form method="post">
+
+    <div class="cargos-container">
+
+        <div class="cargos-header">
+            <h1>💼 Cargos</h1>
+            <p>Administración de cargos y salarios de los empleados</p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-md-4">
+                <div class="cargos-card">
+                    <p>Total de cargos</p>
+                    <h2>@totalCargos</h2>
+                    <small>Cargos registrados</small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="cargos-card">
+                    <p>Cargos activos</p>
+                    <h2 style="color:#16834a">@activos</h2>
+                    <small>Cargos disponibles</small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="cargos-card">
+                    <p>Salario promedio</p>
+                    <h2 style="color:#294766">
+                        @salarioPromedio.ToString("C0")
+                    </h2>
+                    <small>Promedio de salarios registrados</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cargos-search">
+
+            <h5>Buscar cargos</h5>
+
+            <div class="row mt-3">
+
+                <div class="col-md-8">
+                    <input placeholder="Buscar por nombre del cargo"
+                           asp-for="@Model.Filtro!.Nombre" />
+                </div>
+
+                <div class="col-md-4">
+                    <input type="submit"
+                           value="Consultar"
+                           class="btn-cargos btn-azul w-100"
+                           asp-page-handler="BtConsultar" />
+                </div>
+
+            </div>
+
+            <input type="submit"
+                   value="+ Nuevo cargo"
+                   class="btn-cargos btn-verde"
+                   asp-page-handler="BtNuevo" />
+
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+        }
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.ID" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div class="cargos-form">
+
+                <h4>Información del cargo</h4>
+                <p class="text-muted">
+                    Completa los datos para registrar o actualizar un cargo.
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+                        <label>Nombre del cargo</label>
+                        <input asp-for="@Model.Actual!.Nombre"
+                               placeholder="Ej. Administrador" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Salario</label>
+                        <input asp-for="@Model.Actual!.Salario"
+                               type="number"
+                               step="0.01"
+                               min="0.01"
+                               placeholder="Salario del cargo" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Estado</label>
+                        <select asp-for="@Model.Actual!.Activo">
+                            <option value="true">Activo</option>
+                            <option value="false">Inactivo</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <input type="submit"
+                           value="Guardar cargo"
+                           class="btn-cargos btn-verde"
+                           asp-page-handler="BtGuardar" />
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-cargos btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="cargos-popup">
+
+                <div class="cargos-popup-inner">
+
+                    <h3>⚠️ Confirmar eliminación</h3>
+
+                    <p class="mt-3">
+                        ¿Estás seguro de que deseas eliminar este cargo?
+                    </p>
+
+                    <p>
+                        <strong>@Model.Actual!.Nombre</strong>
+                        <br />
+                        Salario: @Model.Actual.Salario.ToString("C0")
+                    </p>
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-cargos btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                    <input type="submit"
+                           value="Sí, eliminar"
+                           class="btn-cargos btn-rojo"
+                           asp-page-handler="BtBorrar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="cargos-table-container">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Listado de cargos</h4>
+                    <span class="text-muted">@totalCargos registros</span>
+                </div>
+
+                <table class="cargos-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Salario</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.Lista != null && Model.Lista.Count > 0)
+                        {
+                            foreach (var elemento in Model.Lista)
+                            {
+                                <tr>
+
+                                    <td>@elemento.ID</td>
+                                    <td><strong>@elemento.Nombre</strong></td>
+                                    <td>@elemento.Salario.ToString("C0")</td>
+
+                                    <td>
+                                        @if (elemento.Activo)
+                                        {
+                                            <span class="estado-cargo estado-activo">
+                                                Activo
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="estado-cargo estado-inactivo">
+                                                Inactivo
+                                            </span>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        <input type="submit"
+                                               value="Editar"
+                                               class="btn-cargos btn-azul"
+                                               asp-page-handler="BtEditar"
+                                               asp-route-data="@elemento.ID" />
+
+                                        <input type="submit"
+                                               value="Eliminar"
+                                               class="btn-cargos btn-rojo"
+                                               asp-page-handler="BtPregBorrar"
+                                               asp-route-data="@elemento.ID" />
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    No hay cargos registrados.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        }
+
+        <div class="text-center mt-4">
+            <a asp-page="/Index" class="btn-cargos btn-gris">
+                Volver al inicio
+            </a>
+        </div>
+
+    </div>
+
+</form>

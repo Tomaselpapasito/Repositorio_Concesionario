@@ -1,0 +1,431 @@
+﻿
+@page
+@model asp_front.Pages.Modulos.InventariosModel
+
+@{
+    ViewData["Title"] = "Inventarios";
+
+    var totalInventarios = Model.Lista?.Count ?? 0;
+    var ubicaciones = Model.Lista?
+        .Select(x => x.Ubicacion).Distinct().Count() ?? 0;
+    var motosRegistradas = Model.Lista?
+        .Select(x => x.Moto).Distinct().Count() ?? 0;
+}
+
+<style>
+    .inventarios-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .inventarios-header {
+        background: linear-gradient(135deg, #172536, #294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+    }
+
+    .inventarios-header h1 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .inventarios-header p {
+        color: #d4deea;
+        margin: 0;
+    }
+
+    .inventarios-card {
+        background: white;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        padding: 22px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        height: 100%;
+    }
+
+    .inventarios-card h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 8px 0;
+    }
+
+    .inventarios-card p {
+        color: #758397;
+        margin: 0;
+    }
+
+    .inventarios-search,
+    .inventarios-form,
+    .inventarios-table-container {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1px solid #e5eaf0;
+        margin: 25px 0;
+    }
+
+    .inventarios-search input,
+    .inventarios-form input,
+    .inventarios-form select {
+        border: 1px solid #dce2e9;
+        border-radius: 7px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .inventarios-form label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .inventarios-table-container {
+        overflow-x: auto;
+    }
+
+    .inventarios-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 750px;
+    }
+
+    .inventarios-table th {
+        background: #f3f6fa;
+        color: #526174;
+        padding: 15px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .inventarios-table td {
+        padding: 15px;
+        border-bottom: 1px solid #edf0f4;
+        vertical-align: middle;
+    }
+
+    .inventarios-table tr:hover {
+        background: #f8fafc;
+    }
+
+    .btn-inventarios {
+        border: none;
+        border-radius: 7px;
+        padding: 10px 18px;
+        font-weight: 600;
+        margin: 3px;
+    }
+
+    .btn-azul {
+        background: #294766;
+        color: white;
+    }
+
+    .btn-azul:hover {
+        background: #1c344d;
+        color: white;
+    }
+
+    .btn-verde {
+        background: #16834a;
+        color: white;
+    }
+
+    .btn-verde:hover {
+        background: #116638;
+        color: white;
+    }
+
+    .btn-rojo {
+        background: #fff0f0;
+        color: #c0392b;
+    }
+
+    .btn-rojo:hover {
+        background: #fbdada;
+        color: #a52a20;
+    }
+
+    .btn-gris {
+        background: #edf1f5;
+        color: #46566a;
+    }
+
+    .inventarios-popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 15px;
+    }
+
+    .inventarios-popup-inner {
+        background: white;
+        border-radius: 14px;
+        padding: 30px;
+        max-width: 450px;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<form method="post">
+
+    <div class="inventarios-container">
+
+        <div class="inventarios-header">
+            <h1>📦 Inventarios</h1>
+            <p>Control de ingreso y ubicación de motocicletas en el concesionario</p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-md-4">
+                <div class="inventarios-card">
+                    <p>Total de registros</p>
+                    <h2>@totalInventarios</h2>
+                    <small>Motocicletas registradas en inventario</small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="inventarios-card">
+                    <p>Ubicaciones</p>
+                    <h2 style="color:#16834a">@ubicaciones</h2>
+                    <small>Ubicaciones diferentes</small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="inventarios-card">
+                    <p>Motos registradas</p>
+                    <h2 style="color:#294766">@motosRegistradas</h2>
+                    <small>Motocicletas asociadas</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="inventarios-search">
+
+            <h5>Buscar registros</h5>
+
+            <div class="row mt-3">
+
+                <div class="col-md-8">
+                    <input placeholder="Buscar por ubicación"
+                           asp-for="@Model.Filtro!.Ubicacion" />
+                </div>
+
+                <div class="col-md-4">
+                    <input type="submit"
+                           value="Consultar"
+                           class="btn-inventarios btn-azul w-100"
+                           asp-page-handler="BtConsultar" />
+                </div>
+
+            </div>
+
+            <input type="submit"
+                   value="+ Nuevo registro"
+                   class="btn-inventarios btn-verde"
+                   asp-page-handler="BtNuevo" />
+
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+        }
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.ID" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div class="inventarios-form">
+
+                <h4>Información del inventario</h4>
+                <p class="text-muted">
+                    Registra la fecha de ingreso, ubicación y motocicleta.
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+                        <label>Fecha de ingreso</label>
+                        <input type="date"
+                               asp-for="@Model.Actual!.Fecha_Ingreso"
+                               asp-format="{0:yyyy-MM-dd}" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Ubicación</label>
+                        <input asp-for="@Model.Actual!.Ubicacion"
+                               placeholder="Ej. Bodega principal" />
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Motocicleta</label>
+                        <select asp-for="@Model.Actual!.Moto"
+                                class="form-select">
+                            <option value="">Seleccione una motocicleta</option>
+
+                            @if (Model.ListaMotos != null)
+                            {
+                                foreach (var moto in Model.ListaMotos)
+                                {
+                                    <option value="@moto.ID">
+                                        @moto.VIN - @moto.Numero_Motor
+                                    </option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <input type="submit"
+                           value="Guardar registro"
+                           class="btn-inventarios btn-verde"
+                           asp-page-handler="BtGuardar" />
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-inventarios btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="inventarios-popup">
+
+                <div class="inventarios-popup-inner">
+
+                    <h3>⚠️ Confirmar eliminación</h3>
+
+                    <p class="mt-3">
+                        ¿Estás seguro de que deseas eliminar este registro?
+                    </p>
+
+                    <p>
+                        <strong>@Model.Actual!.Ubicacion</strong>
+                        <br />
+                        Fecha: @Model.Actual.Fecha_Ingreso.ToString("dd/MM/yyyy")
+                    </p>
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-inventarios btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                    <input type="submit"
+                           value="Sí, eliminar"
+                           class="btn-inventarios btn-rojo"
+                           asp-page-handler="BtBorrar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="inventarios-table-container">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Registros de inventario</h4>
+                    <span class="text-muted">@totalInventarios registros</span>
+                </div>
+
+                <table class="inventarios-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha de ingreso</th>
+                            <th>Ubicación</th>
+                            <th>Motocicleta</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.Lista != null && Model.Lista.Count > 0)
+                        {
+                            foreach (var elemento in Model.Lista)
+                            {
+                                <tr>
+
+                                    <td>@elemento.ID</td>
+
+                                    <td>
+                                        @elemento.Fecha_Ingreso.ToString("dd/MM/yyyy")
+                                    </td>
+
+                                    <td>
+                                        <strong>@elemento.Ubicacion</strong>
+                                    </td>
+
+                                    <td>
+                                        @(Model.ListaMotos?
+                                            .FirstOrDefault(x => x.ID == elemento.Moto)?.VIN
+                                            ?? "Sin motocicleta")
+                                    </td>
+
+                                    <td>
+                                        <input type="submit"
+                                               value="Editar"
+                                               class="btn-inventarios btn-azul"
+                                               asp-page-handler="BtEditar"
+                                               asp-route-data="@elemento.ID" />
+
+                                        <input type="submit"
+                                               value="Eliminar"
+                                               class="btn-inventarios btn-rojo"
+                                               asp-page-handler="BtPregBorrar"
+                                               asp-route-data="@elemento.ID" />
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    No hay registros de inventario.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        }
+
+        <div class="text-center mt-4">
+            <a asp-page="/Index" class="btn-inventarios btn-gris">
+                Volver al inicio
+            </a>
+        </div>
+
+    </div>
+
+</form>
