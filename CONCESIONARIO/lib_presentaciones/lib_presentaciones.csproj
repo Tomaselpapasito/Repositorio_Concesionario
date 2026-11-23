@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\asp_front\asp_front.csproj" />
     <ProjectReference Include="..\lib_dominio\lib_dominio.csproj" />
   </ItemGroup>
 

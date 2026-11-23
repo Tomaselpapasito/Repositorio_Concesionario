@@ -1,0 +1,168 @@
+﻿@page
+@model asp_front.Pages.Modulos.MotosModel
+
+@{
+    ViewData["Title"] = "Motocicletas";
+}
+
+<form method="post">
+
+    <div class="text-center">
+
+        <h1 class="display-4">Motocicletas</h1>
+
+        <div>
+            <input type="submit"
+                   value="Consultar"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtConsultar" />
+
+            <input type="submit"
+                   value="Nuevo"
+                   class="btn btn-secondary"
+                   asp-page-handler="BtNuevo" />
+
+            @if (Model.Formulario)
+            {
+                <input type="submit"
+                       value="Guardar"
+                       class="btn btn-secondary"
+                       asp-page-handler="BtGuardar" />
+            }
+
+            <input id="flVIN"
+                   placeholder="VIN"
+                   asp-for="@Model.Filtro!.VIN" />
+
+            <input id="flEstado"
+                   placeholder="Estado"
+                   asp-for="@Model.Filtro!.Estado" />
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+        }
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.ID" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div>
+                <h3>Motocicleta</h3>
+
+                <label>VIN</label>
+                <input asp-for="@Model.Actual!.VIN" />
+                <br />
+
+                <label>Número de motor</label>
+                <input asp-for="@Model.Actual!.Numero_Motor" />
+                <br />
+
+                <label>Color</label>
+                <input asp-for="@Model.Actual!.Color" />
+                <br />
+
+                <label>Año</label>
+                <input type="number" asp-for="@Model.Actual!.Anio" />
+                <br />
+
+                <label>Modelo</label>
+                <input type="number" asp-for="@Model.Actual!.Modelo" />
+                <br />
+
+                <label>Estado</label>
+                <input asp-for="@Model.Actual!.Estado" />
+                <br />
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="popup">
+                <div class="pp_del_inner">
+                    <h3>Mensaje</h3>
+
+                    <h4>
+                        ¿Quiere borrar la motocicleta con información
+                        @Model.Actual!.VIN,
+                        @Model.Actual!.Numero_Motor,
+                        @Model.Actual!.Color?
+                    </h4>
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn btn-secondary"
+                           asp-page-handler="BtConsultar" />
+
+                    <input type="submit"
+                           value="Borrar"
+                           class="btn btn-secondary"
+                           asp-page-handler="BtBorrar" />
+                </div>
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <br />
+            <br />
+
+            <div class="containers_vn panel panel-default">
+                <table class="tb_data table table-striped table-bordered table-hover">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>VIN</th>
+                        <th>Número de motor</th>
+                        <th>Color</th>
+                        <th>Año</th>
+                        <th>Modelo</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+
+                    @if (Model != null && Model.Lista != null)
+                    {
+                        foreach (var elemento in Model.Lista)
+                        {
+                            <tr>
+                                <td>@elemento.ID</td>
+                                <td>@elemento.VIN</td>
+                                <td>@elemento.Numero_Motor</td>
+                                <td>@elemento.Color</td>
+                                <td>@elemento.Anio</td>
+                                <td>@elemento._Modelo?.Nombre</td>
+                                <td>@elemento.Estado</td>
+
+                                <td>
+                                    <input type="submit"
+                                           value="Editar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtEditar"
+                                           asp-route-data="@elemento.ID" />
+
+                                    <input type="submit"
+                                           value="Borrar"
+                                           class="btn btn-secondary"
+                                           asp-page-handler="BtPregBorrar"
+                                           asp-route-data="@elemento.ID" />
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </table>
+            </div>
+        }
+
+        <br />
+        <a asp-page="/Index" class="btn btn-secondary">
+            Volver al inicio
+        </a>
+
+    </div>
+</form>

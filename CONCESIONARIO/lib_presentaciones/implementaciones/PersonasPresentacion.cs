@@ -4,11 +4,11 @@ using lib_presentaciones.Interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class PersonasNegocio : IPersonasNegocio
+    public class PersonasPresentacion : IPersonasNegocio
     {
         private IComunicaciones IComunicaciones;
 
-        public PersonasNegocio(IComunicaciones IComunicaciones)
+        public PersonasPresentacion(IComunicaciones IComunicaciones)
         {
             this.IComunicaciones = IComunicaciones;
         }
@@ -73,10 +73,6 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        private bool Validar(Personas entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Nombre) || 
-                string.IsNullOrEmpty(entidad.Cedula);
-        }
+      
     }
 }

@@ -1,10 +1,47 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Concesionario de Motocicletas</h1>
+        <p class="lead text-muted">
+            Sistema de administración y gestión del concesionario
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h3>Motocicletas</h3>
+                    <p>Administra el inventario de motocicletas.</p>
+                    <a href="/Ventanas/Motos" class="btn btn-primary">Ingresar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h3>Clientes</h3>
+                    <p>Gestiona la información de los clientes.</p>
+                    <a href="/Clientes" class="btn btn-primary">Ingresar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h3>Ventas</h3>
+                    <p>Administra las ventas del concesionario.</p>
+                    <a href="/Ventas" class="btn btn-primary">Ingresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+```

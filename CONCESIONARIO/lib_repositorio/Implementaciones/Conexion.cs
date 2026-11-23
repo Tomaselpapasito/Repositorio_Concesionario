@@ -1,4 +1,5 @@
-﻿using lib_dominio.Entidades;
+﻿using lib_dominio.Nucleo;
+using lib_dominio.Entidades;
 using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +11,10 @@ namespace lib_repositorio.Implementaciones
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(this.StringConexion!, p => { });
+            optionsBuilder.UseSqlServer(DatosGenerales.ObtenerStringConexion()!, p => { });
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
+
         public DbSet<Accesorios>? Accesorios { get; set; }
         public DbSet<Cargos>? Cargos { get; set; }
         public DbSet<Clientes>? Clientes { get; set; }
