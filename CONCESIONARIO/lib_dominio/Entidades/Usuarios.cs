@@ -10,10 +10,7 @@ namespace lib_dominio.Entidades
         public string? NomUsuario { get; set; }
         public string? Contraseña { get; set; }
 
-
-        [NotMapped] public List<Auditorias>? Auditorias { get; set; }
         [NotMapped] public List<Roles>? Roles { get; set; }
-
 
         [NotMapped] public List<AuditoriasAccesorios>? AuditoriasAccesorios { get; set; }
         [NotMapped] public List<AuditoriasCargos>? AuditoriasCargos { get; set; }
