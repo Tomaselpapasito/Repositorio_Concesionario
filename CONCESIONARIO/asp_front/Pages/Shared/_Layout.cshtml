@@ -6,61 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Concesionario</title>
 
-    <script type="importmap"></script>
-
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/asp_front.styles.css" asp-append-version="true" />
 
     <style>
         .navbar-concesionario {
             background: linear-gradient(135deg, #172536, #294766);
-            padding: 12px 0;
-        }
-
-        .navbar-concesionario .navbar-brand,
-        .navbar-concesionario .nav-link {
-            color: white !important;
-            font-weight: 500;
+            padding: 12px 25px;
+            box-shadow: 0 3px 12px rgba(0,0,0,.18);
         }
 
         .navbar-concesionario .navbar-brand {
-            font-size: 21px;
+            color: white;
             font-weight: 700;
+            font-size: 21px;
+            margin-right: 25px;
+            white-space: nowrap;
         }
 
         .navbar-concesionario .nav-link {
-            padding: 10px 15px !important;
-            border-radius: 7px;
+            color: #eaf0f6;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 8px;
         }
 
-        .navbar-concesionario .nav-link:hover {
-            background: rgba(255,255,255,0.13);
+        .navbar-concesionario .nav-link:hover,
+        .navbar-concesionario .nav-link:focus {
+            color: white;
+            background: rgba(255,255,255,.13);
         }
 
         .navbar-concesionario .dropdown-menu {
             border: none;
             border-radius: 10px;
             padding: 8px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+            min-width: 210px;
+            box-shadow: 0 6px 18px rgba(0,0,0,.18);
         }
 
         .navbar-concesionario .dropdown-item {
-            padding: 9px 13px;
+            padding: 9px 12px;
             border-radius: 6px;
+            color: #26384b;
         }
 
         .navbar-concesionario .dropdown-item:hover {
-            background: #eaf1f8;
+            background: #e9f0f7;
             color: #172536;
         }
 
         .navbar-concesionario .navbar-toggler {
-            border-color: rgba(255,255,255,0.5);
+            border-color: rgba(255,255,255,.5);
         }
 
         .navbar-concesionario .navbar-toggler-icon {
-            filter: brightness(0) invert(1);
+            filter: invert(1);
+        }
+
+        .contenido-principal {
+            min-height: calc(100vh - 130px);
+        }
+
+        footer {
+            color: #718096;
+            text-align: center;
+            padding: 18px;
+        }
+
+        @@media (max-width: 991px) {
+            .navbar-concesionario .navbar-nav {
+                flex-direction: column;
+                align-items: stretch;
+                padding-top: 12px;
+            }
+
+            .navbar-concesionario .nav-link {
+                padding: 10px 12px;
+            }
         }
     </style>
 </head>
@@ -68,10 +91,10 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-concesionario shadow-sm mb-4">
-            <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-concesionario">
+            <div class="container-fluid">
 
-                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                <a class="navbar-brand" asp-page="/Index">
                     CONCESIONARIO
                 </a>
 
@@ -80,40 +103,19 @@
                         data-bs-target="#menuPrincipal"
                         aria-controls="menuPrincipal"
                         aria-expanded="false"
-                        aria-label="Mostrar menú">
+                        aria-label="Abrir menú">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="menuPrincipal">
 
-                    <ul class="navbar-nav mxauto">
+                    <ul class="navbar-nav me-auto">
 
+                        <!-- INICIO -->
                         <li class="nav-item">
-                            <a class="nav-link"
-                               asp-area=""
-                               asp-page="/Index">
+                            <a class="nav-link" asp-page="/Index">
                                 Inicio
                             </a>
-                        </li>
-
-                        <!-- ADMINISTRACIÓN -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               role="button"
-                               data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Administración
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-page="/Ventanas/Clientes">
-                                        Clientes
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         <!-- INVENTARIO -->
@@ -127,12 +129,52 @@
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-page="/Ventanas/Motos">
-                                        Motos
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Motos">Motos</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/ModelosMotos">Modelos de motos</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Productos">Productos</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Repuestos">Repuestos</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Accesorios">Accesorios</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Inventarios">Inventarios</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- ADMINISTRACIÓN -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Administración
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Clientes">Clientes</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Empleados">Empleados</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Personas">Personas</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Proveedores">Proveedores</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Cargos">Cargos</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Usuarios">Usuarios</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Roles">Roles</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- COMPRAS -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Compras
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Compras">Compras</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/DetallesCompras">Detalles de compras</a></li>
                             </ul>
                         </li>
 
@@ -147,38 +189,49 @@
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-page="/Ventanas/Ventas">
-                                        Ventas
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Ventas">Ventas</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/DetallesVentasMotos">Detalles de ventas de motos</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/DetallesVentasProductos">Detalles de ventas de productos</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- FINANZAS -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Finanzas
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Financiamientos">Financiamientos</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Cuotas">Cuotas</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/Pagos">Pagos</a></li>
+                                <li><a class="dropdown-item" asp-page="/Ventanas/MetodosPagos">Métodos de pago</a></li>
                             </ul>
                         </li>
 
                     </ul>
-
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container-fluid contenido-principal">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer>
         <div class="container">
-            &copy; 2026 - Concesionario
+            &copy; 2026 - Sistema de gestión del concesionario
         </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>
