@@ -33,7 +33,7 @@ namespace mst_PruebasUnitarias.Pruebas
             this.entidad = new Usuarios()
             {
                 NomUsuario = "Prueba",
-                Contraseña = "Categoria Prueba",
+                Contraseña = "ContraseñaPrueba",
                 
             };
             this.conexion.Usuarios!.Add(this.entidad!);

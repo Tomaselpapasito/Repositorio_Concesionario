@@ -37,7 +37,7 @@ namespace lib_presentaciones.Implementaciones
         {
             var task = this.IComunicaciones.Ejecutar<List<MetodosPagos>>(
                 "MetodosPagos/Consultar",
-                null);
+                null!);
             task.Wait();
             return task.Result;
         }

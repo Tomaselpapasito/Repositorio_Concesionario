@@ -2,7 +2,6 @@
 using lib_dominio.Interfaces;
 using lib_presentaciones.Interfaces;
 
-
 namespace lib_presentaciones.Implementaciones
 {
     public class CargosPresentacion : ICargosNegocio
@@ -37,7 +36,7 @@ namespace lib_presentaciones.Implementaciones
         {
             var task = this.IComunicaciones.Ejecutar<List<Cargos>>(
                 "Cargos/Consultar",
-                null);
+                null!);
             task.Wait();
             return task.Result;
         }

@@ -36,7 +36,7 @@ namespace lib_presentaciones.Implementaciones
         {
             var task = this.IComunicaciones.Ejecutar<List<ModelosMotos>>(
                 "ModelosMotos/Consultar",
-                null);
+                null!);
             task.Wait();
             return task.Result;
         }

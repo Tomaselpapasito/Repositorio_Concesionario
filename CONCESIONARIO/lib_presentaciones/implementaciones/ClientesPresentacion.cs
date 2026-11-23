@@ -53,7 +53,7 @@ namespace lib_presentaciones.Implementaciones
         {
             var task = this.IComunicaciones.Ejecutar<List<Clientes>>(
                 "Clientes/Consultar",
-                null);
+                null!);
             task.Wait();
             return task.Result;
         }
