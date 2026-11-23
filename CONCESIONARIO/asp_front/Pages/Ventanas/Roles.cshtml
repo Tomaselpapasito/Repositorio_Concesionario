@@ -1,0 +1,329 @@
+﻿
+@page
+@model asp_front.Pages.Ventanas.RolesModel
+
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<style>
+    .roles-container {
+        max-width: 1150px;
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+
+    .roles-header {
+        background: linear-gradient(135deg, #172554, #2563eb);
+        color: white;
+        padding: 28px 32px;
+        border-radius: 16px;
+        margin-bottom: 24px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.12);
+    }
+
+    .roles-header h2 {
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .roles-header p {
+        margin: 7px 0 0;
+        color: #dbeafe;
+    }
+
+    .roles-card {
+        background: white;
+        border-radius: 15px;
+        padding: 24px;
+        margin-bottom: 22px;
+        box-shadow: 0 3px 14px rgba(0,0,0,.07);
+        border: 1px solid #e5e7eb;
+    }
+
+    .roles-card h4 {
+        color: #172554;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .roles-label {
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 7px;
+    }
+
+    .roles-input {
+        width: 100%;
+        border: 1px solid #cbd5e1;
+        border-radius: 9px;
+        padding: 10px 12px;
+        outline: none;
+    }
+
+    .roles-input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+    }
+
+    .roles-btn {
+        border: none;
+        border-radius: 9px;
+        padding: 10px 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .roles-btn:hover {
+        transform: translateY(-1px);
+        opacity: .9;
+    }
+
+    .roles-primary {
+        background: #2563eb;
+        color: white;
+    }
+
+    .roles-success {
+        background: #16a34a;
+        color: white;
+    }
+
+    .roles-secondary {
+        background: #64748b;
+        color: white;
+    }
+
+    .roles-danger {
+        background: #dc2626;
+        color: white;
+    }
+
+    .roles-warning {
+        background: #f59e0b;
+        color: white;
+    }
+
+    .roles-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .roles-table thead {
+        background: #172554;
+        color: white;
+    }
+
+    .roles-table th,
+    .roles-table td {
+        padding: 14px 12px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .roles-table tbody tr:hover {
+        background: #f1f5f9;
+    }
+
+    .roles-actions {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+    }
+
+    .roles-badge {
+        background: #dbeafe;
+        color: #1e40af;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+    .roles-empty {
+        text-align: center;
+        padding: 30px;
+        color: #64748b;
+    }
+
+    .roles-confirm {
+        background: #fff7ed;
+        border: 1px solid #fed7aa;
+        border-radius: 12px;
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="roles-container">
+
+    <div class="roles-header">
+        <h2>Gestión de Roles</h2>
+        <p>Administra los roles y su asignación a usuarios.</p>
+    </div>
+
+    <div class="roles-card">
+        <h4>Buscar roles</h4>
+
+        <form method="post">
+            <div class="row align-items-end">
+                <div class="col-md-8 mb-3">
+                    <label class="roles-label">Nombre del rol</label>
+                    <input asp-for="Filtro.Nombre"
+                           class="roles-input"
+                           placeholder="Escribe el nombre del rol..." />
+                </div>
+
+                <div class="col-md-4 mb-3 d-flex gap-2">
+                    <button type="submit"
+                            asp-page-handler="BtConsultar"
+                            class="roles-btn roles-primary">
+                        Buscar
+                    </button>
+
+                    <button type="submit"
+                            asp-page-handler="BtNuevo"
+                            class="roles-btn roles-success">
+                        + Nuevo
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    @if (Model.Formulario)
+    {
+        <div class="roles-card">
+            <h4>@(Model.Actual!.ID == 0 ? "Registrar rol" : "Editar rol")</h4>
+
+            <form method="post">
+                <input type="hidden" asp-for="Actual.ID" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="roles-label">Nombre del rol</label>
+                        <input asp-for="Actual.Nombre"
+                               class="roles-input"
+                               placeholder="Ej. Administrador"
+                               required />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="roles-label">ID del usuario</label>
+                        <input asp-for="Actual.Usuario"
+                               type="number"
+                               class="roles-input"
+                               min="1"
+                               required />
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit"
+                            asp-page-handler="BtGuardar"
+                            class="roles-btn roles-success">
+                        Guardar
+                    </button>
+
+                    <button type="submit"
+                            asp-page-handler="BtConsultar"
+                            class="roles-btn roles-secondary">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    }
+
+    @if (Model.Borrar && Model.Actual != null)
+    {
+        <div class="roles-confirm">
+            <h5 class="text-danger fw-bold">¿Eliminar este rol?</h5>
+            <p>Vas a eliminar el rol <strong>@Model.Actual.Nombre</strong>.</p>
+
+            <form method="post">
+                <input type="hidden" asp-for="Actual.ID" />
+                <input type="hidden" asp-for="Actual.Nombre" />
+                <input type="hidden" asp-for="Actual.Usuario" />
+
+                <button type="submit"
+                        asp-page-handler="BtBorrar"
+                        class="roles-btn roles-danger">
+                    Sí, eliminar
+                </button>
+
+                <button type="submit"
+                        asp-page-handler="BtConsultar"
+                        class="roles-btn roles-secondary">
+                    Cancelar
+                </button>
+            </form>
+        </div>
+    }
+
+    <div class="roles-card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0">Roles registrados</h4>
+            <span class="roles-badge">
+                @(Model.Lista?.Count ?? 0) registros
+            </span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="roles-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model.Lista != null && Model.Lista.Count > 0)
+                    {
+                        @foreach (var item in Model.Lista)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Usuario</td>
+                                <td>
+                                    <div class="roles-actions">
+                                        <form method="post">
+                                            <button type="submit"
+                                                    asp-page-handler="BtEditar"
+                                                    asp-route-data="@item.ID"
+                                                    class="roles-btn roles-warning">
+                                                Editar
+                                            </button>
+                                        </form>
+
+                                        <form method="post">
+                                            <button type="submit"
+                                                    asp-page-handler="BtPregBorrar"
+                                                    asp-route-data="@item.ID"
+                                                    class="roles-btn roles-danger">
+                                                Eliminar
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="roles-empty">
+                                No hay roles registrados todavía.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

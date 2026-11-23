@@ -1,0 +1,329 @@
+﻿
+@page
+@model asp_front.Pages.Ventanas.PermisosModel
+
+@{
+    ViewData["Title"] = "Permisos";
+}
+
+<style>
+    .permisos-container {
+        max-width: 1150px;
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+
+    .permisos-header {
+        background: linear-gradient(135deg, #172554, #2563eb);
+        color: white;
+        padding: 28px 32px;
+        border-radius: 16px;
+        margin-bottom: 24px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.12);
+    }
+
+    .permisos-header h2 {
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .permisos-header p {
+        margin: 7px 0 0;
+        color: #dbeafe;
+    }
+
+    .permisos-card {
+        background: white;
+        border-radius: 15px;
+        padding: 24px;
+        margin-bottom: 22px;
+        box-shadow: 0 3px 14px rgba(0,0,0,.07);
+        border: 1px solid #e5e7eb;
+    }
+
+    .permisos-card h4 {
+        color: #172554;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .permisos-label {
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 7px;
+    }
+
+    .permisos-input {
+        width: 100%;
+        border: 1px solid #cbd5e1;
+        border-radius: 9px;
+        padding: 10px 12px;
+        outline: none;
+    }
+
+    .permisos-input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+    }
+
+    .permisos-btn {
+        border: none;
+        border-radius: 9px;
+        padding: 10px 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .permisos-btn:hover {
+        transform: translateY(-1px);
+        opacity: .9;
+    }
+
+    .permisos-primary {
+        background: #2563eb;
+        color: white;
+    }
+
+    .permisos-success {
+        background: #16a34a;
+        color: white;
+    }
+
+    .permisos-secondary {
+        background: #64748b;
+        color: white;
+    }
+
+    .permisos-danger {
+        background: #dc2626;
+        color: white;
+    }
+
+    .permisos-warning {
+        background: #f59e0b;
+        color: white;
+    }
+
+    .permisos-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .permisos-table thead {
+        background: #172554;
+        color: white;
+    }
+
+    .permisos-table th,
+    .permisos-table td {
+        padding: 14px 12px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .permisos-table tbody tr:hover {
+        background: #f1f5f9;
+    }
+
+    .permisos-actions {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+    }
+
+    .permisos-badge {
+        background: #dbeafe;
+        color: #1e40af;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+    .permisos-empty {
+        text-align: center;
+        padding: 30px;
+        color: #64748b;
+    }
+
+    .permisos-confirm {
+        background: #fff7ed;
+        border: 1px solid #fed7aa;
+        border-radius: 12px;
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="permisos-container">
+
+    <div class="permisos-header">
+        <h2>Gestión de Permisos</h2>
+        <p>Administra los permisos asociados a cada rol.</p>
+    </div>
+
+    <div class="permisos-card">
+        <h4>Buscar permisos</h4>
+
+        <form method="post">
+            <div class="row align-items-end">
+                <div class="col-md-8 mb-3">
+                    <label class="permisos-label">Descripción</label>
+                    <input asp-for="Filtro.Descripcion"
+                           class="permisos-input"
+                           placeholder="Escribe la descripción del permiso..." />
+                </div>
+
+                <div class="col-md-4 mb-3 d-flex gap-2">
+                    <button type="submit"
+                            asp-page-handler="BtConsultar"
+                            class="permisos-btn permisos-primary">
+                        Buscar
+                    </button>
+
+                    <button type="submit"
+                            asp-page-handler="BtNuevo"
+                            class="permisos-btn permisos-success">
+                        + Nuevo
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    @if (Model.Formulario)
+    {
+        <div class="permisos-card">
+            <h4>@(Model.Actual!.ID == 0 ? "Registrar permiso" : "Editar permiso")</h4>
+
+            <form method="post">
+                <input type="hidden" asp-for="Actual.ID" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="permisos-label">ID del rol</label>
+                        <input asp-for="Actual.Rol"
+                               type="number"
+                               class="permisos-input"
+                               min="1"
+                               required />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="permisos-label">Descripción</label>
+                        <input asp-for="Actual.Descripcion"
+                               class="permisos-input"
+                               placeholder="Ej. Registrar ventas"
+                               required />
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit"
+                            asp-page-handler="BtGuardar"
+                            class="permisos-btn permisos-success">
+                        Guardar
+                    </button>
+
+                    <button type="submit"
+                            asp-page-handler="BtConsultar"
+                            class="permisos-btn permisos-secondary">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    }
+
+    @if (Model.Borrar && Model.Actual != null)
+    {
+        <div class="permisos-confirm">
+            <h5 class="text-danger fw-bold">¿Eliminar este permiso?</h5>
+            <p>Vas a eliminar el permiso <strong>@Model.Actual.Descripcion</strong>.</p>
+
+            <form method="post">
+                <input type="hidden" asp-for="Actual.ID" />
+                <input type="hidden" asp-for="Actual.Rol" />
+                <input type="hidden" asp-for="Actual.Descripcion" />
+
+                <button type="submit"
+                        asp-page-handler="BtBorrar"
+                        class="permisos-btn permisos-danger">
+                    Sí, eliminar
+                </button>
+
+                <button type="submit"
+                        asp-page-handler="BtConsultar"
+                        class="permisos-btn permisos-secondary">
+                    Cancelar
+                </button>
+            </form>
+        </div>
+    }
+
+    <div class="permisos-card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0">Permisos registrados</h4>
+            <span class="permisos-badge">
+                @(Model.Lista?.Count ?? 0) registros
+            </span>
+        </div>
+
+        <div class="table-responsive">
+            <table class="permisos-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Rol</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model.Lista != null && Model.Lista.Count > 0)
+                    {
+                        @foreach (var item in Model.Lista)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Rol</td>
+                                <td>@item.Descripcion</td>
+                                <td>
+                                    <div class="permisos-actions">
+                                        <form method="post">
+                                            <button type="submit"
+                                                    asp-page-handler="BtEditar"
+                                                    asp-route-data="@item.ID"
+                                                    class="permisos-btn permisos-warning">
+                                                Editar
+                                            </button>
+                                        </form>
+
+                                        <form method="post">
+                                            <button type="submit"
+                                                    asp-page-handler="BtPregBorrar"
+                                                    asp-route-data="@item.ID"
+                                                    class="permisos-btn permisos-danger">
+                                                Eliminar
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="permisos-empty">
+                                No hay permisos registrados todavía.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

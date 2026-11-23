@@ -11,7 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IConexion,Conexion>();
+builder.Services.AddScoped<IRolesNegocio, RolesAplicacion>();
+builder.Services.AddScoped<IPermisosNegocio, PermisosAplicacion>();
 builder.Services.AddScoped<IAccesoriosNegocio,AccesoriosAplicacion>();
+builder.Services.AddScoped<IUsuariosNegocio, UsuariosAplicacion>();
 builder.Services.AddScoped<ICargosNegocio, CargosAplicacion>();
 builder.Services.AddScoped<IClientesNegocio, ClientesAplicacion>();
 builder.Services.AddScoped<IComprasNegocio, ComprasAplicacion>();
