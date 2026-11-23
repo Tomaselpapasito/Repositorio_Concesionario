@@ -34,7 +34,6 @@ builder.Services.AddScoped<IProductosNegocio, ProductosAplicacion>();
 builder.Services.AddScoped<IProveedoresNegocio, ProveedoresAplicacion>();
 builder.Services.AddScoped<IRepuestosNegocio, RepuestosAplicacion>();
 builder.Services.AddScoped<IVentasNegocio, VentasAplicacion>();
-
 builder.Services.AddScoped<IAuditorias, AuditoriasAplicacion>();
 
 builder.Services.AddScoped<IAutenticacion, AutenticacionAplicacion>();

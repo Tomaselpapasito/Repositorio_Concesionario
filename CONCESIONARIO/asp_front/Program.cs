@@ -17,12 +17,10 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddScoped<IComunicaciones, Comunicaciones>();
-
 builder.Services.AddScoped<IRolesNegocio, RolesPresentacion>();
 builder.Services.AddScoped<IPermisosNegocio, PermisosPresentacion>();
 builder.Services.AddScoped<IUsuariosNegocio, UsuariosPresentacion>();
 builder.Services.AddScoped<IAutenticacionPresentacion, AutenticacionPresentacion>();
-
 builder.Services.AddScoped<IAccesoriosNegocio, AccesoriosPresentacion>();
 builder.Services.AddScoped<ICargosNegocio, CargosPresentacion>();
 builder.Services.AddScoped<IClientesNegocio, ClientesPresentacion>();

@@ -8,7 +8,7 @@ namespace lib_dominio.Nucleo
     {
         public static string ObtenerStringConexion()
         {
-            return "server=.\\DEV;database=CONCESIONARIO_DB;Integrated Security=True;TrustServerCertificate=true;";
+            return "server=.\\WDEV;database=CONCESIONARIO_DB;Integrated Security=True;TrustServerCertificate=true;";
         }
     }
 

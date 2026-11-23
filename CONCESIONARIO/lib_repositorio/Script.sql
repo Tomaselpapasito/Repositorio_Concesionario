@@ -1,4 +1,4 @@
-/**CREATE DATABASE CONCESIONARIO_DB;
+/*CREATE DATABASE CONCESIONARIO_DB;
 GO
 
 USE CONCESIONARIO_DB;
@@ -18,18 +18,9 @@ CREATE TABLE [Personas]
 CREATE TABLE [Usuarios]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
-<<<<<<< Updated upstream
     [NombreUsuario] NVARCHAR(200) NULL,
     [Correo] NVARCHAR(200) NULL,
     [Contraseña] NVARCHAR(20) NULL
-=======
-    [Nombre] NVARCHAR(100) NULL,
-    [Cedula] NVARCHAR(50) NULL UNIQUE,
-    [Fecha_Nacimiento] SMALLDATETIME NOT NULL,
-    [Telefono] NVARCHAR(30) NULL,
-    [NomUsuario] NVARCHAR(100) NULL,
-    [Contraseña] NVARCHAR(250) NULL
->>>>>>> Stashed changes
 );
 
 -- AUDITORIAS
@@ -273,40 +264,34 @@ INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono])
 VALUES ('Pablo Gomez', '123453535359', '1990-02-02', '300122323237');
 GO
 
-<<<<<<< Updated upstream
 -- USUARIOS
 INSERT INTO [Usuarios] ([NombreUsuario],[Correo], [Contraseña]) 
 VALUES ('Nani','kellygaleano@correo.com', '12345');
 GO
 
 INSERT INTO [Usuarios] ([NombreUsuario],[Correo], [Contraseña]) 
-VALUES ('Waffle','santipuerta@correo.com',  '12345');
+VALUES ('Waffle','santipuerta@correo.com', '12345');
 GO
-
 
 -- CARGOS
 INSERT INTO [Cargos] ([Nombre], [Salario], [Activo])
 VALUES ('Asesor Comercial', 2500000.00, 1);
 GO
 
-
 -- MODELOS DE MOTOS
 INSERT INTO [ModelosMotos] ([Nombre], [Cilindraje], [Tipo_motor], [Transmision], [Potencia])
 VALUES ('Yamaha MT-03', 321, 'Bicilindrico', '6 velocidades', 42.00);
 GO
-
 
 -- PROVEEDORES
 INSERT INTO [Proveedores] ([Nombre], [NIT], [Telefono], [Correo], [Direccion])
 VALUES ('MotoPartes Colombia SAS', '900123456-7', '6015551234', 'ventas@motopartes.com', 'Carrera 50 # 10-25');
 GO
 
-
 -- METODOS DE PAGO
 INSERT INTO [MetodosPagos] ([Nombre], [Tipo], [Descripcion], [Activo])
 VALUES ('Tarjeta de Credito', 'Electronico', 'Pago realizado mediante tarjeta de credito', 1);
 GO
-
 
 -- PRODUCTOS
 INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo])
@@ -317,18 +302,15 @@ INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificaci
 VALUES ('ACE-002', 'Pegatina', '2026-01-11', '2026-01-11', 75000.00, 60, 1);
 GO
 
-
 -- ACCESORIOS
 INSERT INTO [Accesorios] ([Nombre], [Categoria], [Marca], [Producto])
 VALUES ('Pegatina', 'Decoracion', 'Generica', 2);
 GO
 
-
 -- CLIENTES
 INSERT INTO [Clientes] ([Correo], [Numero_Licencia], [Direccion], [Activo], [Persona])
 VALUES ('arnold.gomez@email.com', 'LIC-123456', 'Calle 20 # 15-30', 1, 1);
 GO
-
 
 -- MOTOS
 INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo])
@@ -339,101 +321,30 @@ INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo])
 VALUES ('9C6RG122323200001', 'MOT126656', 'Blanco', 2025, 'Disponible', 1);
 GO
 
-
 -- INVENTARIOS
 INSERT INTO [Inventarios] ([Fecha_Ingreso], [Ubicacion], [Moto])
 VALUES ('2026-10-01', 'Zona de exhibicion', 1);
 GO
 
-
-=======
-
--- CARGOS
-INSERT INTO [Cargos] ([Nombre], [Salario], [Activo])
-VALUES ('Asesor Comercial', 2500000.00, 1);
-GO
-
-
--- MODELOS DE MOTOS
-INSERT INTO [ModelosMotos] ([Nombre], [Cilindraje], [Tipo_motor], [Transmision], [Potencia])
-VALUES ('Yamaha MT-03', 321, 'Bicilindrico', '6 velocidades', 42.00);
-GO
-
-
--- PROVEEDORES
-INSERT INTO [Proveedores] ([Nombre], [NIT], [Telefono], [Correo], [Direccion])
-VALUES ('MotoPartes Colombia SAS', '900123456-7', '6015551234', 'ventas@motopartes.com', 'Carrera 50 # 10-25');
-GO
-
-
--- METODOS DE PAGO
-INSERT INTO [MetodosPagos] ([Nombre], [Tipo], [Descripcion], [Activo])
-VALUES ('Tarjeta de Credito', 'Electronico', 'Pago realizado mediante tarjeta de credito', 1);
-GO
-
-
--- PRODUCTOS
-INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo])
-VALUES ('ACE-001', 'Aceite Motul 5100 4T', '2026-01-10', '2026-01-10', 65000.00, 50, 1);
-GO
-
-INSERT INTO [Productos] ([Codigo], [Nombre], [Fecha_Creacion], [Fecha_Modificacion], [Precio], [Stock], [Activo])
-VALUES ('ACE-002', 'Pegatina', '2026-01-11', '2026-01-11', 75000.00, 60, 1);
-GO
-
-
--- ACCESORIOS
-INSERT INTO [Accesorios] ([Nombre], [Categoria], [Marca], [Producto])
-VALUES ('Pegatina', 'Decoracion', 'Generica', 2);
-GO
-
-
--- CLIENTES
-INSERT INTO [Clientes] ([Correo], [Numero_Licencia], [Direccion], [Activo], [Persona])
-VALUES ('arnold.gomez@email.com', 'LIC-123456', 'Calle 20 # 15-30', 1, 1);
-GO
-
-
--- MOTOS
-INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo])
-VALUES ('9C6RG1234MA000001', 'MOT123456', 'Negro', 2026, 'Disponible', 1);
-GO
-
-INSERT INTO [Motos] ([VIN], [Numero_Motor], [Color], [Anio], [Estado], [Modelo])
-VALUES ('9C6RG122323200001', 'MOT126656', 'Blanco', 2025, 'Disponible', 1);
-GO
-
-
--- INVENTARIOS
-INSERT INTO [Inventarios] ([Fecha_Ingreso], [Ubicacion], [Moto])
-VALUES ('2026-10-01', 'Zona de exhibicion', 1);
-GO
-
-
->>>>>>> Stashed changes
 -- COMPRAS
 INSERT INTO [Compras] ([Fecha_Compra], [Impuesto], [Numero_Factura], [Total], [Proveedor])
 VALUES ('2026-10-01', 247000.00, 'FAC-001', 1547000.00, 1);
 GO
-
 
 -- REPUESTOS
 INSERT INTO [Repuestos] ([Numero_Parte], [Descripcion], [Fecha_Modificacion], [Producto])
 VALUES ('REP-001', 'Filtro de aceite para motocicleta', '2026-10-01', 1);
 GO
 
-
 -- EMPLEADOS
 INSERT INTO [Empleados] ([Carnet], [Fecha_Contratacion], [Persona], [Cargo])
 VALUES ('EMP001', '2026-01-15', 2, 1);
 GO
 
-
 -- VENTAS
 INSERT INTO [Ventas] ([Fecha_Venta], [Impuestos], [Total], [Cliente], [Empleado])
 VALUES ('2026-10-01', 1819250.00, 11394250.00, 1, 1);
 GO
-
 
 -- PAGOS
 -- El cliente paga inicialmente $6.394.250
@@ -441,30 +352,25 @@ INSERT INTO [Pagos] ([Fecha_Pago], [Monto], [Metodo], [Venta])
 VALUES ('2026-10-01', 6394250.00, 1, 1);
 GO
 
-
 -- DETALLES DE VENTAS DE MOTOS
 INSERT INTO [DetallesVentasMotos] ([Precio_Unitario], [Descuento], [Subtotal], [Moto], [Venta])
 VALUES (10000000.00, 500000.00, 9500000.00, 2, 1);
 GO
-
 
 -- DETALLES DE VENTAS DE PRODUCTOS
 INSERT INTO [DetallesVentasProductos] ([Precio_Unitario], [Descuento], [Subtotal], [Cantidad], [Producto], [Venta])
 VALUES (75000.00, 0.00, 75000.00, 1, 2, 1);
 GO
 
-
 -- FINANCIAMIENTOS
 INSERT INTO [Financiamientos] ([Monto], [Numero_Cuotas], [Tasa_Interes], [Fecha_Inicio], [Fecha_Fin], [Estado], [Venta])
 VALUES (5000000.00, 12, 1.50, '2026-10-01', '2027-10-01', 'Activo', 1);
 GO
 
-
 -- CUOTAS
 INSERT INTO [Cuotas] ([Numero_cuota], [Monto], [Fecha_vencimiento], [Fecha_pago], [Financiamiento])
 VALUES (1, 458333.33, '2026-11-01', NULL, 1);
 GO
-
 
 -- DETALLES DE COMPRAS
 INSERT INTO [DetallesCompras] ([Cantidad], [Precio_Unitario], [Descuento], [Subtotal], [Compra], [Producto])
