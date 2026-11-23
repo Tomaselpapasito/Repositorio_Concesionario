@@ -1,4 +1,11 @@
-﻿
+﻿@{
+    var permisosTexto = Context.Session.GetString("Permisos") ?? "";
+
+    var permisos = permisosTexto
+        .Split(',', StringSplitOptions.RemoveEmptyEntries)
+        .Select(p => p.Trim())
+        .ToHashSet();
+}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -109,111 +116,174 @@
 
                 <div class="collapse navbar-collapse" id="menuPrincipal">
 
+
                     <ul class="navbar-nav me-auto">
 
                         <!-- INICIO -->
                         <li class="nav-item">
-                            <a class="nav-link" asp-page="/Index">
-                                Inicio
-                            </a>
+                            <a class="nav-link" asp-page="/Index">Inicio</a>
                         </li>
 
                         <!-- INVENTARIO -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               role="button"
-                               data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Inventario
-                            </a>
+                        @if (permisos.Overlaps(new[] { "Motos", "ModelosMotos", "Productos", "Repuestos", "Accesorios", "Inventarios" }))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                    Inventario
+                                </a>
 
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Motos">Motos</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/ModelosMotos">Modelos de motos</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Productos">Productos</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Repuestos">Repuestos</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Accesorios">Accesorios</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Inventarios">Inventarios</a></li>
-                            </ul>
-                        </li>
+                                <ul class="dropdown-menu">
+                                    @if (permisos.Contains("Motos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Motos">Motos</a></li>
+                                    }
+                                    @if (permisos.Contains("ModelosMotos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/ModelosMotos">Modelos de motos</a></li>
+                                    }
+                                    @if (permisos.Contains("Productos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Productos">Productos</a></li>
+                                    }
+                                    @if (permisos.Contains("Repuestos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Repuestos">Repuestos</a></li>
+                                    }
+                                    @if (permisos.Contains("Accesorios"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Accesorios">Accesorios</a></li>
+                                    }
+                                    @if (permisos.Contains("Inventarios"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Inventarios">Inventarios</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
 
                         <!-- ADMINISTRACIÓN -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               role="button"
-                               data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Administración
-                            </a>
+                        @if (permisos.Overlaps(new[] { "Clientes", "Empleados", "Personas", "Proveedores", "Cargos", "Usuarios", "Roles" }))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                    Administración
+                                </a>
 
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Clientes">Clientes</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Empleados">Empleados</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Personas">Personas</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Proveedores">Proveedores</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Cargos">Cargos</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Usuarios">Usuarios</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Roles">Roles</a></li>
-                            </ul>
-                        </li>
+                                <ul class="dropdown-menu">
+                                    @if (permisos.Contains("Clientes"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Clientes">Clientes</a></li>
+                                    }
+                                    @if (permisos.Contains("Empleados"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Empleados">Empleados</a></li>
+                                    }
+                                    @if (permisos.Contains("Personas"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Personas">Personas</a></li>
+                                    }
+                                    @if (permisos.Contains("Proveedores"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Proveedores">Proveedores</a></li>
+                                    }
+                                    @if (permisos.Contains("Cargos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Cargos">Cargos</a></li>
+                                    }
+                                    @if (permisos.Contains("Usuarios"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Usuarios">Usuarios</a></li>
+                                    }
+                                    @if (permisos.Contains("Roles"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Roles">Roles</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
 
                         <!-- COMPRAS -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               role="button"
-                               data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Compras
-                            </a>
+                        @if (permisos.Overlaps(new[] { "Compras", "DetallesCompras" }))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                    Compras
+                                </a>
 
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Compras">Compras</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/DetallesCompras">Detalles de compras</a></li>
-                            </ul>
-                        </li>
+                                <ul class="dropdown-menu">
+                                    @if (permisos.Contains("Compras"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Compras">Compras</a></li>
+                                    }
+                                    @if (permisos.Contains("DetallesCompras"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/DetallesCompras">Detalles de compras</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
 
                         <!-- VENTAS -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               role="button"
-                               data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Ventas
-                            </a>
+                        @if (permisos.Overlaps(new[] { "Ventas", "DetallesVentasMotos", "DetallesVentasProductos" }))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ventas
+                                </a>
 
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Ventas">Ventas</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/DetallesVentasMotos">Detalles de ventas de motos</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/DetallesVentasProductos">Detalles de ventas de productos</a></li>
-                            </ul>
-                        </li>
+                                <ul class="dropdown-menu">
+                                    @if (permisos.Contains("Ventas"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Ventas">Ventas</a></li>
+                                    }
+                                    @if (permisos.Contains("DetallesVentasMotos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/DetallesVentasMotos">Detalles de ventas de motos</a></li>
+                                    }
+                                    @if (permisos.Contains("DetallesVentasProductos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/DetallesVentasProductos">Detalles de ventas de productos</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
 
                         <!-- FINANZAS -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               role="button"
-                               data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Finanzas
-                            </a>
+                        @if (permisos.Overlaps(new[] { "Financiamientos", "Cuotas", "Pagos", "MetodosPagos" }))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                    Finanzas
+                                </a>
 
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Financiamientos">Financiamientos</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Cuotas">Cuotas</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/Pagos">Pagos</a></li>
-                                <li><a class="dropdown-item" asp-page="/Ventanas/MetodosPagos">Métodos de pago</a></li>
-                            </ul>
-                        </li>
+                                <ul class="dropdown-menu">
+                                    @if (permisos.Contains("Financiamientos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Financiamientos">Financiamientos</a></li>
+                                    }
+                                    @if (permisos.Contains("Cuotas"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Cuotas">Cuotas</a></li>
+                                    }
+                                    @if (permisos.Contains("Pagos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/Pagos">Pagos</a></li>
+                                    }
+                                    @if (permisos.Contains("MetodosPagos"))
+                                    {
+                                        <li><a class="dropdown-item" asp-page="/Ventanas/MetodosPagos">Métodos de pago</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
 
                     </ul>
+
                 </div>
             </div>
         </nav>

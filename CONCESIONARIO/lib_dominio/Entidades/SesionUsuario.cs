@@ -9,5 +9,7 @@ namespace lib_dominio.Entidades
         public int ID { get; set; }
         public string NombreUsuario { get; set; } = "";
         public string Token { get; set; } = "";
+
+        public List<string> Permisos { get; set; } = new();
     }
 }

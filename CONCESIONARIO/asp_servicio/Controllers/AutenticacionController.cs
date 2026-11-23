@@ -22,8 +22,7 @@ namespace asp_servicio.Controllers
         }
 
         [HttpPost]
-        public IActionResult IniciarSesion(
-            CredencialesUsuario credenciales)
+        public IActionResult IniciarSesion(CredencialesUsuario credenciales)
         {
             var usuario = this.IAutenticacion.IniciarSesion(
                 credenciales.Usuario,
@@ -35,11 +34,20 @@ namespace asp_servicio.Controllers
 
             var token = this.TokenServicio.GenerarToken(usuario);
 
+            var permisos = usuario.Roles?
+                .Where(rol => rol.Permisos != null)
+                .SelectMany(rol => rol.Permisos!)
+                .Where(permiso => !string.IsNullOrWhiteSpace(permiso.Descripcion))
+                .Select(permiso => permiso.Descripcion!)
+                .Distinct()
+                .ToList() ?? new List<string>();
+
             return Ok(new SesionUsuario
             {
                 ID = usuario.ID,
                 NombreUsuario = usuario.NombreUsuario!,
-                Token = token
+                Token = token,
+                Permisos = permisos
             });
         }
     }

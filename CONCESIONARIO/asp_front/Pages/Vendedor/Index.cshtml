@@ -1,0 +1,60 @@
+﻿@page
+@model asp_front.Pages.Vendedor.IndexModel
+
+@{
+    ViewData["Title"] = "Panel del vendedor";
+}
+
+<div class="container mt-5">
+
+    <div class="mb-4">
+        <h2>Panel del vendedor</h2>
+        <p class="text-muted">
+            Bienvenido, @HttpContext.Session.GetString("NombreUsuario").
+            Desde aquí puedes acceder a las funciones de ventas.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Clientes</h5>
+                    <p>Consultar y gestionar clientes.</p>
+                    <a asp-page="/Ventanas/Clientes"
+                           class="btn btn-primary">
+                        Ver clientes
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Productos</h5>
+                    <p>Consultar los productos disponibles.</p>
+                    <a asp-page="/Ventanas/Productos"
+                           class="btn btn-primary">
+                        Ver productos
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Motos</h5>
+                    <p>Consultar las motos disponibles.</p>
+                    <a asp-page="/Ventanas/Motos"
+                           class="btn btn-primary">
+                        Ver motos
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

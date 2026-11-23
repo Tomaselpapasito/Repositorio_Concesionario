@@ -18,18 +18,8 @@ CREATE TABLE [Personas]
 CREATE TABLE [Usuarios]
 (
     [ID] INT IDENTITY(1,1) PRIMARY KEY,
-<<<<<<< Updated upstream
     [NombreUsuario] NVARCHAR(200) NULL,
-    [Correo] NVARCHAR(200) NULL,
     [Contraseña] NVARCHAR(20) NULL
-=======
-    [Nombre] NVARCHAR(100) NULL,
-    [Cedula] NVARCHAR(50) NULL UNIQUE,
-    [Fecha_Nacimiento] SMALLDATETIME NOT NULL,
-    [Telefono] NVARCHAR(30) NULL,
-    [NomUsuario] NVARCHAR(100) NULL,
-    [Contraseña] NVARCHAR(250) NULL
->>>>>>> Stashed changes
 );
 
 -- AUDITORIAS
@@ -275,12 +265,12 @@ GO
 
 <<<<<<< Updated upstream
 -- USUARIOS
-INSERT INTO [Usuarios] ([NombreUsuario],[Correo], [Contraseña]) 
-VALUES ('Nani','kellygaleano@correo.com', '12345');
+INSERT INTO [Usuarios] ([NombreUsuario], [Contraseña]) 
+VALUES ('Nani', '12345');
 GO
 
-INSERT INTO [Usuarios] ([NombreUsuario],[Correo], [Contraseña]) 
-VALUES ('Waffle','santipuerta@correo.com',  '12345');
+INSERT INTO [Usuarios] ([NombreUsuario], [Contraseña]) 
+VALUES ('Waffle',  '12345');
 GO
 
 
@@ -469,4 +459,8 @@ GO
 -- DETALLES DE COMPRAS
 INSERT INTO [DetallesCompras] ([Cantidad], [Precio_Unitario], [Descuento], [Subtotal], [Compra], [Producto])
 VALUES (20, 65000.00, 0.00, 1300000.00, 1, 1);
+GO
+INSERT INTO Usuarios (NombreUsuario, Contraseña)
+VALUES ('admin', '123456'),
+;
 GO

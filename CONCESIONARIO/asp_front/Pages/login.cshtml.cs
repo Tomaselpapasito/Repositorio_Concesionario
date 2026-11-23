@@ -55,6 +55,7 @@ namespace asp_front.Pages
                 HttpContext.Session.SetInt32("UsuarioID", sesion.ID);
                 HttpContext.Session.SetString("NombreUsuario", sesion.NombreUsuario);
                 HttpContext.Session.SetString("Token", sesion.Token);
+                HttpContext.Session.SetString("Permisos", string.Join(",", sesion.Permisos));
 
                 return RedirectToPage("/Index");
             }
