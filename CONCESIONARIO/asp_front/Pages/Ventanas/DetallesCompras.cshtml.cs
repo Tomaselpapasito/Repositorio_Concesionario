@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class DetallesComprasModel : PageModel
     {
-        private IDetallesComprasAplicacion IDetallesComprasAplicacion;
+        private IDetallesComprasPresentacion IDetallesComprasPresentacion;
 
-        public DetallesComprasModel(IDetallesComprasAplicacion IDetallesComprasAplicacion)
+        public DetallesComprasModel(IDetallesComprasPresentacion IDetallesComprasPresentacion)
         {
-            this.IDetallesComprasAplicacion = IDetallesComprasAplicacion;
+            this.IDetallesComprasPresentacion = IDetallesComprasPresentacion;
         }
 
         [BindProperty] public List<DetallesCompras> Lista { get; set; } = new();
@@ -33,7 +33,7 @@ namespace asp_front.Pages.Ventanas
             {
                 Filtro ??= new DetallesCompras();
 
-                Lista = IDetallesComprasAplicacion.Buscar(Filtro);
+                Lista = IDetallesComprasPresentacion.Buscar(Filtro);
 
                 Formulario = false;
                 Borrar = false;
@@ -49,7 +49,7 @@ namespace asp_front.Pages.Ventanas
             Actual = new DetallesCompras();
             Formulario = true;
             Borrar = false;
-            Lista = IDetallesComprasAplicacion.Consultar();
+            Lista = IDetallesComprasPresentacion.Consultar();
         }
 
         public void OnPostBtGuardar()
@@ -57,9 +57,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    IDetallesComprasAplicacion.Insertar(Actual);
+                    IDetallesComprasPresentacion.Insertar(Actual);
                 else
-                    IDetallesComprasAplicacion.Actualizar(Actual);
+                    IDetallesComprasPresentacion.Actualizar(Actual);
 
                 OnPostBtConsultar();
             }
@@ -67,7 +67,7 @@ namespace asp_front.Pages.Ventanas
             {
                 LogConversor.Log(ex, ViewData!);
                 Formulario = true;
-                Lista = IDetallesComprasAplicacion.Consultar();
+                Lista = IDetallesComprasPresentacion.Consultar();
             }
         }
 
@@ -75,12 +75,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IDetallesComprasAplicacion.Consultar()
+                Actual = IDetallesComprasPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Formulario = true;
                 Borrar = false;
-                Lista = IDetallesComprasAplicacion.Consultar();
+                Lista = IDetallesComprasPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -92,12 +92,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IDetallesComprasAplicacion.Consultar()
+                Actual = IDetallesComprasPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Borrar = true;
                 Formulario = false;
-                Lista = IDetallesComprasAplicacion.Consultar();
+                Lista = IDetallesComprasPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -109,7 +109,7 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                IDetallesComprasAplicacion.Borrar(Actual!);
+                IDetallesComprasPresentacion.Borrar(Actual!);
                 OnPostBtConsultar();
             }
             catch (Exception ex)

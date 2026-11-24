@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class ProveedoresController : ControllerBase
     {
         private IProveedoresAplicacion IProveedoresAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public ProveedoresController(IProveedoresAplicacion IProveedoresAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Proveedores Insertar(Proveedores entidad)
         {
-            return this.IProveedoresAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IProveedoresAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Proveedores Actualizar(Proveedores entidad)
         {
-            return this.IProveedoresAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IProveedoresAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Proveedores Borrar(Proveedores entidad)
         {
-            return this.IProveedoresAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IProveedoresAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

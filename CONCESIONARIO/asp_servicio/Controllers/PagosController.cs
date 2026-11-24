@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class PagosController : ControllerBase
     {
         private IPagosAplicacion IPagosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public PagosController(IPagosAplicacion IPagosAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Pagos Insertar(Pagos entidad)
         {
-            return this.IPagosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IPagosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Pagos Actualizar(Pagos entidad)
         {
-            return this.IPagosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IPagosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Pagos Borrar(Pagos entidad)
         {
-            return this.IPagosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IPagosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

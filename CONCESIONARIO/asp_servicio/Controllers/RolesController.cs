@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class RolesController : ControllerBase
     {
         private IRolesAplicacion IRolesAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public RolesController(IRolesAplicacion IRolesAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Roles Insertar(Roles entidad)
         {
-            return this.IRolesAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IRolesAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Roles Actualizar(Roles entidad)
         {
-            return this.IRolesAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IRolesAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Roles Borrar(Roles entidad)
         {
-            return this.IRolesAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IRolesAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

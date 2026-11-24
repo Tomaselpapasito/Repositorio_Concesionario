@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -10,8 +10,8 @@ namespace asp_front.Pages.Ventanas
 {
     public class ClientesModel : PageModel
     {
-        private IClientesAplicacion IClientesAplicacion;
-        private IPersonasAplicacion IPersonasAplicacion;
+        private IClientesPresentacion IClientesPresentacion;
+        private IPersonasPresentacion IPersonasPresentacion;
 
         public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
         {
@@ -22,11 +22,11 @@ namespace asp_front.Pages.Ventanas
         }
 
         public ClientesModel(
-            IClientesAplicacion IClientesAplicacion,
-            IPersonasAplicacion IPersonasAplicacion)
+            IClientesPresentacion IClientesPresentacion,
+            IPersonasPresentacion IPersonasPresentacion)
         {
-            this.IClientesAplicacion = IClientesAplicacion;
-            this.IPersonasAplicacion = IPersonasAplicacion;
+            this.IClientesPresentacion = IClientesPresentacion;
+            this.IPersonasPresentacion = IPersonasPresentacion;
             this.Filtro = new Clientes();
         }
 
@@ -53,8 +53,8 @@ namespace asp_front.Pages.Ventanas
                 Filtro.Numero_Licencia ??= "";
                 Filtro.Direccion ??= "";
 
-                Lista = IClientesAplicacion.Consultar();
-                ListaPersonas = IPersonasAplicacion.Consultar();
+                Lista = IClientesPresentacion.Consultar();
+                ListaPersonas = IPersonasPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace asp_front.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new Clientes();
-                ListaPersonas = IPersonasAplicacion.Consultar();
+                ListaPersonas = IPersonasPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -81,9 +81,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (this.Actual!.ID == 0)
-                    this.Actual = this.IClientesAplicacion.Insertar(this.Actual!);
+                    this.Actual = this.IClientesPresentacion.Insertar(this.Actual!);
                 else
-                    this.Actual = this.IClientesAplicacion.Actualizar(this.Actual!);
+                    this.Actual = this.IClientesPresentacion.Actualizar(this.Actual!);
             }
             catch (Exception ex)
             {
@@ -134,7 +134,7 @@ namespace asp_front.Pages.Ventanas
                 if (this.Actual!.ID == 0)
                     return;
 
-                this.Actual = this.IClientesAplicacion.Borrar(this.Actual!);
+                this.Actual = this.IClientesPresentacion.Borrar(this.Actual!);
             }
             catch (Exception ex)
             {

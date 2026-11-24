@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class CuotasController : ControllerBase
     {
         private ICuotasAplicacion ICuotasAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public CuotasController(ICuotasAplicacion ICuotasAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Cuotas Insertar(Cuotas entidad)
         {
-            return this.ICuotasAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.ICuotasAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Cuotas Actualizar(Cuotas entidad)
         {
-            return this.ICuotasAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.ICuotasAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Cuotas Borrar(Cuotas entidad)
         {
-            return this.ICuotasAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.ICuotasAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

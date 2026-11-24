@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class EmpleadosController : ControllerBase
     {
         private IEmpleadosAplicacion IEmpleadosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public EmpleadosController(IEmpleadosAplicacion IEmpleadosAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Empleados Insertar(Empleados entidad)
         {
-            return this.IEmpleadosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IEmpleadosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Empleados Actualizar(Empleados entidad)
         {
-            return this.IEmpleadosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IEmpleadosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Empleados Borrar(Empleados entidad)
         {
-            return this.IEmpleadosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IEmpleadosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

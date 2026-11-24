@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class ProveedoresModel : PageModel
     {
-        private IProveedoresAplicacion IProveedoresAplicacion;
+        private IProveedoresPresentacion IProveedoresPresentacion;
 
-        public ProveedoresModel(IProveedoresAplicacion IProveedoresAplicacion)
+        public ProveedoresModel(IProveedoresPresentacion IProveedoresPresentacion)
         {
-            this.IProveedoresAplicacion = IProveedoresAplicacion;
+            this.IProveedoresPresentacion = IProveedoresPresentacion;
             this.Filtro = new Proveedores();
         }
 
@@ -35,7 +35,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro!.Nombre = Filtro.Nombre ?? "";
                 Filtro.NIT = Filtro.NIT ?? "";
 
-                Lista = this.IProveedoresAplicacion.Consultar();
+                Lista = this.IProveedoresPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -61,9 +61,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IProveedoresAplicacion.Insertar(Actual!);
+                    Actual = IProveedoresPresentacion.Insertar(Actual!);
                 else
-                    Actual = IProveedoresAplicacion.Actualizar(Actual!);
+                    Actual = IProveedoresPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -114,7 +114,7 @@ namespace asp_front.Pages.Ventanas
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IProveedoresAplicacion.Borrar(Actual!);
+                Actual = IProveedoresPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

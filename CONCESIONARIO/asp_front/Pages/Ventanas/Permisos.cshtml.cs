@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class PermisosModel : PageModel
     {
-        private IPermisosAplicacion IPermisosAplicacion;
+        private IPermisosPresentacion IPermisosPresentacion;
 
-        public PermisosModel(IPermisosAplicacion IPermisosAplicacion)
+        public PermisosModel(IPermisosPresentacion IPermisosPresentacion)
         {
-            this.IPermisosAplicacion = IPermisosAplicacion;
+            this.IPermisosPresentacion = IPermisosPresentacion;
             this.Filtro = new Permisos();
         }
 
@@ -34,7 +34,7 @@ namespace asp_front.Pages.Ventanas
             {
                 Filtro!.Descripcion = Filtro.Descripcion ?? "";
 
-                Lista = IPermisosAplicacion.Buscar(Filtro!);
+                Lista = IPermisosPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
@@ -60,9 +60,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IPermisosAplicacion.Insertar(Actual!);
+                    Actual = IPermisosPresentacion.Insertar(Actual!);
                 else
-                    Actual = IPermisosAplicacion.Actualizar(Actual!);
+                    Actual = IPermisosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -113,7 +113,7 @@ namespace asp_front.Pages.Ventanas
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IPermisosAplicacion.Borrar(Actual!);
+                Actual = IPermisosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

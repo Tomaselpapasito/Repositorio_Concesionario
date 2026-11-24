@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class RolesModel : PageModel
     {
-        private IRolesAplicacion IRolesAplicacion;
+        private IRolesPresentacion IRolesPresentacion;
 
-        public RolesModel(IRolesAplicacion IRolesAplicacion)
+        public RolesModel(IRolesPresentacion IRolesPresentacion)
         {
-            this.IRolesAplicacion = IRolesAplicacion;
+            this.IRolesPresentacion = IRolesPresentacion;
             this.Filtro = new Roles();
         }
 
@@ -34,7 +34,7 @@ namespace asp_front.Pages.Ventanas
             {
                 Filtro!.Nombre = Filtro.Nombre ?? "";
 
-                Lista = IRolesAplicacion.Buscar(Filtro!);
+                Lista = IRolesPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
@@ -60,9 +60,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IRolesAplicacion.Insertar(Actual!);
+                    Actual = IRolesPresentacion.Insertar(Actual!);
                 else
-                    Actual = IRolesAplicacion.Actualizar(Actual!);
+                    Actual = IRolesPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -113,7 +113,7 @@ namespace asp_front.Pages.Ventanas
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IRolesAplicacion.Borrar(Actual!);
+                Actual = IRolesPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

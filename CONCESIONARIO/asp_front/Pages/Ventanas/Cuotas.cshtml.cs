@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class CuotasModel : PageModel
     {
-        private ICuotasAplicacion ICuotasAplicacion;
+        private ICuotasPresentacion ICuotasPresentacion;
 
-        public CuotasModel(ICuotasAplicacion ICuotasAplicacion)
+        public CuotasModel(ICuotasPresentacion ICuotasPresentacion)
         {
-            this.ICuotasAplicacion = ICuotasAplicacion;
+            this.ICuotasPresentacion = ICuotasPresentacion;
         }
 
         [BindProperty] public List<Cuotas> Lista { get; set; } = new();
@@ -33,7 +33,7 @@ namespace asp_front.Pages.Ventanas
             {
                 Filtro ??= new Cuotas();
 
-                Lista = ICuotasAplicacion.Buscar(Filtro);
+                Lista = ICuotasPresentacion.Buscar(Filtro);
 
                 Formulario = false;
                 Borrar = false;
@@ -49,7 +49,7 @@ namespace asp_front.Pages.Ventanas
             Actual = new Cuotas();
             Formulario = true;
             Borrar = false;
-            Lista = ICuotasAplicacion.Consultar();
+            Lista = ICuotasPresentacion.Consultar();
         }
 
         public void OnPostBtGuardar()
@@ -57,9 +57,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    ICuotasAplicacion.Insertar(Actual);
+                    ICuotasPresentacion.Insertar(Actual);
                 else
-                    ICuotasAplicacion.Actualizar(Actual);
+                    ICuotasPresentacion.Actualizar(Actual);
 
                 OnPostBtConsultar();
             }
@@ -67,7 +67,7 @@ namespace asp_front.Pages.Ventanas
             {
                 LogConversor.Log(ex, ViewData!);
                 Formulario = true;
-                Lista = ICuotasAplicacion.Consultar();
+                Lista = ICuotasPresentacion.Consultar();
             }
         }
 
@@ -75,12 +75,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = ICuotasAplicacion.Consultar()
+                Actual = ICuotasPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Formulario = true;
                 Borrar = false;
-                Lista = ICuotasAplicacion.Consultar();
+                Lista = ICuotasPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -92,12 +92,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = ICuotasAplicacion.Consultar()
+                Actual = ICuotasPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Borrar = true;
                 Formulario = false;
-                Lista = ICuotasAplicacion.Consultar();
+                Lista = ICuotasPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -109,7 +109,7 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                ICuotasAplicacion.Borrar(Actual!);
+                ICuotasPresentacion.Borrar(Actual!);
                 OnPostBtConsultar();
             }
             catch (Exception ex)

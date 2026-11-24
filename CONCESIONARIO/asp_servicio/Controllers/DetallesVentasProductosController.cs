@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class DetallesVentasProductosController : ControllerBase
     {
         private IDetallesVentasProductosAplicacion IDetallesVentasProductosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public DetallesVentasProductosController(IDetallesVentasProductosAplicacion IDetallesVentasProductosAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public DetallesVentasProductos Insertar(DetallesVentasProductos entidad)
         {
-            return this.IDetallesVentasProductosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesVentasProductosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public DetallesVentasProductos Actualizar(DetallesVentasProductos entidad)
         {
-            return this.IDetallesVentasProductosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesVentasProductosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public DetallesVentasProductos Borrar(DetallesVentasProductos entidad)
         {
-            return this.IDetallesVentasProductosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesVentasProductosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

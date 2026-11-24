@@ -3,6 +3,7 @@ using lib_dominio.Interfaces;
 using lib_repositorio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -12,6 +13,13 @@ namespace asp_servicio.Controllers
     {
         private IVentasAplicacion IVentasAplicacion;
         private IConexion IConexion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public VentasController(
             IVentasAplicacion IVentasAplicacion,
@@ -36,19 +44,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Ventas Insertar(Ventas entidad)
         {
-            return this.IVentasAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IVentasAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Ventas Actualizar(Ventas entidad)
         {
-            return this.IVentasAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IVentasAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Ventas Borrar(Ventas entidad)
         {
-            return this.IVentasAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IVentasAplicacion.Borrar(entidad, IdUsuario);
         }
 
 

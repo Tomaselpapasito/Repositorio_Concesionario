@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,14 @@ namespace asp_servicio.Controllers
     public class ClientesController : ControllerBase
     {
         private IClientesAplicacion IClientesAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
+
 
         public ClientesController(IClientesAplicacion IClientesAplicacion)
         {
@@ -30,19 +39,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Clientes Insertar(Clientes entidad)
         {
-            return this.IClientesAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IClientesAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Clientes Actualizar(Clientes entidad)
         {
-            return this.IClientesAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IClientesAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Clientes Borrar(Clientes entidad)
         {
-            return this.IClientesAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IClientesAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

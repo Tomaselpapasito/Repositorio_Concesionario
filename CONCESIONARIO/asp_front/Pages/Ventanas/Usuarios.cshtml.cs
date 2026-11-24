@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class UsuariosModel : PageModel
     {
-        private IUsuariosAplicacion IUsuariosAplicacion;
+        private IUsuariosPresentacion IUsuariosPresentacion;
 
-        public UsuariosModel(IUsuariosAplicacion IUsuariosAplicacion)
+        public UsuariosModel(IUsuariosPresentacion IUsuariosPresentacion)
         {
-            this.IUsuariosAplicacion = IUsuariosAplicacion;
+            this.IUsuariosPresentacion = IUsuariosPresentacion;
             this.Filtro = new Usuarios();
         }
 
@@ -35,7 +35,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro!.NombreUsuario = Filtro.NombreUsuario ?? "";
                 Filtro.NombreUsuario = Filtro.NombreUsuario ?? "";
 
-                Lista = IUsuariosAplicacion.Buscar(Filtro!);
+                Lista = IUsuariosPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
@@ -61,9 +61,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IUsuariosAplicacion.Insertar(Actual!);
+                    Actual = IUsuariosPresentacion.Insertar(Actual!);
                 else
-                    Actual = IUsuariosAplicacion.Actualizar(Actual!);
+                    Actual = IUsuariosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -114,7 +114,7 @@ namespace asp_front.Pages.Ventanas
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IUsuariosAplicacion.Borrar(Actual!);
+                Actual = IUsuariosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

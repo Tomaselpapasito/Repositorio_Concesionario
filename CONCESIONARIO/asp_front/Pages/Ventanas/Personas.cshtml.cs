@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class PersonasModel : PageModel
     {
-        private IPersonasAplicacion IPersonasAplicacion;
+        private IPersonasPresentacion IPersonasPresentacion;
 
-        public PersonasModel(IPersonasAplicacion IPersonasAplicacion)
+        public PersonasModel(IPersonasPresentacion IPersonasPresentacion)
         {
-            this.IPersonasAplicacion = IPersonasAplicacion;
+            this.IPersonasPresentacion = IPersonasPresentacion;
             this.Filtro = new Personas();
         }
 
@@ -35,7 +35,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro!.Nombre = Filtro.Nombre ?? "";
                 Filtro.Cedula = Filtro.Cedula ?? "";
 
-                Lista = this.IPersonasAplicacion.Buscar(Filtro!);
+                Lista = this.IPersonasPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
@@ -61,9 +61,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IPersonasAplicacion.Insertar(Actual!);
+                    Actual = IPersonasPresentacion.Insertar(Actual!);
                 else
-                    Actual = IPersonasAplicacion.Actualizar(Actual!);
+                    Actual = IPersonasPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -114,7 +114,7 @@ namespace asp_front.Pages.Ventanas
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IPersonasAplicacion.Borrar(Actual!);
+                Actual = IPersonasPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

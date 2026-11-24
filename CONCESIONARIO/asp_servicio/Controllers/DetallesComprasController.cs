@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class DetallesComprasController : ControllerBase
     {
         private IDetallesComprasAplicacion IDetallesComprasAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public DetallesComprasController(IDetallesComprasAplicacion IDetallesComprasAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public DetallesCompras Insertar(DetallesCompras entidad)
         {
-            return this.IDetallesComprasAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesComprasAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public DetallesCompras Actualizar(DetallesCompras entidad)
         {
-            return this.IDetallesComprasAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesComprasAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public DetallesCompras Borrar(DetallesCompras entidad)
         {
-            return this.IDetallesComprasAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesComprasAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

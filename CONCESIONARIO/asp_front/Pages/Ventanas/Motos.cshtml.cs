@@ -1,5 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
+
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -9,7 +11,7 @@ namespace asp_front.Pages.Modulos
 {
     public class MotosModel : PageModel
     {
-        private IMotosAplicacion IMotosAplicacion;
+        private IMotosPresentacion IMotosPresentacion;
 
 
         public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
@@ -19,9 +21,9 @@ namespace asp_front.Pages.Modulos
                 context.Result = new RedirectToPageResult("/Login");
             }
         }
-        public MotosModel(IMotosAplicacion IMotosAplicacion)
+        public MotosModel(IMotosPresentacion IMotosPresentacion)
         {
-            this.IMotosAplicacion = IMotosAplicacion;
+            this.IMotosPresentacion = IMotosPresentacion;
             this.Filtro = new Motos();
         }
 
@@ -43,7 +45,7 @@ namespace asp_front.Pages.Modulos
                 Filtro!.VIN = Filtro.VIN ?? "";
                 Filtro.Numero_Motor = Filtro.Numero_Motor ?? "";
                 Filtro.Estado = Filtro.Estado ?? "";
-                Lista = this.IMotosAplicacion.Buscar(Filtro!);
+                Lista = this.IMotosPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
@@ -69,9 +71,9 @@ namespace asp_front.Pages.Modulos
             try
             {
                 if (this.Actual!.ID == 0)
-                    this.Actual = this.IMotosAplicacion.Insertar(this.Actual!);
+                    this.Actual = this.IMotosPresentacion.Insertar(this.Actual!);
                 else
-                    this.Actual = this.IMotosAplicacion.Actualizar(this.Actual!);
+                    this.Actual = this.IMotosPresentacion.Actualizar(this.Actual!);
             }
             catch (Exception ex)
             {
@@ -122,7 +124,7 @@ namespace asp_front.Pages.Modulos
                 if (this.Actual!.ID == 0)
                     return;
 
-                this.Actual = this.IMotosAplicacion.Borrar(this.Actual!);
+                this.Actual = this.IMotosPresentacion.Borrar(this.Actual!);
             }
             catch (Exception ex)
             {

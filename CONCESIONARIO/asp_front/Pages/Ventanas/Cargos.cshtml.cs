@@ -1,7 +1,7 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,11 +9,12 @@ namespace asp_front.Pages.Ventanas
 {
     public class CargosModel : PageModel
     {
-        private ICargosAplicacion ICargosAplicacion;
+        private ICargosPresentacion ICargosPresentacion;
 
-        public CargosModel(ICargosAplicacion ICargosAplicacion)
+
+        public CargosModel(ICargosPresentacion ICargosPresentacion)
         {
-            this.ICargosAplicacion = ICargosAplicacion;
+            this.ICargosPresentacion = ICargosPresentacion;
             this.Filtro = new Cargos();
         }
 
@@ -34,7 +35,7 @@ namespace asp_front.Pages.Ventanas
             {
                 Filtro!.Nombre = Filtro.Nombre ?? "";
 
-                Lista = this.ICargosAplicacion.Buscar(Filtro!);
+                Lista = this.ICargosPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
@@ -63,9 +64,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = ICargosAplicacion.Insertar(Actual!);
+                    Actual = ICargosPresentacion.Insertar(Actual!);
                 else
-                    Actual = ICargosAplicacion.Actualizar(Actual!);
+                    Actual = ICargosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -116,7 +117,7 @@ namespace asp_front.Pages.Ventanas
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = ICargosAplicacion.Borrar(Actual!);
+                Actual = ICargosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

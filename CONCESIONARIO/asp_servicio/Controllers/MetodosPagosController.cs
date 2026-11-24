@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -10,6 +11,7 @@ namespace asp_servicio.Controllers
     {
         private IMetodosPagosAplicacion IMetodosPagosAplicacion;
 
+     
         public MetodosPagosController(IMetodosPagosAplicacion IMetodosPagosAplicacion)
         {
             this.IMetodosPagosAplicacion = IMetodosPagosAplicacion;

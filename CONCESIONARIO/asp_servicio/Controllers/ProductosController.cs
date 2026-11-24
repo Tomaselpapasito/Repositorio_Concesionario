@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class ProductosController : ControllerBase
     {
         private IProductosAplicacion IProductosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public ProductosController(IProductosAplicacion IProductosAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Productos Insertar(Productos entidad)
         {
-            return this.IProductosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IProductosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Productos Actualizar(Productos entidad)
         {
-            return this.IProductosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IProductosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Productos Borrar(Productos entidad)
         {
-            return this.IProductosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IProductosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

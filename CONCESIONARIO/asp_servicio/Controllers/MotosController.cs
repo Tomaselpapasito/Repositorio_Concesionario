@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,14 @@ namespace asp_servicio.Controllers
     public class MotosController : ControllerBase
     {
         private IMotosAplicacion IMotosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
+
 
         public MotosController(IMotosAplicacion IMotosAplicacion)
         {
@@ -30,19 +39,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Motos Insertar(Motos entidad)
         {
-            return this.IMotosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IMotosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Motos Actualizar(Motos entidad)
         {
-            return this.IMotosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IMotosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Motos Borrar(Motos entidad)
         {
-            return this.IMotosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IMotosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,15 +9,15 @@ namespace asp_front.Pages.Modulos
 {
     public class InventariosModel : PageModel
     {
-        private IInventariosAplicacion IInventariosAplicacion;
-        private IMotosAplicacion IMotosAplicacion;
+        private IInventariosPresentacion IInventariosPresentacion;
+        private IMotosPresentacion IMotosPresentacion;
 
         public InventariosModel(
-            IInventariosAplicacion IInventariosAplicacion,
-            IMotosAplicacion IMotosAplicacion)
+            IInventariosPresentacion IInventariosPresentacion,
+            IMotosPresentacion IMotosPresentacion)
         {
-            this.IInventariosAplicacion = IInventariosAplicacion;
-            this.IMotosAplicacion = IMotosAplicacion;
+            this.IInventariosPresentacion = IInventariosPresentacion;
+            this.IMotosPresentacion = IMotosPresentacion;
             this.Filtro = new Inventarios();
             this.ListaMotos = new List<Motos>();
         }
@@ -40,8 +40,8 @@ namespace asp_front.Pages.Modulos
             {
                 Filtro!.Ubicacion = Filtro.Ubicacion ?? "";
 
-                Lista = this.IInventariosAplicacion.Buscar(Filtro!);
-                ListaMotos = this.IMotosAplicacion.Consultar();
+                Lista = this.IInventariosPresentacion.Buscar(Filtro!);
+                ListaMotos = this.IMotosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace asp_front.Pages.Modulos
                     Fecha_Ingreso = DateTime.Today
                 };
 
-                ListaMotos = this.IMotosAplicacion.Consultar();
+                ListaMotos = this.IMotosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -72,9 +72,9 @@ namespace asp_front.Pages.Modulos
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IInventariosAplicacion.Insertar(Actual!);
+                    Actual = IInventariosPresentacion.Insertar(Actual!);
                 else
-                    Actual = IInventariosAplicacion.Actualizar(Actual!);
+                    Actual = IInventariosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -125,7 +125,7 @@ namespace asp_front.Pages.Modulos
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IInventariosAplicacion.Borrar(Actual!);
+                Actual = IInventariosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

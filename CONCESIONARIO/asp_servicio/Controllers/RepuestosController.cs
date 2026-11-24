@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class RepuestosController : ControllerBase
     {
         private IRepuestosAplicacion IRepuestosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public RepuestosController(IRepuestosAplicacion IRepuestosAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Repuestos Insertar(Repuestos entidad)
         {
-            return this.IRepuestosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IRepuestosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Repuestos Actualizar(Repuestos entidad)
         {
-            return this.IRepuestosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IRepuestosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Repuestos Borrar(Repuestos entidad)
         {
-            return this.IRepuestosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IRepuestosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

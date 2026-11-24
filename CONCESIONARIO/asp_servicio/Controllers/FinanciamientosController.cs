@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class FinanciamientosController : ControllerBase
     {
         private IFinanciamientosAplicacion IFinanciamientosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public FinanciamientosController(IFinanciamientosAplicacion IFinanciamientosAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Financiamientos Insertar(Financiamientos entidad)
         {
-            return this.IFinanciamientosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IFinanciamientosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Financiamientos Actualizar(Financiamientos entidad)
         {
-            return this.IFinanciamientosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IFinanciamientosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Financiamientos Borrar(Financiamientos entidad)
         {
-            return this.IFinanciamientosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IFinanciamientosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class InventariosController : ControllerBase
     {
         private IInventariosAplicacion IInventariosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public InventariosController(IInventariosAplicacion IInventariosAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Inventarios Insertar(Inventarios entidad)
         {
-            return this.IInventariosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IInventariosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Inventarios Actualizar(Inventarios entidad)
         {
-            return this.IInventariosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IInventariosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Inventarios Borrar(Inventarios entidad)
         {
-            return this.IInventariosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IInventariosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

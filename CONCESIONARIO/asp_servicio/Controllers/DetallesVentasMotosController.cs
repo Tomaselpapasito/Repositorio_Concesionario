@@ -1,6 +1,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,6 +10,13 @@ namespace asp_servicio.Controllers
     public class DetallesVentasMotosController : ControllerBase
     {
         private IDetallesVentasMotosAplicacion IDetallesVentasMotosAplicacion;
+
+        private int ObtenerUsuarioID()
+        {
+            var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return int.Parse(id!);
+        }
 
         public DetallesVentasMotosController(IDetallesVentasMotosAplicacion IDetallesVentasMotosAplicacion)
         {
@@ -30,19 +38,22 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public DetallesVentasMotos Insertar(DetallesVentasMotos entidad)
         {
-            return this.IDetallesVentasMotosAplicacion.Insertar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesVentasMotosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public DetallesVentasMotos Actualizar(DetallesVentasMotos entidad)
         {
-            return this.IDetallesVentasMotosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesVentasMotosAplicacion.Actualizar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public DetallesVentasMotos Borrar(DetallesVentasMotos entidad)
         {
-            return this.IDetallesVentasMotosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IDetallesVentasMotosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

@@ -1,6 +1,6 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class DetallesVentasMotosModel : PageModel
     {
-        private IDetallesVentasMotosAplicacion IDetallesVentasMotosAplicacion;
+        private IDetallesVentasMotosPresentacion IDetallesVentasMotosPresentacion;
 
-        public DetallesVentasMotosModel(IDetallesVentasMotosAplicacion IDetallesVentasMotosAplicacion)
+        public DetallesVentasMotosModel(IDetallesVentasMotosPresentacion IDetallesVentasMotosPresentacion)
         {
-            this.IDetallesVentasMotosAplicacion = IDetallesVentasMotosAplicacion;
+            this.IDetallesVentasMotosPresentacion = IDetallesVentasMotosPresentacion;
         }
 
         [BindProperty] public List<DetallesVentasMotos> Lista { get; set; } = new();
@@ -32,7 +32,7 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 Filtro ??= new DetallesVentasMotos();
-                Lista = IDetallesVentasMotosAplicacion.Buscar(Filtro);
+                Lista = IDetallesVentasMotosPresentacion.Buscar(Filtro);
 
                 Formulario = false;
                 Borrar = false;
@@ -48,7 +48,7 @@ namespace asp_front.Pages.Ventanas
             Actual = new DetallesVentasMotos();
             Formulario = true;
             Borrar = false;
-            Lista = IDetallesVentasMotosAplicacion.Consultar();
+            Lista = IDetallesVentasMotosPresentacion.Consultar();
         }
 
         public void OnPostBtGuardar()
@@ -56,9 +56,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    IDetallesVentasMotosAplicacion.Insertar(Actual);
+                    IDetallesVentasMotosPresentacion.Insertar(Actual);
                 else
-                    IDetallesVentasMotosAplicacion.Actualizar(Actual);
+                    IDetallesVentasMotosPresentacion.Actualizar(Actual);
 
                 OnPostBtConsultar();
             }
@@ -66,7 +66,7 @@ namespace asp_front.Pages.Ventanas
             {
                 LogConversor.Log(ex, ViewData!);
                 Formulario = true;
-                Lista = IDetallesVentasMotosAplicacion.Consultar();
+                Lista = IDetallesVentasMotosPresentacion.Consultar();
             }
         }
 
@@ -74,12 +74,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IDetallesVentasMotosAplicacion.Consultar()
+                Actual = IDetallesVentasMotosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Formulario = true;
                 Borrar = false;
-                Lista = IDetallesVentasMotosAplicacion.Consultar();
+                Lista = IDetallesVentasMotosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -91,12 +91,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IDetallesVentasMotosAplicacion.Consultar()
+                Actual = IDetallesVentasMotosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Borrar = true;
                 Formulario = false;
-                Lista = IDetallesVentasMotosAplicacion.Consultar();
+                Lista = IDetallesVentasMotosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -108,7 +108,7 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                IDetallesVentasMotosAplicacion.Borrar(Actual!);
+                IDetallesVentasMotosPresentacion.Borrar(Actual!);
                 OnPostBtConsultar();
             }
             catch (Exception ex)
