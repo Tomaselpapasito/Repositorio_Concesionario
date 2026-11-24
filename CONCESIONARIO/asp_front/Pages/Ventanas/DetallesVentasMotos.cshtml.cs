@@ -1,0 +1,120 @@
+
+using lib_dominio.Entidades;
+using lib_dominio.Interfaces;
+using lib_dominio.Nucleo;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace asp_front.Pages.Ventanas
+{
+    public class DetallesVentasMotosModel : PageModel
+    {
+        private IDetallesVentasMotosNegocio IDetallesVentasMotosAplicacion;
+
+        public DetallesVentasMotosModel(IDetallesVentasMotosNegocio IDetallesVentasMotosAplicacion)
+        {
+            this.IDetallesVentasMotosAplicacion = IDetallesVentasMotosAplicacion;
+        }
+
+        [BindProperty] public List<DetallesVentasMotos> Lista { get; set; } = new();
+        [BindProperty] public DetallesVentasMotos? Filtro { get; set; }
+        [BindProperty] public DetallesVentasMotos? Actual { get; set; }
+        [BindProperty] public bool Formulario { get; set; } = false;
+        [BindProperty] public bool Borrar { get; set; } = false;
+
+        public void OnGet()
+        {
+            OnPostBtConsultar();
+        }
+
+        public void OnPostBtConsultar()
+        {
+            try
+            {
+                Filtro ??= new DetallesVentasMotos();
+                Lista = IDetallesVentasMotosAplicacion.Buscar(Filtro);
+
+                Formulario = false;
+                Borrar = false;
+            }
+            catch (Exception ex)
+            {
+                LogConversor.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtNuevo()
+        {
+            Actual = new DetallesVentasMotos();
+            Formulario = true;
+            Borrar = false;
+            Lista = IDetallesVentasMotosAplicacion.Consultar();
+        }
+
+        public void OnPostBtGuardar()
+        {
+            try
+            {
+                if (Actual!.ID == 0)
+                    IDetallesVentasMotosAplicacion.Insertar(Actual);
+                else
+                    IDetallesVentasMotosAplicacion.Actualizar(Actual);
+
+                OnPostBtConsultar();
+            }
+            catch (Exception ex)
+            {
+                LogConversor.Log(ex, ViewData!);
+                Formulario = true;
+                Lista = IDetallesVentasMotosAplicacion.Consultar();
+            }
+        }
+
+        public void OnPostBtEditar(int data)
+        {
+            try
+            {
+                Actual = IDetallesVentasMotosAplicacion.Consultar()
+                    .FirstOrDefault(x => x.ID == data);
+
+                Formulario = true;
+                Borrar = false;
+                Lista = IDetallesVentasMotosAplicacion.Consultar();
+            }
+            catch (Exception ex)
+            {
+                LogConversor.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtPregBorrar(int data)
+        {
+            try
+            {
+                Actual = IDetallesVentasMotosAplicacion.Consultar()
+                    .FirstOrDefault(x => x.ID == data);
+
+                Borrar = true;
+                Formulario = false;
+                Lista = IDetallesVentasMotosAplicacion.Consultar();
+            }
+            catch (Exception ex)
+            {
+                LogConversor.Log(ex, ViewData!);
+            }
+        }
+
+        public void OnPostBtBorrar()
+        {
+            try
+            {
+                IDetallesVentasMotosAplicacion.Borrar(Actual!);
+                OnPostBtConsultar();
+            }
+            catch (Exception ex)
+            {
+                LogConversor.Log(ex, ViewData!);
+            }
+        }
+    }
+}

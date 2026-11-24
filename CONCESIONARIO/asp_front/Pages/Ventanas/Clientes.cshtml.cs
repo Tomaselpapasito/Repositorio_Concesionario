@@ -11,8 +11,7 @@ namespace asp_front.Pages.Ventanas
     public class ClientesModel : PageModel
     {
         private IClientesNegocio IClientesAplicacion;
-
-
+        private IPersonasNegocio IPersonasAplicacion;
 
         public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
         {
@@ -21,9 +20,13 @@ namespace asp_front.Pages.Ventanas
                 context.Result = new RedirectToPageResult("/Login");
             }
         }
-        public ClientesModel(IClientesNegocio IClientesAplicacion)
+
+        public ClientesModel(
+            IClientesNegocio IClientesAplicacion,
+            IPersonasNegocio IPersonasAplicacion)
         {
             this.IClientesAplicacion = IClientesAplicacion;
+            this.IPersonasAplicacion = IPersonasAplicacion;
             this.Filtro = new Clientes();
         }
 
@@ -32,6 +35,8 @@ namespace asp_front.Pages.Ventanas
         [BindProperty] public Clientes? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
         [BindProperty] public bool Borrar { get; set; } = false;
+
+        public List<Personas> ListaPersonas { get; set; } = new();
 
         public void OnGet()
         {
@@ -42,11 +47,14 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Filtro!.Correo = Filtro.Correo ?? "";
-                Filtro.Numero_Licencia = Filtro.Numero_Licencia ?? "";
-                Filtro.Direccion = Filtro.Direccion ?? "";
+                Filtro ??= new Clientes();
 
-                Actual = this.IClientesAplicacion.Buscar(Filtro!);
+                Filtro.Correo ??= "";
+                Filtro.Numero_Licencia ??= "";
+                Filtro.Direccion ??= "";
+
+                Lista = IClientesAplicacion.Consultar();
+                ListaPersonas = IPersonasAplicacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -60,6 +68,7 @@ namespace asp_front.Pages.Ventanas
             {
                 Formulario = true;
                 this.Actual = new Clientes();
+                ListaPersonas = IPersonasAplicacion.Consultar();
             }
             catch (Exception ex)
             {

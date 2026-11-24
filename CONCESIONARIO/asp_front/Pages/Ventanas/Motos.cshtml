@@ -262,11 +262,6 @@
 
         </div>
 
-        @if (ViewData.ContainsKey("Mensaje"))
-        {
-            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
-        }
-
         @if (Model.Formulario || Model.Borrar)
         {
             <input type="hidden" asp-for="@Model.Actual!.ID" />

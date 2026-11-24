@@ -1,0 +1,254 @@
+﻿@page
+@model asp_front.Pages.Ventanas.ComprasModel
+
+@{
+    ViewData["Title"] = "Compras";
+    var total = Model.Lista?.Count ?? 0;
+}
+
+<style>
+    .compras-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .compras-header {
+        background: linear-gradient(135deg,#172536,#294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+    }
+
+    .compras-card {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        height: 100%;
+    }
+
+    .compras-search, .compras-form {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        margin-bottom: 22px;
+    }
+
+    .compras-table-container {
+        background: white;
+        padding: 18px;
+        border-radius: 12px;
+        overflow-x: auto;
+        box-shadow: 0 3px 12px #00000012;
+    }
+
+    .compras-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .compras-table th {
+            background: #f3f6fa;
+            padding: 13px;
+            text-align: left;
+        }
+
+        .compras-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e9ef;
+        }
+
+    .compras-form label {
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .compras-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced6df;
+        border-radius: 7px;
+    }
+
+    .btn-compras {
+        border: 0;
+        border-radius: 7px;
+        padding: 9px 15px;
+        color: white;
+        cursor: pointer;
+        margin: 2px;
+    }
+
+            .btn-azul {
+            background: #294766;
+            color: white;
+        }
+
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
+
+        .btn-verde {
+            background: #16834a;
+            color: white;
+        }
+
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
+
+        .btn-rojo {
+            background: #fff0f0;
+            color: #c0392b;
+        }
+
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
+
+        .btn-gris {
+            background: #edf1f5;
+            color: #46566a;
+        }
+
+    .compras-popup {
+        background: #fff4f4;
+        border: 1px solid #f2baba;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<form method="post">
+    <div class="compras-container">
+
+        <div class="compras-header">
+            <h1>🛒 Compras</h1>
+            <p>Administración de compras y facturas</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <div class="compras-card">
+                    <p>Total de compras</p>
+                    <h2>@total</h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="compras-card">
+                    <p>Gestión de proveedores</p>
+                    <h2 style="color:#16834a">Compras</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="compras-search">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-8">
+                    <label>Número de factura</label>
+                    <input asp-for="Filtro!.Numero_Factura" class="form-control" placeholder="Buscar factura..." />
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="Consultar" asp-page-handler="BtConsultar" class="btn-compras btn-azul w-100" />
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="+ Nueva compra" asp-page-handler="BtNuevo" class="btn-compras btn-verde w-100" />
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Formulario && Model.Actual != null)
+        {
+            <div class="compras-form">
+                <h3> @(Model.Actual.ID == 0 ? "Nueva compra" : "Editar compra") </h3>
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label>Fecha de compra</label>
+                        <input asp-for="Actual!.Fecha_Compra" type="date" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Número de factura</label>
+                        <input asp-for="Actual!.Numero_Factura" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Impuesto</label>
+                        <input asp-for="Actual!.Impuesto" type="number" step="0.01" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Total</label>
+                        <input asp-for="Actual!.Total" type="number" step="0.01" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>ID del proveedor</label>
+                        <input asp-for="Actual!.Proveedor" type="number" />
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <input type="submit" value="Guardar" asp-page-handler="BtGuardar" class="btn-compras btn-verde" />
+                    <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-compras btn-gris" />
+                </div>
+            </div>
+        }
+
+        @if (Model.Borrar && Model.Actual != null)
+        {
+            <div class="compras-popup">
+                <h4>¿Deseas eliminar esta compra?</h4>
+                <p>Factura: <strong>@Model.Actual.Numero_Factura</strong></p>
+                <input type="hidden" asp-for="Actual!.ID" />
+                <input type="submit" value="Sí, eliminar" asp-page-handler="BtBorrar" class="btn-compras btn-rojo" />
+                <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-compras btn-gris" />
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="compras-table-container">
+                <h3>Listado de compras</h3>
+                <table class="compras-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Factura</th>
+                            <th>Impuesto</th>
+                            <th>Total</th>
+                            <th>Proveedor</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Lista)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Fecha_Compra.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Numero_Factura</td>
+                                <td>@item.Impuesto</td>
+                                <td>@item.Total</td>
+                                <td>@item.Proveedor</td>
+                                <td>
+                                    <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-compras btn-azul" />
+                                    <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-compras btn-rojo" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        <div class="mt-4">
+            <a asp-page="/Index" class="btn-compras btn-gris">Volver al inicio</a>
+        </div>
+    </div>
+</form>

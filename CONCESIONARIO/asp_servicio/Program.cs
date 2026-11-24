@@ -1,3 +1,4 @@
+
 using asp_servicio.Servicios;
 using lib_dominio.Interfaces;
 using lib_repositorio.Implementaciones;
@@ -9,22 +10,24 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAuthorization();
 
-builder.Services.AddScoped<IConexion,Conexion>();
+builder.Services.AddScoped<IConexion, Conexion>();
 builder.Services.AddScoped<IRolesNegocio, RolesAplicacion>();
 builder.Services.AddScoped<IPermisosNegocio, PermisosAplicacion>();
-builder.Services.AddScoped<IAccesoriosNegocio,AccesoriosAplicacion>();
+builder.Services.AddScoped<IAccesoriosNegocio, AccesoriosAplicacion>();
 builder.Services.AddScoped<IUsuariosNegocio, UsuariosAplicacion>();
 builder.Services.AddScoped<ICargosNegocio, CargosAplicacion>();
 builder.Services.AddScoped<IClientesNegocio, ClientesAplicacion>();
 builder.Services.AddScoped<IComprasNegocio, ComprasAplicacion>();
 builder.Services.AddScoped<ICuotasNegocio, CuotasAplicacion>();
-builder.Services.AddScoped<IDetallesComprasNegocio,DetallesComprasAplicacion>();
-builder.Services.AddScoped<IDetallesVentasMotosNegocio,DetallesVentasMotosAplicacion>();
+builder.Services.AddScoped<IDetallesComprasNegocio, DetallesComprasAplicacion>();
+builder.Services.AddScoped<IDetallesVentasMotosNegocio, DetallesVentasMotosAplicacion>();
 builder.Services.AddScoped<IDetallesVentasProductosNegocio, DetallesVentasProductosAplicacion>();
 builder.Services.AddScoped<IEmpleadosNegocio, EmpleadosAplicacion>();
-builder.Services.AddScoped<IFinanciamientosNegocio, FinanciamientosAplicacion >();
-builder.Services.AddScoped<IInventariosNegocio,InventariosAplicacion>();
+builder.Services.AddScoped<IFinanciamientosNegocio, FinanciamientosAplicacion>();
+builder.Services.AddScoped<IInventariosNegocio, InventariosAplicacion>();
 builder.Services.AddScoped<IMetodosPagosNegocio, MetodosPagosAplicacion>();
 builder.Services.AddScoped<IModelosMotosNegocio, ModelosMotosAplicacion>();
 builder.Services.AddScoped<IMotosNegocio, MotosAplicacion>();
@@ -63,14 +66,11 @@ builder.Services.AddAuthentication(
         };
 });
 
-
-
-
-
 var app = builder.Build();
 
 
 app.UseHttpsRedirection();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

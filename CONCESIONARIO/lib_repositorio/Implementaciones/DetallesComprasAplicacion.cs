@@ -42,7 +42,6 @@ namespace lib_repositorio.Implementaciones
             return this.IConexion.DetallesCompras!
                 .Include(x => x._Compra)
                 .Include(x => x._Producto)
-                .Where(x => x._Producto!.Nombre!.Contains(entidad._Producto!.Nombre!))
                 .ToList();
         }
 

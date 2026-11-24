@@ -41,9 +41,8 @@ namespace lib_repositorio.Implementaciones
         public List<Ventas> Buscar(Ventas entidad)
         {
             return this.IConexion.Ventas!
-                .Include (x=> x._Empleado)
+                .Include(x => x._Empleado)
                 .Include(x => x._Cliente)
-                .Where(x => x._Cliente!.Numero_Licencia!.Contains(entidad._Cliente!.Numero_Licencia!))
                 .ToList();
         }
 

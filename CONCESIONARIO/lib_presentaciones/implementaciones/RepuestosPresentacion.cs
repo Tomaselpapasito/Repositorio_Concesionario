@@ -59,7 +59,7 @@ namespace lib_presentaciones.Implementaciones
             return task.Result;
         }
 
-        public Accesorios Insertar(Accesorios entidad)
+        public Repuestos Insertar(Repuestos entidad)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -67,16 +67,11 @@ namespace lib_presentaciones.Implementaciones
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
 
-            var task = this.IComunicaciones.Ejecutar<Accesorios>(
-                "Accesorios/Insertar",
+            var task = this.IComunicaciones.Ejecutar<Repuestos>(
+                "Repuestos/Insertar",
                 entidad);
             task.Wait();
             return task.Result;
-        }
-
-        public Repuestos Insertar(Repuestos entidad)
-        {
-            throw new NotImplementedException();
         }
 
     }

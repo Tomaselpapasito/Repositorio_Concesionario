@@ -1,0 +1,279 @@
+﻿@page
+@model asp_front.Pages.Ventanas.FinanciamientosModel
+
+@{
+    ViewData["Title"] = "Financiamientos";
+    var total = Model.Lista?.Count ?? 0;
+}
+
+<style>
+    .financiamientos-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .financiamientos-header {
+        background: linear-gradient(135deg,#172536,#294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+    }
+
+    .financiamientos-card {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        height: 100%;
+    }
+
+    .financiamientos-search, .financiamientos-form {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        margin-bottom: 22px;
+    }
+
+    .financiamientos-table-container {
+        background: white;
+        padding: 18px;
+        border-radius: 12px;
+        overflow-x: auto;
+        box-shadow: 0 3px 12px #00000012;
+    }
+
+    .financiamientos-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .financiamientos-table th {
+            background: #f3f6fa;
+            padding: 13px;
+            text-align: left;
+        }
+
+        .financiamientos-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e9ef;
+        }
+
+    .financiamientos-form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .financiamientos-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced6df;
+        border-radius: 7px;
+    }
+
+    .btn-financiamientos {
+        border: 0;
+        border-radius: 7px;
+        padding: 9px 15px;
+        color: white;
+        cursor: pointer;
+        margin: 2px;
+    }
+
+                .btn-azul {
+            background: #294766;
+            color: white;
+        }
+
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
+
+        .btn-verde {
+            background: #16834a;
+            color: white;
+        }
+
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
+
+        .btn-rojo {
+            background: #fff0f0;
+            color: #c0392b;
+        }
+
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
+
+        .btn-gris {
+            background: #edf1f5;
+            color: #46566a;
+        }
+
+    .financiamientos-popup {
+        background: #fff4f4;
+        border: 1px solid #f2baba;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<form method="post">
+    <div class="financiamientos-container">
+
+        <div class="financiamientos-header">
+            <h1>💳 Financiamientos</h1>
+            <p>Administración de los planes de financiación de las ventas</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <div class="financiamientos-card">
+                    <p>Total de financiamientos registrados</p>
+                    <h2>@total</h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="financiamientos-card">
+                    <p>Gestión de financiación</p>
+                    <h2 style="color:#16834a">Planes</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="financiamientos-search">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-8">
+                    <label class="form-label">Estado</label>
+                    <input asp-for="Filtro!.Estado" class="form-control" placeholder="Buscar por estado..." />
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="Consultar" asp-page-handler="BtConsultar" class="btn-financiamientos btn-azul w-100" />
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="+ Nuevo financiamiento" asp-page-handler="BtNuevo" class="btn-financiamientos btn-verde w-100" />
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Formulario && Model.Actual != null)
+        {
+            <div class="financiamientos-form">
+                <h3>@(Model.Actual.ID == 0 ? "Nuevo financiamiento" : "Editar financiamiento")</h3>
+
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label>Monto</label>
+                        <input asp-for="Actual!.Monto" type="number" step="0.01" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Número de cuotas</label>
+                        <input asp-for="Actual!.Numero_Cuotas" type="number" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Tasa de interés</label>
+                        <input asp-for="Actual!.Tasa_Interes" type="number" step="0.01" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Fecha de inicio</label>
+                        <input asp-for="Actual!.Fecha_Inicio" type="date" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Fecha de fin</label>
+                        <input asp-for="Actual!.Fecha_Fin" type="date" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>ID de venta</label>
+                        <input asp-for="Actual!.Venta" type="number" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Estado</label>
+                        <input asp-for="Actual!.Estado" />
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <input type="submit" value="Guardar" asp-page-handler="BtGuardar" class="btn-financiamientos btn-verde" />
+                    <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-financiamientos btn-gris" />
+                </div>
+            </div>
+        }
+
+        @if (Model.Borrar && Model.Actual != null)
+        {
+            <div class="financiamientos-popup">
+                <h4>¿Deseas eliminar este financiamiento?</h4>
+                <p>Registro: <strong>@Model.Actual.ID</strong></p>
+
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <input type="submit" value="Sí, eliminar" asp-page-handler="BtBorrar" class="btn-financiamientos btn-rojo" />
+                <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-financiamientos btn-gris" />
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="financiamientos-table-container">
+                <h3>Listado de financiamientos</h3>
+
+                <table class="financiamientos-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Monto</th>
+                            <th>Cuotas</th>
+                            <th>Tasa de interés</th>
+                            <th>Fecha inicio</th>
+                            <th>Fecha fin</th>
+                            <th>Venta</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Lista)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Monto</td>
+                                <td>@item.Numero_Cuotas</td>
+                                <td>@item.Tasa_Interes</td>
+                                <td>@item.Fecha_Inicio.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Fecha_Fin.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Venta</td>
+                                <td>@item.Estado</td>
+                                <td>
+                                    <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-financiamientos btn-azul" />
+                                    <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-financiamientos btn-rojo" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        <div class="mt-4">
+            <a asp-page="/Index" class="btn-financiamientos btn-gris">Volver al inicio</a>
+        </div>
+
+    </div>
+</form>

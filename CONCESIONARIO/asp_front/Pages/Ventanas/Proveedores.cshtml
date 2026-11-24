@@ -240,10 +240,6 @@
 
         </div>
 
-        @if (ViewData.ContainsKey("Mensaje"))
-        {
-            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
-        }
 
         @if (Model.Formulario || Model.Borrar)
         {

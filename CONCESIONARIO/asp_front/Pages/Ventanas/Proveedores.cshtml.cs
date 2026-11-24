@@ -35,7 +35,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro!.Nombre = Filtro.Nombre ?? "";
                 Filtro.NIT = Filtro.NIT ?? "";
 
-                Actual = this.IProveedoresAplicacion.BuscarPorNIT(Filtro!);
+                Lista = this.IProveedoresAplicacion.Consultar();
             }
             catch (Exception ex)
             {

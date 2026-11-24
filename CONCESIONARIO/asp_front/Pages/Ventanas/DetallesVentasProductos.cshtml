@@ -1,0 +1,461 @@
+﻿
+@page
+@model asp_front.Pages.Ventanas.DetallesVentasProductosModel
+
+@{
+    ViewData["Title"] = "Detalles de ventas de productos";
+
+    var totalDetalles = Model.Lista?.Count ?? 0;
+    var totalUnidades = Model.Lista?.Sum(x => x.Cantidad) ?? 0;
+}
+
+<style>
+    .motos-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .motos-header {
+        background: linear-gradient(135deg, #172536, #294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+        text-align: left;
+    }
+
+    .motos-header h1 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .motos-header p {
+        color: #d4deea;
+        margin: 0;
+    }
+
+    .motos-card {
+        background: white;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        padding: 22px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        height: 100%;
+    }
+
+    .motos-card h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 8px 0;
+    }
+
+    .motos-card p {
+        color: #758397;
+        margin: 0;
+    }
+
+    .motos-search {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1px solid #e5eaf0;
+        margin: 25px 0;
+    }
+
+    .motos-search input,
+    .motos-search select,
+    .motos-form input,
+    .motos-form select {
+        border: 1px solid #dce2e9;
+        border-radius: 7px;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .motos-table-container {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        border: 1px solid #e5eaf0;
+        overflow-x: auto;
+    }
+
+    .motos-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 1000px;
+    }
+
+    .motos-table th {
+        background: #f3f6fa;
+        color: #526174;
+        padding: 15px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .motos-table td {
+        padding: 15px;
+        border-bottom: 1px solid #edf0f4;
+        vertical-align: middle;
+    }
+
+    .motos-table tr:hover {
+        background: #f8fafc;
+    }
+
+    .motos-form {
+        background: white;
+        padding: 25px;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        margin: 25px 0;
+        text-align: left;
+    }
+
+    .motos-form label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .btn-motos {
+        border: none;
+        border-radius: 7px;
+        padding: 10px 18px;
+        font-weight: 600;
+        margin: 3px;
+    }
+
+    .btn-azul {
+        background: #294766;
+        color: white;
+    }
+
+    .btn-azul:hover {
+        background: #1c344d;
+        color: white;
+    }
+
+    .btn-verde {
+        background: #16834a;
+        color: white;
+    }
+
+    .btn-verde:hover {
+        background: #116638;
+        color: white;
+    }
+
+    .btn-rojo {
+        background: #fff0f0;
+        color: #c0392b;
+    }
+
+    .btn-rojo:hover {
+        background: #fbdada;
+        color: #a52a20;
+    }
+
+    .btn-gris {
+        background: #edf1f5;
+        color: #46566a;
+    }
+
+    .motos-popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 15px;
+    }
+
+    .motos-popup-inner {
+        background: white;
+        border-radius: 14px;
+        padding: 30px;
+        max-width: 450px;
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<form method="post">
+
+    <div class="motos-container">
+
+        <div class="motos-header">
+            <h1>📦 Detalles de ventas de productos</h1>
+            <p>Administración de los productos incluidos en las ventas del concesionario</p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <div class="motos-card">
+                    <p>Total de detalles registrados</p>
+                    <h2>@totalDetalles</h2>
+                    <small>Registros de productos vendidos</small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="motos-card">
+                    <p>Total de unidades vendidas</p>
+                    <h2 style="color:#16834a">@totalUnidades</h2>
+                    <small>Unidades incluidas en las ventas</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="motos-search">
+
+            <h5>Buscar detalles de ventas</h5>
+
+            <div class="row mt-3">
+
+                <div class="col-md-4">
+                    <input type="number"
+                           placeholder="Buscar por ID de venta"
+                           asp-for="@Model.Filtro!.Venta" />
+                </div>
+
+                <div class="col-md-4">
+                    <input type="number"
+                           placeholder="Buscar por ID de producto"
+                           asp-for="@Model.Filtro!.Producto" />
+                </div>
+
+                <div class="col-md-4">
+                    <input type="submit"
+                           value="Consultar"
+                           class="btn-motos btn-azul w-100"
+                           asp-page-handler="BtConsultar" />
+                </div>
+
+            </div>
+
+            <input type="submit"
+                   value="+ Nuevo detalle"
+                   class="btn-motos btn-verde"
+                   asp-page-handler="BtNuevo" />
+
+        </div>
+
+        @if (ViewData.ContainsKey("Mensaje"))
+        {
+            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+        }
+
+        @if (Model.Formulario || Model.Borrar)
+        {
+            <input type="hidden" asp-for="@Model.Actual!.ID" />
+        }
+
+        @if (Model.Formulario)
+        {
+            <div class="motos-form">
+
+                <h4>Información del detalle de venta</h4>
+                <p class="text-muted">
+                    Completa los datos para registrar o actualizar un producto vendido.
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+                        <label>Precio unitario</label>
+                        <input type="number"
+                               step="0.01"
+                               asp-for="@Model.Actual!.Precio_Unitario"
+                               placeholder="Precio unitario" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Descuento</label>
+                        <input type="number"
+                               step="0.01"
+                               asp-for="@Model.Actual!.Descuento"
+                               placeholder="Descuento aplicado" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Subtotal</label>
+                        <input type="number"
+                               step="0.01"
+                               asp-for="@Model.Actual!.Subtotal"
+                               placeholder="Subtotal del detalle" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Cantidad</label>
+                        <input type="number"
+                               asp-for="@Model.Actual!.Cantidad"
+                               placeholder="Cantidad vendida" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Producto</label>
+                        <select asp-for="@Model.Actual!.Producto" class="form-select">
+                            <option value="">Seleccione un producto</option>
+                            @foreach (var elemento in Model.Productos)
+                            {
+                                <option value="@elemento.ID">@elemento.ID - @elemento.Nombre</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Venta</label>
+                        <select asp-for="@Model.Actual!.Venta" class="form-select">
+                            <option value="">Seleccione una venta</option>
+                            @foreach (var elemento in Model.Ventas)
+                            {
+                                <option value="@elemento.ID">Venta #@elemento.ID</option>
+                            }
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <input type="submit"
+                           value="Guardar detalle"
+                           class="btn-motos btn-verde"
+                           asp-page-handler="BtGuardar" />
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-motos btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (Model.Borrar)
+        {
+            <div class="motos-popup">
+
+                <div class="motos-popup-inner">
+
+                    <h3>⚠️ Confirmar eliminación</h3>
+
+                    <p class="mt-3">
+                        ¿Estás seguro de que deseas eliminar este detalle de venta?
+                    </p>
+
+                    <p>
+                        <strong>Detalle #@Model.Actual!.ID</strong>
+                        <br />
+                        Producto: @Model.Actual.Producto
+                        <br />
+                        Venta: @Model.Actual.Venta
+                        <br />
+                        Cantidad: @Model.Actual.Cantidad
+                    </p>
+
+                    <input type="submit"
+                           value="Cancelar"
+                           class="btn-motos btn-gris"
+                           asp-page-handler="BtConsultar" />
+
+                    <input type="submit"
+                           value="Sí, eliminar"
+                           class="btn-motos btn-rojo"
+                           asp-page-handler="BtBorrar" />
+
+                </div>
+
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="motos-table-container">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Detalles de ventas de productos</h4>
+                    <span class="text-muted">@totalDetalles registros</span>
+                </div>
+
+                <table class="motos-table">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Precio unitario</th>
+                            <th>Descuento</th>
+                            <th>Subtotal</th>
+                            <th>Cantidad</th>
+                            <th>Producto</th>
+                            <th>Venta</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.Lista != null && Model.Lista.Count > 0)
+                        {
+                            foreach (var elemento in Model.Lista)
+                            {
+                                <tr>
+
+                                    <td>@elemento.ID</td>
+                                    <td>@elemento.Precio_Unitario.ToString("C")</td>
+                                    <td>@elemento.Descuento.ToString("C")</td>
+                                    <td>@elemento.Subtotal.ToString("C")</td>
+                                    <td>@elemento.Cantidad</td>
+                                    <td>@elemento._Producto?.Nombre</td>
+                                    <td>@elemento.Venta</td>
+
+                                    <td>
+                                        <input type="submit"
+                                               value="Editar"
+                                               class="btn-motos btn-azul"
+                                               asp-page-handler="BtEditar"
+                                               asp-route-data="@elemento.ID" />
+
+                                        <input type="submit"
+                                               value="Eliminar"
+                                               class="btn-motos btn-rojo"
+                                               asp-page-handler="BtPregBorrar"
+                                               asp-route-data="@elemento.ID" />
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    No hay detalles de ventas de productos registrados.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        }
+
+        <div class="text-center mt-4">
+            <a asp-page="/Index" class="btn-motos btn-gris">
+                Volver al inicio
+            </a>
+        </div>
+
+    </div>
+
+</form>

@@ -43,7 +43,6 @@ namespace lib_repositorio.Implementaciones
                 .Include (x=> x._Financiamiento)
                     .ThenInclude (x => x!._Venta)
                         .ThenInclude(x => x!._Cliente)
-                .Where(x => x._Financiamiento!._Venta!._Cliente!.Numero_Licencia!.Contains(entidad._Financiamiento!._Venta!._Cliente!.Numero_Licencia!))
                 .ToList();
         }
 

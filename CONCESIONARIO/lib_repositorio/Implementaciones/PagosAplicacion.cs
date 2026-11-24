@@ -43,7 +43,6 @@ namespace lib_repositorio.Implementaciones
             return this.IConexion.Pagos!
                 .Include (x=> x._Venta)
                     .ThenInclude(x => x!._Cliente)
-                .Where(x => x._Venta!._Cliente!.Numero_Licencia!.Contains(entidad._Venta!._Cliente!.Numero_Licencia!))
                 .ToList();
         }
 

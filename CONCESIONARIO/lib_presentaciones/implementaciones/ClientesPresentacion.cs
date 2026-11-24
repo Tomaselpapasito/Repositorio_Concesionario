@@ -1,4 +1,5 @@
-﻿using lib_dominio.Entidades;
+﻿
+using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_presentaciones.Interfaces;
 
@@ -22,8 +23,7 @@ namespace lib_presentaciones.Implementaciones
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Clientes>(
-                "Clientes/Actualizar",
-                entidad);
+                "Clientes/Actualizar", entidad);
             task.Wait();
             return task.Result;
         }
@@ -34,8 +34,7 @@ namespace lib_presentaciones.Implementaciones
                 throw new Exception("No se ha guardo");
 
             var task = this.IComunicaciones.Ejecutar<Clientes>(
-                "Clientes/Borrar",
-                entidad);
+                "Clientes/Borrar", entidad);
             task.Wait();
             return task.Result;
         }
@@ -43,8 +42,7 @@ namespace lib_presentaciones.Implementaciones
         public Clientes Buscar(Clientes entidad)
         {
             var task = this.IComunicaciones.Ejecutar<Clientes>(
-                "Clientes/Buscar",
-                entidad);
+                "Clientes/Buscar", entidad);
             task.Wait();
             return task.Result;
         }
@@ -57,8 +55,7 @@ namespace lib_presentaciones.Implementaciones
         public List<Clientes> Consultar()
         {
             var task = this.IComunicaciones.Ejecutar<List<Clientes>>(
-                "Clientes/Consultar",
-                null!);
+                "Clientes/Consultar", null!);
             task.Wait();
             return task.Result;
         }
@@ -72,15 +69,9 @@ namespace lib_presentaciones.Implementaciones
                 throw new Exception("Falta informacion");
 
             var task = this.IComunicaciones.Ejecutar<Clientes>(
-                "Clientes/Insertar",
-                entidad);
+                "Clientes/Insertar", entidad);
             task.Wait();
             return task.Result;
-        }
-
-        Clientes IClientesNegocio.Buscar(Clientes entidad)
-        {
-            throw new NotImplementedException();
         }
     }
 }

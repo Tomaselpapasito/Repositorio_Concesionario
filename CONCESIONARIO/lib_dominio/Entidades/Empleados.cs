@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 namespace lib_dominio.Entidades
 {
     public class Empleados
@@ -13,7 +14,7 @@ namespace lib_dominio.Entidades
         [ForeignKey("Cargo")] public Cargos? _Cargo { get; set; }
         [ForeignKey("Persona")] public Personas? _Persona { get; set; }
 
-        public List<Ventas>? Ventas { get; set; }
+        [JsonIgnore] public List<Ventas>? Ventas { get; set; }
 
         public bool Validar()
         {

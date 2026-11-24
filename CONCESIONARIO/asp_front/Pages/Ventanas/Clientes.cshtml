@@ -1,5 +1,4 @@
-﻿
-@page
+﻿@page
 @model asp_front.Pages.Ventanas.ClientesModel
 
 @{
@@ -24,15 +23,15 @@
         text-align: left;
     }
 
-    .clientes-header h1 {
-        font-weight: 700;
-        margin-bottom: 8px;
-    }
+        .clientes-header h1 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
 
-    .clientes-header p {
-        color: #d4deea;
-        margin: 0;
-    }
+        .clientes-header p {
+            color: #d4deea;
+            margin: 0;
+        }
 
     .clientes-card {
         background: white;
@@ -43,16 +42,16 @@
         height: 100%;
     }
 
-    .clientes-card h2 {
-        font-size: 30px;
-        font-weight: 700;
-        margin: 8px 0;
-    }
+        .clientes-card h2 {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
 
-    .clientes-card p {
-        color: #758397;
-        margin: 0;
-    }
+        .clientes-card p {
+            color: #758397;
+            margin: 0;
+        }
 
     .clientes-search {
         background: white;
@@ -62,14 +61,15 @@
         margin: 25px 0;
     }
 
-    .clientes-search input,
-    .clientes-form input {
-        border: 1px solid #dce2e9;
-        border-radius: 7px;
-        padding: 10px;
-        width: 100%;
-        margin-bottom: 12px;
-    }
+        .clientes-search input,
+        .clientes-form input,
+        .clientes-form select {
+            border: 1px solid #dce2e9;
+            border-radius: 7px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 12px;
+        }
 
     .clientes-table-container {
         background: white;
@@ -85,23 +85,23 @@
         min-width: 750px;
     }
 
-    .clientes-table th {
-        background: #f3f6fa;
-        color: #526174;
-        padding: 15px;
-        text-align: left;
-        font-size: 13px;
-    }
+        .clientes-table th {
+            background: #f3f6fa;
+            color: #526174;
+            padding: 15px;
+            text-align: left;
+            font-size: 13px;
+        }
 
-    .clientes-table td {
-        padding: 15px;
-        border-bottom: 1px solid #edf0f4;
-        vertical-align: middle;
-    }
+        .clientes-table td {
+            padding: 15px;
+            border-bottom: 1px solid #edf0f4;
+            vertical-align: middle;
+        }
 
-    .clientes-table tr:hover {
-        background: #f8fafc;
-    }
+        .clientes-table tr:hover {
+            background: #f8fafc;
+        }
 
     .estado-cliente {
         padding: 6px 12px;
@@ -126,15 +126,15 @@
         text-align: left;
     }
 
-    .clientes-form label {
-        font-weight: 600;
-        display: block;
-        margin-bottom: 6px;
-    }
+        .clientes-form label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+        }
 
-    .clientes-form input[type="checkbox"] {
-        width: auto;
-    }
+        .clientes-form input[type="checkbox"] {
+            width: auto;
+        }
 
     .btn-clientes {
         border: none;
@@ -149,30 +149,30 @@
         color: white;
     }
 
-    .btn-azul:hover {
-        background: #1c344d;
-        color: white;
-    }
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
 
     .btn-verde {
         background: #16834a;
         color: white;
     }
 
-    .btn-verde:hover {
-        background: #116638;
-        color: white;
-    }
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
 
     .btn-rojo {
         background: #fff0f0;
         color: #c0392b;
     }
 
-    .btn-rojo:hover {
-        background: #fbdada;
-        color: #a52a20;
-    }
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
 
     .btn-gris {
         background: #edf1f5;
@@ -257,11 +257,6 @@
 
         </div>
 
-        @if (ViewData.ContainsKey("Mensaje"))
-        {
-            @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
-        }
-
         @if (Model.Formulario || Model.Borrar)
         {
             <input type="hidden" asp-for="@Model.Actual!.ID" />
@@ -298,10 +293,17 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label>ID de persona</label>
-                        <input type="number"
-                               asp-for="@Model.Actual!.Persona"
-                               placeholder="Identificador de persona" />
+                        <label>Persona relacionada</label>
+                        <select asp-for="@Model.Actual!.Persona"
+                                class="form-select">
+                            <option value="">Seleccione una persona</option>
+                            @foreach (var persona in Model.ListaPersonas)
+                            {
+                                <option value="@persona.ID">
+                                    @persona.Nombre - @persona.Cedula
+                                </option>
+                            }
+                        </select>
                     </div>
 
                     <div class="col-md-6">

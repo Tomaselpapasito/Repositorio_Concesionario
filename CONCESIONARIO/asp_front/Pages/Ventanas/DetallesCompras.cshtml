@@ -1,0 +1,271 @@
+﻿@page
+@model asp_front.Pages.Ventanas.DetallesComprasModel
+
+@{
+    ViewData["Title"] = "Detalles de compras";
+    var total = Model.Lista?.Count ?? 0;
+}
+
+<style>
+    .detalles-compras-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .detalles-compras-header {
+        background: linear-gradient(135deg,#172536,#294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+    }
+
+    .detalles-compras-card {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        height: 100%;
+    }
+
+    .detalles-compras-search, .detalles-compras-form {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        margin-bottom: 22px;
+    }
+
+    .detalles-compras-table-container {
+        background: white;
+        padding: 18px;
+        border-radius: 12px;
+        overflow-x: auto;
+        box-shadow: 0 3px 12px #00000012;
+    }
+
+    .detalles-compras-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .detalles-compras-table th {
+            background: #f3f6fa;
+            padding: 13px;
+            text-align: left;
+        }
+
+        .detalles-compras-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e9ef;
+        }
+
+    .detalles-compras-form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .detalles-compras-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced6df;
+        border-radius: 7px;
+    }
+
+    .btn-detalles-compras {
+        border: 0;
+        border-radius: 7px;
+        padding: 9px 15px;
+        color: white;
+        cursor: pointer;
+        margin: 2px;
+    }
+            .btn-azul {
+            background: #294766;
+            color: white;
+        }
+
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
+
+        .btn-verde {
+            background: #16834a;
+            color: white;
+        }
+
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
+
+        .btn-rojo {
+            background: #fff0f0;
+            color: #c0392b;
+        }
+
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
+
+        .btn-gris {
+            background: #edf1f5;
+            color: #46566a;
+        }
+
+    .detalles-compras-popup {
+        background: #fff4f4;
+        border: 1px solid #f2baba;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<form method="post">
+    <div class="detalles-compras-container">
+
+        <div class="detalles-compras-header">
+            <h1>📦 Detalles de compras</h1>
+            <p>Administración de los productos incluidos en cada compra</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <div class="detalles-compras-card">
+                    <p>Total de detalles registrados</p>
+                    <h2>@total</h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detalles-compras-card">
+                    <p>Gestión de compras</p>
+                    <h2 style="color:#16834a">Detalles</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="detalles-compras-search">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-8">
+                    <label class="form-label">Número de compra</label>
+                    <input asp-for="Filtro!.Compra" type="number" class="form-control" placeholder="Buscar por ID de compra..." />
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="Consultar" asp-page-handler="BtConsultar" class="btn-detalles-compras btn-azul w-100" />
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="+ Nuevo detalle" asp-page-handler="BtNuevo" class="btn-detalles-compras btn-verde w-100" />
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Formulario && Model.Actual != null)
+        {
+            <div class="detalles-compras-form">
+                <h3>@(Model.Actual.ID == 0 ? "Nuevo detalle de compra" : "Editar detalle de compra")</h3>
+
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label>Cantidad</label>
+                        <input asp-for="Actual!.Cantidad" type="number" min="1" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Precio unitario</label>
+                        <input asp-for="Actual!.Precio_Unitario" type="number" step="0.01" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Descuento</label>
+                        <input asp-for="Actual!.Descuento" type="number" step="0.01" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Subtotal</label>
+                        <input asp-for="Actual!.Subtotal" type="number" step="0.01" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>ID de compra</label>
+                        <input asp-for="Actual!.Compra" type="number" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>ID de producto</label>
+                        <input asp-for="Actual!.Producto" type="number" />
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <input type="submit" value="Guardar" asp-page-handler="BtGuardar" class="btn-detalles-compras btn-verde" />
+                    <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-detalles-compras btn-gris" />
+                </div>
+            </div>
+        }
+
+        @if (Model.Borrar && Model.Actual != null)
+        {
+            <div class="detalles-compras-popup">
+                <h4>¿Deseas eliminar este detalle de compra?</h4>
+                <p>Registro: <strong>@Model.Actual.ID</strong></p>
+
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <input type="submit" value="Sí, eliminar" asp-page-handler="BtBorrar" class="btn-detalles-compras btn-rojo" />
+                <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-detalles-compras btn-gris" />
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="detalles-compras-table-container">
+                <h3>Listado de detalles de compras</h3>
+
+                <table class="detalles-compras-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Descuento</th>
+                            <th>Subtotal</th>
+                            <th>Compra</th>
+                            <th>Producto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Lista)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Cantidad</td>
+                                <td>@item.Precio_Unitario</td>
+                                <td>@item.Descuento</td>
+                                <td>@item.Subtotal</td>
+                                <td>@item.Compra</td>
+                                <td>@item.Producto</td>
+                                <td>
+                                    <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-detalles-compras btn-azul" />
+                                    <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-detalles-compras btn-rojo" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        <div class="mt-4">
+            <a asp-page="/Index" class="btn-detalles-compras btn-gris">Volver al inicio</a>
+        </div>
+
+    </div>
+</form>

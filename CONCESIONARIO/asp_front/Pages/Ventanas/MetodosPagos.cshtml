@@ -1,0 +1,282 @@
+﻿@page
+@model asp_front.Pages.Ventanas.MetodosPagosModel
+
+@{
+    ViewData["Title"] = "Métodos de pago";
+    var total = Model.Lista?.Count ?? 0;
+}
+
+<style>
+    .metodos-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .metodos-header {
+        background: linear-gradient(135deg,#172536,#294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+    }
+
+    .metodos-card {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        height: 100%;
+    }
+
+    .metodos-search, .metodos-form {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        margin-bottom: 22px;
+    }
+
+    .metodos-table-container {
+        background: white;
+        padding: 18px;
+        border-radius: 12px;
+        overflow-x: auto;
+        box-shadow: 0 3px 12px #00000012;
+    }
+
+    .metodos-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .metodos-table th {
+            background: #f3f6fa;
+            padding: 13px;
+            text-align: left;
+        }
+
+        .metodos-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e9ef;
+        }
+
+    .metodos-form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .metodos-form input, .metodos-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced6df;
+        border-radius: 7px;
+    }
+
+    .metodos-form textarea {
+        min-height: 90px;
+        resize: vertical;
+    }
+
+    .btn-metodos {
+        border: 0;
+        border-radius: 7px;
+        padding: 9px 15px;
+        color: white;
+        cursor: pointer;
+        margin: 2px;
+    }
+
+    
+    .btn-azul {
+        background: #294766;
+        color: white;
+    }
+
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
+
+    .btn-verde {
+        background: #16834a;
+        color: white;
+    }
+
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
+
+    .btn-rojo {
+        background: #fff0f0;
+        color: #c0392b;
+    }
+
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
+
+    .btn-gris {
+        background: #edf1f5;
+        color: #46566a;
+    }
+
+    .metodos-popup {
+        background: #fff4f4;
+        border: 1px solid #f2baba;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<form method="post">
+    <div class="metodos-container">
+
+        <div class="metodos-header">
+            <h1>💳 Métodos de pago</h1>
+            <p>Administración de los métodos de pago disponibles para las ventas</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <div class="metodos-card">
+                    <p>Total de métodos registrados</p>
+                    <h2>@total</h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="metodos-card">
+                    <p>Configuración de pagos</p>
+                    <h2 style="color:#16834a">Métodos de pago</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="metodos-search">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-5">
+                    <label class="form-label">Nombre</label>
+                    <input asp-for="Filtro!.Nombre" class="form-control" placeholder="Buscar por nombre..." />
+                </div>
+
+                <div class="col-md-5">
+                    <label class="form-label">Tipo</label>
+                    <input asp-for="Filtro!.Tipo" class="form-control" placeholder="Buscar por tipo..." />
+                </div>
+
+                <div class="col-md-1">
+                    <input type="submit" value="Consultar" asp-page-handler="BtConsultar" class="btn-metodos btn-azul w-100" />
+                </div>
+
+                <div class="col-md-1">
+                    <input type="submit" value="Nuevo" asp-page-handler="BtNuevo" class="btn-metodos btn-verde w-100" />
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Formulario && Model.Actual != null)
+        {
+            <div class="metodos-form">
+                <h3>@(Model.Actual.ID == 0 ? "Nuevo método de pago" : "Editar método de pago")</h3>
+
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label>Nombre</label>
+                        <input asp-for="Actual!.Nombre" type="text" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Tipo</label>
+                        <input asp-for="Actual!.Tipo" type="text" />
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Descripción</label>
+                        <textarea asp-for="Actual!.Descripcion"></textarea>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <input asp-for="Actual!.Activo" type="checkbox" class="form-check-input" style="width:auto;" />
+                            <label class="form-check-label" for="Actual_Activo">Método activo</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <input type="submit" value="Guardar" asp-page-handler="BtGuardar" class="btn-metodos btn-verde" />
+                    <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-metodos btn-gris" />
+                </div>
+            </div>
+        }
+
+        @if (Model.Borrar && Model.Actual != null)
+        {
+            <div class="metodos-popup">
+                <h4>¿Deseas eliminar este método de pago?</h4>
+                <p>Nombre: <strong>@Model.Actual.Nombre</strong></p>
+
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <input type="submit" value="Sí, eliminar" asp-page-handler="BtBorrar" class="btn-metodos btn-rojo" />
+                <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-metodos btn-gris" />
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="metodos-table-container">
+                <h3>Listado de métodos de pago</h3>
+
+                <table class="metodos-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Lista)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Tipo</td>
+                                <td>@item.Descripcion</td>
+                                <td>
+                                    @if (item.Activo)
+                                    {
+                                        <span class="badge bg-success">Activo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Inactivo</span>
+                                    }
+                                </td>
+                                <td>
+                                    <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-metodos btn-azul" />
+                                    <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-metodos btn-rojo" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        <div class="mt-4">
+            <a asp-page="/Index" class="btn-metodos btn-gris">Volver al inicio</a>
+        </div>
+
+    </div>
+</form>

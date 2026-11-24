@@ -43,7 +43,6 @@ namespace lib_repositorio.Implementaciones
             return this.IConexion.DetallesVentasMotos!
                 .Include (x=> x._Venta)
                 .Include(x => x._Moto)
-                .Where(x => x._Moto!.VIN!.Contains(entidad._Moto!.VIN!))
                 .ToList();
         }
 

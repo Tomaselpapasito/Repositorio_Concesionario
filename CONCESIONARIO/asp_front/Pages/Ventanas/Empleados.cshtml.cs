@@ -48,10 +48,13 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Filtro!.Carnet = Filtro.Carnet ?? "";
+                Filtro ??= new Empleados();
 
-                Lista = IEmpleadosAplicacion.Buscar(Filtro!);
-                CargarSelectores();
+                Filtro.Carnet ??= "";
+
+                Lista = IEmpleadosAplicacion.Buscar(Filtro);
+                PersonasLista = IPersonasAplicacion.Consultar();
+                CargosLista = ICargosAplicacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -125,6 +128,7 @@ namespace asp_front.Pages.Ventanas
                 LogConversor.Log(ex, ViewData!);
             }
         }
+
 
         public void OnPostBtBorrar()
         {

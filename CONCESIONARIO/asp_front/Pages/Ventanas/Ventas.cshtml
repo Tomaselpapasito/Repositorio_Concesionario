@@ -1,0 +1,265 @@
+﻿@page
+@model asp_front.Pages.Ventanas.VentasModel
+
+@{
+    ViewData["Title"] = "Ventas";
+    var total = Model.Lista?.Count ?? 0;
+}
+
+<style>
+    .ventas-container {
+        padding: 25px;
+        color: #263445;
+    }
+
+    .ventas-header {
+        background: linear-gradient(135deg,#172536,#294766);
+        color: white;
+        padding: 35px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+    }
+
+    .ventas-card {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        height: 100%;
+    }
+
+    .ventas-search, .ventas-form {
+        background: white;
+        padding: 22px;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px #00000012;
+        margin-bottom: 22px;
+    }
+
+    .ventas-table-container {
+        background: white;
+        padding: 18px;
+        border-radius: 12px;
+        overflow-x: auto;
+        box-shadow: 0 3px 12px #00000012;
+    }
+
+    .ventas-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .ventas-table th {
+            background: #f3f6fa;
+            padding: 13px;
+            text-align: left;
+        }
+
+        .ventas-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e9ef;
+        }
+
+    .ventas-form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .ventas-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced6df;
+        border-radius: 7px;
+    }
+
+    .btn-ventas {
+        border: 0;
+        border-radius: 7px;
+        padding: 9px 15px;
+        color: white;
+        cursor: pointer;
+        margin: 2px;
+    }
+
+                .btn-azul {
+            background: #294766;
+            color: white;
+        }
+
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
+
+        .btn-verde {
+            background: #16834a;
+            color: white;
+        }
+
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
+
+        .btn-rojo {
+            background: #fff0f0;
+            color: #c0392b;
+        }
+
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
+
+        .btn-gris {
+            background: #edf1f5;
+            color: #46566a;
+        }
+
+    .ventas-popup {
+        background: #fff4f4;
+        border: 1px solid #f2baba;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<form method="post">
+    <div class="ventas-container">
+
+        <div class="ventas-header">
+            <h1>💰 Ventas</h1>
+            <p>Administración y seguimiento de las ventas del concesionario</p>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <div class="ventas-card">
+                    <p>Total de ventas registradas</p>
+                    <h2>@total</h2>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="ventas-card">
+                    <p>Gestión comercial</p>
+                    <h2 style="color:#16834a">Ventas</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="ventas-search">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-8">
+                    <label class="form-label">ID del cliente</label>
+                    <input asp-for="Filtro!.Cliente" type="number" class="form-control" placeholder="Buscar por cliente..." />
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="Consultar" asp-page-handler="BtConsultar" class="btn-ventas btn-azul w-100" />
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" value="+ Nueva venta" asp-page-handler="BtNuevo" class="btn-ventas btn-verde w-100" />
+                </div>
+            </div>
+        </div>
+
+        @if (Model.Formulario && Model.Actual != null)
+        {
+            <div class="ventas-form">
+                <h3>@(Model.Actual.ID == 0 ? "Nueva venta" : "Editar venta")</h3>
+
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label>Fecha de venta</label>
+                        <input asp-for="Actual!.Fecha_Venta" type="date" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Impuestos</label>
+                        <input asp-for="Actual!.Impuestos" type="number" step="0.01" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Total</label>
+                        <input asp-for="Actual!.Total" type="number" step="0.01" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>ID del cliente</label>
+                        <input asp-for="Actual!.Cliente" type="number" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>ID del empleado</label>
+                        <input asp-for="Actual!.Empleado" type="number" />
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <input type="submit" value="Guardar" asp-page-handler="BtGuardar" class="btn-ventas btn-verde" />
+                    <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-ventas btn-gris" />
+                </div>
+            </div>
+        }
+
+        @if (Model.Borrar && Model.Actual != null)
+        {
+            <div class="ventas-popup">
+                <h4>¿Deseas eliminar esta venta?</h4>
+                <p>Venta: <strong>@Model.Actual.ID</strong></p>
+
+                <input type="hidden" asp-for="Actual!.ID" />
+
+                <input type="submit" value="Sí, eliminar" asp-page-handler="BtBorrar" class="btn-ventas btn-rojo" />
+                <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-ventas btn-gris" />
+            </div>
+        }
+
+        @if (!Model.Formulario)
+        {
+            <div class="ventas-table-container">
+                <h3>Listado de ventas</h3>
+
+                <table class="ventas-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Impuestos</th>
+                            <th>Total</th>
+                            <th>Cliente</th>
+                            <th>Empleado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Lista)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Fecha_Venta.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Impuestos</td>
+                                <td>@item.Total</td>
+                                <td>@item.Cliente</td>
+                                <td>@item.Empleado</td>
+                                <td>
+                                    <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-ventas btn-azul" />
+                                    <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-ventas btn-rojo" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        <div class="mt-4">
+            <a asp-page="/Index" class="btn-ventas btn-gris">Volver al inicio</a>
+        </div>
+
+    </div>
+</form>
