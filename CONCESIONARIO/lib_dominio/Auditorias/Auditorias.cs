@@ -9,7 +9,7 @@ namespace lib_dominio.Auditorias
     {
         public int ID { get; set; }
 
-        public int Tabla { get; set; }
+        public int Objeto { get; set; }
         public DateTime Fecha { get; set; }
         public string? Accion { get; set; }
         public string? Detalles { get; set; }

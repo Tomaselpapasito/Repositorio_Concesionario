@@ -1,4 +1,5 @@
-﻿using lib_dominio.Entidades;
+﻿using lib_dominio.Auditorias;
+using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -9,13 +10,15 @@ namespace lib_repositorio.Implementaciones
     public class RolesAplicacion : IRolesAplicacion
     {
         private IConexion IConexion;
-
-        public RolesAplicacion(IConexion IConexion)
+        private IAuditorias IAuditorias;
+        public RolesAplicacion (IConexion IConexion, IAuditorias IAuditorias)
         {
             this.IConexion = IConexion;
+            this.IAuditorias = IAuditorias;
+
         }
 
-        public Roles Actualizar(Roles entidad)
+        public Roles Actualizar(Roles entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
@@ -25,16 +28,30 @@ namespace lib_repositorio.Implementaciones
 
             var entry = this.IConexion!.Entry<Roles>(entidad);
             entry.State = EntityState.Modified;
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasRoles>(
+               objeto: 1,
+               accion: "Actualizar",
+               detalles: $"Numero {entidad.Nombre} actualizado",
+               usuario: IdUsuario
+           );
+            IConexion.AuditoriasRoles!.Add(auditoria);
             this.IConexion!.SaveChanges();
             return entidad;
         }
 
-        public Roles Borrar(Roles entidad)
+        public Roles Borrar(Roles entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
             this.IConexion.Roles!.Remove(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasRoles>(
+               objeto: 1,
+               accion: "Borrar",
+               detalles: $"Numero {entidad.Nombre} borrado",
+               usuario: IdUsuario
+           );
+            IConexion.AuditoriasRoles!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }
@@ -53,7 +70,7 @@ namespace lib_repositorio.Implementaciones
                 .Take(5).ToList();
         }
 
-        public Roles Insertar(Roles entidad)
+        public Roles Insertar(Roles entidad, int IdUsuario)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -62,14 +79,17 @@ namespace lib_repositorio.Implementaciones
                 throw new Exception("Falta informacion");
 
             this.IConexion.Roles!.Add(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasRoles>(
+               objeto: 1,
+               accion: "Insertar",
+               detalles: $"Numero {entidad.Nombre} insertado",
+               usuario: IdUsuario
+           );
+            IConexion.AuditoriasRoles!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }
     
-        private bool Validar(Roles entidad)
-        {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
-                entidad.Usuario == 0;
-         }
+       
     }
 }

@@ -9,12 +9,12 @@ namespace lib_repositorio.Implementaciones
     {
 
 
-        public T CrearAuditoria<T>(int tabla, string accion, string Detalles, int usuario) where T: IAuditoria, new()
+        public T CrearAuditoria<T>(int objeto, string accion, string Detalles, int usuario) where T: IAuditoria, new()
         {
             return new T
             {
                 ID = 0,
-                Tabla = tabla,
+                Objeto = objeto,
                 Fecha = DateTime.Now,
                 Accion = accion,
                 Detalles = Detalles,

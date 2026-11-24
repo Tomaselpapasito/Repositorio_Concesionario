@@ -1,20 +1,23 @@
-﻿using lib_dominio.Entidades;
+﻿using lib_dominio.Auditorias;
+using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using lib_repositorio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace lib_repositorio.Implementaciones
 {
     public class ModelosMotosAplicacion : IModelosMotosAplicacion
     {
         private IConexion IConexion;
-
-        public ModelosMotosAplicacion(IConexion IConexion)
+        private IAuditorias IAuditorias;
+        public ModelosMotosAplicacion (IConexion IConexion, IAuditorias IAuditorias)
         {
             this.IConexion = IConexion;
+            this.IAuditorias = IAuditorias;
+
         }
 
-        public ModelosMotos Actualizar(ModelosMotos entidad)
+        public ModelosMotos Actualizar(ModelosMotos entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
@@ -24,16 +27,30 @@ namespace lib_repositorio.Implementaciones
 
             var entry = this.IConexion!.Entry<ModelosMotos>(entidad);
             entry.State = EntityState.Modified;
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasModelosMotos>(
+                objeto: 1,
+                accion: "Actualizar",
+                detalles: $"Nombre {entidad.Nombre} actualizado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasModelosMotos!.Add(auditoria);
             this.IConexion!.SaveChanges();
             return entidad;
         }
 
-        public ModelosMotos Borrar(ModelosMotos entidad)
+        public ModelosMotos Borrar(ModelosMotos entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
             this.IConexion.ModelosMotos!.Remove(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasModelosMotos>(
+                objeto: 1,
+                accion: "Borrar",
+                detalles: $"Nombre {entidad.Nombre} borrado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasModelosMotos!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }
@@ -51,7 +68,7 @@ namespace lib_repositorio.Implementaciones
                 .Take(5).ToList();
         }
 
-        public ModelosMotos Insertar(ModelosMotos entidad)
+        public ModelosMotos Insertar(ModelosMotos entidad, int IdUsuario)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -60,6 +77,13 @@ namespace lib_repositorio.Implementaciones
                 throw new Exception("Falta informacion");
 
             this.IConexion.ModelosMotos!.Add(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasModelosMotos>(
+                objeto: 1,
+                accion: "Insertar",
+                detalles: $"Nombre {entidad.Nombre} insertado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasModelosMotos!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }

@@ -1,20 +1,23 @@
-﻿using lib_dominio.Entidades;
+﻿using lib_dominio.Auditorias;
+using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using lib_repositorio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace lib_repositorio.Implementaciones
 {
     public class ProveedoresAplicacion : IProveedoresAplicacion
     {
         private IConexion IConexion;
-
-        public ProveedoresAplicacion(IConexion IConexion)
+        private IAuditorias IAuditorias;
+        public ProveedoresAplicacion (IConexion IConexion, IAuditorias IAuditorias)
         {
             this.IConexion = IConexion;
+            this.IAuditorias = IAuditorias;
+
         }
 
-        public Proveedores Actualizar(Proveedores entidad)
+        public Proveedores Actualizar(Proveedores entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
@@ -24,16 +27,30 @@ namespace lib_repositorio.Implementaciones
 
             var entry = this.IConexion!.Entry<Proveedores>(entidad);
             entry.State = EntityState.Modified;
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasProveedores>(
+                objeto: 1,
+                accion: "Actualizar",
+                detalles: $"NIT {entidad.NIT} actualizado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasProveedores!.Add(auditoria);
             this.IConexion!.SaveChanges();
             return entidad;
         }
 
-        public Proveedores Borrar(Proveedores entidad)
+        public Proveedores Borrar(Proveedores entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
             this.IConexion.Proveedores!.Remove(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasProveedores>(
+                objeto: 1,
+                accion: "Borrar",
+                detalles: $"NIT {entidad.NIT} borrado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasProveedores!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }
@@ -71,7 +88,7 @@ namespace lib_repositorio.Implementaciones
             throw new NotImplementedException();
         }
 
-        public Proveedores Insertar(Proveedores entidad)
+        public Proveedores Insertar(Proveedores entidad, int IdUsuario)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -80,6 +97,13 @@ namespace lib_repositorio.Implementaciones
                 throw new Exception("Falta informacion");
 
             this.IConexion.Proveedores!.Add(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasProveedores>(
+                objeto: 1,
+                accion: "Insertar",
+                detalles: $"NIT {entidad.NIT} insertado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasProveedores!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }

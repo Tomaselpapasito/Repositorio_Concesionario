@@ -1,4 +1,5 @@
-﻿using lib_dominio.Entidades;
+﻿using lib_dominio.Auditorias;
+using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -7,13 +8,14 @@ namespace lib_repositorio.Implementaciones
     public class DetallesComprasAplicacion : IDetallesComprasAplicacion
     {
         private IConexion IConexion;
-
-        public DetallesComprasAplicacion(IConexion IConexion)
+        private IAuditorias IAuditorias;
+        public DetallesComprasAplicacion(IConexion IConexion, IAuditorias IAuditorias)
         {
             this.IConexion = IConexion;
-        }
+            this.IAuditorias = IAuditorias;
 
-        public DetallesCompras Actualizar(DetallesCompras entidad)
+        }
+        public DetallesCompras Actualizar(DetallesCompras entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
@@ -23,16 +25,30 @@ namespace lib_repositorio.Implementaciones
 
             var entry = this.IConexion!.Entry<DetallesCompras>(entidad);
             entry.State = EntityState.Modified;
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasDetallesCompras>(
+                objeto: 1,
+                accion: "Actualizar",
+                detalles: $"Cantidad {entidad.Cantidad} actualizado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasDetallesCompras!.Add(auditoria);
             this.IConexion!.SaveChanges();
             return entidad;
         }
 
-        public DetallesCompras Borrar(DetallesCompras entidad)
+        public DetallesCompras Borrar(DetallesCompras entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
             this.IConexion.DetallesCompras!.Remove(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasDetallesCompras>(
+                objeto: 1,
+                accion: "Borrar",
+                detalles: $"Cantidad {entidad.Cantidad} borrado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasDetallesCompras!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }
@@ -51,7 +67,7 @@ namespace lib_repositorio.Implementaciones
                 .Take(5).ToList();
         }
 
-        public DetallesCompras Insertar(DetallesCompras entidad)
+        public DetallesCompras Insertar(DetallesCompras entidad, int IdUsuario)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -60,6 +76,13 @@ namespace lib_repositorio.Implementaciones
                 throw new Exception("Falta informacion");
 
             this.IConexion.DetallesCompras!.Add(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasDetallesCompras>(
+                objeto: 1,
+                accion: "Insertar",
+                detalles: $"Cantidad {entidad.Cantidad} insertado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasDetallesCompras!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }

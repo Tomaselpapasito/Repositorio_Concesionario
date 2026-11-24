@@ -18,7 +18,7 @@ namespace lib_repositorio.Implementaciones
             this.IAuditorias = IAuditorias;
         }
 
-        public Personas Actualizar(Personas entidad)
+        public Personas Actualizar(Personas entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
@@ -29,18 +29,31 @@ namespace lib_repositorio.Implementaciones
                 throw new Exception("Ya hay una persona regisrada con este documento");
 
             var entry = this.IConexion!.Entry<Personas>(entidad);
-            entry.State = EntityState.Modified;
-            var audioria = IAuditorias.CrearAuditoria<AuditoriasPersonas>(entidad.ID, "Actualizar", "Se crea actualizo la Persona ----" ,1);
+            entry.State = EntityState.Modified; 
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasPersonas>(
+                objeto: 1,
+                accion: "Actualizar",
+                detalles: $"Cedula {entidad.Cedula} actualizado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasPersonas!.Add(auditoria);
             this.IConexion!.SaveChanges();
             return entidad;
         }
 
-        public Personas Borrar(Personas entidad)
+        public Personas Borrar(Personas entidad, int IdUsuario)
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
 
             this.IConexion.Personas!.Remove(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasPersonas>(
+                objeto: 1,
+                accion: "Borrar",
+                detalles: $"Cedula {entidad.Cedula} borrado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasPersonas!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }
@@ -58,7 +71,7 @@ namespace lib_repositorio.Implementaciones
                 .Take(5).ToList();
         }
 
-        public Personas Insertar(Personas entidad)
+        public Personas Insertar(Personas entidad, int IdUsuario)
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
@@ -70,6 +83,13 @@ namespace lib_repositorio.Implementaciones
 
 
             this.IConexion.Personas!.Add(entidad!);
+            var auditoria = IAuditorias.CrearAuditoria<AuditoriasPersonas>(
+                objeto: 1,
+                accion: "Insertar",
+                detalles: $"Cedula {entidad.Cedula} insertado",
+                usuario: IdUsuario
+            );
+            IConexion.AuditoriasPersonas!.Add(auditoria);
             this.IConexion.SaveChanges();
             return entidad;
         }

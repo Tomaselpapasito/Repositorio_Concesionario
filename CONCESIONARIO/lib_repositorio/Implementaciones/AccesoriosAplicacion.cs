@@ -24,13 +24,14 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
+
             if(!IConexion.Productos!.Any(x => x.ID == entidad.Producto))
                 throw new Exception("Producto no existe");
 
             var entry = this.IConexion!.Entry<Accesorios>(entidad);
             entry.State = EntityState.Modified;
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasAccesorios>(
-                tabla: 1,
+                objeto: 1,
                 accion: "Actualizar",
                 detalles: $"Accesorio {entidad.Nombre} actualizado",
                 usuario: IdUsuario
@@ -47,7 +48,7 @@ namespace lib_repositorio.Implementaciones
 
             this.IConexion.Accesorios!.Remove(entidad!);
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasAccesorios>(
-                tabla: 1,
+                objeto: 1,
                 accion: "Borrar",
                 detalles: $"Accesorio {entidad.Nombre} borrado",
                 usuario: IdUsuario
@@ -69,7 +70,7 @@ namespace lib_repositorio.Implementaciones
         {
             if (!this.IConexion.Productos!.Any(x => x.ID == producto))
                 throw new Exception("Producto no existe");
-            return this.IConexion.Accesorios.Include(x => x._Producto).FirstOrDefault(x => x.Producto == x.Producto);
+            return this.IConexion.Accesorios!.Include(x => x._Producto).FirstOrDefault(x => x.Producto == x.Producto)!;
         }
 
         public List<Accesorios> Consultar()
@@ -100,7 +101,7 @@ namespace lib_repositorio.Implementaciones
 
             this.IConexion.Accesorios!.Add(entidad!);
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasAccesorios>(
-                tabla: 1,
+                objeto: 1,
                 accion: "Insertar",
                 detalles: $"Accesorio {entidad.Nombre} insertado",
                 usuario: IdUsuario

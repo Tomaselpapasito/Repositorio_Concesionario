@@ -6,8 +6,6 @@ namespace lib_dominio.Interfaces
 {
     public interface IAuditoria
     {
- 
-
             int ID { get; set; }
             int Objeto { get; set; }
             DateTime Fecha { get; set; }

@@ -8,7 +8,7 @@ namespace lib_dominio.Interfaces
     public interface IAuditorias
     {
 
-        public T CrearAuditoria<T>(int tabla, string accion, string detalles, int usuario
+        public T CrearAuditoria<T>(int objeto, string accion, string detalles, int usuario
     ) where T : IAuditoria, new();
     
     }
