@@ -1,7 +1,7 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Modulos
 {
     public class ModelosMotosModel : PageModel
     {
-        private IModelosMotosNegocio IModelosMotosAplicacion;
+        private IModelosMotosPresentacion IModelosMotosPresentacion;
 
-        public ModelosMotosModel(IModelosMotosNegocio IModelosMotosAplicacion)
+        public ModelosMotosModel(IModelosMotosPresentacion IModelosMotosPresentacion)
         {
-            this.IModelosMotosAplicacion = IModelosMotosAplicacion;
+            this.IModelosMotosPresentacion = IModelosMotosPresentacion;
             this.Filtro = new ModelosMotos();
         }
 
@@ -36,7 +36,7 @@ namespace asp_front.Pages.Modulos
                 Filtro.Tipo_motor = Filtro.Tipo_motor ?? "";
                 Filtro.Transmision = Filtro.Transmision ?? "";
 
-                Lista = this.IModelosMotosAplicacion.Buscar(Filtro!);
+                Lista = this.IModelosMotosPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
@@ -62,9 +62,9 @@ namespace asp_front.Pages.Modulos
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IModelosMotosAplicacion.Insertar(Actual!);
+                    Actual = IModelosMotosPresentacion.Insertar(Actual!);
                 else
-                    Actual = IModelosMotosAplicacion.Actualizar(Actual!);
+                    Actual = IModelosMotosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -115,7 +115,7 @@ namespace asp_front.Pages.Modulos
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IModelosMotosAplicacion.Borrar(Actual!);
+                Actual = IModelosMotosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

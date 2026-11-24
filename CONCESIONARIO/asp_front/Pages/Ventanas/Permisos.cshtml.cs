@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class PermisosModel : PageModel
     {
-        private IPermisosNegocio IPermisosAplicacion;
+        private IPermisosAplicacion IPermisosAplicacion;
 
-        public PermisosModel(IPermisosNegocio IPermisosAplicacion)
+        public PermisosModel(IPermisosAplicacion IPermisosAplicacion)
         {
             this.IPermisosAplicacion = IPermisosAplicacion;
             this.Filtro = new Permisos();

@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class UsuariosModel : PageModel
     {
-        private IUsuariosNegocio IUsuariosAplicacion;
+        private IUsuariosAplicacion IUsuariosAplicacion;
 
-        public UsuariosModel(IUsuariosNegocio IUsuariosAplicacion)
+        public UsuariosModel(IUsuariosAplicacion IUsuariosAplicacion)
         {
             this.IUsuariosAplicacion = IUsuariosAplicacion;
             this.Filtro = new Usuarios();

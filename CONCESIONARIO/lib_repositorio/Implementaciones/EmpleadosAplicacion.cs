@@ -5,7 +5,7 @@ using lib_repositorio.Interfaces;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class EmpleadosAplicacion : IEmpleadosNegocio
+    public class EmpleadosAplicacion : IEmpleadosAplicacion
     {
         private IConexion IConexion;
 

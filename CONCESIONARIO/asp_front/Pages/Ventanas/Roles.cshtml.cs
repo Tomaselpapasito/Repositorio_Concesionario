@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class RolesModel : PageModel
     {
-        private IRolesNegocio IRolesAplicacion;
+        private IRolesAplicacion IRolesAplicacion;
 
-        public RolesModel(IRolesNegocio IRolesAplicacion)
+        public RolesModel(IRolesAplicacion IRolesAplicacion)
         {
             this.IRolesAplicacion = IRolesAplicacion;
             this.Filtro = new Roles();

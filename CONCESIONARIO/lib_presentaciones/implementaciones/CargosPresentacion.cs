@@ -4,7 +4,7 @@ using lib_presentaciones.Interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class CargosPresentacion : ICargosNegocio
+    public class CargosPresentacion : ICargosPresentacion
     {
         private IComunicaciones IComunicaciones;
 
@@ -15,12 +15,20 @@ namespace lib_presentaciones.Implementaciones
 
         public Cargos Actualizar(Cargos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<Cargos>(
+                "Cargos/Actualizar",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
 
         public Cargos Borrar(Cargos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<Cargos>(
+                "Cargos/Borrar",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
 
         public List<Cargos> Buscar(Cargos entidad)
@@ -43,7 +51,11 @@ namespace lib_presentaciones.Implementaciones
 
         public Cargos Insertar(Cargos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<Cargos>(
+                "Cargos/Insertar",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
     }
 }

@@ -1,7 +1,7 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Modulos
 {
     public class ProductosModel : PageModel
     {
-        private IProductosNegocio IProductosAplicacion;
+        private IProductosPresentacion IProductosPresentacion;
 
-        public ProductosModel(IProductosNegocio IProductosAplicacion)
+        public ProductosModel(IProductosPresentacion IProductosPresentacion)
         {
-            this.IProductosAplicacion = IProductosAplicacion;
+            this.IProductosPresentacion = IProductosPresentacion;
             this.Filtro = new Productos();
         }
 
@@ -35,7 +35,7 @@ namespace asp_front.Pages.Modulos
                 Filtro!.Codigo = Filtro.Codigo ?? "";
                 Filtro.Nombre = Filtro.Nombre ?? "";
 
-                Lista = this.IProductosAplicacion.Buscar(Filtro!);
+                Lista = this.IProductosPresentacion.Buscar(Filtro!);
             }
             catch (Exception ex)
             {
@@ -64,9 +64,9 @@ namespace asp_front.Pages.Modulos
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IProductosAplicacion.Insertar(Actual!);
+                    Actual = IProductosPresentacion.Insertar(Actual!);
                 else
-                    Actual = IProductosAplicacion.Actualizar(Actual!);
+                    Actual = IProductosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -117,7 +117,7 @@ namespace asp_front.Pages.Modulos
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IProductosAplicacion.Borrar(Actual!);
+                Actual = IProductosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

@@ -10,8 +10,8 @@ namespace asp_front.Pages.Ventanas
 {
     public class ClientesModel : PageModel
     {
-        private IClientesNegocio IClientesAplicacion;
-        private IPersonasNegocio IPersonasAplicacion;
+        private IClientesAplicacion IClientesAplicacion;
+        private IPersonasAplicacion IPersonasAplicacion;
 
         public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
         {
@@ -22,8 +22,8 @@ namespace asp_front.Pages.Ventanas
         }
 
         public ClientesModel(
-            IClientesNegocio IClientesAplicacion,
-            IPersonasNegocio IPersonasAplicacion)
+            IClientesAplicacion IClientesAplicacion,
+            IPersonasAplicacion IPersonasAplicacion)
         {
             this.IClientesAplicacion = IClientesAplicacion;
             this.IPersonasAplicacion = IPersonasAplicacion;

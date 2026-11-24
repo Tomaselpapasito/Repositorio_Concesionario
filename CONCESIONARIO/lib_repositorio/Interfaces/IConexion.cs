@@ -1,4 +1,5 @@
-﻿using lib_dominio.Entidades;
+﻿using lib_dominio.Auditorias;
+using lib_dominio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
@@ -30,6 +31,32 @@ namespace lib_repositorio.Interfaces
         DbSet<Repuestos>? Repuestos { get; set; }
         DbSet<Usuarios>? Usuarios { get; set; }
         DbSet<Ventas>? Ventas { get; set; }
+
+        /**=========================================AUDITORIAS===============================**/
+
+        DbSet<AuditoriasAccesorios>? AuditoriasAccesorios { get; set; }
+        DbSet<AuditoriasCargos>? AuditoriasCargos { get; set; }
+        DbSet<AuditoriasClientes>? AuditoriasClientes { get; set; }
+        DbSet<AuditoriasCompras>? AuditoriasCompras { get; set; }
+        DbSet<AuditoriasCuotas>? AuditoriasCuotas { get; set; }
+        DbSet<AuditoriasDetallesCompras>? AuditoriasDetallesCompras { get; set; }
+        DbSet<AuditoriasDetallesVentasProductos>? AuditoriasDetallesVentasProductos { get; set; }
+        DbSet<AuditoriasDetallesVentasMotos>? AuditoriasDetallesVentasMotos { get; set; }
+        DbSet<AuditoriasEmpleados>? AuditoriasEmpleados { get; set; }
+        DbSet<AuditoriasFinanciamientos>? AuditoriasFinanciamientos { get; set; }
+        DbSet<AuditoriasInventarios>? AuditoriasInventarios { get; set; }
+        DbSet<AuditoriasMetodosPagos>? AuditoriasMetodosPagos { get; set; }
+        DbSet<AuditoriasModelosMotos>? AuditoriasModelosMotos { get; set; }
+        DbSet<AuditoriasMotos>? AuditoriasMotos { get; set; }
+        DbSet<AuditoriasPagos>? AuditoriasPagos { get; set; }
+        DbSet<AuditoriasRoles>? AuditoriasRoles { get; set; }
+        DbSet<AuditoriasPermisos>? AuditoriasPermisos { get; set; }
+        DbSet<AuditoriasPersonas>? AuditoriasPersonas { get; set; }
+        DbSet<AuditoriasProductos>? AuditoriasProductos { get; set; }
+        DbSet<AuditoriasProveedores>? AuditoriasProveedores { get; set; }
+        DbSet<AuditoriasRepuestos>? AuditoriasRepuestos { get; set; }
+        DbSet<AuditoriasUsuarios>? AuditoriasUsuarios { get; set; }
+        DbSet<AuditoriasVentas>? AuditoriasVentas { get; set; }
 
         EntityEntry<T> Entry<T>(T entity) where T : class;
         int SaveChanges();

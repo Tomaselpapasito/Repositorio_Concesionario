@@ -4,7 +4,7 @@ using lib_presentaciones.Interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class ModelosMotosPresentacion : IModelosMotosNegocio
+    public class ModelosMotosPresentacion : IModelosMotosPresentacion
     {
         private IComunicaciones IComunicaciones;
 
@@ -15,12 +15,20 @@ namespace lib_presentaciones.Implementaciones
 
         public ModelosMotos Actualizar(ModelosMotos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<ModelosMotos>(
+                "ModelosMotos/Actualizar",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
 
         public ModelosMotos Borrar(ModelosMotos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<ModelosMotos>(
+                "ModelosMotos/Borrar",
+                entidad);
+            task.Wait();
+            return task.Result; 
         }
 
         public List<ModelosMotos> Buscar(ModelosMotos entidad)
@@ -43,7 +51,11 @@ namespace lib_presentaciones.Implementaciones
 
         public ModelosMotos Insertar(ModelosMotos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<ModelosMotos>(
+                "ModelosMotos/Insertar",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
     }
 }

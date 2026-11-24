@@ -1,7 +1,7 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,15 +9,15 @@ namespace asp_front.Pages.Modulos
 {
     public class AccesoriosModel : PageModel
     {
-        private IAccesoriosNegocio IAccesoriosAplicacion;
-        private IProductosNegocio IProductosAplicacion;
+        private IAccesoriosPresentacion IAccesoriosPresentacion;
+        private IProductosPresentacion IProductosPresentacion;
 
         public AccesoriosModel(
-            IAccesoriosNegocio IAccesoriosAplicacion,
-            IProductosNegocio IProductosAplicacion)
+            IAccesoriosPresentacion IAccesoriosPresentacion,
+            IProductosPresentacion IProductosPresentacion)
         {
-            this.IAccesoriosAplicacion = IAccesoriosAplicacion;
-            this.IProductosAplicacion = IProductosAplicacion;
+            this.IAccesoriosPresentacion = IAccesoriosPresentacion;
+            this.IProductosPresentacion = IProductosPresentacion;
             this.Filtro = new Accesorios();
             this.ListaProductos = new List<Productos>();
         }
@@ -42,8 +42,8 @@ namespace asp_front.Pages.Modulos
                 Filtro.Categoria = Filtro.Categoria ?? "";
                 Filtro.Marca = Filtro.Marca ?? "";
 
-                Lista = this.IAccesoriosAplicacion.Buscar(Filtro!);
-                ListaProductos = this.IProductosAplicacion.Consultar();
+                Lista = this.IAccesoriosPresentacion.Buscar(Filtro!);
+                ListaProductos = this.IProductosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace asp_front.Pages.Modulos
             {
                 Formulario = true;
                 Actual = new Accesorios();
-                ListaProductos = this.IProductosAplicacion.Consultar();
+                ListaProductos = this.IProductosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -70,9 +70,9 @@ namespace asp_front.Pages.Modulos
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IAccesoriosAplicacion.Insertar(Actual!);
+                    Actual = IAccesoriosPresentacion.Insertar(Actual!);
                 else
-                    Actual = IAccesoriosAplicacion.Actualizar(Actual!);
+                    Actual = IAccesoriosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -123,7 +123,7 @@ namespace asp_front.Pages.Modulos
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IAccesoriosAplicacion.Borrar(Actual!);
+                Actual = IAccesoriosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

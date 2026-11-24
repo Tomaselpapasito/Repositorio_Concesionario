@@ -5,7 +5,7 @@ using lib_presentaciones.Interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class ProveedoresPresentacion : IProveedoresNegocio
+    public class ProveedoresPresentacion : IProveedoresPresentacion
     {
         private IComunicaciones IComunicaciones;
 
@@ -52,12 +52,11 @@ namespace lib_presentaciones.Implementaciones
 
         public Proveedores BuscarPorNIT(Proveedores entidad)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Proveedores> BuscarPorNombre(Proveedores entidad)
-        {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<Proveedores>(
+                "Proveedores/BuscarPorNIT",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
 
         public List<Proveedores> Consultar()
@@ -67,16 +66,6 @@ namespace lib_presentaciones.Implementaciones
                 null!);
             task.Wait();
             return task.Result;
-        }
-
-        public List<Compras> ConsultarCompras(Proveedores entidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Proveedores> ConsultarProveedoresActivos()
-        {
-            throw new NotImplementedException();
         }
 
         public Proveedores Insertar(Proveedores entidad)

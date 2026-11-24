@@ -2,6 +2,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,11 +10,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class MetodosPagosModel : PageModel
     {
-        private IMetodosPagosNegocio IMetodosPagosAplicacion;
+        private IMetodosPagosPresentacion IMetodosPagosPresentacion;
 
-        public MetodosPagosModel(IMetodosPagosNegocio IMetodosPagosAplicacion)
+        public MetodosPagosModel(IMetodosPagosPresentacion IMetodosPagosPresentacion)
         {
-            this.IMetodosPagosAplicacion = IMetodosPagosAplicacion;
+            this.IMetodosPagosPresentacion = IMetodosPagosPresentacion;
         }
 
         [BindProperty] public List<MetodosPagos> Lista { get; set; } = new();
@@ -35,7 +36,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro.Nombre ??= "";
                 Filtro.Tipo ??= "";
 
-                Lista = IMetodosPagosAplicacion.Buscar(Filtro);
+                Lista = IMetodosPagosPresentacion.Buscar(Filtro);
 
                 Formulario = false;
                 Borrar = false;
@@ -51,7 +52,7 @@ namespace asp_front.Pages.Ventanas
             Actual = new MetodosPagos();
             Formulario = true;
             Borrar = false;
-            Lista = IMetodosPagosAplicacion.Consultar();
+            Lista = IMetodosPagosPresentacion.Consultar();
         }
 
         public void OnPostBtGuardar()
@@ -59,9 +60,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    IMetodosPagosAplicacion.Insertar(Actual);
+                    IMetodosPagosPresentacion.Insertar(Actual);
                 else
-                    IMetodosPagosAplicacion.Actualizar(Actual);
+                    IMetodosPagosPresentacion.Actualizar(Actual);
 
                 OnPostBtConsultar();
             }
@@ -69,7 +70,7 @@ namespace asp_front.Pages.Ventanas
             {
                 LogConversor.Log(ex, ViewData!);
                 Formulario = true;
-                Lista = IMetodosPagosAplicacion.Consultar();
+                Lista = IMetodosPagosPresentacion.Consultar();
             }
         }
 
@@ -77,12 +78,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IMetodosPagosAplicacion.Consultar()
+                Actual = IMetodosPagosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Formulario = true;
                 Borrar = false;
-                Lista = IMetodosPagosAplicacion.Consultar();
+                Lista = IMetodosPagosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -94,12 +95,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IMetodosPagosAplicacion.Consultar()
+                Actual = IMetodosPagosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Borrar = true;
                 Formulario = false;
-                Lista = IMetodosPagosAplicacion.Consultar();
+                Lista = IMetodosPagosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -111,7 +112,7 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                IMetodosPagosAplicacion.Borrar(Actual!);
+                IMetodosPagosPresentacion.Borrar(Actual!);
                 OnPostBtConsultar();
             }
             catch (Exception ex)

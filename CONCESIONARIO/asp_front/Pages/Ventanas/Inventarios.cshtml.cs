@@ -9,12 +9,12 @@ namespace asp_front.Pages.Modulos
 {
     public class InventariosModel : PageModel
     {
-        private IInventariosNegocio IInventariosAplicacion;
-        private IMotosNegocio IMotosAplicacion;
+        private IInventariosAplicacion IInventariosAplicacion;
+        private IMotosAplicacion IMotosAplicacion;
 
         public InventariosModel(
-            IInventariosNegocio IInventariosAplicacion,
-            IMotosNegocio IMotosAplicacion)
+            IInventariosAplicacion IInventariosAplicacion,
+            IMotosAplicacion IMotosAplicacion)
         {
             this.IInventariosAplicacion = IInventariosAplicacion;
             this.IMotosAplicacion = IMotosAplicacion;

@@ -17,7 +17,7 @@ namespace lib_dominio.Entidades
             return string.IsNullOrEmpty(this.Nombre) ||
                 string.IsNullOrEmpty(this.Categoria) ||
                 string.IsNullOrEmpty(this.Marca) ||
-                this.Producto == 0;
+                this.Producto >= 0;
         }
 
 

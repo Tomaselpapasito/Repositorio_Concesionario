@@ -1,7 +1,8 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Implementaciones;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,18 +10,18 @@ namespace asp_front.Pages.Ventanas
 {
     public class DetallesVentasProductosModel : PageModel
     {
-        private readonly IDetallesVentasProductosNegocio IDetallesVentasProductosAplicacion;
-        private readonly IProductosNegocio IProductosAplicacion;
-        private readonly IVentasNegocio IVentasAplicacion;
+        private readonly IDetallesVentasProductosPresentacion IDetallesVentasProductosPresentacion;
+        private readonly IProductosPresentacion IProductosPresentacion;
+        private readonly IVentasPresentacion IVentasPresentacion;
 
         public DetallesVentasProductosModel(
-            IDetallesVentasProductosNegocio detallesVentasProductosAplicacion,
-            IProductosNegocio productosAplicacion,
-            IVentasNegocio ventasAplicacion)
+            IDetallesVentasProductosPresentacion detallesVentasProductosPresentacion,
+            IProductosPresentacion productosPresentacion,
+            IVentasPresentacion ventasPresentacion)
         {
-            IDetallesVentasProductosAplicacion = detallesVentasProductosAplicacion;
-            IProductosAplicacion = productosAplicacion;
-            IVentasAplicacion = ventasAplicacion;
+            IDetallesVentasProductosPresentacion = detallesVentasProductosPresentacion;
+            IProductosPresentacion = productosPresentacion;
+            IVentasPresentacion = ventasPresentacion;
         }
 
         [BindProperty] public List<DetallesVentasProductos> Lista { get; set; } = new();
@@ -43,7 +44,7 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 Filtro ??= new DetallesVentasProductos();
-                Lista = IDetallesVentasProductosAplicacion.Buscar(Filtro);
+                Lista = IDetallesVentasProductosPresentacion.Buscar(Filtro);
                 Formulario = false;
                 Borrar = false;
             }
@@ -58,9 +59,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 Actual = new DetallesVentasProductos();
-                Productos = IProductosAplicacion.Consultar();
-                Ventas = IVentasAplicacion.Consultar();
-                Lista = IDetallesVentasProductosAplicacion.Consultar();
+                Productos = IProductosPresentacion.Consultar();
+                Ventas = IVentasPresentacion.Consultar();
+                Lista = IDetallesVentasProductosPresentacion.Consultar();
                 Formulario = true;
                 Borrar = false;
             }
@@ -75,18 +76,18 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    IDetallesVentasProductosAplicacion.Insertar(Actual);
+                    IDetallesVentasProductosPresentacion.Insertar(Actual);
                 else
-                    IDetallesVentasProductosAplicacion.Actualizar(Actual);
+                    IDetallesVentasProductosPresentacion.Actualizar(Actual);
 
                 OnPostBtConsultar();
             }
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
-                Productos = IProductosAplicacion.Consultar();
-                Ventas = IVentasAplicacion.Consultar();
-                Lista = IDetallesVentasProductosAplicacion.Consultar();
+                Productos = IProductosPresentacion.Consultar();
+                Ventas = IVentasPresentacion.Consultar();
+                Lista = IDetallesVentasProductosPresentacion.Consultar();
                 Formulario = true;
             }
         }
@@ -95,12 +96,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IDetallesVentasProductosAplicacion.Consultar()
+                Actual = IDetallesVentasProductosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
-                Productos = IProductosAplicacion.Consultar();
-                Ventas = IVentasAplicacion.Consultar();
-                Lista = IDetallesVentasProductosAplicacion.Consultar();
+                Productos = IProductosPresentacion.Consultar();
+                Ventas = IVentasPresentacion.Consultar();
+                Lista = IDetallesVentasProductosPresentacion.Consultar();
 
                 Formulario = true;
                 Borrar = false;
@@ -115,12 +116,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IDetallesVentasProductosAplicacion.Consultar()
+                Actual = IDetallesVentasProductosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Borrar = true;
                 Formulario = false;
-                Lista = IDetallesVentasProductosAplicacion.Consultar();
+                Lista = IDetallesVentasProductosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -132,7 +133,7 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                IDetallesVentasProductosAplicacion.Borrar(Actual!);
+                IDetallesVentasProductosPresentacion.Borrar(Actual!);
                 OnPostBtConsultar();
             }
             catch (Exception ex)

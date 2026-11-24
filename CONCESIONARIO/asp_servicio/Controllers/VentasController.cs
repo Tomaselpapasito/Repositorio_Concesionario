@@ -10,11 +10,11 @@ namespace asp_servicio.Controllers
     [Route("[controller]/[action]")]
     public class VentasController : ControllerBase
     {
-        private IVentasNegocio IVentasAplicacion;
+        private IVentasAplicacion IVentasAplicacion;
         private IConexion IConexion;
 
         public VentasController(
-            IVentasNegocio IVentasAplicacion,
+            IVentasAplicacion IVentasAplicacion,
             IConexion IConexion)
         {
             this.IVentasAplicacion = IVentasAplicacion;

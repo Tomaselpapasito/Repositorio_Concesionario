@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class CargosModel : PageModel
     {
-        private ICargosNegocio ICargosAplicacion;
+        private ICargosAplicacion ICargosAplicacion;
 
-        public CargosModel(ICargosNegocio ICargosAplicacion)
+        public CargosModel(ICargosAplicacion ICargosAplicacion)
         {
             this.ICargosAplicacion = ICargosAplicacion;
             this.Filtro = new Cargos();

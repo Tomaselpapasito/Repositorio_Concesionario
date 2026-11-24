@@ -8,9 +8,9 @@ namespace asp_servicio.Controllers
     [Route("[controller]/[action]")]
     public class RolesController : ControllerBase
     {
-        private IRolesNegocio IRolesAplicacion;
+        private IRolesAplicacion IRolesAplicacion;
 
-        public RolesController(IRolesNegocio IRolesAplicacion)
+        public RolesController(IRolesAplicacion IRolesAplicacion)
         {
             this.IRolesAplicacion = IRolesAplicacion;
         }

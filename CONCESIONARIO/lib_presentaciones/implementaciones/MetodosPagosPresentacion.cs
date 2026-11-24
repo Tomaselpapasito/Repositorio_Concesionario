@@ -5,7 +5,7 @@ using lib_presentaciones.Interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class MetodosPagosPresentacion : IMetodosPagosNegocio
+    public class MetodosPagosPresentacion : IMetodosPagosPresentacion
     {
         private IComunicaciones IComunicaciones;
 
@@ -16,12 +16,20 @@ namespace lib_presentaciones.Implementaciones
 
         public MetodosPagos Actualizar(MetodosPagos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<MetodosPagos>(
+                "MetodosPagos/Actualizar",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
 
         public MetodosPagos Borrar(MetodosPagos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<MetodosPagos>(
+                "MetodosPagos/Borrar",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
 
         public List<MetodosPagos> Buscar(MetodosPagos entidad)
@@ -44,7 +52,11 @@ namespace lib_presentaciones.Implementaciones
 
         public MetodosPagos Insertar(MetodosPagos entidad)
         {
-            throw new NotImplementedException();
+            var task = this.IComunicaciones.Ejecutar<MetodosPagos>(
+                "MetodosPagos/Insertar",
+                entidad);
+            task.Wait();
+            return task.Result;
         }
     }
 }

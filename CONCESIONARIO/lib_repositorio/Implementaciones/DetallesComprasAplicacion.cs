@@ -4,7 +4,7 @@ using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace lib_repositorio.Implementaciones
 {
-    public class DetallesComprasAplicacion : IDetallesComprasNegocio
+    public class DetallesComprasAplicacion : IDetallesComprasAplicacion
     {
         private IConexion IConexion;
 

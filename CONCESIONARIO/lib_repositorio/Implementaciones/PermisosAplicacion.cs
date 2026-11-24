@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class PermisosAplicacion : IPermisosNegocio
+    public class PermisosAplicacion : IPermisosAplicacion
     {
         private IConexion IConexion;
 

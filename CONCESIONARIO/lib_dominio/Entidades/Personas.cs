@@ -16,7 +16,10 @@ namespace lib_dominio.Entidades
         public bool Validar()
         {
             return string.IsNullOrWhiteSpace(this.Nombre) ||
-                    string.IsNullOrWhiteSpace(this.Cedula);
+                    string.IsNullOrWhiteSpace(this.Cedula) ||
+                    string.IsNullOrWhiteSpace(this.Telefono) ||
+                    this.Fecha_Nacimiento == default ||
+                    this.Fecha_Nacimiento.Date > DateTime.Today;
 
         }
     }

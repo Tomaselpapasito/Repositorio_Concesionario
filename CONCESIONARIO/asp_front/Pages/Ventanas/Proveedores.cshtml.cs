@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class ProveedoresModel : PageModel
     {
-        private IProveedoresNegocio IProveedoresAplicacion;
+        private IProveedoresAplicacion IProveedoresAplicacion;
 
-        public ProveedoresModel(IProveedoresNegocio IProveedoresAplicacion)
+        public ProveedoresModel(IProveedoresAplicacion IProveedoresAplicacion)
         {
             this.IProveedoresAplicacion = IProveedoresAplicacion;
             this.Filtro = new Proveedores();

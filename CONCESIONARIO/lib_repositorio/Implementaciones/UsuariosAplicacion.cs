@@ -6,7 +6,7 @@ using System.Text;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class UsuariosAplicacion : IUsuariosNegocio
+    public class UsuariosAplicacion : IUsuariosAplicacion
     {
         private IConexion IConexion;
 

@@ -1,7 +1,7 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,18 +9,18 @@ namespace asp_front.Pages.Ventanas
 {
     public class EmpleadosModel : PageModel
     {
-        private IEmpleadosNegocio IEmpleadosAplicacion;
-        private IPersonasNegocio IPersonasAplicacion;
-        private ICargosNegocio ICargosAplicacion;
+        private IEmpleadosPresentacion IEmpleadosPresentacion;
+        private IPersonasPresentacion IPersonasPresentacion;
+        private ICargosPresentacion ICargosPresentacion;
 
         public EmpleadosModel(
-            IEmpleadosNegocio IEmpleadosAplicacion,
-            IPersonasNegocio IPersonasAplicacion,
-            ICargosNegocio ICargosAplicacion)
+            IEmpleadosPresentacion IEmpleadosPresentacion,
+            IPersonasPresentacion IPersonasPresentacion,
+            ICargosPresentacion ICargosPresentacion)
         {
-            this.IEmpleadosAplicacion = IEmpleadosAplicacion;
-            this.IPersonasAplicacion = IPersonasAplicacion;
-            this.ICargosAplicacion = ICargosAplicacion;
+            this.IEmpleadosPresentacion = IEmpleadosPresentacion;
+            this.IPersonasPresentacion = IPersonasPresentacion;
+            this.ICargosPresentacion = ICargosPresentacion;
 
             this.Filtro = new Empleados();
         }
@@ -40,8 +40,8 @@ namespace asp_front.Pages.Ventanas
 
         private void CargarSelectores()
         {
-            PersonasLista = IPersonasAplicacion.Consultar();
-            CargosLista = ICargosAplicacion.Consultar();
+            PersonasLista = IPersonasPresentacion.Consultar();
+            CargosLista = ICargosPresentacion.Consultar();
         }
 
         public void OnPostBtConsultar()
@@ -52,9 +52,9 @@ namespace asp_front.Pages.Ventanas
 
                 Filtro.Carnet ??= "";
 
-                Lista = IEmpleadosAplicacion.Buscar(Filtro);
-                PersonasLista = IPersonasAplicacion.Consultar();
-                CargosLista = ICargosAplicacion.Consultar();
+                Lista = IEmpleadosPresentacion.Buscar(Filtro);
+                PersonasLista = IPersonasPresentacion.Consultar();
+                CargosLista = ICargosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -81,9 +81,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IEmpleadosAplicacion.Insertar(Actual!);
+                    Actual = IEmpleadosPresentacion.Insertar(Actual!);
                 else
-                    Actual = IEmpleadosAplicacion.Actualizar(Actual!);
+                    Actual = IEmpleadosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -137,7 +137,7 @@ namespace asp_front.Pages.Ventanas
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IEmpleadosAplicacion.Borrar(Actual!);
+                Actual = IEmpleadosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

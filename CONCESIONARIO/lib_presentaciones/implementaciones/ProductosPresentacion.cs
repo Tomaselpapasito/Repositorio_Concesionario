@@ -5,7 +5,7 @@ using lib_presentaciones.Interfaces;
 
 namespace lib_presentaciones.Implementaciones
 {
-    public class ProductosPresentacion : IProductosNegocio
+    public class ProductosPresentacion : IProductosPresentacion
     {
         private IComunicaciones IComunicaciones;
 

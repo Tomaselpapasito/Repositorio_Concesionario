@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class DetallesComprasModel : PageModel
     {
-        private IDetallesComprasNegocio IDetallesComprasAplicacion;
+        private IDetallesComprasAplicacion IDetallesComprasAplicacion;
 
-        public DetallesComprasModel(IDetallesComprasNegocio IDetallesComprasAplicacion)
+        public DetallesComprasModel(IDetallesComprasAplicacion IDetallesComprasAplicacion)
         {
             this.IDetallesComprasAplicacion = IDetallesComprasAplicacion;
         }

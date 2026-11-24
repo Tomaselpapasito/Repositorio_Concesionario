@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class CargosAplicacion : ICargosNegocio
+    public class CargosAplicacion : ICargosAplicacion
     {
         private IConexion IConexion;
 

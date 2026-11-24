@@ -4,7 +4,7 @@ using lib_repositorio.Interfaces;
 using lib_dominio.Interfaces;
 namespace lib_repositorio.Implementaciones
 {
-    public class CuotasAplicacion : ICuotasNegocio
+    public class CuotasAplicacion : ICuotasAplicacion
     {
         private IConexion IConexion;
 

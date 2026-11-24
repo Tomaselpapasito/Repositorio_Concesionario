@@ -21,7 +21,11 @@ namespace lib_dominio.Entidades
         {
             return string.IsNullOrEmpty(this.Codigo) ||
                 string.IsNullOrEmpty(this.Nombre) ||
-                this.Precio <= 0;
+                (this.Fecha_Creacion == default || this.Fecha_Creacion.Date > DateTime.Today) ||
+                (this.Fecha_Modificacion == default || this.Fecha_Modificacion.Date > DateTime.Today) ||
+                this.Precio <= 0 ||
+                this.Stock < 0;
+                
         }
     }
 }

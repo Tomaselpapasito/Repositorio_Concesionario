@@ -254,6 +254,265 @@ CREATE TABLE [DetallesCompras]
     [Producto] INT NOT NULL FOREIGN KEY REFERENCES [Productos]([ID])
 );
 
+
+-- ===================================================================================
+-- TABLAS DE AUDITORIA DEL CONCESIONARIO
+-- =============================================
+
+CREATE TABLE AuditoriasUsuarios (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasRoles (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasPermisos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasPersonas (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasCargos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasModelosMotos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasProveedores (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasMetodosPagos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasProductos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasAccesorios (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasClientes (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasMotos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasInventarios (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasCompras (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasRepuestos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasEmpleados (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasVentas (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasPagos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasDetallesVentasMotos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasDetallesVentasProductos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasFinanciamientos (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasCuotas (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+CREATE TABLE AuditoriasDetallesCompras (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Objeto INT NOT NULL,
+    Fecha DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Accion NVARCHAR(50),
+    Detalles NVARCHAR(MAX),
+    Usuario INT NOT NULL,
+    FOREIGN KEY (Usuario) REFERENCES Usuarios(ID)
+);
+GO
+
+
 -- PERSONAS
 INSERT INTO [Personas] ([Nombre], [Cedula], [Fecha_Nacimiento], [Telefono])
 VALUES ('Arnold Gomez', '123456789', '1990-01-01', '3001234567');

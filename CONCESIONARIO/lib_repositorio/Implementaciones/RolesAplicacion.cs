@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class RolesAplicacion : IRolesNegocio
+    public class RolesAplicacion : IRolesAplicacion
     {
         private IConexion IConexion;
 

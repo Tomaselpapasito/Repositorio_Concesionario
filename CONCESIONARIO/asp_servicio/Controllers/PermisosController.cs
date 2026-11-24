@@ -8,9 +8,9 @@ namespace asp_servicio.Controllers
     [Route("[controller]/[action]")]
     public class PermisosController : ControllerBase
     {
-        private IPermisosNegocio IPermisosAplicacion;
+        private IPermisosAplicacion IPermisosAplicacion;
 
-        public PermisosController(IPermisosNegocio IPermisosAplicacion)
+        public PermisosController(IPermisosAplicacion IPermisosAplicacion)
         {
             this.IPermisosAplicacion = IPermisosAplicacion;
         }

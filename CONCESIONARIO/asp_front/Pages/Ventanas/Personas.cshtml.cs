@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class PersonasModel : PageModel
     {
-        private IPersonasNegocio IPersonasAplicacion;
+        private IPersonasAplicacion IPersonasAplicacion;
 
-        public PersonasModel(IPersonasNegocio IPersonasAplicacion)
+        public PersonasModel(IPersonasAplicacion IPersonasAplicacion)
         {
             this.IPersonasAplicacion = IPersonasAplicacion;
             this.Filtro = new Personas();

@@ -9,7 +9,7 @@ namespace asp_front.Pages.Modulos
 {
     public class MotosModel : PageModel
     {
-        private IMotosNegocio IMotosAplicacion;
+        private IMotosAplicacion IMotosAplicacion;
 
 
         public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
@@ -19,7 +19,7 @@ namespace asp_front.Pages.Modulos
                 context.Result = new RedirectToPageResult("/Login");
             }
         }
-        public MotosModel(IMotosNegocio IMotosAplicacion)
+        public MotosModel(IMotosAplicacion IMotosAplicacion)
         {
             this.IMotosAplicacion = IMotosAplicacion;
             this.Filtro = new Motos();

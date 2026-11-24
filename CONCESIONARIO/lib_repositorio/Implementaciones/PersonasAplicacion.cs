@@ -7,7 +7,7 @@ using System.Text;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class PersonasAplicacion : IPersonasNegocio
+    public class PersonasAplicacion : IPersonasAplicacion
     {
         private IConexion IConexion;
         private IAuditorias IAuditorias;
@@ -25,6 +25,8 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
+            if(ValidarCedula(entidad))
+                throw new Exception("Ya hay una persona regisrada con este documento");
 
             var entry = this.IConexion!.Entry<Personas>(entidad);
             entry.State = EntityState.Modified;
@@ -60,20 +62,26 @@ namespace lib_repositorio.Implementaciones
         {
             if (entidad.ID != 0)
                 throw new Exception("Ya se guardo");
-
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
+
+            if (ValidarCedula(entidad))
+                throw new Exception("Ya hay una persona regisrada con este documento");
+
 
             this.IConexion.Personas!.Add(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
         }
-    
-        private bool Validar(Personas entidad)
+
+
+
+
+        private bool ValidarCedula(Personas entidad)
         {
-            return string.IsNullOrEmpty(entidad.Nombre) ||
-                string.IsNullOrEmpty(entidad.Cedula) ||
-                string.IsNullOrEmpty(entidad.Telefono);
-         }
+            if(IConexion.Personas!.Any(x => x.Cedula == entidad.Cedula))
+                return true;
+            return false;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using lib_dominio.Entidades;
+using lib_dominio.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,10 +8,10 @@ using System.Text;
 
 namespace lib_dominio.Auditorias
 {
-    public class AuditoriasCuotas
+    public class AuditoriasCuotas : IAuditoria
     {
         [Key] public int ID { get; set; }
-        public int Accesorio { get; set; }
+        public int Objeto { get; set; }
         public DateTime Fecha { get; set; }
         public string? Accion { get; set; }
         public string? Detalles { get; set; }

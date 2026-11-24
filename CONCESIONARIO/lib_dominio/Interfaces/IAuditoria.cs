@@ -9,7 +9,7 @@ namespace lib_dominio.Interfaces
  
 
             int ID { get; set; }
-            int Tabla { get; set; }
+            int Objeto { get; set; }
             DateTime Fecha { get; set; }
             string? Accion { get; set; }
             string? Detalles { get; set; }

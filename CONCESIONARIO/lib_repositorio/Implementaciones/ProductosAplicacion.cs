@@ -5,7 +5,7 @@ using lib_repositorio.Interfaces;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class ProductosAplicacion : IProductosNegocio
+    public class ProductosAplicacion : IProductosAplicacion
     {
         private IConexion IConexion;
 
@@ -21,6 +21,9 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
+            if (ValidarCodigo(entidad))
+                throw new Exception("Ya existe un producto con el mismo código");
+
 
             var entry = this.IConexion!.Entry<Productos>(entidad);
             entry.State = EntityState.Modified;
@@ -58,11 +61,32 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
+            if (ValidarCodigo(entidad))
+                throw new Exception("Ya existe un producto con el mismo código");
+            
             this.IConexion.Productos!.Add(entidad!);
             this.IConexion.SaveChanges();
             return entidad;
         }
 
+        private bool ValidarCodigo(Productos entidad)
+        {
+            return this.IConexion.Productos!.Any(x => x.Codigo == entidad.Codigo);
+        }
+
+        private bool BuscarPorId(int id)
+        {
+            return this.IConexion.Productos!.Any(x => x.ID == id);
+        }
+
+        public void ActualizarStock(int id, int cantidad)
+        {
+            var producto = this.IConexion.Productos!.FirstOrDefault(x => x.ID == id);
+            if (!BuscarPorId(id))
+                throw new Exception("Producto no encontrado");
+            producto!.Stock += cantidad;
+            this.IConexion.SaveChanges();
+
+        }
     }
 }

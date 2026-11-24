@@ -1,7 +1,7 @@
 
 using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,11 +9,11 @@ namespace asp_front.Pages.Ventanas
 {
     public class FinanciamientosModel : PageModel
     {
-        private IFinanciamientosNegocio IFinanciamientosAplicacion;
+        private IFinanciamientosPresentacion IFinanciamientosPresentacion;
 
-        public FinanciamientosModel(IFinanciamientosNegocio IFinanciamientosAplicacion)
+        public FinanciamientosModel(IFinanciamientosPresentacion IFinanciamientosPresentacion)
         {
-            this.IFinanciamientosAplicacion = IFinanciamientosAplicacion;
+            this.IFinanciamientosPresentacion = IFinanciamientosPresentacion;
         }
 
         [BindProperty] public List<Financiamientos> Lista { get; set; } = new();
@@ -34,7 +34,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro ??= new Financiamientos();
                 Filtro.Estado ??= "";
 
-                Lista = IFinanciamientosAplicacion.Buscar(Filtro);
+                Lista = IFinanciamientosPresentacion.Buscar(Filtro);
 
                 Formulario = false;
                 Borrar = false;
@@ -50,7 +50,7 @@ namespace asp_front.Pages.Ventanas
             Actual = new Financiamientos();
             Formulario = true;
             Borrar = false;
-            Lista = IFinanciamientosAplicacion.Consultar();
+            Lista = IFinanciamientosPresentacion.Consultar();
         }
 
         public void OnPostBtGuardar()
@@ -58,9 +58,9 @@ namespace asp_front.Pages.Ventanas
             try
             {
                 if (Actual!.ID == 0)
-                    IFinanciamientosAplicacion.Insertar(Actual);
+                    IFinanciamientosPresentacion.Insertar(Actual);
                 else
-                    IFinanciamientosAplicacion.Actualizar(Actual);
+                    IFinanciamientosPresentacion.Actualizar(Actual);
 
                 OnPostBtConsultar();
             }
@@ -68,7 +68,7 @@ namespace asp_front.Pages.Ventanas
             {
                 LogConversor.Log(ex, ViewData!);
                 Formulario = true;
-                Lista = IFinanciamientosAplicacion.Consultar();
+                Lista = IFinanciamientosPresentacion.Consultar();
             }
         }
 
@@ -76,12 +76,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IFinanciamientosAplicacion.Consultar()
+                Actual = IFinanciamientosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Formulario = true;
                 Borrar = false;
-                Lista = IFinanciamientosAplicacion.Consultar();
+                Lista = IFinanciamientosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -93,12 +93,12 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                Actual = IFinanciamientosAplicacion.Consultar()
+                Actual = IFinanciamientosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
                 Borrar = true;
                 Formulario = false;
-                Lista = IFinanciamientosAplicacion.Consultar();
+                Lista = IFinanciamientosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -110,7 +110,7 @@ namespace asp_front.Pages.Ventanas
         {
             try
             {
-                IFinanciamientosAplicacion.Borrar(Actual!);
+                IFinanciamientosPresentacion.Borrar(Actual!);
                 OnPostBtConsultar();
             }
             catch (Exception ex)

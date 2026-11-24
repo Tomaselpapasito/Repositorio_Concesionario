@@ -1,11 +1,11 @@
 ﻿using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using lib_repositorio.Interfaces;
+using lib_dominio.Interfaces;
 
 namespace lib_repositorio.Implementaciones
 {
-    public class MetodosPagosAplicacion : IMetodosPagosNegocio
+    public class MetodosPagosAplicacion : IMetodosPagosAplicacion
     {
         private IConexion IConexion;
 

@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class PagosModel : PageModel
     {
-        private IPagosNegocio IPagosAplicacion;
+        private IPagosAplicacion IPagosAplicacion;
 
-        public PagosModel(IPagosNegocio IPagosAplicacion)
+        public PagosModel(IPagosAplicacion IPagosAplicacion)
         {
             this.IPagosAplicacion = IPagosAplicacion;
         }

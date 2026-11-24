@@ -9,9 +9,9 @@ namespace asp_front.Pages.Ventanas
 {
     public class CuotasModel : PageModel
     {
-        private ICuotasNegocio ICuotasAplicacion;
+        private ICuotasAplicacion ICuotasAplicacion;
 
-        public CuotasModel(ICuotasNegocio ICuotasAplicacion)
+        public CuotasModel(ICuotasAplicacion ICuotasAplicacion)
         {
             this.ICuotasAplicacion = ICuotasAplicacion;
         }

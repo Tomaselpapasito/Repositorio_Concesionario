@@ -1,5 +1,6 @@
-﻿using lib_dominio.Nucleo;
+﻿using lib_dominio.Auditorias;
 using lib_dominio.Entidades;
+using lib_dominio.Nucleo;
 using lib_repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,6 +40,33 @@ namespace lib_repositorio.Implementaciones
 
         public DbSet<Roles>? Roles { get; set; }
         public DbSet<Permisos>? Permisos { get; set; }
+
+
+        /**=========================AUDITORIAS=========================**/
+        public DbSet<AuditoriasAccesorios>? AuditoriasAccesorios { get; set; }
+        public DbSet<AuditoriasCargos>? AuditoriasCargos { get; set; }
+        public DbSet<AuditoriasClientes>? AuditoriasClientes { get; set; }
+        public DbSet<AuditoriasCompras>? AuditoriasCompras { get; set; }
+        public DbSet<AuditoriasCuotas>? AuditoriasCuotas { get; set; }
+        public DbSet<AuditoriasDetallesCompras>? AuditoriasDetallesCompras { get; set; }
+        public DbSet<AuditoriasDetallesVentasProductos>? AuditoriasDetallesVentasProductos { get; set; }
+        public DbSet<AuditoriasDetallesVentasMotos>? AuditoriasDetallesVentasMotos { get; set; }
+        public DbSet<AuditoriasEmpleados>? AuditoriasEmpleados { get; set; }
+        public DbSet<AuditoriasFinanciamientos>? AuditoriasFinanciamientos { get; set; }
+        public DbSet<AuditoriasInventarios>? AuditoriasInventarios { get; set; }
+        public DbSet<AuditoriasMetodosPagos>? AuditoriasMetodosPagos { get; set; }
+        public DbSet<AuditoriasModelosMotos>? AuditoriasModelosMotos { get; set; }
+        public DbSet<AuditoriasMotos>? AuditoriasMotos { get; set; }
+        public DbSet<AuditoriasPagos>? AuditoriasPagos { get; set; }
+        public DbSet<AuditoriasRoles>? AuditoriasRoles { get; set; }
+        public DbSet<AuditoriasPermisos>? AuditoriasPermisos { get; set; }
+        public DbSet<AuditoriasPersonas>? AuditoriasPersonas { get; set; }
+        public DbSet<AuditoriasProductos>? AuditoriasProductos { get; set; }
+        public DbSet<AuditoriasProveedores>? AuditoriasProveedores { get; set; }
+        public DbSet<AuditoriasRepuestos>? AuditoriasRepuestos { get; set; }
+        public DbSet<AuditoriasUsuarios>? AuditoriasUsuarios { get; set; }
+        public DbSet<AuditoriasVentas>? AuditoriasVentas { get; set; }
+
 
 
     }

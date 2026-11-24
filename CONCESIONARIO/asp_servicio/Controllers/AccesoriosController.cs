@@ -2,6 +2,7 @@ using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace asp_servicio.Controllers
 {
@@ -9,9 +10,18 @@ namespace asp_servicio.Controllers
     [Route("[controller]/[action]")]
     public class AccesoriosController : ControllerBase
     {
-        private IAccesoriosNegocio IAccesoriosAplicacion;
+        private IAccesoriosAplicacion IAccesoriosAplicacion;
 
-        public AccesoriosController(IAccesoriosNegocio IAccesoriosAplicacion)
+
+
+        private int ObtenerUsuarioID()
+    {
+        var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        return int.Parse(id!);
+    }
+
+    public AccesoriosController(IAccesoriosAplicacion IAccesoriosAplicacion)
         {
             this.IAccesoriosAplicacion = IAccesoriosAplicacion;
         }
@@ -31,19 +41,23 @@ namespace asp_servicio.Controllers
         [HttpPost]
         public Accesorios Insertar(Accesorios entidad)
         {
-            return this.IAccesoriosAplicacion.Insertar(entidad);
+
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IAccesoriosAplicacion.Insertar(entidad, IdUsuario);
         }
 
         [HttpPost]
         public Accesorios Actualizar(Accesorios entidad)
         {
-            return this.IAccesoriosAplicacion.Actualizar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IAccesoriosAplicacion.Actualizar(entidad,IdUsuario);
         }
 
         [HttpPost]
         public Accesorios Borrar(Accesorios entidad)
         {
-            return this.IAccesoriosAplicacion.Borrar(entidad);
+            var IdUsuario = ObtenerUsuarioID();
+            return this.IAccesoriosAplicacion.Borrar(entidad, IdUsuario);
         }
     }
 }

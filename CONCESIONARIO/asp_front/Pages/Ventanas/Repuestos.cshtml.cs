@@ -2,6 +2,7 @@
 using lib_dominio.Entidades;
 using lib_dominio.Interfaces;
 using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,15 +10,15 @@ namespace asp_front.Pages.Modulos
 {
     public class RepuestosModel : PageModel
     {
-        private IRepuestosNegocio IRepuestosAplicacion;
-        private IProductosNegocio IProductosAplicacion;
+        private IRepuestosPresentacion IRepuestosPresentacion;
+        private IProductosPresentacion IProductosPresentacion;
 
         public RepuestosModel(
-            IRepuestosNegocio IRepuestosAplicacion,
-            IProductosNegocio IProductosAplicacion)
+            IRepuestosPresentacion IRepuestosPresentacion,
+            IProductosPresentacion IProductosPresentacion)
         {
-            this.IRepuestosAplicacion = IRepuestosAplicacion;
-            this.IProductosAplicacion = IProductosAplicacion;
+            this.IRepuestosPresentacion = IRepuestosPresentacion;
+            this.IProductosPresentacion = IProductosPresentacion;
             this.Filtro = new Repuestos();
             this.ListaProductos = new List<Productos>();
         }
@@ -41,8 +42,8 @@ namespace asp_front.Pages.Modulos
                 Filtro!.Numero_Parte = Filtro.Numero_Parte ?? "";
                 Filtro.Descripcion = Filtro.Descripcion ?? "";
 
-                Lista = this.IRepuestosAplicacion.Buscar(Filtro!);
-                ListaProductos = this.IProductosAplicacion.Consultar();
+                Lista = this.IRepuestosPresentacion.Buscar(Filtro!);
+                ListaProductos = this.IProductosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -57,7 +58,7 @@ namespace asp_front.Pages.Modulos
                 Formulario = true;
                 Actual = new Repuestos();
                 Actual.Fecha_Modificacion = DateTime.Now;
-                ListaProductos = this.IProductosAplicacion.Consultar();
+                ListaProductos = this.IProductosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -70,9 +71,9 @@ namespace asp_front.Pages.Modulos
             try
             {
                 if (Actual!.ID == 0)
-                    Actual = IRepuestosAplicacion.Insertar(Actual!);
+                    Actual = IRepuestosPresentacion.Insertar(Actual!);
                 else
-                    Actual = IRepuestosAplicacion.Actualizar(Actual!);
+                    Actual = IRepuestosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -123,7 +124,7 @@ namespace asp_front.Pages.Modulos
                 if (Actual!.ID == 0)
                     return;
 
-                Actual = IRepuestosAplicacion.Borrar(Actual!);
+                Actual = IRepuestosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {
