@@ -10,10 +10,14 @@ namespace asp_front.Pages.Ventanas
     public class FinanciamientosModel : PageModel
     {
         private IFinanciamientosPresentacion IFinanciamientosPresentacion;
+        private IVentasPresentacion IVentasPresentacion;
 
-        public FinanciamientosModel(IFinanciamientosPresentacion IFinanciamientosPresentacion)
+        public FinanciamientosModel(
+            IFinanciamientosPresentacion IFinanciamientosPresentacion,
+            IVentasPresentacion IVentasPresentacion)
         {
             this.IFinanciamientosPresentacion = IFinanciamientosPresentacion;
+            this.IVentasPresentacion = IVentasPresentacion;
         }
 
         [BindProperty] public List<Financiamientos> Lista { get; set; } = new();
@@ -21,6 +25,8 @@ namespace asp_front.Pages.Ventanas
         [BindProperty] public Financiamientos? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
         [BindProperty] public bool Borrar { get; set; } = false;
+
+        public List<Ventas> ListaVentas { get; set; } = new();
 
         public void OnGet()
         {
@@ -35,6 +41,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro.Estado ??= "";
 
                 Lista = IFinanciamientosPresentacion.Buscar(Filtro);
+                ListaVentas = IVentasPresentacion.Consultar();
 
                 Formulario = false;
                 Borrar = false;
@@ -48,6 +55,7 @@ namespace asp_front.Pages.Ventanas
         public void OnPostBtNuevo()
         {
             Actual = new Financiamientos();
+            ListaVentas = IVentasPresentacion.Consultar();
             Formulario = true;
             Borrar = false;
             Lista = IFinanciamientosPresentacion.Consultar();
@@ -67,6 +75,7 @@ namespace asp_front.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+                ListaVentas = IVentasPresentacion.Consultar();
                 Formulario = true;
                 Lista = IFinanciamientosPresentacion.Consultar();
             }
@@ -79,6 +88,7 @@ namespace asp_front.Pages.Ventanas
                 Actual = IFinanciamientosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
+                ListaVentas = IVentasPresentacion.Consultar();
                 Formulario = true;
                 Borrar = false;
                 Lista = IFinanciamientosPresentacion.Consultar();
@@ -96,6 +106,7 @@ namespace asp_front.Pages.Ventanas
                 Actual = IFinanciamientosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
+                ListaVentas = IVentasPresentacion.Consultar();
                 Borrar = true;
                 Formulario = false;
                 Lista = IFinanciamientosPresentacion.Consultar();

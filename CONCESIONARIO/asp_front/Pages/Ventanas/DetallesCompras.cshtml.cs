@@ -10,13 +10,22 @@ namespace asp_front.Pages.Ventanas
     public class DetallesComprasModel : PageModel
     {
         private IDetallesComprasPresentacion IDetallesComprasPresentacion;
+        private IComprasPresentacion IComprasPresentacion;
+        private IProductosPresentacion IProductosPresentacion;
 
-        public DetallesComprasModel(IDetallesComprasPresentacion IDetallesComprasPresentacion)
+        public DetallesComprasModel(
+            IDetallesComprasPresentacion IDetallesComprasPresentacion,
+            IComprasPresentacion IComprasPresentacion,
+            IProductosPresentacion IProductosPresentacion)
         {
             this.IDetallesComprasPresentacion = IDetallesComprasPresentacion;
+            this.IComprasPresentacion = IComprasPresentacion;
+            this.IProductosPresentacion = IProductosPresentacion;
         }
 
         [BindProperty] public List<DetallesCompras> Lista { get; set; } = new();
+        [BindProperty] public List<Compras> ListaCompras { get; set; } = new();
+        [BindProperty] public List<Productos> ListaProductos { get; set; } = new();
         [BindProperty] public DetallesCompras? Filtro { get; set; }
         [BindProperty] public DetallesCompras? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -34,6 +43,8 @@ namespace asp_front.Pages.Ventanas
                 Filtro ??= new DetallesCompras();
 
                 Lista = IDetallesComprasPresentacion.Buscar(Filtro);
+                ListaCompras = IComprasPresentacion.Consultar();
+                ListaProductos = IProductosPresentacion.Consultar();
 
                 Formulario = false;
                 Borrar = false;
@@ -50,6 +61,8 @@ namespace asp_front.Pages.Ventanas
             Formulario = true;
             Borrar = false;
             Lista = IDetallesComprasPresentacion.Consultar();
+            ListaCompras = IComprasPresentacion.Consultar();
+            ListaProductos = IProductosPresentacion.Consultar();
         }
 
         public void OnPostBtGuardar()
@@ -68,6 +81,8 @@ namespace asp_front.Pages.Ventanas
                 LogConversor.Log(ex, ViewData!);
                 Formulario = true;
                 Lista = IDetallesComprasPresentacion.Consultar();
+                ListaCompras = IComprasPresentacion.Consultar();
+                ListaProductos = IProductosPresentacion.Consultar();
             }
         }
 
@@ -81,6 +96,8 @@ namespace asp_front.Pages.Ventanas
                 Formulario = true;
                 Borrar = false;
                 Lista = IDetallesComprasPresentacion.Consultar();
+                ListaCompras = IComprasPresentacion.Consultar();
+                ListaProductos = IProductosPresentacion.Consultar();
             }
             catch (Exception ex)
             {

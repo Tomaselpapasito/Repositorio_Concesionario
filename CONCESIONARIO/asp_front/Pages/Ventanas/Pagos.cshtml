@@ -66,7 +66,8 @@
         margin-bottom: 6px;
     }
 
-    .pagos-form input {
+    .pagos-form input,
+    .pagos-form select {
         width: 100%;
         padding: 10px;
         border: 1px solid #ced6df;
@@ -82,36 +83,35 @@
         margin: 2px;
     }
 
-    
     .btn-azul {
-    background: #294766;
-    color: white;
-    }
-
-    .btn-azul:hover {
-        background: #1c344d;
+        background: #294766;
         color: white;
     }
+
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
 
     .btn-verde {
         background: #16834a;
         color: white;
     }
 
-    .btn-verde:hover {
-        background: #116638;
-        color: white;
-    }
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
 
     .btn-rojo {
         background: #fff0f0;
         color: #c0392b;
     }
 
-    .btn-rojo:hover {
-        background: #fbdada;
-        color: #a52a20;
-    }
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
 
     .btn-gris {
         background: #edf1f5;
@@ -128,6 +128,7 @@
 </style>
 
 <form method="post">
+
     <div class="pagos-container">
 
         <div class="pagos-header">
@@ -136,43 +137,63 @@
         </div>
 
         <div class="row g-3 mb-4">
+
             <div class="col-md-6">
                 <div class="pagos-card">
                     <p>Total de pagos registrados</p>
                     <h2>@total</h2>
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="pagos-card">
                     <p>Gestión de recaudos</p>
                     <h2 style="color:#16834a">Pagos</h2>
                 </div>
             </div>
+
         </div>
 
         <div class="pagos-search">
+
             <div class="row g-3 align-items-end">
+
                 <div class="col-md-8">
                     <label class="form-label">ID de la venta</label>
-                    <input asp-for="Filtro!.Venta" type="number" class="form-control" placeholder="Buscar por venta..." />
+                    <input asp-for="Filtro!.Venta"
+                           type="number"
+                           class="form-control"
+                           placeholder="Buscar por venta..." />
                 </div>
+
                 <div class="col-md-2">
-                    <input type="submit" value="Consultar" asp-page-handler="BtConsultar" class="btn-pagos btn-azul w-100" />
+                    <input type="submit"
+                           value="Consultar"
+                           asp-page-handler="BtConsultar"
+                           class="btn-pagos btn-azul w-100" />
                 </div>
+
                 <div class="col-md-2">
-                    <input type="submit" value="+ Nuevo pago" asp-page-handler="BtNuevo" class="btn-pagos btn-verde w-100" />
+                    <input type="submit"
+                           value="+ Nuevo pago"
+                           asp-page-handler="BtNuevo"
+                           class="btn-pagos btn-verde w-100" />
                 </div>
+
             </div>
+
         </div>
 
         @if (Model.Formulario && Model.Actual != null)
         {
             <div class="pagos-form">
+
                 <h3>@(Model.Actual.ID == 0 ? "Nuevo pago" : "Editar pago")</h3>
 
                 <input type="hidden" asp-for="Actual!.ID" />
 
                 <div class="row g-3">
+
                     <div class="col-md-6">
                         <label>Fecha de pago</label>
                         <input asp-for="Actual!.Fecha_Pago" type="date" />
@@ -184,42 +205,93 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label>ID del método de pago</label>
-                        <input asp-for="Actual!.Metodo" type="number" />
+                        <label>Método de pago</label>
+                        <select asp-for="Actual!.Metodo" class="form-select">
+                            <option value="0">Seleccione un método de pago</option>
+                            @foreach (var metodo in Model.ListaMetodosPagos)
+                            {
+                                <option value="@metodo.ID">
+                                    @metodo.Nombre - @metodo.Tipo
+                                </option>
+                            }
+                        </select>
                     </div>
 
                     <div class="col-md-6">
-                        <label>ID de la venta</label>
-                        <input asp-for="Actual!.Venta" type="number" />
+                        <label>Venta</label>
+                        <select asp-for="Actual!.Venta" class="form-select">
+                            <option value="0">Seleccione una venta</option>
+                            @foreach (var venta in Model.ListaVentas)
+                            {
+                                <option value="@venta.ID">
+                                    Venta #@venta.ID - @venta.Fecha_Venta.ToString("dd/MM/yyyy") - @venta.Total.ToString("C")
+                                </option>
+                            }
+                        </select>
                     </div>
+
                 </div>
 
                 <div class="mt-4">
-                    <input type="submit" value="Guardar" asp-page-handler="BtGuardar" class="btn-pagos btn-verde" />
-                    <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-pagos btn-gris" />
+
+                    <input type="submit"
+                           value="Guardar"
+                           asp-page-handler="BtGuardar"
+                           class="btn-pagos btn-verde" />
+
+                    <input type="submit"
+                           value="Cancelar"
+                           asp-page-handler="BtConsultar"
+                           class="btn-pagos btn-gris" />
+
                 </div>
+
             </div>
         }
 
         @if (Model.Borrar && Model.Actual != null)
         {
             <div class="pagos-popup">
+
                 <h4>¿Deseas eliminar este pago?</h4>
+
                 <p>Pago número: <strong>@Model.Actual.ID</strong></p>
+
+                <p>
+                    Método:
+                    @(Model.ListaMetodosPagos.FirstOrDefault(x => x.ID == Model.Actual.Metodo)?.Nombre ?? "Sin método")
+                </p>
+
+                <p>
+                    Venta:
+                    @(Model.ListaVentas.FirstOrDefault(x => x.ID == Model.Actual.Venta) is var venta && venta != null
+                        ? $"Venta #{venta.ID} - {venta.Fecha_Venta:dd/MM/yyyy}"
+                        : "Sin venta")
+                </p>
 
                 <input type="hidden" asp-for="Actual!.ID" />
 
-                <input type="submit" value="Sí, eliminar" asp-page-handler="BtBorrar" class="btn-pagos btn-rojo" />
-                <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-pagos btn-gris" />
+                <input type="submit"
+                       value="Sí, eliminar"
+                       asp-page-handler="BtBorrar"
+                       class="btn-pagos btn-rojo" />
+
+                <input type="submit"
+                       value="Cancelar"
+                       asp-page-handler="BtConsultar"
+                       class="btn-pagos btn-gris" />
+
             </div>
         }
 
         @if (!Model.Formulario)
         {
             <div class="pagos-table-container">
+
                 <h3>Listado de pagos</h3>
 
                 <table class="pagos-table">
+
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -232,22 +304,41 @@
                     </thead>
 
                     <tbody>
+
                         @foreach (var item in Model.Lista)
                         {
                             <tr>
                                 <td>@item.ID</td>
                                 <td>@item.Fecha_Pago.ToString("dd/MM/yyyy")</td>
                                 <td>@item.Monto</td>
-                                <td>@item.Metodo</td>
-                                <td>@item.Venta</td>
                                 <td>
-                                    <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-pagos btn-azul" />
-                                    <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-pagos btn-rojo" />
+                                    @(Model.ListaMetodosPagos.FirstOrDefault(x => x.ID == item.Metodo)?.Nombre ?? "Sin método")
+                                </td>
+                                <td>
+                                    @(Model.ListaVentas.FirstOrDefault(x => x.ID == item.Venta) is var venta && venta != null
+                                        ? $"Venta #{venta.ID} - {venta.Fecha_Venta:dd/MM/yyyy}"
+                                        : "Sin venta")
+                                </td>
+                                <td>
+                                    <input type="submit"
+                                           value="Editar"
+                                           asp-page-handler="BtEditar"
+                                           asp-route-data="@item.ID"
+                                           class="btn-pagos btn-azul" />
+
+                                    <input type="submit"
+                                           value="Eliminar"
+                                           asp-page-handler="BtPregBorrar"
+                                           asp-route-data="@item.ID"
+                                           class="btn-pagos btn-rojo" />
                                 </td>
                             </tr>
                         }
+
                     </tbody>
+
                 </table>
+
             </div>
         }
 
@@ -256,4 +347,5 @@
         </div>
 
     </div>
+
 </form>

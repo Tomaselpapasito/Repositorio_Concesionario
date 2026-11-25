@@ -304,10 +304,19 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label>Modelo (ID)</label>
-                        <input type="number"
-                               asp-for="@Model.Actual!.Modelo"
-                               placeholder="Identificador del modelo" />
+                        <label>Modelo</label>
+                        <select asp-for="@Model.Actual!.Modelo" class="form-select">
+                            <option value="0">Seleccione un modelo</option>
+                            @if (Model.ListaModelos != null)
+                            {
+                                foreach (var modelo in Model.ListaModelos)
+                                {
+                                    <option value="@modelo.ID">
+                                        @modelo.Nombre
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
 
                     <div class="col-md-6">

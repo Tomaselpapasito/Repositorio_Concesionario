@@ -66,7 +66,8 @@
         margin-bottom: 6px;
     }
 
-    .cuotas-form input {
+    .cuotas-form input,
+    .cuotas-form select {
         width: 100%;
         padding: 10px;
         border: 1px solid #ced6df;
@@ -81,40 +82,42 @@
         cursor: pointer;
         margin: 2px;
     }
-    .btn-azul {
-    background: #294766;
-    color: white;
-    }
 
-    .btn-azul:hover {
-        background: #1c344d;
+    .btn-azul {
+        background: #294766;
         color: white;
     }
+
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
 
     .btn-verde {
         background: #16834a;
         color: white;
     }
 
-    .btn-verde:hover {
-        background: #116638;
-        color: white;
-    }
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
 
     .btn-rojo {
         background: #fff0f0;
         color: #c0392b;
     }
 
-    .btn-rojo:hover {
-        background: #fbdada;
-        color: #a52a20;
-    }
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
 
     .btn-gris {
         background: #edf1f5;
         color: #46566a;
     }
+
     .cuotas-popup {
         background: #fff4f4;
         border: 1px solid #f2baba;
@@ -125,6 +128,7 @@
 </style>
 
 <form method="post">
+
     <div class="cuotas-container">
 
         <div class="cuotas-header">
@@ -133,43 +137,63 @@
         </div>
 
         <div class="row g-3 mb-4">
+
             <div class="col-md-6">
                 <div class="cuotas-card">
                     <p>Total de cuotas registradas</p>
                     <h2>@total</h2>
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="cuotas-card">
                     <p>Gestión de pagos</p>
                     <h2 style="color:#16834a">Cuotas</h2>
                 </div>
             </div>
+
         </div>
 
         <div class="cuotas-search">
+
             <div class="row g-3 align-items-end">
+
                 <div class="col-md-8">
                     <label class="form-label">ID del financiamiento</label>
-                    <input asp-for="Filtro!.Financiamiento" type="number" class="form-control" placeholder="Buscar por financiamiento..." />
+                    <input asp-for="Filtro!.Financiamiento"
+                           type="number"
+                           class="form-control"
+                           placeholder="Buscar por financiamiento..." />
                 </div>
+
                 <div class="col-md-2">
-                    <input type="submit" value="Consultar" asp-page-handler="BtConsultar" class="btn-cuotas btn-azul w-100" />
+                    <input type="submit"
+                           value="Consultar"
+                           asp-page-handler="BtConsultar"
+                           class="btn-cuotas btn-azul w-100" />
                 </div>
+
                 <div class="col-md-2">
-                    <input type="submit" value="+ Nueva cuota" asp-page-handler="BtNuevo" class="btn-cuotas btn-verde w-100" />
+                    <input type="submit"
+                           value="+ Nueva cuota"
+                           asp-page-handler="BtNuevo"
+                           class="btn-cuotas btn-verde w-100" />
                 </div>
+
             </div>
+
         </div>
 
         @if (Model.Formulario && Model.Actual != null)
         {
             <div class="cuotas-form">
+
                 <h3>@(Model.Actual.ID == 0 ? "Nueva cuota" : "Editar cuota")</h3>
 
                 <input type="hidden" asp-for="Actual!.ID" />
 
                 <div class="row g-3">
+
                     <div class="col-md-6">
                         <label>Número de cuota</label>
                         <input asp-for="Actual!.Numero_cuota" type="number" />
@@ -191,37 +215,77 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label>ID del financiamiento</label>
-                        <input asp-for="Actual!.Financiamiento" type="number" />
+                        <label>Financiamiento</label>
+                        <select asp-for="Actual!.Financiamiento" class="form-select">
+                            <option value="0">Seleccione un financiamiento</option>
+                            @foreach (var elemento in Model.ListaFinanciamientos)
+                            {
+                                <option value="@elemento.ID">
+                                    Financiamiento #@elemento.ID - @elemento.Monto.ToString("C") - @elemento.Fecha_Inicio.ToString("dd/MM/yyyy")
+                                </option>
+                            }
+                        </select>
                     </div>
+
                 </div>
 
                 <div class="mt-4">
-                    <input type="submit" value="Guardar" asp-page-handler="BtGuardar" class="btn-cuotas btn-verde" />
-                    <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-cuotas btn-gris" />
+
+                    <input type="submit"
+                           value="Guardar"
+                           asp-page-handler="BtGuardar"
+                           class="btn-cuotas btn-verde" />
+
+                    <input type="submit"
+                           value="Cancelar"
+                           asp-page-handler="BtConsultar"
+                           class="btn-cuotas btn-gris" />
+
                 </div>
+
             </div>
         }
 
         @if (Model.Borrar && Model.Actual != null)
         {
             <div class="cuotas-popup">
+
                 <h4>¿Deseas eliminar esta cuota?</h4>
-                <p>Cuota: <strong>@Model.Actual.Numero_cuota</strong></p>
+
+                <p>
+                    Cuota: <strong>@Model.Actual.Numero_cuota</strong>
+                </p>
+
+                <p>
+                    Financiamiento:
+                    @(Model.ListaFinanciamientos.FirstOrDefault(x => x.ID == Model.Actual.Financiamiento)?.ID is int financiamientoId
+                        ? $"Financiamiento #{financiamientoId} - {Model.ListaFinanciamientos.First(x => x.ID == financiamientoId).Monto:C}"
+                        : "Sin financiamiento")
+                </p>
 
                 <input type="hidden" asp-for="Actual!.ID" />
 
-                <input type="submit" value="Sí, eliminar" asp-page-handler="BtBorrar" class="btn-cuotas btn-rojo" />
-                <input type="submit" value="Cancelar" asp-page-handler="BtConsultar" class="btn-cuotas btn-gris" />
+                <input type="submit"
+                       value="Sí, eliminar"
+                       asp-page-handler="BtBorrar"
+                       class="btn-cuotas btn-rojo" />
+
+                <input type="submit"
+                       value="Cancelar"
+                       asp-page-handler="BtConsultar"
+                       class="btn-cuotas btn-gris" />
+
             </div>
         }
 
         @if (!Model.Formulario)
         {
             <div class="cuotas-table-container">
+
                 <h3>Listado de cuotas</h3>
 
                 <table class="cuotas-table">
+
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -235,6 +299,7 @@
                     </thead>
 
                     <tbody>
+
                         @foreach (var item in Model.Lista)
                         {
                             <tr>
@@ -243,21 +308,40 @@
                                 <td>@item.Monto</td>
                                 <td>@item.Fecha_vencimiento.ToString("dd/MM/yyyy")</td>
                                 <td>@(item.Fecha_pago?.ToString("dd/MM/yyyy") ?? "Pendiente")</td>
-                                <td>@item.Financiamiento</td>
                                 <td>
-                                    <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-cuotas btn-azul" />
-                                    <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-cuotas btn-rojo" />
+                                    @(Model.ListaFinanciamientos.FirstOrDefault(x => x.ID == item.Financiamiento)?.ID is int financiamientoId
+                                        ? $"Financiamiento #{financiamientoId} - {Model.ListaFinanciamientos.First(x => x.ID == financiamientoId).Monto:C}"
+                                        : "Sin financiamiento")
+                                </td>
+                                <td>
+                                    <input type="submit"
+                                           value="Editar"
+                                           asp-page-handler="BtEditar"
+                                           asp-route-data="@item.ID"
+                                           class="btn-cuotas btn-azul" />
+
+                                    <input type="submit"
+                                           value="Eliminar"
+                                           asp-page-handler="BtPregBorrar"
+                                           asp-route-data="@item.ID"
+                                           class="btn-cuotas btn-rojo" />
                                 </td>
                             </tr>
                         }
+
                     </tbody>
+
                 </table>
+
             </div>
         }
 
         <div class="mt-4">
-            <a asp-page="/Index" class="btn-cuotas btn-gris">Volver al inicio</a>
+            <a asp-page="/Index" class="btn-cuotas btn-gris">
+                Volver al inicio
+            </a>
         </div>
 
     </div>
+
 </form>

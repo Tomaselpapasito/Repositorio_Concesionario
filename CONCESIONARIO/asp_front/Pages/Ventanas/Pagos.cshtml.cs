@@ -10,10 +10,17 @@ namespace asp_front.Pages.Ventanas
     public class PagosModel : PageModel
     {
         private IPagosPresentacion IPagosPresentacion;
+        private IMetodosPagosPresentacion IMetodosPagosPresentacion;
+        private IVentasPresentacion IVentasPresentacion;
 
-        public PagosModel(IPagosPresentacion IPagosPresentacion)
+        public PagosModel(
+            IPagosPresentacion IPagosPresentacion,
+            IMetodosPagosPresentacion IMetodosPagosPresentacion,
+            IVentasPresentacion IVentasPresentacion)
         {
             this.IPagosPresentacion = IPagosPresentacion;
+            this.IMetodosPagosPresentacion = IMetodosPagosPresentacion;
+            this.IVentasPresentacion = IVentasPresentacion;
         }
 
         [BindProperty] public List<Pagos> Lista { get; set; } = new();
@@ -21,6 +28,9 @@ namespace asp_front.Pages.Ventanas
         [BindProperty] public Pagos? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
         [BindProperty] public bool Borrar { get; set; } = false;
+
+        public List<MetodosPagos> ListaMetodosPagos { get; set; } = new();
+        public List<Ventas> ListaVentas { get; set; } = new();
 
         public void OnGet()
         {
@@ -34,6 +44,8 @@ namespace asp_front.Pages.Ventanas
                 Filtro ??= new Pagos();
 
                 Lista = IPagosPresentacion.Buscar(Filtro);
+                ListaMetodosPagos = IMetodosPagosPresentacion.Consultar();
+                ListaVentas = IVentasPresentacion.Consultar();
 
                 Formulario = false;
                 Borrar = false;
@@ -47,6 +59,9 @@ namespace asp_front.Pages.Ventanas
         public void OnPostBtNuevo()
         {
             Actual = new Pagos();
+            ListaMetodosPagos = IMetodosPagosPresentacion.Consultar();
+            ListaVentas = IVentasPresentacion.Consultar();
+
             Formulario = true;
             Borrar = false;
             Lista = IPagosPresentacion.Consultar();
@@ -66,6 +81,9 @@ namespace asp_front.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+                ListaMetodosPagos = IMetodosPagosPresentacion.Consultar();
+                ListaVentas = IVentasPresentacion.Consultar();
+
                 Formulario = true;
                 Lista = IPagosPresentacion.Consultar();
             }
@@ -77,6 +95,9 @@ namespace asp_front.Pages.Ventanas
             {
                 Actual = IPagosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
+
+                ListaMetodosPagos = IMetodosPagosPresentacion.Consultar();
+                ListaVentas = IVentasPresentacion.Consultar();
 
                 Formulario = true;
                 Borrar = false;
@@ -94,6 +115,9 @@ namespace asp_front.Pages.Ventanas
             {
                 Actual = IPagosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
+
+                ListaMetodosPagos = IMetodosPagosPresentacion.Consultar();
+                ListaVentas = IVentasPresentacion.Consultar();
 
                 Borrar = true;
                 Formulario = false;

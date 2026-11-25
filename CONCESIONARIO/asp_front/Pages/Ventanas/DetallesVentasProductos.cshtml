@@ -1,5 +1,4 @@
-﻿
-@page
+﻿@page
 @model asp_front.Pages.Ventanas.DetallesVentasProductosModel
 
 @{
@@ -24,15 +23,15 @@
         text-align: left;
     }
 
-    .motos-header h1 {
-        font-weight: 700;
-        margin-bottom: 8px;
-    }
+        .motos-header h1 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
 
-    .motos-header p {
-        color: #d4deea;
-        margin: 0;
-    }
+        .motos-header p {
+            color: #d4deea;
+            margin: 0;
+        }
 
     .motos-card {
         background: white;
@@ -43,16 +42,16 @@
         height: 100%;
     }
 
-    .motos-card h2 {
-        font-size: 30px;
-        font-weight: 700;
-        margin: 8px 0;
-    }
+        .motos-card h2 {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
 
-    .motos-card p {
-        color: #758397;
-        margin: 0;
-    }
+        .motos-card p {
+            color: #758397;
+            margin: 0;
+        }
 
     .motos-search {
         background: white;
@@ -62,16 +61,16 @@
         margin: 25px 0;
     }
 
-    .motos-search input,
-    .motos-search select,
-    .motos-form input,
-    .motos-form select {
-        border: 1px solid #dce2e9;
-        border-radius: 7px;
-        padding: 10px;
-        width: 100%;
-        margin-bottom: 12px;
-    }
+        .motos-search input,
+        .motos-search select,
+        .motos-form input,
+        .motos-form select {
+            border: 1px solid #dce2e9;
+            border-radius: 7px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 12px;
+        }
 
     .motos-table-container {
         background: white;
@@ -87,23 +86,23 @@
         min-width: 1000px;
     }
 
-    .motos-table th {
-        background: #f3f6fa;
-        color: #526174;
-        padding: 15px;
-        text-align: left;
-        font-size: 13px;
-    }
+        .motos-table th {
+            background: #f3f6fa;
+            color: #526174;
+            padding: 15px;
+            text-align: left;
+            font-size: 13px;
+        }
 
-    .motos-table td {
-        padding: 15px;
-        border-bottom: 1px solid #edf0f4;
-        vertical-align: middle;
-    }
+        .motos-table td {
+            padding: 15px;
+            border-bottom: 1px solid #edf0f4;
+            vertical-align: middle;
+        }
 
-    .motos-table tr:hover {
-        background: #f8fafc;
-    }
+        .motos-table tr:hover {
+            background: #f8fafc;
+        }
 
     .motos-form {
         background: white;
@@ -114,11 +113,11 @@
         text-align: left;
     }
 
-    .motos-form label {
-        font-weight: 600;
-        display: block;
-        margin-bottom: 6px;
-    }
+        .motos-form label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+        }
 
     .btn-motos {
         border: none;
@@ -133,30 +132,30 @@
         color: white;
     }
 
-    .btn-azul:hover {
-        background: #1c344d;
-        color: white;
-    }
+        .btn-azul:hover {
+            background: #1c344d;
+            color: white;
+        }
 
     .btn-verde {
         background: #16834a;
         color: white;
     }
 
-    .btn-verde:hover {
-        background: #116638;
-        color: white;
-    }
+        .btn-verde:hover {
+            background: #116638;
+            color: white;
+        }
 
     .btn-rojo {
         background: #fff0f0;
         color: #c0392b;
     }
 
-    .btn-rojo:hover {
-        background: #fbdada;
-        color: #a52a20;
-    }
+        .btn-rojo:hover {
+            background: #fbdada;
+            color: #a52a20;
+        }
 
     .btn-gris {
         background: #edf1f5;
@@ -302,10 +301,12 @@
                     <div class="col-md-6">
                         <label>Producto</label>
                         <select asp-for="@Model.Actual!.Producto" class="form-select">
-                            <option value="">Seleccione un producto</option>
+                            <option value="0">Seleccione un producto</option>
                             @foreach (var elemento in Model.Productos)
                             {
-                                <option value="@elemento.ID">@elemento.ID - @elemento.Nombre</option>
+                                <option value="@elemento.ID">
+                                    @elemento.Nombre
+                                </option>
                             }
                         </select>
                     </div>
@@ -313,10 +314,12 @@
                     <div class="col-md-6">
                         <label>Venta</label>
                         <select asp-for="@Model.Actual!.Venta" class="form-select">
-                            <option value="">Seleccione una venta</option>
+                            <option value="0">Seleccione una venta</option>
                             @foreach (var elemento in Model.Ventas)
                             {
-                                <option value="@elemento.ID">Venta #@elemento.ID</option>
+                                <option value="@elemento.ID">
+                                    Venta #@elemento.ID - @elemento.Fecha_Venta.ToString("dd/MM/yyyy")
+                                </option>
                             }
                         </select>
                     </div>
@@ -355,9 +358,9 @@
                     <p>
                         <strong>Detalle #@Model.Actual!.ID</strong>
                         <br />
-                        Producto: @Model.Actual.Producto
+                        Producto: @Model.Productos.FirstOrDefault(x => x.ID == Model.Actual.Producto)?.Nombre
                         <br />
-                        Venta: @Model.Actual.Venta
+                        Venta: @Model.Ventas.FirstOrDefault(x => x.ID == Model.Actual.Venta)?.ID
                         <br />
                         Cantidad: @Model.Actual.Cantidad
                     </p>
@@ -414,8 +417,8 @@
                                     <td>@elemento.Descuento.ToString("C")</td>
                                     <td>@elemento.Subtotal.ToString("C")</td>
                                     <td>@elemento.Cantidad</td>
-                                    <td>@elemento._Producto?.Nombre</td>
-                                    <td>@elemento.Venta</td>
+                                    <td>@(Model.Productos.FirstOrDefault(x => x.ID == elemento.Producto)?.Nombre ?? "Sin producto")</td>
+                                    <td>@(Model.Ventas.FirstOrDefault(x => x.ID == elemento.Venta)?.Fecha_Venta.ToString("dd/MM/yyyy") is string fecha ? $"Venta #{elemento.Venta} - {fecha}" : "Sin venta")</td>
 
                                     <td>
                                         <input type="submit"

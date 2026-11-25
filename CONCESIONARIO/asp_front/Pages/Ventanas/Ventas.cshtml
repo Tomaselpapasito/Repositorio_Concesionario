@@ -188,13 +188,41 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label>ID del cliente</label>
-                        <input asp-for="Actual!.Cliente" type="number" />
+                        <label>Cliente</label>
+                        <select asp-for="Actual!.Cliente" class="form-select">
+                            <option value="0">Seleccione un cliente</option>
+                            @if (Model.ListaClientes != null)
+                            {
+                                foreach (var cliente in Model.ListaClientes)
+                                {
+                                    var persona = Model.ListaPersonas
+                                        .FirstOrDefault(x => x.ID == cliente.Persona);
+
+                                    <option value="@cliente.ID">
+                                        @(persona?.Nombre ?? "Persona sin nombre") - @cliente.Numero_Licencia
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
 
                     <div class="col-md-6">
-                        <label>ID del empleado</label>
-                        <input asp-for="Actual!.Empleado" type="number" />
+                        <label>Empleado</label>
+                        <select asp-for="Actual!.Empleado" class="form-select">
+                            <option value="0">Seleccione un empleado</option>
+                            @if (Model.ListaEmpleados != null)
+                            {
+                                foreach (var empleado in Model.ListaEmpleados)
+                                {
+                                    var persona = Model.ListaPersonas
+                                        .FirstOrDefault(x => x.ID == empleado.Persona);
+
+                                    <option value="@empleado.ID">
+                                        @(persona?.Nombre ?? "Persona sin nombre") - @empleado.Carnet
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
                 </div>
 
@@ -244,8 +272,27 @@
                                 <td>@item.Fecha_Venta.ToString("dd/MM/yyyy")</td>
                                 <td>@item.Impuestos</td>
                                 <td>@item.Total</td>
-                                <td>@item.Cliente</td>
-                                <td>@item.Empleado</td>
+                                <td>
+                                    @{
+                                        var cliente = Model.ListaClientes
+                                            .FirstOrDefault(x => x.ID == item.Cliente);
+
+                                        var personaCliente = Model.ListaPersonas
+                                            .FirstOrDefault(x => x.ID == cliente?.Persona);
+                                    }
+                                    @(personaCliente?.Nombre ?? "Sin cliente")
+                                </td>
+                                <td>
+                                    @{
+                                        var empleado = Model.ListaEmpleados
+                                            .FirstOrDefault(x => x.ID == item.Empleado);
+
+                                        var personaEmpleado = Model.ListaPersonas
+                                            .FirstOrDefault(x => x.ID == empleado?.Persona);
+                                    }
+                                    @(personaEmpleado?.Nombre ?? "Sin empleado")
+                                </td>
+
                                 <td>
                                     <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-ventas btn-azul" />
                                     <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-ventas btn-rojo" />

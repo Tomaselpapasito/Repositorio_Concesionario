@@ -66,7 +66,8 @@
         margin-bottom: 6px;
     }
 
-    .detalles-motos-form input {
+    .detalles-motos-form input,
+    .detalles-motos-form select {
         width: 100%;
         padding: 10px;
         border: 1px solid #ced6df;
@@ -82,40 +83,40 @@
         margin: 2px;
     }
 
-                .btn-azul {
-            background: #294766;
-            color: white;
-        }
+    .btn-azul {
+        background: #294766;
+        color: white;
+    }
 
         .btn-azul:hover {
             background: #1c344d;
             color: white;
         }
 
-        .btn-verde {
-            background: #16834a;
-            color: white;
-        }
+    .btn-verde {
+        background: #16834a;
+        color: white;
+    }
 
         .btn-verde:hover {
             background: #116638;
             color: white;
         }
 
-        .btn-rojo {
-            background: #fff0f0;
-            color: #c0392b;
-        }
+    .btn-rojo {
+        background: #fff0f0;
+        color: #c0392b;
+    }
 
         .btn-rojo:hover {
             background: #fbdada;
             color: #a52a20;
         }
 
-        .btn-gris {
-            background: #edf1f5;
-            color: #46566a;
-        }
+    .btn-gris {
+        background: #edf1f5;
+        color: #46566a;
+    }
 
     .detalles-motos-popup {
         background: #fff4f4;
@@ -188,13 +189,35 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label>ID de moto</label>
-                        <input asp-for="Actual!.Moto" type="number" />
+                        <label>Moto</label>
+                        <select asp-for="Actual!.Moto" class="form-select">
+                            <option value="0">Seleccione una moto</option>
+                            @if (Model.ListaMotos != null)
+                            {
+                                foreach (var moto in Model.ListaMotos)
+                                {
+                                    <option value="@moto.ID">
+                                        @moto.VIN - @moto.Numero_Motor
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
 
                     <div class="col-md-6">
-                        <label>ID de venta</label>
-                        <input asp-for="Actual!.Venta" type="number" />
+                        <label>Venta</label>
+                        <select asp-for="Actual!.Venta" class="form-select">
+                            <option value="0">Seleccione una venta</option>
+                            @if (Model.ListaVentas != null)
+                            {
+                                foreach (var venta in Model.ListaVentas)
+                                {
+                                    <option value="@venta.ID">
+                                        Venta #@venta.ID - @venta.Fecha_Venta.ToString("dd/MM/yyyy")
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
                 </div>
 
@@ -244,8 +267,8 @@
                                 <td>@item.Precio_Unitario</td>
                                 <td>@item.Descuento</td>
                                 <td>@item.Subtotal</td>
-                                <td>@item.Moto</td>
-                                <td>@item.Venta</td>
+                                <td>@(Model.ListaMotos.FirstOrDefault(x => x.ID == item.Moto)?.VIN ?? "Sin moto")</td>
+                                <td>@(Model.ListaVentas.FirstOrDefault(x => x.ID == item.Venta)?.Fecha_Venta.ToString("dd/MM/yyyy") is string fecha ? $"Venta #{item.Venta} - {fecha}" : "Sin venta")</td>
                                 <td>
                                     <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-detalles-motos btn-azul" />
                                     <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-detalles-motos btn-rojo" />

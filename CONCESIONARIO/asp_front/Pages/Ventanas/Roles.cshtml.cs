@@ -10,14 +10,20 @@ namespace asp_front.Pages.Ventanas
     public class RolesModel : PageModel
     {
         private IRolesPresentacion IRolesPresentacion;
+        private IUsuariosPresentacion IUsuariosPresentacion;
 
-        public RolesModel(IRolesPresentacion IRolesPresentacion)
+        public RolesModel(
+            IRolesPresentacion IRolesPresentacion,
+            IUsuariosPresentacion IUsuariosPresentacion)
         {
             this.IRolesPresentacion = IRolesPresentacion;
+            this.IUsuariosPresentacion = IUsuariosPresentacion;
             this.Filtro = new Roles();
+            this.ListaUsuarios = new List<Usuarios>();
         }
 
         [BindProperty] public List<Roles> Lista { get; set; }
+        [BindProperty] public List<Usuarios> ListaUsuarios { get; set; }
         [BindProperty] public Roles? Filtro { get; set; }
         [BindProperty] public Roles? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -35,6 +41,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro!.Nombre = Filtro.Nombre ?? "";
 
                 Lista = IRolesPresentacion.Buscar(Filtro!);
+                ListaUsuarios = IUsuariosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -48,6 +55,7 @@ namespace asp_front.Pages.Ventanas
             {
                 Formulario = true;
                 Actual = new Roles();
+                ListaUsuarios = IUsuariosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -83,6 +91,8 @@ namespace asp_front.Pages.Ventanas
 
                 Actual = Lista.FirstOrDefault(
                     x => x.ID == Convert.ToInt32(data));
+
+                ListaUsuarios = IUsuariosPresentacion.Consultar();
             }
             catch (Exception ex)
             {

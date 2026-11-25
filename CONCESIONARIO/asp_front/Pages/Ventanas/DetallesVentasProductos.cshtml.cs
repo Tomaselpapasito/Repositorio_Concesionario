@@ -45,6 +45,8 @@ namespace asp_front.Pages.Ventanas
             {
                 Filtro ??= new DetallesVentasProductos();
                 Lista = IDetallesVentasProductosPresentacion.Buscar(Filtro);
+                Productos = IProductosPresentacion.Consultar();
+                Ventas = IVentasPresentacion.Consultar();
                 Formulario = false;
                 Borrar = false;
             }
@@ -119,9 +121,12 @@ namespace asp_front.Pages.Ventanas
                 Actual = IDetallesVentasProductosPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
+                Productos = IProductosPresentacion.Consultar();
+                Ventas = IVentasPresentacion.Consultar();
+                Lista = IDetallesVentasProductosPresentacion.Consultar();
+
                 Borrar = true;
                 Formulario = false;
-                Lista = IDetallesVentasProductosPresentacion.Consultar();
             }
             catch (Exception ex)
             {

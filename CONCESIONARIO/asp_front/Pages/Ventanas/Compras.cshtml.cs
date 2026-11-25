@@ -10,13 +10,18 @@ namespace asp_front.Pages.Ventanas
     public class ComprasModel : PageModel
     {
         private IComprasPresentacion IComprasPresentacion;
+        private IProveedoresPresentacion IProveedoresPresentacion;
 
-        public ComprasModel(IComprasPresentacion IComprasPresentacion)
+        public ComprasModel(
+            IComprasPresentacion IComprasPresentacion,
+            IProveedoresPresentacion IProveedoresPresentacion)
         {
             this.IComprasPresentacion = IComprasPresentacion;
+            this.IProveedoresPresentacion = IProveedoresPresentacion;
         }
 
         [BindProperty] public List<Compras> Lista { get; set; } = new();
+        [BindProperty] public List<Proveedores> ListaProveedores { get; set; } = new();
         [BindProperty] public Compras? Filtro { get; set; }
         [BindProperty] public Compras? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -35,6 +40,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro.Numero_Factura ??= "";
 
                 Lista = IComprasPresentacion.Buscar(Filtro);
+                ListaProveedores = IProveedoresPresentacion.Consultar();
 
                 Formulario = false;
                 Borrar = false;
@@ -51,6 +57,7 @@ namespace asp_front.Pages.Ventanas
             Formulario = true;
             Borrar = false;
             Lista = IComprasPresentacion.Consultar();
+            ListaProveedores = IProveedoresPresentacion.Consultar();
         }
 
         public void OnPostBtGuardar()
@@ -69,6 +76,7 @@ namespace asp_front.Pages.Ventanas
                 LogConversor.Log(ex, ViewData!);
                 Formulario = true;
                 Lista = IComprasPresentacion.Consultar();
+                ListaProveedores = IProveedoresPresentacion.Consultar();
             }
         }
 
@@ -82,6 +90,7 @@ namespace asp_front.Pages.Ventanas
                 Formulario = true;
                 Borrar = false;
                 Lista = IComprasPresentacion.Consultar();
+                ListaProveedores = IProveedoresPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -99,6 +108,7 @@ namespace asp_front.Pages.Ventanas
                 Borrar = true;
                 Formulario = false;
                 Lista = IComprasPresentacion.Consultar();
+                ListaProveedores = IProveedoresPresentacion.Consultar();
             }
             catch (Exception ex)
             {

@@ -10,10 +10,14 @@ namespace asp_front.Pages.Ventanas
     public class CuotasModel : PageModel
     {
         private ICuotasPresentacion ICuotasPresentacion;
+        private IFinanciamientosPresentacion IFinanciamientosPresentacion;
 
-        public CuotasModel(ICuotasPresentacion ICuotasPresentacion)
+        public CuotasModel(
+            ICuotasPresentacion ICuotasPresentacion,
+            IFinanciamientosPresentacion IFinanciamientosPresentacion)
         {
             this.ICuotasPresentacion = ICuotasPresentacion;
+            this.IFinanciamientosPresentacion = IFinanciamientosPresentacion;
         }
 
         [BindProperty] public List<Cuotas> Lista { get; set; } = new();
@@ -21,6 +25,8 @@ namespace asp_front.Pages.Ventanas
         [BindProperty] public Cuotas? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
         [BindProperty] public bool Borrar { get; set; } = false;
+
+        public List<Financiamientos> ListaFinanciamientos { get; set; } = new();
 
         public void OnGet()
         {
@@ -34,6 +40,7 @@ namespace asp_front.Pages.Ventanas
                 Filtro ??= new Cuotas();
 
                 Lista = ICuotasPresentacion.Buscar(Filtro);
+                ListaFinanciamientos = IFinanciamientosPresentacion.Consultar();
 
                 Formulario = false;
                 Borrar = false;
@@ -46,10 +53,18 @@ namespace asp_front.Pages.Ventanas
 
         public void OnPostBtNuevo()
         {
-            Actual = new Cuotas();
-            Formulario = true;
-            Borrar = false;
-            Lista = ICuotasPresentacion.Consultar();
+            try
+            {
+                Actual = new Cuotas();
+                ListaFinanciamientos = IFinanciamientosPresentacion.Consultar();
+                Formulario = true;
+                Borrar = false;
+                Lista = ICuotasPresentacion.Consultar();
+            }
+            catch (Exception ex)
+            {
+                LogConversor.Log(ex, ViewData!);
+            }
         }
 
         public void OnPostBtGuardar()
@@ -66,6 +81,7 @@ namespace asp_front.Pages.Ventanas
             catch (Exception ex)
             {
                 LogConversor.Log(ex, ViewData!);
+                ListaFinanciamientos = IFinanciamientosPresentacion.Consultar();
                 Formulario = true;
                 Lista = ICuotasPresentacion.Consultar();
             }
@@ -78,6 +94,7 @@ namespace asp_front.Pages.Ventanas
                 Actual = ICuotasPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
+                ListaFinanciamientos = IFinanciamientosPresentacion.Consultar();
                 Formulario = true;
                 Borrar = false;
                 Lista = ICuotasPresentacion.Consultar();
@@ -95,6 +112,7 @@ namespace asp_front.Pages.Ventanas
                 Actual = ICuotasPresentacion.Consultar()
                     .FirstOrDefault(x => x.ID == data);
 
+                ListaFinanciamientos = IFinanciamientosPresentacion.Consultar();
                 Borrar = true;
                 Formulario = false;
                 Lista = ICuotasPresentacion.Consultar();

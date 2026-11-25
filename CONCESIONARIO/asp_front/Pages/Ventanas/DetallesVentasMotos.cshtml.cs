@@ -10,13 +10,21 @@ namespace asp_front.Pages.Ventanas
     public class DetallesVentasMotosModel : PageModel
     {
         private IDetallesVentasMotosPresentacion IDetallesVentasMotosPresentacion;
+        private IMotosPresentacion IMotosPresentacion;
+        private IVentasPresentacion IVentasPresentacion;
 
-        public DetallesVentasMotosModel(IDetallesVentasMotosPresentacion IDetallesVentasMotosPresentacion)
+        public DetallesVentasMotosModel(IDetallesVentasMotosPresentacion IDetallesVentasMotosPresentacion,
+                                        IMotosPresentacion IMotosPresentacion,
+                                        IVentasPresentacion IVentasPresentacion)
         {
             this.IDetallesVentasMotosPresentacion = IDetallesVentasMotosPresentacion;
+            this.IMotosPresentacion = IMotosPresentacion;
+            this.IVentasPresentacion = IVentasPresentacion;
         }
 
         [BindProperty] public List<DetallesVentasMotos> Lista { get; set; } = new();
+        [BindProperty] public List<Motos> ListaMotos { get; set; } = new();
+        [BindProperty] public List<Ventas> ListaVentas { get; set; } = new();
         [BindProperty] public DetallesVentasMotos? Filtro { get; set; }
         [BindProperty] public DetallesVentasMotos? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -34,6 +42,9 @@ namespace asp_front.Pages.Ventanas
                 Filtro ??= new DetallesVentasMotos();
                 Lista = IDetallesVentasMotosPresentacion.Buscar(Filtro);
 
+                ListaMotos = IMotosPresentacion.Consultar();
+                ListaVentas = IVentasPresentacion.Consultar();
+
                 Formulario = false;
                 Borrar = false;
             }
@@ -49,6 +60,9 @@ namespace asp_front.Pages.Ventanas
             Formulario = true;
             Borrar = false;
             Lista = IDetallesVentasMotosPresentacion.Consultar();
+
+            ListaMotos = IMotosPresentacion.Consultar();
+            ListaVentas = IVentasPresentacion.Consultar();
         }
 
         public void OnPostBtGuardar()
@@ -67,6 +81,9 @@ namespace asp_front.Pages.Ventanas
                 LogConversor.Log(ex, ViewData!);
                 Formulario = true;
                 Lista = IDetallesVentasMotosPresentacion.Consultar();
+
+                ListaMotos = IMotosPresentacion.Consultar();
+                ListaVentas = IVentasPresentacion.Consultar();
             }
         }
 
@@ -80,6 +97,9 @@ namespace asp_front.Pages.Ventanas
                 Formulario = true;
                 Borrar = false;
                 Lista = IDetallesVentasMotosPresentacion.Consultar();
+
+                ListaMotos = IMotosPresentacion.Consultar();
+                ListaVentas = IVentasPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -97,6 +117,9 @@ namespace asp_front.Pages.Ventanas
                 Borrar = true;
                 Formulario = false;
                 Lista = IDetallesVentasMotosPresentacion.Consultar();
+
+                ListaMotos = IMotosPresentacion.Consultar();
+                ListaVentas = IVentasPresentacion.Consultar();
             }
             catch (Exception ex)
             {

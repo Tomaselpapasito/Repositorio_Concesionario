@@ -186,10 +186,23 @@
                         <label>Total</label>
                         <input asp-for="Actual!.Total" type="number" step="0.01" />
                     </div>
+
                     <div class="col-md-6">
-                        <label>ID del proveedor</label>
-                        <input asp-for="Actual!.Proveedor" type="number" />
+                        <label>Proveedor</label>
+                        <select asp-for="@Model.Actual!.Proveedor" class="form-select">
+                            <option value="0">Seleccione un proveedor</option>
+                            @if (Model.ListaProveedores != null)
+                            {
+                                foreach (var proveedor in Model.ListaProveedores)
+                                {
+                                    <option value="@proveedor.ID">
+                                        @proveedor.Nombre
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
+
                 </div>
 
                 <div class="mt-4">

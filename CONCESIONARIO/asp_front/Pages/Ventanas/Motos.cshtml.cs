@@ -1,7 +1,6 @@
-using lib_dominio.Entidades;
-using lib_dominio.Interfaces;
-using lib_presentaciones.Interfaces;
 
+using lib_dominio.Entidades;
+using lib_presentaciones.Interfaces;
 using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -12,7 +11,7 @@ namespace asp_front.Pages.Modulos
     public class MotosModel : PageModel
     {
         private IMotosPresentacion IMotosPresentacion;
-
+        private IModelosMotosPresentacion IModelosMotosPresentacion;
 
         public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
         {
@@ -21,13 +20,19 @@ namespace asp_front.Pages.Modulos
                 context.Result = new RedirectToPageResult("/Login");
             }
         }
-        public MotosModel(IMotosPresentacion IMotosPresentacion)
+
+        public MotosModel(
+            IMotosPresentacion IMotosPresentacion,
+            IModelosMotosPresentacion IModelosMotosPresentacion)
         {
             this.IMotosPresentacion = IMotosPresentacion;
+            this.IModelosMotosPresentacion = IModelosMotosPresentacion;
             this.Filtro = new Motos();
+            this.ListaModelos = new List<ModelosMotos>();
         }
 
         [BindProperty] public List<Motos> Lista { get; set; }
+        [BindProperty] public List<ModelosMotos> ListaModelos { get; set; }
         [BindProperty] public Motos? Filtro { get; set; }
         [BindProperty] public Motos? Actual { get; set; }
         [BindProperty] public bool Formulario { get; set; } = false;
@@ -45,7 +50,9 @@ namespace asp_front.Pages.Modulos
                 Filtro!.VIN = Filtro.VIN ?? "";
                 Filtro.Numero_Motor = Filtro.Numero_Motor ?? "";
                 Filtro.Estado = Filtro.Estado ?? "";
+
                 Lista = this.IMotosPresentacion.Buscar(Filtro!);
+                ListaModelos = this.IModelosMotosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -58,7 +65,8 @@ namespace asp_front.Pages.Modulos
             try
             {
                 Formulario = true;
-                this.Actual = new Motos();
+                Actual = new Motos();
+                ListaModelos = this.IModelosMotosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -70,10 +78,10 @@ namespace asp_front.Pages.Modulos
         {
             try
             {
-                if (this.Actual!.ID == 0)
-                    this.Actual = this.IMotosPresentacion.Insertar(this.Actual!);
+                if (Actual!.ID == 0)
+                    Actual = this.IMotosPresentacion.Insertar(Actual!);
                 else
-                    this.Actual = this.IMotosPresentacion.Actualizar(this.Actual!);
+                    Actual = this.IMotosPresentacion.Actualizar(Actual!);
             }
             catch (Exception ex)
             {
@@ -92,8 +100,10 @@ namespace asp_front.Pages.Modulos
                 Formulario = true;
                 OnPostBtConsultar();
 
-                this.Actual = this.Lista.FirstOrDefault(
+                Actual = Lista.FirstOrDefault(
                     x => x.ID == Convert.ToInt32(data));
+
+                ListaModelos = this.IModelosMotosPresentacion.Consultar();
             }
             catch (Exception ex)
             {
@@ -108,7 +118,7 @@ namespace asp_front.Pages.Modulos
                 Borrar = true;
                 OnPostBtConsultar();
 
-                this.Actual = this.Lista.FirstOrDefault(
+                Actual = Lista.FirstOrDefault(
                     x => x.ID == Convert.ToInt32(data));
             }
             catch (Exception ex)
@@ -121,10 +131,10 @@ namespace asp_front.Pages.Modulos
         {
             try
             {
-                if (this.Actual!.ID == 0)
+                if (Actual!.ID == 0)
                     return;
 
-                this.Actual = this.IMotosPresentacion.Borrar(this.Actual!);
+                Actual = this.IMotosPresentacion.Borrar(Actual!);
             }
             catch (Exception ex)
             {

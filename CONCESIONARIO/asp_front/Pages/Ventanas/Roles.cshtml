@@ -259,11 +259,21 @@
                                placeholder="Nombre del rol" />
                     </div>
 
+                    
                     <div class="col-md-6">
-                        <label>ID del usuario</label>
-                        <input type="number"
-                               asp-for="@Model.Actual!.Usuario"
-                               placeholder="Identificador del usuario" />
+                        <label>Usuario</label>
+                        <select asp-for="@Model.Actual!.Usuario" class="form-select">
+                            <option value="0">Seleccione un usuario</option>
+                            @if (Model.ListaUsuarios != null)
+                            {
+                                foreach (var usuario in Model.ListaUsuarios)
+                                {
+                                    <option value="@usuario.ID">
+                                        @usuario.NombreUsuario
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
 
                 </div>

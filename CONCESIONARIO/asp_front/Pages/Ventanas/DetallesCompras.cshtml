@@ -191,15 +191,41 @@
                         <input asp-for="Actual!.Subtotal" type="number" step="0.01" />
                     </div>
 
+                    
                     <div class="col-md-6">
-                        <label>ID de compra</label>
-                        <input asp-for="Actual!.Compra" type="number" />
+                        <label>Compra</label>
+                        <select asp-for="Actual!.Compra" class="form-select">
+                            <option value="0">Seleccione una compra</option>
+                            @if (Model.ListaCompras != null)
+                            {
+                                foreach (var compra in Model.ListaCompras)
+                                {
+                                    <option value="@compra.ID">
+                                        Compra #@compra.ID - @compra.Numero_Factura
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
 
+
+                    
                     <div class="col-md-6">
-                        <label>ID de producto</label>
-                        <input asp-for="Actual!.Producto" type="number" />
+                        <label>Producto</label>
+                        <select asp-for="Actual!.Producto" class="form-select">
+                            <option value="0">Seleccione un producto</option>
+                            @if (Model.ListaProductos != null)
+                            {
+                                foreach (var producto in Model.ListaProductos)
+                                {
+                                    <option value="@producto.ID">
+                                        @producto.Nombre
+                                    </option>
+                                }
+                            }
+                        </select>
                     </div>
+
                 </div>
 
                 <div class="mt-4">
@@ -250,8 +276,9 @@
                                 <td>@item.Precio_Unitario</td>
                                 <td>@item.Descuento</td>
                                 <td>@item.Subtotal</td>
-                                <td>@item.Compra</td>
-                                <td>@item.Producto</td>
+                                <td>@(Model.ListaCompras.FirstOrDefault(x => x.ID == item.Compra)?.Numero_Factura ?? "Sin compra")</td>
+                                <td>@(Model.ListaProductos.FirstOrDefault(x => x.ID == item.Producto)?.Nombre ?? "Sin producto")</td>
+                                
                                 <td>
                                     <input type="submit" value="Editar" asp-page-handler="BtEditar" asp-route-data="@item.ID" class="btn-detalles-compras btn-azul" />
                                     <input type="submit" value="Eliminar" asp-page-handler="BtPregBorrar" asp-route-data="@item.ID" class="btn-detalles-compras btn-rojo" />
