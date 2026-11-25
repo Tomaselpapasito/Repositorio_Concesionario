@@ -16,7 +16,7 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IComunicaciones, Comunicaciones>();
 builder.Services.AddScoped<IRolesPresentacion, RolesPresentacion>();
 builder.Services.AddScoped<IPermisosPresentacion, PermisosPresentacion>();
