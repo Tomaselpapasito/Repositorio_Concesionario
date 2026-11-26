@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace lib_repositorio.Implementaciones
 {
     public class ComprasAplicacion : IComprasAplicacion
-	{
+    {
         private IConexion IConexion;
         private IAuditorias IAuditorias;
         public ComprasAplicacion(IConexion IConexion, IAuditorias IAuditorias)
@@ -24,7 +24,7 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
+            validarUnicosActualizar(entidad);
             var entry = this.IConexion!.Entry<Compras>(entidad);
             entry.State = EntityState.Modified;
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasCompras>(
@@ -76,7 +76,8 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
+            validarUnicos(entidad);
+            entidad = CalcularTotal(entidad);
             this.IConexion.Compras!.Add(entidad!);
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasCompras>(
                 objeto: 1,
@@ -89,6 +90,33 @@ namespace lib_repositorio.Implementaciones
             return entidad;
         }
 
+        private void validarUnicos(Compras entidad)
+        {
+            var existe = this.IConexion.Compras!
+                .Where(x => x.Numero_Factura == entidad.Numero_Factura)
+                .FirstOrDefault();
+            if (existe != null)
+                throw new Exception("Ya existe un registro con el mismo numero de factura");
+            if (!IConexion.Proveedores!.Any(x => x.ID == entidad.Proveedor))
+                throw new Exception("El proveedor no existe");
 
+        }
+        private void validarUnicosActualizar(Compras entidad)
+        {
+            var existe = this.IConexion.Compras!
+                .Where(x => x.Numero_Factura == entidad.Numero_Factura && x.ID != entidad.ID)
+                .FirstOrDefault();
+            if (existe != null)
+                throw new Exception("Ya existe un registro con el mismo numero de factura");
+            if (!IConexion.Proveedores!.Any(x => x.ID == entidad.Proveedor))
+                throw new Exception("El proveedor no existe");
+        }
+        private Compras CalcularTotal(Compras entidad)
+        {
+            entidad.DetallesCompras = IConexion.DetallesCompras!.Where(x => x.Compra == entidad.ID).ToList();
+            foreach (var detalle in entidad.DetallesCompras)
+                entidad.Total += detalle.Subtotal;
+            return entidad;
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
+            ValidarNombre(entidad);
             var entry = this.IConexion!.Entry<Cargos>(entidad);
             entry.State = EntityState.Modified;
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasCargos>(
@@ -78,6 +78,7 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
+            ValidarNombre(entidad);
 
             this.IConexion.Cargos!.Add(entidad!);
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasCargos>(
@@ -91,7 +92,12 @@ namespace lib_repositorio.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
-
+        private bool ValidarNombre(Cargos entidad)
+        {
+            if(IConexion.Cargos!.Any(x => x.Nombre == entidad.Nombre))
+                throw new Exception("El nombre del cargo ya existe");
+            return true;
+        }
 
     }
 }

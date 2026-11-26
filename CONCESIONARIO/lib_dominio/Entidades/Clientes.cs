@@ -21,7 +21,7 @@ namespace lib_dominio.Entidades
             return string.IsNullOrEmpty(this.Correo) ||
                     string.IsNullOrEmpty(this.Numero_Licencia) ||
                     string.IsNullOrEmpty(this.Direccion) ||
-                    this.Persona == 0;
+                    this.Persona >= 0;
         }
 
     }

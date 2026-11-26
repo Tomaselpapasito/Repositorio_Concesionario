@@ -45,7 +45,8 @@ namespace lib_repositorio.Implementaciones
         {
             if (entidad.ID == 0)
                 throw new Exception("No se ha guardo");
-
+            if(Buscar(entidad)== null)
+                throw new Exception("Accesorio no existe");
             this.IConexion.Accesorios!.Remove(entidad!);
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasAccesorios>(
                 objeto: 1,
@@ -98,7 +99,8 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
+            if (!IConexion.Productos!.Any(x => x.ID == entidad.Producto))
+                throw new Exception("Producto no existe");
             this.IConexion.Accesorios!.Add(entidad!);
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasAccesorios>(
                 objeto: 1,

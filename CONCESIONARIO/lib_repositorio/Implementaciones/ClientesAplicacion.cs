@@ -25,7 +25,9 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
+            ValidarUnicos(entidad);
+            if (!IConexion.Personas.Any(x => x.ID == entidad.ID))
+                throw new Exception("Persona no existe");
             var entry = this.IConexion!.Entry<Clientes>(entidad);
             entry.State = EntityState.Modified;
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasClientes>(
@@ -86,8 +88,8 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
-            this.IConexion.Clientes!.Add(entidad!);
+            ValidarUnicos(entidad);
+            ValidarPersona(entidad);
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasClientes>(
                 objeto: 1,
                 accion: "Insertar",
@@ -98,7 +100,20 @@ namespace lib_repositorio.Implementaciones
             this.IConexion.SaveChanges();
             return entidad;
         }
-
+        private void ValidarUnicos(Clientes entidad)
+        {
+            if(IConexion.Clientes!.Any(x => x.Numero_Licencia == entidad.Numero_Licencia))
+                throw new Exception("El numero de licencia del cliente ya existe");
+            if(IConexion.Clientes!.Any(x => x.Correo == entidad.Correo))
+                throw new Exception("El correo del cliente ya existe");
+        }
+        private void ValidarPersona(Clientes entidad)
+        {
+            if (!IConexion.Personas.Any(x => x.ID == entidad.ID))
+                throw new Exception("La persona no existe");
+            if (IConexion.Clientes.Include(x => x._Persona).Any(x => x._Persona.ID == entidad.ID))
+                throw new Exception("La persona ya esta asociada a otro cliente");
+        }
 
     }
 }

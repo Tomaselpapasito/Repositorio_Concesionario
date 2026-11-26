@@ -25,7 +25,7 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
+            ValidarUnicosActualizar(entidad);
             var entry = this.IConexion!.Entry<Motos>(entidad);
             entry.State = EntityState.Modified;
             this.IConexion!.SaveChanges();
@@ -54,7 +54,7 @@ namespace lib_repositorio.Implementaciones
 
             if (entidad.Validar())
                 throw new Exception("Falta informacion");
-
+            validarUnicos(entidad);
             this.IConexion.Motos!.Add(entidad!);
             var auditoria = IAuditorias.CrearAuditoria<AuditoriasMotos>(1, "Insertar", $"Se inserto el registro {entidad.ID}", IdUsuario);
             IConexion.AuditoriasMotos!.Add(auditoria);
@@ -76,7 +76,27 @@ namespace lib_repositorio.Implementaciones
             return this.IConexion.Motos!
                 .Take(5).ToList();
         }
+        private void validarUnicos(Motos entidad)
+        {
+            var existe = this.IConexion.Motos!
+                .Where(x => x.Numero_Motor == entidad.Numero_Motor)
+                .FirstOrDefault();
+            if (existe != null)
+                throw new Exception("Ya existe un registro con el mismo numero de motor");
+            if (!IConexion.ModelosMotos!.Any(x => x.ID == entidad.Modelo))
+                throw new Exception("El modelo no existe");
 
+        }
+        private void ValidarUnicosActualizar(Motos entidad)
+        {
+            var existe = this.IConexion.Motos!
+              .Where(x => x.Numero_Motor == entidad.Numero_Motor && x.ID != entidad.ID)
+              .FirstOrDefault();
+            if (existe != null)
+                throw new Exception("Ya existe un registro con el mismo numero de motor");
+            if (!IConexion.ModelosMotos!.Any(x => x.ID == entidad.Modelo))
+                throw new Exception("El modelo no existe");
+        }
 
     }
 }
